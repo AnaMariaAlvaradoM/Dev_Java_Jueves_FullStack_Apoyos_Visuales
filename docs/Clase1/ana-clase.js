@@ -1,10 +1,6 @@
 /* ============================================================================
-   ANA LEARNING EXPERIENCE SYSTEM · CONTROLADOR v4.0
+   ANA LEARNING EXPERIENCE SYSTEM · CONTROLADOR v3.0
    © 2026 Ana Alvarado · Educadora Tech & Desarrolladora Full Stack
-   Sin cambios funcionales respecto a v3.0: los componentes nuevos de v4.0
-   (iconos SVG, diagrama ERD, variante terminal de code-block) son estáticos
-   y reutilizan los mismos selectores (.code-block, .copy-btn) ya controlados
-   por este script. No requieren JS adicional.
    ============================================================================ */
 (function () {
   'use strict';

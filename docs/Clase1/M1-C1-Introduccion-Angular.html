@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="es" data-empresa="dev-senior" data-formato="spa" data-modo="build" data-direccion="visual-explainer" data-tema-base="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ana Alvarado">
+  <meta name="copyright" content="© 2026 Ana Alvarado — Todos los derechos reservados">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <title>M1 · Clase 1 · Introducción a Angular · Ana Alvarado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ana-estilos.css">
+</head>
+<body data-formato="spa">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <div class="controls" aria-label="Controles">
+    <button class="ctrl-btn" id="temaBtn" type="button" aria-label="Cambiar tema">☾</button>
+    <button class="ctrl-btn" id="fullscreenBtn" type="button" aria-label="Pantalla completa">⛶</button>
+  </div>
+
+  <div class="spa-shell">
+    <aside class="spa-sidebar" aria-label="Navegación de la clase">
+      <div class="spa-brand-row">
+        <span class="brand-mark">A</span>
+        <div class="spa-brand">
+          <h2>Java Full Stack Developer</h2>
+          <p>Módulo 1 · Clase 1</p>
+        </div>
+      </div>
+
+      <nav class="spa-nav" aria-label="Secciones">
+        <a class="nav-item active" href="#sec-1"><span class="nav-index">01</span><span class="nav-label">El reto</span></a>
+        <a class="nav-item" href="#sec-2"><span class="nav-index">02</span><span class="nav-label">Frontend</span></a>
+        <a class="nav-item" href="#sec-3"><span class="nav-index">03</span><span class="nav-label">Lenguajes web</span></a>
+        <a class="nav-item" href="#sec-4"><span class="nav-index">04</span><span class="nav-label">HTML</span></a>
+        <a class="nav-item" href="#sec-5"><span class="nav-index">05</span><span class="nav-label">CSS</span></a>
+        <a class="nav-item" href="#sec-6"><span class="nav-index">06</span><span class="nav-label">TypeScript</span></a>
+        <a class="nav-item" href="#sec-7"><span class="nav-index">07</span><span class="nav-label">Angular</span></a>
+        <a class="nav-item" href="#sec-8"><span class="nav-index">08</span><span class="nav-label">Herramientas</span></a>
+        <a class="nav-item" href="#sec-9"><span class="nav-index">09</span><span class="nav-label">Proyecto</span></a>
+        <a class="nav-item" href="#sec-10"><span class="nav-index">10</span><span class="nav-label">Componentes</span></a>
+        <a class="nav-item" href="#sec-11"><span class="nav-index">11</span><span class="nav-label">Arquitectura</span></a>
+        <a class="nav-item" href="#sec-12"><span class="nav-index">12</span><span class="nav-label">Binding</span></a>
+        <a class="nav-item" href="#sec-13"><span class="nav-index">13</span><span class="nav-label">Mascota card</span></a>
+        <a class="nav-item" href="#sec-14"><span class="nav-index">14</span><span class="nav-label">Catálogo</span></a>
+        <a class="nav-item" href="#sec-15"><span class="nav-index">15</span><span class="nav-label">IA y cierre</span></a>
+      </nav>
+
+      <p class="footer">© 2026 Ana Alvarado<br>Educadora Tech &amp; Desarrolladora Full Stack</p>
+    </aside>
+
+    <main class="spa-main" id="contenido">
+      <header class="spa-hero">
+        <div class="spa-hero-inner">
+          <div class="spa-hero-copy">
+            <span class="eyebrow">Dev Senior · VetCare Frontend · Módulo 1</span>
+            <h1 class="spa-title">Angular desde cero para construir el frontend de VetCare</h1>
+            <p class="spa-subtitle">Una primera ruta visual para comprender el navegador, preparar el entorno y crear componentes modernos sin conectar todavía el backend.</p>
+            <div class="spa-meta">
+              <span class="meta-pill">Primer contacto con frontend</span>
+              <span class="meta-pill">Angular 22</span>
+              <span class="meta-pill">Datos simulados</span>
+            </div>
+          </div>
+
+          <div class="spa-hero-visual">
+            <div class="visual-panel visual-panel-hero">
+              <svg class="hero-system-map" viewBox="0 0 760 520" role="img" aria-labelledby="heroMapTitle heroMapDesc">
+                <title id="heroMapTitle">Mapa del sistema VetCare</title>
+                <desc id="heroMapDesc">El veterinario interactúa con Angular, Angular presenta datos simulados en la clase uno y se conecta a Spring Boot en la clase cuatro.</desc>
+                <defs>
+                  <linearGradient id="gradAngular" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" class="svg-stop-brand-bright"/>
+                    <stop offset="100%" class="svg-stop-brand-deep"/>
+                  </linearGradient>
+                  <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-opacity=".12"/>
+                  </filter>
+                </defs>
+
+                <rect x="40" y="55" width="680" height="410" rx="34" class="svg-surface"/>
+                <circle cx="128" cy="126" r="42" class="svg-brand-soft"/>
+                <path d="M109 131c0-16 9-28 19-28s19 12 19 28" class="svg-line"/>
+                <circle cx="128" cy="109" r="10" class="svg-line"/>
+                <text x="128" y="186" text-anchor="middle" class="svg-label">Veterinario</text>
+
+                <path d="M184 126h105" class="svg-arrow-line"/>
+                <path d="M278 118l14 8-14 8" class="svg-arrow-head"/>
+
+                <rect x="300" y="78" width="170" height="96" rx="24" fill="url(#gradAngular)" filter="url(#softShadow)"/>
+                <text x="385" y="118" text-anchor="middle" class="svg-label-inverse">Angular</text>
+                <text x="385" y="144" text-anchor="middle" class="svg-caption-inverse">Interfaz y lógica</text>
+
+                <path d="M470 126h104" class="svg-arrow-line"/>
+                <path d="M563 118l14 8-14 8" class="svg-arrow-head"/>
+
+                <rect x="585" y="78" width="95" height="96" rx="24" class="svg-node"/>
+                <text x="632" y="112" text-anchor="middle" class="svg-label">Pantalla</text>
+                <text x="632" y="139" text-anchor="middle" class="svg-caption">usable</text>
+
+                <path d="M385 174v84" class="svg-arrow-line"/>
+                <path d="M377 247l8 14 8-14" class="svg-arrow-head"/>
+
+                <rect x="245" y="270" width="280" height="74" rx="22" class="svg-node-accent"/>
+                <text x="385" y="302" text-anchor="middle" class="svg-label">Clase 1</text>
+                <text x="385" y="327" text-anchor="middle" class="svg-caption">Datos escritos a mano</text>
+
+                <path d="M385 344v57" class="svg-arrow-line-dashed"/>
+                <path d="M377 390l8 14 8-14" class="svg-arrow-head"/>
+
+                <rect x="245" y="405" width="280" height="42" rx="18" class="svg-node-muted"/>
+                <text x="385" y="432" text-anchor="middle" class="svg-caption">Clase 4 · API Spring Boot</text>
+
+                <rect x="62" y="278" width="142" height="150" rx="24" class="svg-node"/>
+                <text x="133" y="315" text-anchor="middle" class="svg-label">HTML</text>
+                <text x="133" y="342" text-anchor="middle" class="svg-caption">estructura</text>
+                <text x="133" y="379" text-anchor="middle" class="svg-label">CSS</text>
+                <text x="133" y="406" text-anchor="middle" class="svg-caption">apariencia</text>
+
+                <rect x="558" y="278" width="142" height="150" rx="24" class="svg-node"/>
+                <text x="629" y="315" text-anchor="middle" class="svg-label">TypeScript</text>
+                <text x="629" y="342" text-anchor="middle" class="svg-caption">datos y lógica</text>
+                <text x="629" y="379" text-anchor="middle" class="svg-label">CLI</text>
+                <text x="629" y="406" text-anchor="middle" class="svg-caption">automatización</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <article class="spa-content">
+        <section class="spa-section" id="sec-1">
+          <header class="section-head">
+            <span class="section-number">01</span>
+            <div>
+              <span class="section-kicker">Problema de negocio</span>
+              <h2 class="section-title">Swagger prueba la API, pero no reemplaza una experiencia de usuario</h2>
+              <p class="section-summary">La clínica necesita una aplicación que traduzca endpoints y JSON en acciones claras para una persona.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="question-card">
+              <span class="component-label">Pregunta de apertura</span>
+              <p class="question">El backend de VetCare registra dueños, mascotas y citas. ¿Por qué no entregarlo directamente con Swagger?</p>
+            </div>
+
+            <div class="experience-bridge">
+              <article class="experience-side">
+                <div class="icon-orb">⌘</div>
+                <div>
+                  <span class="component-label">Lo que entiende un desarrollador</span>
+                  <h3>Endpoints, JSON y códigos HTTP</h3>
+                  <p>Son herramientas técnicas para verificar que el backend responde correctamente.</p>
+                </div>
+              </article>
+
+              <div class="experience-bridge-arrow" aria-hidden="true">→</div>
+
+              <article class="experience-side experience-side-accent">
+                <div class="icon-orb">✦</div>
+                <div>
+                  <span class="component-label">Lo que necesita el veterinario</span>
+                  <h3>Botones, formularios y listas</h3>
+                  <p>Una interfaz que represente tareas reales sin exigir conocimiento técnico.</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="course-route">
+              <div class="course-route-step is-done">
+                <span class="route-number">1</span>
+                <div><strong>Ya construimos</strong><p>Java, Spring Boot, base de datos y seguridad.</p></div>
+              </div>
+              <div class="course-route-step is-current">
+                <span class="route-number">2</span>
+                <div><strong>Hoy empezamos</strong><p>Frontend con Angular y datos simulados.</p></div>
+              </div>
+              <div class="course-route-step">
+                <span class="route-number">3</span>
+                <div><strong>Después conectaremos</strong><p>Angular y Spring Boot en una aplicación full stack.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-2">
+          <header class="section-head">
+            <span class="section-number">02</span>
+            <div>
+              <span class="section-kicker">Modelo mental</span>
+              <h2 class="section-title">Frontend y backend colaboran, pero no hacen el mismo trabajo</h2>
+              <p class="section-summary">El frontend presenta e interactúa. El backend procesa, protege y persiste.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="restaurant-model">
+              <div class="restaurant-scene restaurant-dining">
+                <div class="restaurant-icon" aria-hidden="true">☰</div>
+                <span class="component-label">Comedor</span>
+                <h3>Frontend</h3>
+                <p>El cliente observa opciones, toma decisiones y recibe resultados.</p>
+                <ul>
+                  <li>Se ejecuta en el navegador.</li>
+                  <li>Presenta información.</li>
+                  <li>Responde a clics y entradas.</li>
+                </ul>
+              </div>
+
+              <div class="restaurant-connector">
+                <span>pedido</span>
+                <div class="connector-line" aria-hidden="true"></div>
+                <span>respuesta</span>
+              </div>
+
+              <div class="restaurant-scene restaurant-kitchen">
+                <div class="restaurant-icon" aria-hidden="true">⚙</div>
+                <span class="component-label">Cocina</span>
+                <h3>Backend</h3>
+                <p>Recibe solicitudes, aplica reglas y coordina los datos.</p>
+                <ul>
+                  <li>Se ejecuta en el servidor.</li>
+                  <li>Aplica lógica de negocio.</li>
+                  <li>Protege y persiste información.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="definition-grid">
+              <article class="definition-card">
+                <span class="component-label">Definición técnica</span>
+                <h3>Frontend</h3>
+                <p>Parte de la aplicación que se ejecuta en el navegador y con la que la persona interactúa directamente.</p>
+              </article>
+              <article class="definition-card">
+                <span class="component-label">Explicación sencilla</span>
+                <h3>Lo que ves y usas</h3>
+                <p>Todo lo que aparece en la pantalla y responde cuando haces clic, lees o escribes.</p>
+              </article>
+              <article class="definition-card">
+                <span class="component-label">Caso profesional</span>
+                <h3>Aplicación bancaria</h3>
+                <p>El saldo real vive en el backend; el frontend lo presenta de forma comprensible y accionable.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-3">
+          <header class="section-head">
+            <span class="section-number">03</span>
+            <div>
+              <span class="section-kicker">Fundamentos del navegador</span>
+              <h2 class="section-title">El navegador combina estructura, apariencia y comportamiento</h2>
+              <p class="section-summary">Angular se apoya en los tres lenguajes base de la web; no los sustituye.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="web-house">
+              <div class="house-roof">
+                <span>JavaScript</span>
+                <small>comportamiento</small>
+              </div>
+              <div class="house-body">
+                <div class="house-room">
+                  <strong>HTML</strong>
+                  <span>estructura y contenido</span>
+                </div>
+                <div class="house-room">
+                  <strong>CSS</strong>
+                  <span>apariencia y distribución</span>
+                </div>
+              </div>
+              <div class="house-foundation">
+                <span>Navegador</span>
+                <small>Chrome · Firefox · Edge</small>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <span class="component-label">Pregunta clave</span>
+              <p class="question">Si el navegador entiende HTML, CSS y JavaScript, ¿dónde encaja Angular?</p>
+            </div>
+
+            <div class="answer-reveal">
+              <button class="reveal-btn" type="button" aria-expanded="false">Mostrar explicación</button>
+              <div class="reveal-content">
+                <p>Angular no reemplaza los lenguajes del navegador. Los organiza mediante componentes, servicios, routing y herramientas que permiten mantener aplicaciones grandes.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-4">
+          <header class="section-head">
+            <span class="section-number">04</span>
+            <div>
+              <span class="section-kicker">HTML desde cero</span>
+              <h2 class="section-title">HTML describe qué existe y cómo se organiza el contenido</h2>
+              <p class="section-summary">No toma decisiones: define títulos, párrafos, grupos y relaciones jerárquicas.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="tag-anatomy">
+              <div class="tag-piece">
+                <span class="tag-code">&lt;h1&gt;</span>
+                <small>apertura</small>
+              </div>
+              <div class="tag-content-piece">
+                <span>Hola VetCare</span>
+                <small>contenido visible</small>
+              </div>
+              <div class="tag-piece">
+                <span class="tag-code">&lt;/h1&gt;</span>
+                <small>cierre</small>
+              </div>
+            </div>
+
+            <div class="definition-grid">
+              <article class="definition-card">
+                <span class="component-label">&lt;h1&gt; a &lt;h6&gt;</span>
+                <h3>Encabezados</h3>
+                <p>Organizan títulos por niveles de importancia.</p>
+              </article>
+              <article class="definition-card">
+                <span class="component-label">&lt;p&gt;</span>
+                <h3>Párrafos</h3>
+                <p>Representan bloques de texto normal.</p>
+              </article>
+              <article class="definition-card">
+                <span class="component-label">&lt;div&gt;</span>
+                <h3>Contenedores</h3>
+                <p>Agrupan otras etiquetas dentro de una caja lógica.</p>
+              </article>
+            </div>
+
+            <div class="nesting-visual">
+              <div class="nesting-box nesting-outer">
+                <span class="nesting-label">&lt;div&gt;</span>
+                <div class="nesting-box">
+                  <span class="nesting-label">&lt;h3&gt;</span>
+                  <strong>Firulais</strong>
+                </div>
+                <div class="nesting-box">
+                  <span class="nesting-label">&lt;p&gt;</span>
+                  <span>Especie: Perro</span>
+                </div>
+                <span class="nesting-label nesting-label-close">&lt;/div&gt;</span>
+              </div>
+            </div>
+
+            <div class="callout" data-tone="warning">
+              <span class="component-label">Error frecuente</span>
+              <h3>Una etiqueta abre, pero no cierra</h3>
+              <p>El contenido siguiente puede quedar dentro del elemento equivocado. Revisa siempre el par de apertura y cierre.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-5">
+          <header class="section-head">
+            <span class="section-number">05</span>
+            <div>
+              <span class="section-kicker">CSS desde cero</span>
+              <h2 class="section-title">CSS selecciona elementos y define cómo deben verse</h2>
+              <p class="section-summary">La clase conecta una pieza del HTML con una regla visual reutilizable.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="css-rule-visual">
+              <div class="css-selector">
+                <span>.card</span>
+                <small>selector</small>
+              </div>
+              <div class="css-brace">{</div>
+              <div class="css-properties">
+                <div><strong>border-radius</strong><span>8px</span></div>
+                <div><strong>padding</strong><span>16px</span></div>
+                <div><strong>border</strong><span>1px solid gray</span></div>
+              </div>
+              <div class="css-brace">}</div>
+            </div>
+
+            <div class="html-css-link">
+              <article>
+                <span class="component-label">HTML</span>
+                <code>&lt;div class="card"&gt;</code>
+                <p>El elemento declara que pertenece a la clase <strong>card</strong>.</p>
+              </article>
+              <div class="html-css-link-arrow" aria-hidden="true">⇄</div>
+              <article>
+                <span class="component-label">CSS</span>
+                <code>.card { ... }</code>
+                <p>La regla define cómo se ven todos los elementos con esa clase.</p>
+              </article>
+            </div>
+
+            <div class="before-after-card">
+              <div class="before-after-side is-before">
+                <span class="component-label">Sin CSS</span>
+                <div class="pet-preview plain">
+                  <strong>Firulais</strong>
+                  <span>Especie: Perro</span>
+                </div>
+              </div>
+              <div class="before-after-side is-after">
+                <span class="component-label">Con CSS</span>
+                <div class="pet-preview styled">
+                  <div class="pet-avatar">F</div>
+                  <div><strong>Firulais</strong><span>Especie: Perro</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-6">
+          <header class="section-head">
+            <span class="section-number">06</span>
+            <div>
+              <span class="section-kicker">De Java a TypeScript</span>
+              <h2 class="section-title">El lenguaje cambia, pero el hábito de trabajar con tipos permanece</h2>
+              <p class="section-summary">El navegador no ejecuta Java. Angular usa TypeScript y luego genera JavaScript.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="language-bridge">
+              <article class="language-card">
+                <span class="component-label">Backend</span>
+                <h3>Java</h3>
+                <code>String nombre = "Firulais";</code>
+                <code>int edad = 4;</code>
+              </article>
+
+              <div class="language-bridge-center">
+                <span>misma disciplina</span>
+                <strong>TIPOS</strong>
+                <span>nuevo orden</span>
+              </div>
+
+              <article class="language-card language-card-accent">
+                <span class="component-label">Frontend</span>
+                <h3>TypeScript</h3>
+                <code>let nombre: string = "Firulais";</code>
+                <code>let edad: number = 4;</code>
+              </article>
+            </div>
+
+            <div class="visual-panel">
+              <svg class="compile-pipeline" viewBox="0 0 940 240" role="img" aria-labelledby="compileTitle compileDesc">
+                <title id="compileTitle">Flujo de compilación de TypeScript</title>
+                <desc id="compileDesc">El desarrollador escribe TypeScript, Angular compila y el navegador ejecuta JavaScript.</desc>
+                <rect x="40" y="68" width="220" height="104" rx="24" class="svg-node"/>
+                <text x="150" y="110" text-anchor="middle" class="svg-label">TypeScript</text>
+                <text x="150" y="140" text-anchor="middle" class="svg-caption">lo que escribimos</text>
+
+                <path d="M270 120h150" class="svg-arrow-line"/>
+                <path d="M406 112l14 8-14 8" class="svg-arrow-head"/>
+
+                <rect x="430" y="68" width="180" height="104" rx="24" class="svg-node-accent"/>
+                <text x="520" y="110" text-anchor="middle" class="svg-label">Angular</text>
+                <text x="520" y="140" text-anchor="middle" class="svg-caption">compila y organiza</text>
+
+                <path d="M620 120h120" class="svg-arrow-line"/>
+                <path d="M726 112l14 8-14 8" class="svg-arrow-head"/>
+
+                <rect x="750" y="68" width="150" height="104" rx="24" class="svg-node"/>
+                <text x="825" y="110" text-anchor="middle" class="svg-label">JavaScript</text>
+                <text x="825" y="140" text-anchor="middle" class="svg-caption">lo que ejecuta el navegador</text>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-7">
+          <header class="section-head">
+            <span class="section-number">07</span>
+            <div>
+              <span class="section-kicker">Angular y SPA</span>
+              <h2 class="section-title">Angular organiza aplicaciones grandes en piezas mantenibles</h2>
+              <p class="section-summary">Es el equivalente conceptual de Spring Boot, pero aplicado al frontend.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="framework-mirror">
+              <div class="framework-column">
+                <span class="framework-title">Spring Boot</span>
+                <div class="framework-chip">@RestController</div>
+                <div class="framework-chip">@Service</div>
+                <div class="framework-chip">Inyección</div>
+                <div class="framework-chip">Spring Initializr</div>
+              </div>
+              <div class="framework-axis">
+                <span>mismo patrón mental</span>
+                <div aria-hidden="true">⇄</div>
+                <strong>FRAMEWORK</strong>
+              </div>
+              <div class="framework-column is-angular">
+                <span class="framework-title">Angular</span>
+                <div class="framework-chip">@Component</div>
+                <div class="framework-chip">@Injectable</div>
+                <div class="framework-chip">Inyección</div>
+                <div class="framework-chip">Angular CLI</div>
+              </div>
+            </div>
+
+            <div class="spa-comparison">
+              <article class="browser-window">
+                <div class="browser-toolbar"><span></span><span></span><span></span></div>
+                <div class="browser-content traditional">
+                  <span class="component-label">Sitio tradicional</span>
+                  <h3>Cada navegación recarga</h3>
+                  <div class="page-flash">1</div>
+                  <div class="page-flash">2</div>
+                  <div class="page-flash">3</div>
+                </div>
+              </article>
+
+              <article class="browser-window">
+                <div class="browser-toolbar"><span></span><span></span><span></span></div>
+                <div class="browser-content modern">
+                  <span class="component-label">SPA</span>
+                  <h3>La aplicación cambia sin recargar</h3>
+                  <div class="spa-shell-mini">
+                    <aside></aside>
+                    <main>
+                      <div></div><div></div><div></div>
+                    </main>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="callout" data-tone="info">
+              <span class="component-label">Signal-first</span>
+              <h3>Solo una idea por ahora</h3>
+              <p>Signals es la forma moderna en que Angular reacciona a cambios de datos. Se estudia con profundidad en la Clase 3.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-8">
+          <header class="section-head">
+            <span class="section-number">08</span>
+            <div>
+              <span class="section-kicker">Entorno profesional</span>
+              <h2 class="section-title">Cada herramienta cumple una función distinta en el flujo de trabajo</h2>
+              <p class="section-summary">El entorno deja de ser una lista de instalaciones y se convierte en una cadena de responsabilidades.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="tool-chain">
+              <article class="tool-node">
+                <div class="tool-icon">VS</div>
+                <h3>VS Code</h3>
+                <p>Editor optimizado para HTML, CSS, TypeScript y Angular.</p>
+                <small>Angular Language Service · Prettier</small>
+              </article>
+              <div class="tool-arrow">→</div>
+              <article class="tool-node">
+                <div class="tool-icon">N</div>
+                <h3>Node.js</h3>
+                <p>Ejecuta las herramientas JavaScript fuera del navegador.</p>
+                <small>El motor del entorno</small>
+              </article>
+              <div class="tool-arrow">→</div>
+              <article class="tool-node">
+                <div class="tool-icon">npm</div>
+                <h3>npm</h3>
+                <p>Instala paquetes, igual que Maven en el ecosistema Java.</p>
+                <small>Gestor de dependencias</small>
+              </article>
+              <div class="tool-arrow">→</div>
+              <article class="tool-node">
+                <div class="tool-icon">ng</div>
+                <h3>Angular CLI</h3>
+                <p>Crea proyectos, componentes y servidores de desarrollo.</p>
+                <small>Automatización del proyecto</small>
+              </article>
+            </div>
+
+            <div class="checkpoint">
+              <span class="component-label">Checkpoint de entorno</span>
+              <h3>No avanzar hasta que <code>ng version</code> funcione</h3>
+              <p>La causa más común de bloqueo es una versión de Node incompatible.</p>
+            </div>
+
+            <div class="code-block">
+              <div class="code-head">
+                <div><span class="code-context">VALIDAR</span><span class="code-file">Terminal de VS Code</span></div>
+                <button class="copy-btn" type="button">Copiar</button>
+              </div>
+              <pre class="line-numbers"><code class="language-bash">node -v
+npm -v
+npm install -g @angular/cli
+ng version</code></pre>
+            </div>
+
+            <div class="version-grid">
+              <article class="version-card is-valid"><strong>20.19+</strong><span>compatible</span></article>
+              <article class="version-card is-valid"><strong>22.12+</strong><span>compatible</span></article>
+              <article class="version-card is-valid"><strong>24+</strong><span>compatible</span></article>
+              <article class="version-card is-invalid"><strong>18.x</strong><span>actualizar</span></article>
+            </div>
+
+            <div class="error-grid">
+              <article class="callout" data-tone="warning">
+                <span class="component-label">Node incompatible</span>
+                <h3>El motor no corresponde a Angular 22</h3>
+                <p>Instala una versión dentro del rango soportado y vuelve a validar.</p>
+              </article>
+              <article class="callout" data-tone="danger">
+                <span class="component-label">EACCES · Mac/Linux</span>
+                <h3>Faltan permisos para instalar globalmente</h3>
+                <p>La solución profesional es administrar Node con NVM.</p>
+              </article>
+              <article class="callout" data-tone="info">
+                <span class="component-label">Plan B</span>
+                <h3>StackBlitz mantiene la práctica en movimiento</h3>
+                <p>Permite continuar en el navegador mientras se corrige el entorno local.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-9">
+          <header class="section-head">
+            <span class="section-number">09</span>
+            <div>
+              <span class="section-kicker">Crear el proyecto</span>
+              <h2 class="section-title">El CLI construye una base estándar para que el equipo no improvise</h2>
+              <p class="section-summary">Automatizar el esqueleto inicial mejora velocidad, consistencia y mantenibilidad.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="build-roadmap">
+              <article class="build-step">
+                <span>1</span>
+                <div><h3>Generar</h3><p><code>ng new vetcare-frontend</code></p></div>
+              </article>
+              <article class="build-step">
+                <span>2</span>
+                <div><h3>Entrar</h3><p><code>cd vetcare-frontend</code></p></div>
+              </article>
+              <article class="build-step">
+                <span>3</span>
+                <div><h3>Abrir</h3><p><code>code .</code></p></div>
+              </article>
+              <article class="build-step">
+                <span>4</span>
+                <div><h3>Ejecutar</h3><p><code>ng serve</code></p></div>
+              </article>
+            </div>
+
+            <div class="decision-cards">
+              <article class="decision-card">
+                <span class="component-label">Hoja de estilos</span>
+                <strong>CSS</strong>
+                <p>Es la opción más simple para el primer contacto.</p>
+              </article>
+              <article class="decision-card">
+                <span class="component-label">SSR</span>
+                <strong>No</strong>
+                <p>Añadirlo ahora introduce complejidad sin aportar al objetivo de la clase.</p>
+              </article>
+            </div>
+
+            <div class="checkpoint">
+              <span class="component-label">Validación observable</span>
+              <h3>VetCare vive en <code>http://localhost:4200</code></h3>
+              <p>La pantalla de bienvenida debe aparecer y actualizarse automáticamente al guardar cambios.</p>
+            </div>
+
+            <div class="callout" data-tone="warning">
+              <span class="component-label">Puerto 4200 ocupado</span>
+              <h3>Ya existe otro proceso usando el puerto</h3>
+              <p>Ejecuta <code>ng serve --port 4300</code> para usar un puerto diferente.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-10">
+          <header class="section-head">
+            <span class="section-number">10</span>
+            <div>
+              <span class="section-kicker">Anatomía de un componente</span>
+              <h2 class="section-title">Una pantalla grande se construye combinando piezas pequeñas</h2>
+              <p class="section-summary">Cada componente reúne estructura, estilo, lógica y pruebas alrededor de una responsabilidad.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="ui-breakdown">
+              <div class="app-frame">
+                <div class="app-frame-nav">Menú principal</div>
+                <div class="app-frame-body">
+                  <div class="app-frame-title">Mascotas registradas</div>
+                  <div class="app-frame-grid">
+                    <div class="mini-pet-card">Firulais</div>
+                    <div class="mini-pet-card">Michi</div>
+                    <div class="mini-pet-card">Rocky</div>
+                  </div>
+                  <button type="button" tabindex="-1">Agregar mascota</button>
+                </div>
+              </div>
+
+              <div class="ui-breakdown-labels">
+                <span>componente de navegación</span>
+                <span>componente de página</span>
+                <span>componente de tarjeta</span>
+                <span>componente de acción</span>
+              </div>
+            </div>
+
+            <div class="component-files">
+              <article>
+                <span class="file-extension">TS</span>
+                <h3>Lógica y datos</h3>
+                <p>El cerebro del componente.</p>
+              </article>
+              <article>
+                <span class="file-extension">HTML</span>
+                <h3>Estructura</h3>
+                <p>Lo que aparece en pantalla.</p>
+              </article>
+              <article>
+                <span class="file-extension">CSS</span>
+                <h3>Estilo</h3>
+                <p>Cómo se presenta la pieza.</p>
+              </article>
+              <article>
+                <span class="file-extension">SPEC</span>
+                <h3>Pruebas</h3>
+                <p>Validación automática del comportamiento.</p>
+              </article>
+            </div>
+
+            <div class="code-block">
+              <div class="code-head">
+                <div><span class="code-context">LEER</span><span class="code-file">src/app/app.ts</span></div>
+                <button class="copy-btn" type="button">Copiar</button>
+              </div>
+              <pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  imports: [],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+  protected title = 'vetcare-frontend';
+}</code></pre>
+            </div>
+
+            <div class="annotation-grid">
+              <article><code>@Component</code><p>Declara el rol de la clase dentro de Angular.</p></article>
+              <article><code>selector</code><p>Define la etiqueta HTML del componente.</p></article>
+              <article><code>imports</code><p>Registra componentes que esta pieza puede utilizar.</p></article>
+              <article><code>templateUrl</code><p>Conecta la clase con su plantilla HTML.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-11">
+          <header class="section-head">
+            <span class="section-number">11</span>
+            <div>
+              <span class="section-kicker">Arquitectura moderna</span>
+              <h2 class="section-title">Las carpetas expresan responsabilidades, no preferencias personales</h2>
+              <p class="section-summary">La organización evita que el proyecto crezca como una colección de archivos sin criterio.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="folder-tree">
+              <div class="folder-root">src/app/</div>
+              <div class="folder-branch">
+                <article><span>components/</span><p>Piezas reutilizables.</p></article>
+                <article><span>pages/</span><p>Pantallas completas.</p></article>
+                <article><span>services/</span><p>Acceso y coordinación de datos.</p></article>
+                <article><span>models/</span><p>Forma de la información.</p></article>
+                <article><span>shared/</span><p>Elementos comunes.</p></article>
+              </div>
+            </div>
+
+            <div class="architecture-mapping">
+              <article>
+                <span class="component-label">Backend</span>
+                <strong>Entity / DTO</strong>
+                <span class="mapping-arrow">→</span>
+                <strong>Model</strong>
+                <span class="component-label">Frontend</span>
+              </article>
+              <article>
+                <span class="component-label">Backend</span>
+                <strong>Service</strong>
+                <span class="mapping-arrow">→</span>
+                <strong>Service</strong>
+                <span class="component-label">Frontend</span>
+              </article>
+              <article>
+                <span class="component-label">Principio</span>
+                <strong>Una responsabilidad</strong>
+                <span class="mapping-arrow">→</span>
+                <strong>Una ubicación clara</strong>
+                <span class="component-label">Resultado</span>
+              </article>
+            </div>
+
+            <div class="code-block">
+              <div class="code-head">
+                <div><span class="code-context">CREAR</span><span class="code-file">src/app/components/</span></div>
+                <button class="copy-btn" type="button">Copiar</button>
+              </div>
+              <pre class="line-numbers"><code class="language-bash">mkdir src/app/components</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-12">
+          <header class="section-head">
+            <span class="section-number">12</span>
+            <div>
+              <span class="section-kicker">Data binding</span>
+              <h2 class="section-title">Un dato vive en TypeScript y la plantilla lo refleja</h2>
+              <p class="section-summary">Interpolar evita copiar el mismo valor en dos lugares y conserva una única fuente de verdad.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="binding-bridge">
+              <article class="binding-source">
+                <span class="component-label">Clase TypeScript</span>
+                <code>nombreClinica = 'VetCare'</code>
+                <p>El valor se define una sola vez.</p>
+              </article>
+              <div class="binding-channel">
+                <span>{{ }}</span>
+                <strong>interpolación</strong>
+              </div>
+              <article class="binding-result">
+                <span class="component-label">Plantilla HTML</span>
+                <div class="screen-preview">
+                  <strong>Bienvenido a VetCare</strong>
+                </div>
+                <p>Angular reemplaza la expresión por el valor actual.</p>
+              </article>
+            </div>
+
+            <div class="code-pair">
+              <div class="code-block">
+                <div class="code-head">
+                  <div><span class="code-context">EDITAR</span><span class="code-file">src/app/app.ts</span></div>
+                  <button class="copy-btn" type="button">Copiar</button>
+                </div>
+                <pre class="line-numbers"><code class="language-typescript">export class App {
+  protected title = 'vetcare-frontend';
+  protected nombreClinica = 'VetCare';
+}</code></pre>
+              </div>
+
+              <div class="code-block">
+                <div class="code-head">
+                  <div><span class="code-context">EDITAR</span><span class="code-file">src/app/app.html</span></div>
+                  <button class="copy-btn" type="button">Copiar</button>
+                </div>
+                <pre class="line-numbers"><code class="language-html">&lt;h1&gt;
+  Bienvenido a {{ nombreClinica }}
+&lt;/h1&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="checkpoint">
+              <span class="component-label">Compruébalo</span>
+              <h3>Cambia el valor en TypeScript, no en HTML</h3>
+              <p>La pantalla debe actualizarse automáticamente al guardar. Ese cambio visible es la evidencia del binding.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-13">
+          <header class="section-head">
+            <span class="section-number">13</span>
+            <div>
+              <span class="section-kicker">Primer componente propio</span>
+              <h2 class="section-title">La tarjeta de mascota se diseña como un ladrillo reutilizable</h2>
+              <p class="section-summary">La pieza nace aislada para poder usarse después en catálogo, perfil y resultados de búsqueda.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="component-construction">
+              <article class="construction-stage">
+                <span class="construction-number">1</span>
+                <div><h3>Generar</h3><code>ng g c components/mascota-card</code></div>
+              </article>
+              <article class="construction-stage">
+                <span class="construction-number">2</span>
+                <div><h3>Agregar datos</h3><p>nombre, especie y edad</p></div>
+              </article>
+              <article class="construction-stage">
+                <span class="construction-number">3</span>
+                <div><h3>Mostrar</h3><p>Interpolación en el HTML</p></div>
+              </article>
+              <article class="construction-stage">
+                <span class="construction-number">4</span>
+                <div><h3>Estilizar</h3><p>Clase <code>.card</code></p></div>
+              </article>
+              <article class="construction-stage">
+                <span class="construction-number">5</span>
+                <div><h3>Importar y usar</h3><p><code>&lt;app-mascota-card&gt;</code></p></div>
+              </article>
+            </div>
+
+            <div class="code-block">
+              <div class="code-head">
+                <div><span class="code-context">EDITAR</span><span class="code-file">src/app/components/mascota-card/mascota-card.ts</span></div>
+                <button class="copy-btn" type="button">Copiar</button>
+              </div>
+              <pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-mascota-card',
+  imports: [],
+  templateUrl: './mascota-card.html',
+  styleUrl: './mascota-card.css'
+})
+export class MascotaCard {
+  nombre = 'Firulais';
+  especie = 'Perro';
+  edad = 4;
+}</code></pre>
+            </div>
+
+            <div class="code-pair">
+              <div class="code-block">
+                <div class="code-head">
+                  <div><span class="code-context">EDITAR</span><span class="code-file">mascota-card.html</span></div>
+                  <button class="copy-btn" type="button">Copiar</button>
+                </div>
+                <pre class="line-numbers"><code class="language-html">&lt;div class="card"&gt;
+  &lt;h3&gt;{{ nombre }}&lt;/h3&gt;
+  &lt;p&gt;Especie: {{ especie }}&lt;/p&gt;
+  &lt;p&gt;Edad: {{ edad }} años&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+
+              <div class="code-block">
+                <div class="code-head">
+                  <div><span class="code-context">EDITAR</span><span class="code-file">mascota-card.css</span></div>
+                  <button class="copy-btn" type="button">Copiar</button>
+                </div>
+                <pre class="line-numbers"><code class="language-css">.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px;
+  max-width: 240px;
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="component-preview">
+              <div class="pet-avatar pet-avatar-large">F</div>
+              <div>
+                <span class="component-label">Vista resultante</span>
+                <h3>Firulais</h3>
+                <p>Perro · 4 años</p>
+              </div>
+            </div>
+
+            <div class="callout" data-tone="danger">
+              <span class="component-label">Error frecuente</span>
+              <h3><code>app-mascota-card</code> no es un elemento conocido</h3>
+              <p>El componente fue usado en la plantilla, pero no está registrado en el arreglo <code>imports</code> del componente padre.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-14">
+          <header class="section-head">
+            <span class="section-number">14</span>
+            <div>
+              <span class="section-kicker">Ejercicio evolutivo</span>
+              <h2 class="section-title">El catálogo transforma una lista de objetos en interfaz visible</h2>
+              <p class="section-summary">La presentación queda preparada para cambiar después el origen de los datos sin rehacer la vista.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="catalog-pipeline">
+              <article>
+                <span class="component-label">Datos</span>
+                <div class="data-stack">
+                  <span>{ Firulais }</span>
+                  <span>{ Michi }</span>
+                  <span>{ Rocky }</span>
+                </div>
+              </article>
+              <div class="catalog-transform">
+                <strong>@for</strong>
+                <span>repite la plantilla</span>
+              </div>
+              <article>
+                <span class="component-label">Interfaz</span>
+                <div class="catalog-preview">
+                  <div>Firulais · Perro · 4</div>
+                  <div>Michi · Gato · 2</div>
+                  <div>Rocky · Perro · 6</div>
+                </div>
+              </article>
+            </div>
+
+            <div class="code-block">
+              <div class="code-head">
+                <div><span class="code-context">EDITAR</span><span class="code-file">src/app/app.ts</span></div>
+                <button class="copy-btn" type="button">Copiar</button>
+              </div>
+              <pre class="line-numbers"><code class="language-typescript">export class App {
+  protected nombreClinica = 'VetCare';
+
+  protected mascotas = [
+    { nombre: 'Firulais', especie: 'Perro', edad: 4 },
+    { nombre: 'Michi', especie: 'Gato', edad: 2 },
+    { nombre: 'Rocky', especie: 'Perro', edad: 6 }
+  ];
+}</code></pre>
+            </div>
+
+            <div class="control-flow-visual">
+              <div class="decision-diamond">¿mascotas.length === 0?</div>
+              <div class="decision-paths">
+                <article class="decision-path is-empty">
+                  <span>SÍ</span>
+                  <strong>@if</strong>
+                  <p>Mostrar “No hay mascotas registradas”.</p>
+                </article>
+                <article class="decision-path is-list">
+                  <span>NO</span>
+                  <strong>@else + @for</strong>
+                  <p>Recorrer y mostrar cada mascota.</p>
+                </article>
+              </div>
+            </div>
+
+            <div class="code-block">
+              <div class="code-head">
+                <div><span class="code-context">EDITAR</span><span class="code-file">src/app/app.html</span></div>
+                <button class="copy-btn" type="button">Copiar</button>
+              </div>
+              <pre class="line-numbers"><code class="language-html">@if (mascotas.length === 0) {
+  &lt;p&gt;No hay mascotas registradas.&lt;/p&gt;
+} @else {
+  @for (m of mascotas; track m.nombre) {
+    &lt;div class="item"&gt;
+      &lt;strong&gt;{{ m.nombre }}&lt;/strong&gt;
+      — {{ m.especie }} ({{ m.edad }} años)
+    &lt;/div&gt;
+  }
+}</code></pre>
+            </div>
+
+            <div class="backend-future">
+              <div class="backend-future-now">
+                <span class="component-label">Hoy</span>
+                <strong>Arreglo en TypeScript</strong>
+              </div>
+              <div class="backend-future-arrow">→</div>
+              <div class="backend-future-later">
+                <span class="component-label">Clase 4</span>
+                <strong>JSON desde Spring Boot</strong>
+              </div>
+              <p>La plantilla con <code>@for</code> permanece. Solo cambia el origen de los datos.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="spa-section" id="sec-15">
+          <header class="section-head">
+            <span class="section-number">15</span>
+            <div>
+              <span class="section-kicker">IA, criterio y cierre</span>
+              <h2 class="section-title">La IA acelera tareas mecánicas; la comprensión sigue siendo responsabilidad humana</h2>
+              <p class="section-summary">El valor profesional está en validar, adaptar y reconocer cuándo una solución es antigua o incorrecta.</p>
+            </div>
+          </header>
+
+          <div class="section-body">
+            <div class="ai-balance">
+              <article class="ai-side">
+                <span class="component-label">No delegar</span>
+                <h3>Modelo mental</h3>
+                <ul>
+                  <li>Qué es un componente.</li>
+                  <li>Qué problema resuelve el binding.</li>
+                  <li>Qué hacen <code>@for</code> y <code>@if</code>.</li>
+                </ul>
+              </article>
+
+              <div class="ai-center">
+                <div class="ai-orb">AI</div>
+                <span>copiloto</span>
+              </div>
+
+              <article class="ai-side ai-side-accent">
+                <span class="component-label">Sí delegar</span>
+                <h3>Trabajo mecánico</h3>
+                <ul>
+                  <li>Proponer CSS para una tarjeta.</li>
+                  <li>Generar variaciones visuales.</li>
+                  <li>Ayudar a refactorizar código comprendido.</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="prompt-card">
+              <span class="component-label">Ejemplo de buen prompt</span>
+              <blockquote>“Dame CSS para una tarjeta de mascota: borde redondeado, sombra suave y paleta morada. Solo el CSS, sin explicación.”</blockquote>
+            </div>
+
+            <div class="legacy-warning">
+              <div class="legacy-old">
+                <span class="component-label">Código antiguo frecuente</span>
+                <code>*ngFor</code>
+                <code>*ngIf</code>
+                <code>NgModule</code>
+              </div>
+              <div class="legacy-arrow">→</div>
+              <div class="legacy-modern">
+                <span class="component-label">Angular moderno del curso</span>
+                <code>@for</code>
+                <code>@if</code>
+                <code>standalone</code>
+              </div>
+            </div>
+
+            <div class="learning-map">
+              <article class="learning-item is-current">
+                <span>Clase 1</span>
+                <strong>Componentes y datos simulados</strong>
+              </article>
+              <article class="learning-item">
+                <span>Clase 2</span>
+                <strong>Routing y navegación</strong>
+              </article>
+              <article class="learning-item">
+                <span>Clase 3</span>
+                <strong>Signals y comunicación</strong>
+              </article>
+              <article class="learning-item">
+                <span>Clase 4</span>
+                <strong>HttpClient y backend real</strong>
+              </article>
+            </div>
+
+            <div class="question-card">
+              <span class="component-label">Cierre con criterio</span>
+              <p class="question">¿Por qué separar la tarjeta de mascota en un componente propio si también podríamos escribirla directamente en la página?</p>
+            </div>
+
+            <div class="answer-reveal">
+              <button class="reveal-btn" type="button" aria-expanded="false">Mostrar explicación</button>
+              <div class="reveal-content">
+                <p>Porque una pieza aislada puede reutilizarse, probarse y modificarse sin duplicar código. Esa decisión prepara el sistema para crecer.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="watermark" aria-hidden="true">© 2026 ANA ALVARADO</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="ana-clase.js"></script>
+</body>
+</html>
