@@ -1,137 +1,66 @@
 <!DOCTYPE html>
-<html lang="es" data-tema="oscuro" data-tema-base="oscuro" data-empresa="dev-senior" data-paleta="custom" data-atmosfera="organica" style="--a1:#ff6b6b; --a2:#9b6cff; --a3:#14b8a6; --a4:#ffb703; --a1-ink:#8a2430;">
+<html lang="es" data-tema="oscuro" data-tema-base="oscuro" data-empresa="dev-senior" data-paleta="custom" data-atmosfera="organica" style="--a1:#ff657a; --a2:#ffd166; --a3:#22d3c5; --a4:#b57cff; --a1-ink:#8c1d38;">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Ana Alvarado">
-  <meta name="copyright" content="© 2026 Ana Alvarado — Todos los derechos reservados">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ana Alvarado"><meta name="copyright" content="© 2026 Ana Alvarado — Todos los derechos reservados">
   <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
-  <title>Módulo 1 · Clase 2 · Routing y Navegación en Angular · Ana Alvarado</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <title>Módulo 1 · Clase 2 · Routing y navegación en Angular</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
   <link rel="stylesheet" href="ana-estilos.css">
+  <link rel="stylesheet" href="vetcare-theme.css">
 </head>
 <body>
-  <a class="skip-link" href="#s1">Saltar al contenido</a>
-  <div class="topline" id="topline" aria-hidden="true"></div>
-  <div class="controls" aria-label="Controles">
-    <button class="ctrl" id="temaBtn" type="button" aria-label="Cambiar tema">☀</button>
-    <button class="ctrl" id="fullscreenBtn" type="button" aria-label="Pantalla completa">⛶</button>
-  </div>
-
+  <a class="skip-link" href="#s1">Saltar al contenido</a><div class="topline" id="topline" aria-hidden="true"></div>
+  <div class="controls" aria-label="Controles"><button class="ctrl" id="temaBtn" type="button" aria-label="Cambiar tema">☀</button><button class="ctrl" id="fullscreenBtn" type="button" aria-label="Pantalla completa">⛶</button></div>
   <div class="shell" id="shell" data-collapsed="false">
-    <aside class="sidebar" aria-label="Índice de la clase">
-      <div class="sb-top">
-        <span class="brand-mark">A</span>
-        <div class="sb-title"><b>Java Full Stack</b><span>Módulo 1 · Clase 2</span></div>
-      </div>
-      <button class="sb-toggle" id="collapseBtn" type="button" aria-label="Colapsar menú">‹</button>
-      <nav class="sb-nav" id="nav" aria-label="Secciones">
-        <a class="nav-item active" href="#s1"><span class="nav-index">01</span><span class="nav-label">Pregunta de negocio</span></a>
-        <a class="nav-item" href="#s2"><span class="nav-index">02</span><span class="nav-label">Punto de partida</span></a>
-        <a class="nav-item" href="#s3"><span class="nav-index">03</span><span class="nav-label">El problema</span></a>
-        <a class="nav-item" href="#s4"><span class="nav-index">04</span><span class="nav-label">SPA y routing</span></a>
-        <a class="nav-item" href="#s5"><span class="nav-index">05</span><span class="nav-label">Modelo mental</span></a>
-        <a class="nav-item" href="#s6"><span class="nav-index">06</span><span class="nav-label">Sistema de diseño</span></a>
-        <a class="nav-item" href="#s7"><span class="nav-index">07</span><span class="nav-label">Páginas</span></a>
-        <a class="nav-item" href="#s8"><span class="nav-index">08</span><span class="nav-label">Tarjeta reutilizable</span></a>
-        <a class="nav-item" href="#s9"><span class="nav-index">09</span><span class="nav-label">Outlet y enlaces</span></a>
-        <a class="nav-item" href="#s10"><span class="nav-index">10</span><span class="nav-label">Parámetros de ruta</span></a>
-        <a class="nav-item" href="#s11"><span class="nav-index">11</span><span class="nav-label">Lazy loading</span></a>
-        <a class="nav-item" href="#s12"><span class="nav-index">12</span><span class="nav-label">IA como copiloto</span></a>
-        <a class="nav-item" href="#s13"><span class="nav-index">13</span><span class="nav-label">Mapa de archivos</span></a>
-        <a class="nav-item" href="#s14"><span class="nav-index">14</span><span class="nav-label">Cierre</span></a>
-      </nav>
-      <div class="sb-prog">
-        <div class="lbl"><span>Progreso</span><span id="progPct">0%</span></div>
-        <div class="track"><div class="fill" id="progFill"></div></div>
-      </div>
-      <p class="sb-foot">© 2026 Ana Alvarado<br>Educadora Tech &amp; Desarrolladora Full Stack</p>
-    </aside>
-
+    <aside class="sidebar" aria-label="Índice de la clase"><div class="sb-top"><span class="brand-mark">D</span><div class="sb-title"><b>Dev Senior · Full Stack</b><span>Módulo 1 · Clase 2</span></div></div><button class="sb-toggle" id="collapseBtn" type="button" aria-label="Colapsar menú">‹</button><nav class="sb-nav" id="nav" aria-label="Secciones"><a class="nav-item active" href="#s1"><span class="nav-index">01</span><span class="nav-label">Recuento de la Clase 1</span></a>
+<a class="nav-item" href="#s2"><span class="nav-index">02</span><span class="nav-label">Arrancar y observar</span></a>
+<a class="nav-item" href="#s3"><span class="nav-index">03</span><span class="nav-label">La necesidad de más pantallas</span></a>
+<a class="nav-item" href="#s4"><span class="nav-index">04</span><span class="nav-label">SPA y routing</span></a>
+<a class="nav-item" href="#s5"><span class="nav-index">05</span><span class="nav-label">El router como recepcionista</span></a>
+<a class="nav-item" href="#s6"><span class="nav-index">06</span><span class="nav-label">Sistema de diseño</span></a>
+<a class="nav-item" href="#s7"><span class="nav-index">07</span><span class="nav-label">Página de Inicio</span></a>
+<a class="nav-item" href="#s8"><span class="nav-index">08</span><span class="nav-label">Página de Listado</span></a>
+<a class="nav-item" href="#s9"><span class="nav-index">09</span><span class="nav-label">Tarjeta reutilizable</span></a>
+<a class="nav-item" href="#s10"><span class="nav-index">10</span><span class="nav-label">Cascarón de la aplicación</span></a>
+<a class="nav-item" href="#s11"><span class="nav-index">11</span><span class="nav-label">Encender las rutas</span></a>
+<a class="nav-item" href="#s12"><span class="nav-index">12</span><span class="nav-label">Detalle y parámetros</span></a>
+<a class="nav-item" href="#s13"><span class="nav-index">13</span><span class="nav-label">Lazy loading</span></a>
+<a class="nav-item" href="#s14"><span class="nav-index">14</span><span class="nav-label">IA con criterio</span></a>
+<a class="nav-item" href="#s15"><span class="nav-index">15</span><span class="nav-label">Mapa de archivos</span></a>
+<a class="nav-item" href="#s16"><span class="nav-index">16</span><span class="nav-label">Cierre y siguiente paso</span></a></nav><div class="sb-prog"><div class="lbl"><span>Progreso</span><span id="progPct">0%</span></div><div class="track"><div class="fill" id="progFill"></div></div></div><p class="sb-foot">© 2026 Ana Alvarado<br>Educadora Tech &amp; Desarrolladora Full Stack</p></aside>
     <main class="main">
-      <header class="hero" data-variant="stat">
-        <div class="hero-inner">
-          <div>
-            <span class="eyebrow">Angular · Routing · VetCare Frontend</span>
-            <h1 class="hero-title">Una app que <em>sabe a dónde ir</em></h1>
-            <p class="hero-lead">Convierte un catálogo estático en una SPA de tres vistas conectadas por URLs, con una arquitectura preparada para crecer.</p>
-            <div class="meta">
-              <span class="pill" data-hot>Dev Senior</span>
-              <span class="pill">Angular 22 standalone</span>
-              <span class="pill">Módulo 1 · Clase 2</span>
-              <span class="pill">Inicio → Listado → Detalle</span>
-            </div>
-          </div>
-          <img class="emoji-hero" src="vetcare-routing-hero.png" width="500" height="333" alt="Ilustración de un perro y un gato conectados con tres pantallas de VetCare mediante rutas de navegación">
-        </div>
-      </header>
+      <header class="hero"><div class="hero-inner"><div class="hero-copy"><span class="eyebrow">VetCare Frontend · Clase 2</span><h1 class="hero-title">Routing, navegación y <em>diseño visual</em> en Angular</h1><p class="hero-lead">Convierte un catálogo aislado en una SPA con tres vistas, URLs propias, detalle por parámetro y carga bajo demanda; cada decisión queda lista para reproducirse.</p><div class="meta"><span class="pill" data-hot>Angular 22 standalone</span><span class="pill">Router</span><span class="pill">Lazy loading</span><span class="pill">UX/UI VetCare</span></div></div><figure class="hero-visual"><img src="vetcare-routing-hero.png" alt="Perro y gato frente a tres vistas conectadas de la aplicación VetCare"><figcaption>Inicio, catálogo y ficha clínica conectados por el Router.</figcaption></figure></div></header>
+      <div class="content"><section class="section" id="s1">
+<div class="sec-head"><span class="sec-n">01 · VetCare</span><h2 class="sec-t">Recuento de la Clase 1</h2><p class="sec-s">Angular, componentes, entradas y control de flujo: la base que hoy se convierte en navegación.</p></div>
+<div class="body"><h3>Situación de partida</h3>
+<p>&quot;Antes de arrancar con lo nuevo, hagamos memoria. La clase pasada tocamos muchísimo por primera vez. Vamos a recordar el <strong>qué</strong> y el <strong>por qué</strong>, no solo el código.&quot;</p>
+<h3>Recuento 1 — ¿Dónde estamos parados en el curso?</h3>
+<p>Venimos de construir <strong>todo el backend de VetCare en Java</strong> (Spring Boot, JWT, base de datos). Ese backend ya existe y expone datos por una API.</p>
+<p>Ahora estamos del <strong>otro lado del cable</strong>: el <strong>frontend</strong>, lo que el usuario ve y toca en el navegador. La herramienta para eso es <strong>Angular</strong>.</p>
+<h3>Recuento 2 — ¿Qué es Angular? (pregunta al grupo)</h3>
+<div class="socratica">
+<span class="component-label">Para pensar</span>
+<p class="socratica-q">En una frase, ¿qué es Angular y para qué lo usamos?</p>
+<details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+<p class="lead-answer">Angular es un <strong>framework de Google</strong> para construir la <strong>interfaz</strong> de aplicaciones web, escrito en <strong>TypeScript</strong>.
+Es, para el frontend, lo que <strong>Spring Boot</strong> fue para el backend: organiza el código en piezas, tiene inyección de dependencias y trae un CLI (<code>ng</code>) para generar el esqueleto.</p>
+<p>Una primera intuición habitual sería: Es como para hacer páginas web&quot; o &quot;es el frontend&quot;.</p>
 
-      <div class="content">
-        <section class="section" id="s1">
-          <div class="sec-head">
-            <span class="sec-n">01 · Necesidad de negocio</span>
-            <h2 class="sec-t">Del catálogo a la ficha individual</h2>
-            <p class="sec-s">La navegación aparece porque el usuario necesita llegar a información específica sin perder el contexto.</p>
-          </div>
-          <div class="body">
-            <div class="socratica">
-              <span class="component-label">Para pensar</span>
-              <p class="socratica-q">El usuario hace clic en Firulais para ver su historial, dueño y próxima cita. ¿Cómo lo llevamos a otra pantalla con solo esa información, sin recargar toda la aplicación?</p>
-              <p class="socratica-hint">Piensa qué tendría que cambiar: ¿todo el documento o solo la vista central?</p>
-              <details class="reveal">
-                <summary>Ver respuesta</summary>
-                <div class="reveal-body">
-                  <p class="lead-answer">El Router de Angular cambia la vista según la URL sin recargar la página completa.</p>
-                  <p>La primera intuición suele ser crear otro HTML y enlazarlo con un vínculo normal. En una aplicación Angular hay un solo documento base: el Router decide qué componente mostrar y conserva la experiencia continua de una SPA.</p>
-                </div>
-              </details>
-            </div>
-            <div class="callout" data-tone="success">
-              <span class="callout-icon">✓</span>
-              <div><h3>Evidencia de esta clase</h3><p>VetCare evolucionará de un catálogo único a tres vistas navegables y bien diseñadas: Inicio → Listado → Detalle.</p></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="s2">
-          <div class="sec-head">
-            <span class="sec-n">02 · Punto de partida</span>
-            <h2 class="sec-t">Lo que ya construimos y por qué importa hoy</h2>
-            <p class="sec-s">El backend de VetCare ya existe; ahora trabajamos del lado que el usuario ve y toca.</p>
-          </div>
-          <div class="body">
-            <div class="callout" data-tone="info">
-              <span class="callout-icon">i</span>
-              <div><h3>Mapa del curso</h3><p>VetCare ya cuenta con backend en Java, Spring Boot, JWT y base de datos. Angular construye el frontend que consumirá esa API; la conexión real llegará en la Clase 4.</p></div>
-            </div>
-
-            <div class="socratica">
-              <span class="component-label">Para pensar</span>
-              <p class="socratica-q">En una frase, ¿qué es Angular y para qué lo usamos?</p>
-              <details class="reveal">
-                <summary>Ver respuesta</summary>
-                <div class="reveal-body">
-                  <p class="lead-answer">Angular es un framework de Google para construir interfaces de aplicaciones web con TypeScript.</p>
-                  <p>Puede parecer “el frontend” o una herramienta para páginas web, pero además organiza el código en piezas, ofrece inyección de dependencias y trae un CLI, <code>ng</code>, para generar el esqueleto. Cumple en el frontend un papel comparable al de Spring Boot en el backend.</p>
-                </div>
-              </details>
-            </div>
-
-            <div class="cards">
-              <div class="card" data-accent="1"><span class="orb emoji" data-accent="1" aria-hidden="true">🧱</span><b>HTML</b><p>La estructura del componente: lo que aparece en pantalla.</p></div>
-              <div class="card" data-accent="2"><span class="orb emoji" data-accent="2" aria-hidden="true">🎨</span><b>CSS</b><p>La presentación: cómo se ve y responde visualmente.</p></div>
-              <div class="card" data-accent="3"><span class="orb emoji" data-accent="3" aria-hidden="true">⚙️</span><b>TypeScript</b><p>La lógica: datos y comportamiento del componente.</p></div>
-            </div>
-            <p>Un componente es un pedazo de pantalla reutilizable: botón, tarjeta o tabla. Como un ladrillo LEGO, es autónomo y permite construir interfaces grandes combinando piezas pequeñas.</p>
-
-            <h3>Estado inicial de <code>mascota-card</code></h3>
-            <p>La tarjeta creada en la Clase 1 recibe sus datos desde afuera con <code>@Input</code>. Este archivo ya existe y se conserva como punto de partida.</p>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Leer · existente</span><span class="code-file">src/app/components/mascota-card/mascota-card.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
+</div></details></div>
+<h3>Recuento 3 — La pieza central: el componente</h3>
+<p>Un <strong>componente</strong> es un pedazo de pantalla reutilizable: un botón, una tarjeta, una tabla. Cada componente son <strong>tres cosas juntas</strong>:</p>
+<div class="stepper"><div class="step-item"><span class="step-num">1</span><p><strong>HTML</strong> — la estructura (lo que se ve)</p></div><div class="step-item"><span class="step-num">2</span><p><strong>CSS</strong> — el estilo (cómo se ve)</p></div><div class="step-item"><span class="step-num">3</span><p><strong>TypeScript</strong> — la lógica (cómo se comporta)</p></div></div>
+<p>Analogía: un componente es un <strong>ladrillo LEGO</strong>. Autónomo, con su forma, y armas cosas grandes combinando ladrillos pequeños.</p>
+<h3>Recuento 4 — Lo que construimos la clase pasada</h3>
+<p>Creamos el proyecto <strong>VetCare</strong> y una tarjeta de mascota (<code>mascota-card</code>). Esa tarjeta recibe datos de afuera con <strong><code>@Input</code></strong> y la mostramos varias veces con <strong><code>@for</code></strong>.</p>
+<p>Este es el <code>mascota-card.ts</code> tal como quedó. se puede revisar así:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Estado inicial</span><span class="code-file">src/app/components/mascota-card/mascota-card.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mascota-card',
@@ -143,137 +72,130 @@ export class MascotaCard {
   @Input() especie = '';
   @Input() edad = 0;
 }</code></pre>
-            </div>
-            <p><code>@Input()</code> marca una propiedad como entrada. Igual que los parámetros de un método en Java, permite que la misma tarjeta represente distintas mascotas. Más adelante reutilizaremos la idea para recibir un dato desde la URL.</p>
-
-            <h3>Catálogo al cerrar la Clase 1</h3>
-            <p>En este archivo existente, <code>@for</code> recorre la lista y entrega a cada tarjeta los valores que necesita.</p>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Leer · existente</span><span class="code-file">src/app/app.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-html">&lt;h1&gt;Catálogo de {{ nombreClinica }}&lt;/h1&gt;
+</div>
+<h3>Recuento 5 — Qué hace <code>@Input</code> (concepto que hoy reutilizamos)</h3>
+<p><code>@Input()</code> marca una propiedad como una <strong>entrada</strong>: un dato que el componente <strong>recibe desde afuera</strong>.</p>
+<p>Analogía: es como los <strong>parámetros de un método</strong> en Java. El componente no sabe qué mascota mostrará; se lo pasan cuando lo usan. Eso lo hace <strong>reutilizable</strong>. Guarden bien esta idea: hoy la vamos a reutilizar para leer datos que vienen en la <strong>URL</strong>.</p>
+<h3>Recuento 6 — Cómo se veía el catálogo</h3>
+<p>En <code>app.ts</code> teníamos la lista de mascotas, y en <code>app.html</code> la recorríamos con <code>@for</code>. Este era el <code>app.html</code> de cierre de la Clase 1:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Estado inicial</span><span class="code-file">src/app/app.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-html">&lt;h1&gt;Catálogo de {{ nombreClinica }}&lt;/h1&gt;
 
 @for (m of mascotas; track m.nombre) {
   &lt;app-mascota-card
-    [nombre]="m.nombre"
-    [especie]="m.especie"
-    [edad]="m.edad"&gt;
+    [nombre]=&quot;m.nombre&quot;
+    [especie]=&quot;m.especie&quot;
+    [edad]=&quot;m.edad&quot;&gt;
   &lt;/app-mascota-card&gt;
 }</code></pre>
-            </div>
-            <p>El bloque completo renderiza una tarjeta por mascota. La interpolación muestra datos; el property binding los pasa a entradas; <code>@for</code> repite; <code>@if</code> muestra contenido solo cuando se cumple una condición.</p>
+</div>
+<h3>Recuento 7 — Las sintaxis clave, una línea cada una</h3>
+<ul class="checklist"><li><strong><code>{{ dato }}</code></strong> → interpolación: muestra un dato en el HTML.</li><li><strong><code>[propiedad]=&quot;valor&quot;</code></strong> → property binding: le pasa un dato a un <code>@Input</code>.</li><li><strong><code>@for (x of lista; track x.id) { ... }</code></strong> → repite un bloque por cada elemento.</li><li><strong><code>@if (condicion) { ... }</code></strong> → muestra un bloque solo si la condición se cumple.</li></ul>
+<p>Con esto ya estamos alineados. Ahora sí, lo nuevo.</p>
+</div>
 
-            <div class="panel">
-              <h3>Sintaxis de referencia</h3>
-              <ul>
-                <li><code>{{ dato }}</code>: interpolación; muestra un dato en el HTML.</li>
-                <li><code>[propiedad]="valor"</code>: property binding; asigna un valor a una propiedad o <code>@Input</code>.</li>
-                <li><code>@for (x of lista; track x.id) { ... }</code>: repite un bloque por elemento.</li>
-                <li><code>@if (condicion) { ... }</code>: muestra un bloque si se cumple la condición.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+</section>
+<section class="section" id="s2">
+<div class="sec-head"><span class="sec-n">02 · VetCare</span><h2 class="sec-t">Arrancar y observar</h2><p class="sec-s">El navegador queda abierto para comprobar cada cambio mediante recarga en caliente.</p></div>
+<div class="body"><h3>Por qué arrancamos ya</h3>
+<p>Antes de tocar código, vamos a <strong>encender la app y verla en el navegador</strong>. Así, cada cambio que hagamos hoy lo veremos reflejado al instante. Trabajar viendo el resultado es mucho más claro que construir a ciegas.</p>
+<h3>Paso 1 — Abrir el proyecto de la Clase 1</h3>
+<p>Abrimos <strong>VS Code</strong> y, dentro, la carpeta del proyecto <strong>VetCare</strong> que creamos la clase pasada. En VS Code: menú <strong>Archivo → Abrir carpeta →</strong> seleccionamos la carpeta <code>vetcare</code>.</p>
+<p>Debe verse, en el panel izquierdo, la estructura del proyecto: una carpeta <code>src</code>, un <code>package.json</code>, etc.</p>
+<h3>Paso 2 — Abrir la terminal integrada</h3>
+<p>En VS Code abrimos la <strong>terminal integrada</strong> (la que usamos la clase pasada para instalar todo). Menú <strong>Terminal → Nueva terminal</strong>. Se abre abajo, ya parada en la carpeta del proyecto.</p>
+<div class="callout" data-tone="info"><span class="callout-icon">i</span><div><p>Recordatorio: la terminal integrada es la misma consola de siempre, pero adentro de VS Code, ya ubicada en el proyecto. No hay que navegar a ninguna carpeta.</p></div></div>
+<h3>Paso 3 — Levantar la aplicación</h3>
+<p>En esa terminal escribimos:</p>
+<div class="code-block" data-tipo="terminal">
+<div class="code-head"><div><span class="code-context">Terminal</span><span class="code-file">vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-bash">ng serve -o</code></pre>
+</div>
+<p>Qué hace: compila la app, la sirve en <code>http://localhost:4200</code> y <strong>abre el navegador solo</strong> (eso es el <code>-o</code>). Qué esperas ver: se abre una pestaña del navegador con el contenido de la Clase 1 (el catálogo de mascotas).</p>
+<h3>Dato clave que deben interiorizar hoy</h3>
+<p><code>ng serve</code> se queda <strong>corriendo</strong> todo el tiempo. Cada vez que <strong>guardas</strong> un archivo (Ctrl+S), la app se <strong>recarga sola</strong> en el navegador. Eso se llama <em>recarga en caliente</em>. Regla de la clase: <strong>guardar y mirar el navegador</strong> después de cada cambio. No hay que reiniciar nada.</p>
+<div class="callout" data-tone="info"><span class="callout-icon">i</span><div><p>Si en algún momento quieres detenerlo: <code>Ctrl + C</code> en la terminal. Para volver a arrancar: <code>ng serve</code> otra vez.</p></div></div>
+</div>
 
-        <section class="section" id="s3">
-          <div class="sec-head">
-            <span class="sec-n">03 · El problema</span>
-            <h2 class="sec-t">Una sola pantalla no alcanza</h2>
-            <p class="sec-s">Una aplicación real necesita inicio, listado, detalle y, más adelante, citas, dueños y acceso.</p>
-          </div>
-          <div class="body">
-            <div class="shape-board">
-              <div class="shape-card" data-accent="1"><span class="emoji" role="img" aria-label="Inicio">🏠</span><strong>Inicio</strong><p>La entrada y el llamado principal.</p></div>
-              <div class="shape-card" data-accent="2"><span class="emoji" role="img" aria-label="Mascotas">🐾</span><strong>Listado + detalle</strong><p>Explorar y consultar una mascota concreta.</p></div>
-              <div class="shape-card" data-accent="3"><span class="emoji" role="img" aria-label="Agenda y usuarios">📅</span><strong>Lo que sigue</strong><p>Citas, dueños y acceso al sistema.</p></div>
-            </div>
-            <div class="socratica">
-              <span class="component-label">Decisión de arquitectura</span>
-              <p class="socratica-q">¿Qué ocurriría si inicio, listado, detalle, citas y login vivieran en el mismo <code>app.html</code>, mostrando y ocultando pedazos con <code>@if</code>?</p>
-              <details class="reveal">
-                <summary>Ver respuesta</summary>
-                <div class="reveal-body">
-                  <p class="lead-answer">Podría funcionar al principio, pero se volvería inmantenible.</p>
-                  <p>Un archivo gigante rompe la separación de responsabilidades. Tampoco ofrece URLs propias, enlaces directos a una mascota ni una navegación atrás confiable. La solución profesional es una vista por URL y un Router que decida qué mostrar.</p>
-                </div>
-              </details>
-            </div>
-            <div class="compare">
-              <div class="compare-card" data-side="negative"><h3>Una plantilla gigante</h3><p>Estado manual, muchas condiciones, difícil de probar y compartir.</p></div>
-              <div class="compare-card" data-side="positive"><h3>Vistas enrutadas</h3><p>URLs propias, responsabilidades separadas, navegación nativa y crecimiento ordenado.</p></div>
-            </div>
-          </div>
-        </section>
+</section>
+<section class="section" id="s3">
+<div class="sec-head"><span class="sec-n">03 · VetCare</span><h2 class="sec-t">La necesidad de más pantallas</h2><p class="sec-s">Una situación de negocio revela por qué mostrar y ocultar todo en app.html no escala.</p></div>
+<div class="body"><h3>Situación de partida</h3>
+<p>&quot;Tenemos el catálogo funcionando: una pantalla con todas las mascotas. Ahora la clínica VetCare me pide algo muy normal en cualquier app real.&quot;</p>
+<div class="socratica">
+<span class="component-label">Para pensar</span>
+<p class="socratica-q">El usuario ve la lista y hace clic en <strong>Firulais</strong> porque quiere ver <strong>su ficha completa</strong>: dueño, edad, próxima cita. ¿Cómo lo llevo a <strong>otra pantalla</strong> con solo la información de Firulais, sin recargar toda la aplicación?</p>
+<details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+<p class="lead-answer">En una aplicación Angular <strong>no hay muchas páginas HTML</strong>: hay <strong>una sola</strong> que se reescribe sola.
+Para &quot;cambiar de pantalla&quot; usamos el <strong>Router de Angular</strong>: cambia lo que se ve según la <strong>URL</strong>, sin recargar la página.
+Eso es lo que vamos a construir hoy, y lo vamos a dejar <strong>bonito</strong>.</p>
+<p>Una primera intuición habitual sería: Abro otra página HTML&quot; o &quot;hago otro archivo y lo enlazo con un link normal.</p>
 
-        <section class="section" id="s4">
-          <div class="sec-head">
-            <span class="sec-n">04 · Conceptos base</span>
-            <h2 class="sec-t">SPA y routing: una vista que cambia con la URL</h2>
-            <p class="sec-s">Primero entendemos el mecanismo; después escribimos código.</p>
-          </div>
-          <div class="body">
-            <div class="cards">
-              <div class="card" data-accent="1"><span class="orb emoji" data-accent="1" aria-hidden="true">⚡</span><b>SPA · definición técnica</b><p><em>Single Page Application</em>: carga un solo <code>index.html</code> y JavaScript reescribe su contenido según las acciones del usuario.</p></div>
-              <div class="card" data-accent="2"><span class="orb emoji" data-accent="2" aria-hidden="true">🧭</span><b>Routing · definición técnica</b><p>Mecanismo que decide qué componente se muestra según la URL actual.</p></div>
-            </div>
-            <div class="twin">
-              <div class="cell a"><span class="tag">Explicación sencilla</span><p>El navegador carga la aplicación una vez. Después Angular sustituye la vista central, sin pedir un documento HTML completo en cada cambio.</p></div>
-              <div class="cell b"><span class="tag">Aplicación profesional</span><p>Gmail, Spotify web y Netflix cambian de vista sin el parpadeo de una recarga completa. VetCare seguirá el mismo modelo.</p></div>
-            </div>
-            <div class="flow">
-              <div class="flow-step"><b>URL <code>/mascotas</code></b><span>Solicitud de navegación</span></div>
-              <span class="flow-arrow" aria-hidden="true">→</span>
-              <div class="flow-step" data-emphasis><b>Router</b><span>Consulta la tabla de rutas</span></div>
-              <span class="flow-arrow" aria-hidden="true">→</span>
-              <div class="flow-step"><b>Listado</b><span>Componente que aparece</span></div>
-            </div>
-            <p>La URL <code>/mascotas/1</code> mostrará el detalle de la mascota con id 1. En el backend, <code>@GetMapping("/mascotas/{id}")</code> mapea una URL a un método; el Router aplica el mismo patrón en el frontend y mapea una URL a un componente.</p>
-          </div>
-        </section>
+</div></details></div>
+<h3>El problema, dicho claro</h3>
+<p>Una app veterinaria real tiene <strong>muchas vistas</strong>: inicio, listado de mascotas, detalle de cada una, y más adelante citas, dueños, login. Meter todo eso en un solo <code>app.html</code> sería un archivo gigante, imposible de mantener, y rompe todo lo que enseñamos de componentes.</p>
+<div class="socratica">
+<span class="component-label">Para pensar</span>
+<p class="socratica-q">¿Y si metemos inicio, listado y detalle <strong>todos en el mismo <code>app.html</code></strong>, mostrando y ocultando pedazos con <code>@if</code> según un botón?</p>
+<details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+<p class="lead-answer">Funciona al principio, pero se vuelve <strong>inmantenible</strong>: un archivo enorme, sin URLs propias, sin poder compartir el enlace directo de una mascota, sin botón &quot;atrás&quot; del navegador.
+La solución profesional es <strong>darle a cada vista su propia URL</strong> y dejar que el <strong>Router</strong> decida qué mostrar.</p>
+<p>Una primera intuición habitual sería: Funcionaría, mostramos y escondemos con <code>@if</code>.</p>
 
-        <section class="section" id="s5">
-          <div class="sec-head">
-            <span class="sec-n">05 · Modelo mental</span>
-            <h2 class="sec-t">El Router como recepcionista de VetCare</h2>
-            <p class="sec-s">La URL expresa el destino; la tabla de rutas sabe a qué componente dirigirla.</p>
-          </div>
-          <div class="body">
-            <div class="mindmap">
-              <div class="mindmap-core"><b>Router</b><span>Recepcionista</span></div>
-              <div class="mindmap-branches">
-                <div class="mindmap-node" data-accent="1"><b>URL</b><span>Lo que pide el visitante</span></div>
-                <div class="mindmap-node" data-accent="2"><b>Tabla de rutas</b><span>Lista de consultorios conocidos</span></div>
-                <div class="mindmap-node" data-accent="3"><b>Componente</b><span>Consultorio al que llega</span></div>
-              </div>
-            </div>
-            <div class="cards">
-              <div class="card" data-accent="1"><span class="orb emoji" data-accent="1" aria-hidden="true">🗺️</span><b><code>app.routes.ts</code></b><p>La tabla que relaciona cada URL con su componente.</p></div>
-              <div class="card" data-accent="2"><span class="orb emoji" data-accent="2" aria-hidden="true">🪟</span><b><code>&lt;router-outlet&gt;</code></b><p>El espacio donde se dibuja el componente activo.</p></div>
-              <div class="card" data-accent="3"><span class="orb emoji" data-accent="3" aria-hidden="true">🔗</span><b><code>routerLink</code></b><p>El enlace que navega internamente sin recargar.</p></div>
-            </div>
-            <p><code>provideRouter</code>, configurado en <code>app.config.ts</code> desde la Clase 1, es la cuarta pieza: activa el Router para toda la aplicación.</p>
-          </div>
-        </section>
+</div></details></div>
+</div>
 
-        <section class="section" id="s6">
-          <div class="sec-head">
-            <span class="sec-n">06 · Diseño visual</span>
-            <h2 class="sec-t">Un sistema de diseño antes de construir páginas</h2>
-            <p class="sec-s">La coherencia visual es una decisión de arquitectura de interfaz, no maquillaje final.</p>
-          </div>
-          <div class="body">
-            <div class="cards">
-              <div class="card" data-accent="1"><span class="orb emoji" data-accent="1" aria-hidden="true">🎨</span><b>Paleta de VetCare</b><p>Azules serenos y confiables para la interfaz que construye el proyecto.</p></div>
-              <div class="card" data-accent="2"><span class="orb emoji" data-accent="2" aria-hidden="true">↔️</span><b>Espaciado</b><p>Escala consistente en múltiplos de 8 px.</p></div>
-              <div class="card" data-accent="3"><span class="orb emoji" data-accent="3" aria-hidden="true">◒</span><b>Tipografía y forma</b><p>Lectura clara, radios y sombras reutilizables.</p></div>
-            </div>
-            <p>Un sistema de diseño reúne decisiones visuales reutilizables: paleta, espaciado, tipografía y sombras. Es el equivalente a un manual de marca; evita que cada vista parezca un producto distinto.</p>
-            <p>Las variables CSS ofrecen un único lugar de verdad. Cuando cambie la identidad visual, se actualiza una variable y toda la aplicación responde.</p>
+</section>
+<section class="section" id="s4">
+<div class="sec-head"><span class="sec-n">04 · VetCare</span><h2 class="sec-t">SPA y routing</h2><p class="sec-s">Una sola página física, múltiples vistas y URLs que conservan el historial del navegador.</p></div>
+<div class="body"><h3>Definición técnica — SPA</h3>
+<p><strong>SPA</strong> = <em>Single Page Application</em> (aplicación de una sola página). La app carga <strong>un solo <code>index.html</code></strong> y, a partir de ahí, <strong>JavaScript reescribe el contenido</strong> según lo que el usuario hace. Nunca recarga la página completa.</p>
+<h3>Explicación sencilla</h3>
+<p>El navegador carga la app <strong>una vez</strong>. Cuando cambias de &quot;pantalla&quot;, no se pide una página nueva al servidor: Angular <strong>borra lo que hay y dibuja lo siguiente</strong> en el mismo lugar. Por eso se siente instantáneo.</p>
+<h3>Aplicación en la vida real</h3>
+<p>Gmail, Spotify web, Netflix: haces clic y la vista cambia al instante, sin el parpadeo blanco de recargar. Eso es una SPA. VetCare va a funcionar igual.</p>
+<h3>Definición técnica — Routing</h3>
+<p><strong>Routing</strong> es el mecanismo que decide <strong>qué componente se muestra</strong> según la <strong>URL actual</strong>.</p>
+<ul class="checklist"><li>URL <code>/mascotas</code> → muestra el listado.</li><li>URL <code>/mascotas/1</code> → muestra el detalle de la mascota con id 1.</li></ul>
+<h3>Conexión con el backend que ya conocen</h3>
+<p>En el backend, <code>@GetMapping(&quot;/mascotas/{id}&quot;)</code> mapeaba una <strong>URL a un método</strong> del controller. El routing de Angular es la <strong>misma idea</strong>, del lado del frontend: mapea una <strong>URL a un componente</strong>. No es un concepto nuevo; es el patrón que ya dominan, del otro lado del cable.</p>
+</div>
 
-            <h3>Paso 1 · Definir el sistema global</h3>
-            <p>Reemplazaremos el contenido del archivo global existente. Este bloque crea la base que usarán todas las páginas posteriores.</p>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/styles.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-css">:root {
+</section>
+<section class="section" id="s5">
+<div class="sec-head"><span class="sec-n">05 · VetCare</span><h2 class="sec-t">El router como recepcionista</h2><p class="sec-s">Un modelo mental para entender URL, tabla de rutas, componentes y outlet.</p></div>
+<div class="body"><h3>La analogía</h3>
+<p>Imagina la recepción de VetCare. Llega alguien y dice a dónde quiere ir (&quot;quiero ver el listado de mascotas&quot;). La <strong>recepcionista (el Router)</strong> mira la petición y lo manda al <strong>consultorio correcto (el componente)</strong>.</p>
+<ul class="checklist"><li>La URL es <strong>lo que pide</strong> el visitante.</li><li>La tabla de rutas es la <strong>lista de consultorios</strong> que la recepcionista conoce.</li><li>El componente es el <strong>consultorio</strong> donde termina.</li></ul>
+<h3>Las piezas que vamos a construir hoy (y en qué orden)</h3>
+<div class="stepper"><div class="step-item"><span class="step-num">1</span><p>Primero, las <strong>páginas</strong> (Inicio, Listado, Detalle) — los consultorios.</p></div><div class="step-item"><span class="step-num">2</span><p>Luego, el <strong>cascarón</strong> con la barra de navegación y el <code>&lt;router-outlet&gt;</code> — la recepción.</p></div><div class="step-item"><span class="step-num">3</span><p>Después, la <strong>tabla de rutas</strong> en <code>app.routes.ts</code> — la lista de consultorios.</p></div><div class="step-item"><span class="step-num">4</span><p>Al final, mejoras: <strong>parámetros</strong> y <strong>lazy loading</strong>.</p></div></div>
+<p>Vamos en ese orden a propósito: construimos las piezas primero, y al final las conectamos y vemos todo funcionando junto.</p>
+</div>
+
+</section>
+<section class="section" id="s6">
+<div class="sec-head"><span class="sec-n">06 · VetCare</span><h2 class="sec-t">Sistema de diseño</h2><p class="sec-s">La identidad de VetCare se define una vez y se reutiliza en todas las vistas.</p></div>
+<div class="body"><h3>Por qué el diseño va primero, no al final</h3>
+<p>En el front, el diseño <strong>no es maquillaje que se pone al terminar</strong>. Si defino primero mis colores y espaciados, cada pantalla que construya después ya nace coherente. Al revés (estilar cada pantalla suelta, sin sistema) se produce una app donde cada vista se ve distinta. Eso se ve amateur.</p>
+<h3>Qué es un &quot;sistema de diseño&quot;</h3>
+<h3>Definición técnica</h3>
+<p>Un conjunto de decisiones visuales reutilizables: paleta de color, espaciado, tipografía, sombras. Se definen <strong>una vez</strong> y se usan en todo el producto.</p>
+<h3>Explicación sencilla</h3>
+<p>Es como el <strong>manual de marca</strong> de una empresa: el mismo azul, la misma letra, los mismos márgenes en todos lados. Da sensación de &quot;producto serio&quot;.</p>
+<h3>Dato para el grupo</h3>
+<p>Spotify, Airbnb, cualquier banco tienen su sistema de diseño documentado. Nosotros haremos una versión mínima para VetCare.</p>
+<h3>La herramienta: variables CSS</h3>
+<p>En vez de escribir el azul a mano en 30 lugares, lo definimos <strong>una vez</strong> como variable y lo reutilizamos. El día que el cliente diga &quot;cámbiame el azul&quot;, se cambia en <strong>un solo lugar</strong> y toda la app se actualiza. Eso es mantenibilidad real.</p>
+<h3>Paso 1 — Abrir el archivo de estilos globales</h3>
+<p>Abrimos el archivo <code>src/styles.css</code>.</p>
+<div class="callout" data-tone="info"><span class="callout-icon">i</span><div><p>Ojo: es <code>styles.css</code> (plural, con &quot;s&quot;), el que está <strong>directamente dentro de <code>src/</code></strong>, no dentro de ninguna carpeta de componente. Este archivo ya existe desde que se creó el proyecto; hoy es la primera vez que lo tocamos. Es el único CSS que afecta a <strong>toda</strong> la app.</p></div></div>
+<p>Al abrirlo, probablemente esté <strong>vacío</strong> o casi vacío. Está bien.</p>
+<h3>Paso 2 — Escribir el sistema de diseño</h3>
+<p>Borramos lo que haya y pegamos esto en <code>src/styles.css</code>:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/styles.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-css">:root {
   /* Paleta: veterinaria moderna, azul sereno y confiable */
   --azul-principal: #2b7a9e;
   --azul-oscuro: #1f5a75;
@@ -307,49 +229,58 @@ body {
   color: var(--texto);
   line-height: 1.6;
 }</code></pre>
-            </div>
-            <p>Los colores como variables facilitan cambiar la marca. La escala de 8 px crea ritmo visual. <code>box-sizing: border-box</code> evita que el <code>padding</code> altere los tamaños esperados.</p>
-            <div class="callout" data-tone="info">
-              <span class="callout-icon">i</span>
-              <div><h3>Jerarquía visual por capas</h3><p>El fondo usa un azul muy claro y las tarjetas una superficie blanca. El contraste hace que las tarjetas floten y se distingan sin ruido visual.</p></div>
-            </div>
-            <div class="callout" data-tone="warning">
-              <span class="callout-icon">↺</span>
-              <div><h3>Iterar también es diseño</h3><p>La tarjeta de la Clase 1 era verde. Desde hoy VetCare adopta el azul como paleta oficial: los productos reales ajustan su identidad y luego mantienen coherencia.</p></div>
-            </div>
-          </div>
-        </section>
+</div>
+<p><strong>Guardamos</strong> (Ctrl+S).</p>
+<div class="checkpoint"><span class="component-label">Comprobación</span><h3>Checkpoint · </h3></div>
+<p>Miramos el navegador. La app ya cambió de fondo: pasó de blanco puro a un <strong>azul clarísimo</strong>. Todavía se ve simple, pero ya respira la nueva identidad. Ese cambio de fondo es la señal de que el archivo global está funcionando.</p>
+<h3>Qué significa cada parte</h3>
+<ul class="checklist"><li><strong><code>:root { --variable: valor }</code></strong> → aquí se <strong>declaran</strong> las variables. <code>:root</code> significa &quot;toda la app&quot;. Cada <code>--nombre</code> es una variable que luego usamos con <code>var(--nombre)</code>.</li><li><strong>Colores como variables</strong> → un solo lugar de la verdad. Cambiar la marca es cambiar una línea.</li><li><strong>Espaciado en múltiplos de 8</strong> → todos los márgenes salen de la misma escala. Eso es lo que hace que una interfaz se vea &quot;ordenada&quot;; el ojo percibe el ritmo aunque no sepa por qué.</li><li><strong><code>box-sizing: border-box</code></strong> → hace que el <code>padding</code> no agrande las cajas de forma inesperada. Es el primer ajuste que pone cualquier front profesional.</li></ul>
+<h3>Criterio UX que vale nombrar en voz alta</h3>
+<p>El fondo <strong>no es blanco puro</strong>, es azul clarísimo. Las tarjetas, más adelante, serán <strong>blancas</strong>. Ese pequeño contraste hará que las tarjetas &quot;floten&quot; sobre el fondo. Es un truco de <strong>jerarquía visual</strong>: el usuario distingue capas sin que se lo digan.</p>
+<h3>Iterar también es diseñar</h3>
+<p>En la Clase 1 la tarjeta salió en verde. Hoy migramos a <strong>azul</strong> y lo dejamos como paleta oficial de VetCare. Si preguntan por el verde: iterar el diseño es normal, los productos reales ajustan su identidad. Lo importante es que <strong>desde hoy</strong> todo es coherente.</p>
+</div>
 
-        <section class="section" id="s7">
-          <div class="sec-head">
-            <span class="sec-n">07 · Construcción incremental</span>
-            <h2 class="sec-t">Reorganizar VetCare en páginas</h2>
-            <p class="sec-s">Cada vista se vuelve un componente de página; las piezas reutilizables permanecen en <code>components/</code>.</p>
-          </div>
-          <div class="body">
-            <div class="compare">
-              <div class="compare-card" data-side="positive"><h3>Pieza · <code>components/</code></h3><p>Ladrillo reutilizable, como <code>mascota-card</code>. Puede vivir dentro de varias páginas.</p></div>
-              <div class="compare-card" data-side="positive"><h3>Página · <code>pages/</code></h3><p>Pantalla completa a la que se llega por una URL, como listado o detalle.</p></div>
-            </div>
-            <p>Separar páginas de piezas mantiene responsabilidades claras: las piezas se reutilizan y las páginas son destinos de navegación.</p>
+</section>
+<section class="section" id="s7">
+<div class="sec-head"><span class="sec-n">07 · VetCare</span><h2 class="sec-t">Página de Inicio</h2><p class="sec-s">Primer componente-página, un llamado a la acción y navegación interna sin recarga.</p></div>
+<div class="body"><h3>Antes de crear: ¿qué es una &quot;página&quot; y en qué se diferencia de una &quot;pieza&quot;?</h3>
+<p>Hasta ahora tenemos una <strong>pieza</strong>: <code>mascota-card</code>, un ladrillo pequeño y reutilizable. Hoy creamos <strong>páginas</strong>: pantallas completas a las que se llega por una URL (Inicio, Listado, Detalle).</p>
+<p>Para ordenarlas, las vamos a poner en una carpeta llamada <strong><code>pages</code></strong>. Buena noticia: <strong>no tenemos que crear la carpeta a mano</strong>. El CLI de Angular la crea sola cuando generamos el primer componente dentro de ella. Ahora lo verán.</p>
+<h3>Paso 1 — Generar el componente de Inicio con el CLI</h3>
+<p>En la <strong>terminal integrada</strong> de VS Code (la misma donde corre <code>ng serve</code>, pero necesitamos una libre) escribimos:</p>
+<div class="code-block" data-tipo="terminal">
+<div class="code-head"><div><span class="code-context">Terminal</span><span class="code-file">vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-bash">ng generate component pages/inicio</code></pre>
+</div>
+<div class="callout" data-tone="info"><span class="callout-icon">i</span><div><p>Si <code>ng serve</code> está ocupando la terminal, abrimos <strong>una segunda terminal</strong>: en VS Code, el ícono <strong>+</strong> arriba a la derecha del panel de terminal. Así una queda sirviendo la app y en la otra escribimos comandos.</p></div></div>
+<h3>Qué acaba de pasar (importante mirarlo juntos)</h3>
+<p>Al ejecutar ese comando, Angular:</p>
+<div class="stepper"><div class="step-item"><span class="step-num">1</span><p><strong>crea la carpeta</strong> <code>src/app/pages/inicio/</code> (y la carpeta <code>pages</code> porque no existía);</p></div><div class="step-item"><span class="step-num">2</span><p>adentro crea <strong>cuatro archivos</strong>: <code>inicio.ts</code>, <code>inicio.html</code>, <code>inicio.css</code>, <code>inicio.spec.ts</code>.</p></div></div>
+<p>En la terminal aparecen varias líneas que empiezan con <code>CREATE</code>. Eso confirma que salió bien. En el panel izquierdo de VS Code, ahora aparece la carpeta <code>pages</code> con <code>inicio</code> dentro. <strong>Que la vean aparecer</strong> es parte del aprendizaje.</p>
+<h3>Por qué usamos el CLI y no creamos los archivos a mano</h3>
+<p>Crear los cuatro archivos a mano es lento y propenso a errores (un nombre mal escrito y no funciona). El CLI los crea bien conectados entre sí y ya deja el componente <strong>standalone</strong> por defecto. Es la misma idea de Spring Initializr en el backend: generar el esqueleto correcto sin escribirlo letra por letra.</p>
+<h3>Paso 2 — Abrir <code>inicio.ts</code> y ver qué generó el CLI</h3>
+<p>Abrimos <code>src/app/pages/inicio/inicio.ts</code>. El CLI lo dejó más o menos así (los nombres pueden variar ligeramente según la versión):</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Revisar generado</span><span class="code-file">src/app/pages/inicio/inicio.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
 
-            <div class="checkpoint">
-              <h3>Paso 1 · Crear la página Inicio</h3>
-              <p>Ejecuta el comando desde la raíz <code>vetcare/</code>. El CLI crea la carpeta y cuatro archivos standalone.</p>
-            </div>
-            <div class="code-block" data-tipo="terminal">
-              <div class="code-head"><div><span class="code-context">Ejecutar · raíz del proyecto</span><span class="code-file">Terminal · vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-bash">ng generate component pages/inicio</code></pre>
-            </div>
-            <p>El resultado esperado es un mensaje <code>CREATE</code> para <code>inicio.ts</code>, <code>inicio.html</code>, <code>inicio.css</code> e <code>inicio.spec.ts</code> dentro de <code>src/app/pages/inicio/</code>. <code>ng generate component</code>, o <code>ng g c</code>, cumple un papel parecido al generador de esqueleto de Spring Initializr.</p>
-
-            <div class="checkpoint">
-              <h3>Paso 2 · Definir la lógica de Inicio</h3>
-              <p>El HTML usará <code>routerLink</code>; por eso el componente standalone debe importar <code>RouterLink</code>.</p>
-            </div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Editar · creado por CLI</span><span class="code-file">src/app/pages/inicio/inicio.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
+@Component({
+  selector: 'app-inicio',
+  imports: [],
+  templateUrl: './inicio.html',
+  styleUrl: './inicio.css'
+})
+export class Inicio {}</code></pre>
+</div>
+<p>Esto ya funciona. Solo le vamos a agregar <strong>una cosa</strong>: la capacidad de tener enlaces de navegación.</p>
+<h3>Paso 3 — Preparar <code>inicio.ts</code> para navegar</h3>
+<p>El HTML de Inicio va a tener un botón que lleva al listado. Para que un enlace navegue en Angular, el componente necesita importar <code>RouterLink</code>.</p>
+<p>Dejamos <code>src/app/pages/inicio/inicio.ts</code> así:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/inicio/inicio.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -359,32 +290,32 @@ import { RouterLink } from '@angular/router';
   styleUrl: './inicio.css'
 })
 export class Inicio {}</code></pre>
-            </div>
-            <p>La regla standalone es explícita: cada componente declara en <code>imports</code> todo lo que usa su plantilla. Si falta <code>RouterLink</code>, el enlace interno no funcionará correctamente.</p>
-
-            <div class="checkpoint">
-              <h3>Paso 3 · Construir el HTML de Inicio</h3>
-              <p>Reemplaza el contenido generado por una bienvenida y un único llamado a la acción principal.</p>
-            </div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/inicio/inicio.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-html">&lt;section class="hero"&gt;
-  &lt;h1 class="hero-titulo"&gt;Bienvenido a VetCare&lt;/h1&gt;
-  &lt;p class="hero-texto"&gt;
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>La regla de oro de standalone (repetir hoy varias veces)</h3>
+<p>Un componente standalone <strong>declara en su propio <code>imports</code></strong> todo lo que su HTML usa. Si la plantilla usa <code>routerLink</code>, hay que importar <code>RouterLink</code>. <strong>Este es el error #1 de principiantes en Angular:</strong> usar algo en el HTML sin haberlo importado en el <code>imports</code>. Hoy lo van a ver varias veces; cada vez lo señalamos.</p>
+<h3>Paso 4 — Escribir el HTML de Inicio</h3>
+<p>Abrimos <code>src/app/pages/inicio/inicio.html</code>. El CLI dejó adentro un texto de ejemplo (algo como &quot;inicio works!&quot;). <strong>Borramos todo</strong> y escribimos:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/inicio/inicio.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-html">&lt;section class=&quot;hero&quot;&gt;
+  &lt;h1 class=&quot;hero-titulo&quot;&gt;Bienvenido a VetCare&lt;/h1&gt;
+  &lt;p class=&quot;hero-texto&quot;&gt;
     El sistema para gestionar las mascotas y su atención en la clínica.
   &lt;/p&gt;
-  &lt;a routerLink="/mascotas" class="boton"&gt;Ver mascotas&lt;/a&gt;
+  &lt;a routerLink=&quot;/mascotas&quot; class=&quot;boton&quot;&gt;Ver mascotas&lt;/a&gt;
 &lt;/section&gt;</code></pre>
-            </div>
-            <p><code>routerLink="/mascotas"</code> solicita al Router un cambio de vista sin recargar. Un solo llamado a la acción evita dispersar la atención y le indica al usuario cuál es el siguiente paso.</p>
-
-            <div class="checkpoint">
-              <h3>Paso 4 · Dar estilo a Inicio</h3>
-              <p>El contenido se centra, limita su ancho y reutiliza los tokens visuales globales.</p>
-            </div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/inicio/inicio.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-css">.hero {
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Qué es la línea <code>routerLink=&quot;/mascotas&quot;</code></h3>
+<p>Es un <strong>enlace interno</strong> de Angular. A diferencia de un <code>&lt;a href&gt;</code> normal (que recarga toda la página), <code>routerLink</code> le pide al <strong>Router</strong> que cambie de vista <strong>sin recargar</strong>. Lo probaremos en el Bloque 11, cuando las rutas estén encendidas. Por ahora solo lo dejamos escrito.</p>
+<h3>Criterio UX del Inicio</h3>
+<p>Una pantalla de inicio necesita <strong>un solo llamado a la acción principal</strong> (aquí: &quot;Ver mascotas&quot;). Cuando hay un botón claro y evidente, el usuario sabe qué hacer sin pensar. Llenar el inicio de diez botones iguales dispersa la atención. <strong>Menos es más.</strong></p>
+<h3>Paso 5 — Escribir el estilo de Inicio</h3>
+<p>Abrimos <code>src/app/pages/inicio/inicio.css</code>. Está vacío (el CLI lo crea vacío). Escribimos:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Crear contenido</span><span class="code-file">src/app/pages/inicio/inicio.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-css">.hero {
   max-width: 640px;
   margin: 0 auto;
   padding: var(--espacio-lg) var(--espacio-md);
@@ -417,26 +348,30 @@ export class Inicio {}</code></pre>
 .boton:hover {
   background: var(--azul-oscuro);
 }</code></pre>
-            </div>
-            <p><code>max-width</code> y el margen automático protegen la legibilidad. La transición y el estado <code>:hover</code> confirman que el botón es interactivo. Las variables evitan colores y espacios aislados.</p>
+</div>
+<p><strong>Guardamos.</strong></p>
+<div class="callout" data-tone="info"><span class="callout-icon">i</span><div><p>Nota: todavía <strong>no veremos el Inicio</strong> en el navegador, porque aún no hemos creado las rutas que le dicen a Angular &quot;cuando la URL sea <code>/</code>, muestra Inicio&quot;. Eso pasa en el Bloque 11. Es normal; estamos construyendo las piezas primero.</p></div></div>
+<h3>Qué carga criterio en este CSS</h3>
+<ul class="checklist"><li><strong><code>var(--azul-principal)</code>, <code>var(--espacio-md)</code></strong> → aquí <strong>usamos</strong> las variables que definimos en el Bloque 6. El Inicio ya nace con la identidad del sistema. Cero colores sueltos escritos a mano.</li><li><strong><code>max-width: 640px</code> + <code>margin: 0 auto</code></strong> → limita el ancho del texto y lo centra. Un texto que cruza toda la pantalla cansa la vista; acotar el ancho es una regla básica de legibilidad.</li><li><strong><code>transition</code> + <code>:hover</code></strong> → el botón cambia de color suavemente al pasar el mouse. Ese <em>feedback</em> le dice al usuario &quot;esto es clickeable&quot;. Es UX básico: la interfaz responde.</li></ul>
+</div>
 
-            <div class="checkpoint">
-              <h3>Paso 5 · Crear la página Listado</h3>
-              <p>El segundo destino de navegación también se genera desde la raíz de VetCare.</p>
-            </div>
-            <div class="code-block" data-tipo="terminal">
-              <div class="code-head"><div><span class="code-context">Ejecutar · raíz del proyecto</span><span class="code-file">Terminal · vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-bash">ng generate component pages/mascotas-listado</code></pre>
-            </div>
-            <p>Debe aparecer el <code>CREATE</code> de cuatro archivos dentro de <code>src/app/pages/mascotas-listado/</code>.</p>
-
-            <div class="checkpoint">
-              <h3>Paso 6 · Mover la lista y agregar identidad visual</h3>
-              <p>La lista deja <code>app.ts</code> y pasa a su página natural. Cada registro suma un <code>id</code> para navegar al detalle y una URL de <code>foto</code>.</p>
-            </div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Editar · creado por CLI</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
+</section>
+<section class="section" id="s8">
+<div class="sec-head"><span class="sec-n">08 · VetCare</span><h2 class="sec-t">Página de Listado</h2><p class="sec-s">Datos, fotos, grilla responsiva y enlaces dinámicos para cada mascota.</p></div>
+<div class="body"><h3>Qué vamos a hacer aquí</h3>
+<p>La lista de mascotas que hoy vive en <code>app.ts</code> la vamos a <strong>mudar</strong> a su propia página, el Listado. Y de paso le agregamos a cada mascota dos datos nuevos: un <strong><code>id</code></strong> (que necesitaremos para el detalle) y una <strong><code>foto</code></strong> (una tarjeta sin foto se ve incompleta).</p>
+<h3>Paso 1 — Generar el componente de Listado</h3>
+<p>En la terminal:</p>
+<div class="code-block" data-tipo="terminal">
+<div class="code-head"><div><span class="code-context">Terminal</span><span class="code-file">vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-bash">ng generate component pages/mascotas-listado</code></pre>
+</div>
+<p>Qué esperas ver: otra vez las líneas <code>CREATE</code>, ahora en <code>src/app/pages/mascotas-listado/</code>. En el panel izquierdo aparece la nueva carpeta <code>mascotas-listado</code> junto a <code>inicio</code>.</p>
+<h3>Paso 2 — Escribir la lógica del Listado (con id y foto)</h3>
+<p>Abrimos <code>src/app/pages/mascotas-listado/mascotas-listado.ts</code>. Reemplazamos <strong>todo</strong> su contenido por esto:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MascotaCard } from '../../components/mascota-card/mascota-card';
 
@@ -453,43 +388,46 @@ export class MascotasListado {
     { id: 3, nombre: 'Rocky', especie: 'Perro', edad: 6, foto: 'https://placedog.net/400/300?id=7' }
   ];
 }</code></pre>
-            </div>
-            <p>El <code>id</code> permitirá crear rutas como <code>/mascotas/1</code>. Las fotos usan servicios gratuitos sin registro; en producción, las URL llegarían desde el backend. <code>RouterLink</code> y <code>MascotaCard</code> deben aparecer en <code>imports</code> porque la plantilla los usará.</p>
-            <div class="callout" data-tone="info">
-              <span class="callout-icon">i</span>
-              <div><h3>URLs estables para la práctica</h3><p><code>placedog.net/400/300?id=1</code> fija una foto de perro; <code>loremflickr.com/400/300/cat?lock=2</code> fija una de gato para que no cambien en cada recarga.</p></div>
-            </div>
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Leyendo este archivo con calma</h3>
+<ul class="checklist"><li><strong><code>import { MascotaCard } from '../../components/...'</code></strong> → traemos la tarjeta que ya construimos en la Clase 1. Los <code>../../</code> significan &quot;sube dos carpetas&quot; (de <code>pages/mascotas-listado/</code> hasta <code>app/</code>) para llegar a <code>components/</code>.</li><li><strong><code>imports: [RouterLink, MascotaCard]</code></strong> → declaramos lo que el HTML va a usar: enlaces (<code>RouterLink</code>) y la tarjeta (<code>MascotaCard</code>). Si falta uno, no funciona.</li><li><strong>La lista <code>mascotas</code></strong> → es la misma de la Clase 1, pero con dos campos nuevos por mascota: <code>id</code> y <code>foto</code>.</li></ul>
+<h3>De dónde salen las fotos (explicarlo, es la duda del grupo)</h3>
+<p>La <code>foto</code> es simplemente <strong>una URL de una imagen en internet</strong>. Usamos servicios gratuitos que devuelven fotos de mascotas <strong>sin registrarse ni descargar nada</strong>:</p>
+<ul class="checklist"><li><strong><code>https://placedog.net/400/300?id=1</code></strong> → una foto de perro de 400×300 píxeles. El <code>?id=1</code> fija <strong>cuál</strong> perro, para que sea siempre el mismo y no cambie en cada recarga.</li><li><strong><code>https://loremflickr.com/400/300/cat?lock=2</code></strong> → una foto de gato de 400×300. El <code>lock=2</code> cumple lo mismo: fija la imagen.</li></ul>
+<p><strong>No se crea ninguna carpeta ni se descarga ningún archivo.</strong> La imagen vive en internet y el navegador la trae por su URL, igual que cualquier foto de una página web. En una app real, esta URL vendría del backend (la foto que subió el dueño de la mascota). Hoy la escribimos a mano, como el resto de los datos.</p>
+<h3>Aviso honesto para la clase en vivo</h3>
+<p>Como las fotos vienen de internet, <strong>necesitan conexión</strong>. Si un día el servicio va lento o una imagen no carga, no es un error del código: es la red. Cuando eso pasa, en lugar de la foto se muestra un texto (el <code>alt</code>, que pondremos en el Bloque 9). La clase sigue sin problema.</p>
+<h3>Paso 3 — Escribir el HTML del Listado</h3>
+<p>Abrimos <code>src/app/pages/mascotas-listado/mascotas-listado.html</code>. Borramos el texto de ejemplo y escribimos:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-html">&lt;h1 class=&quot;titulo-pagina&quot;&gt;Mascotas de VetCare&lt;/h1&gt;
 
-            <div class="checkpoint">
-              <h3>Paso 7 · Volver clickeable cada tarjeta</h3>
-              <p>La plantilla recorre la lista, entrega cuatro entradas a la tarjeta y construye una URL específica con el id.</p>
-            </div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-html">&lt;h1 class="titulo-pagina"&gt;Mascotas de VetCare&lt;/h1&gt;
-
-&lt;div class="grid"&gt;
+&lt;div class=&quot;grid&quot;&gt;
   @for (m of mascotas; track m.id) {
-    &lt;a [routerLink]="['/mascotas', m.id]" class="card-link"&gt;
+    &lt;a [routerLink]=&quot;['/mascotas', m.id]&quot; class=&quot;card-link&quot;&gt;
       &lt;app-mascota-card
-        [nombre]="m.nombre"
-        [especie]="m.especie"
-        [edad]="m.edad"
-        [foto]="m.foto"&gt;
+        [nombre]=&quot;m.nombre&quot;
+        [especie]=&quot;m.especie&quot;
+        [edad]=&quot;m.edad&quot;
+        [foto]=&quot;m.foto&quot;&gt;
       &lt;/app-mascota-card&gt;
     &lt;/a&gt;
   }
 &lt;/div&gt;</code></pre>
-            </div>
-            <p><code>[routerLink]="['/mascotas', m.id]"</code> combina una parte fija y otra dinámica. Para Firulais genera <code>/mascotas/1</code>; para Michi, <code>/mascotas/2</code>.</p>
-
-            <div class="checkpoint">
-              <h3>Paso 8 · Crear una grilla responsiva</h3>
-              <p>El listado se adapta al ancho disponible sin una media query y añade un feedback suave al enlace.</p>
-            </div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-css">.titulo-pagina {
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Lo nuevo de este HTML, explicado</h3>
+<ul class="checklist"><li><strong><code>@for (m of mascotas; track m.id)</code></strong> → recorremos la lista, igual que en Clase 1. Antes usábamos <code>track m.nombre</code>; ahora <code>track m.id</code> porque cada mascota ya tiene un id único (mejor todavía).</li><li><strong><code>&lt;a [routerLink]=&quot;['/mascotas', m.id]&quot;&gt;</code></strong> → envolvemos cada tarjeta en un enlace que lleva al detalle de esa mascota.</li><li><strong><code>[foto]=&quot;m.foto&quot;</code></strong> → le pasamos la foto a la tarjeta (en el Bloque 9 hacemos que la tarjeta la reciba).</li></ul>
+<h3>La línea que arma la URL de cada mascota</h3>
+<p><code>[routerLink]=&quot;['/mascotas', m.id]&quot;</code> construye la ruta de cada mascota: para Firulais (<code>id: 1</code>) genera <code>/mascotas/1</code>; para Michi, <code>/mascotas/2</code>.</p>
+<p>Se escribe como <strong>arreglo</strong> (entre corchetes) porque una parte es fija (<code>/mascotas</code>) y otra es <strong>dinámica</strong> (el <code>id</code> que cambia por mascota). Angular une las piezas y arma la URL final.</p>
+<h3>Paso 4 — Escribir el estilo del Listado (la grilla)</h3>
+<p>Abrimos <code>src/app/pages/mascotas-listado/mascotas-listado.css</code> y escribimos:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Crear contenido</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-css">.titulo-pagina {
   color: var(--azul-oscuro);
   margin-bottom: var(--espacio-md);
 }
@@ -510,34 +448,27 @@ export class MascotasListado {
 .card-link:hover {
   transform: translateY(-4px);
 }</code></pre>
-            </div>
-            <p><code>repeat(auto-fill, minmax(240px, 1fr))</code> llena cada fila con columnas de al menos 240 px. Un monitor puede mostrar cuatro; un celular, una. <code>translateY(-4px)</code> comunica que la tarjeta es clickeable.</p>
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>La línea más importante de todo el bloque</h3>
+<p><code>grid-template-columns: repeat(auto-fill, minmax(240px, 1fr))</code> es lo que hace la grilla <strong>responsiva sin escribir una sola media query</strong>.</p>
+<p>Léela así: &quot;llena la fila con columnas de mínimo 240px; si caben más, agrégalas; si la pantalla se angosta, baja las tarjetas a la fila siguiente.&quot; En un monitor ancho se ven 4 tarjetas por fila; en un celular, 1. <strong>Automático.</strong> Es de las herramientas más potentes del CSS moderno.</p>
+<h3>El detalle UX del hover</h3>
+<p><code>transform: translateY(-4px)</code> al pasar el mouse hace que la tarjeta <strong>suba un poco</strong>, como si se levantara. Ese micro-movimiento comunica &quot;soy clickeable&quot; mejor que cualquier texto. Con la transición suave, se siente pulido. Es UX de bajo costo y alto impacto.</p>
+<div class="callout" data-tone="info"><span class="callout-icon">i</span><div><p>Otra vez: todavía no vemos el Listado en el navegador. Falta encender las rutas (Bloque 11). Paciencia, ya casi.</p></div></div>
+</div>
 
-            <div class="checkpoint">
-              <h3>Paso 9 · Crear la página Detalle</h3>
-              <p>Genera el último destino. Su contenido se implementará al estudiar parámetros de ruta.</p>
-            </div>
-            <div class="code-block" data-tipo="terminal">
-              <div class="code-head"><div><span class="code-context">Ejecutar · raíz del proyecto</span><span class="code-file">Terminal · vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-bash">ng generate component pages/mascota-detalle</code></pre>
-            </div>
-            <p>El CLI debe crear los cuatro archivos en <code>src/app/pages/mascota-detalle/</code>. Hasta aquí, las páginas existen; aún falta conectarlas con el Router.</p>
-          </div>
-        </section>
-
-        <section class="section" id="s8">
-          <div class="sec-head">
-            <span class="sec-n">08 · Reutilización</span>
-            <h2 class="sec-t">Vestir la tarjeta una sola vez</h2>
-            <p class="sec-s"><code>mascota-card</code> es una pieza reutilizable: su comportamiento y estilo permanecen encapsulados.</p>
-          </div>
-          <div class="body">
-            <p>La misma tarjeta podría aparecer en el listado, el perfil del dueño o una búsqueda. Por eso recibe datos por entradas y mantiene su CSS en un archivo propio.</p>
-
-            <div class="checkpoint"><h3>Paso 1 · Recibir la foto</h3><p>Añadimos un cuarto <code>@Input</code> con el mismo patrón que nombre, especie y edad.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Editar · añadir entrada</span><span class="code-file">src/app/components/mascota-card/mascota-card.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
+</section>
+<section class="section" id="s9">
+<div class="sec-head"><span class="sec-n">09 · VetCare</span><h2 class="sec-t">Tarjeta reutilizable</h2><p class="sec-s">La pieza visual recibe la foto, preserva accesibilidad y mantiene proporciones.</p></div>
+<div class="body"><h3>Por qué la tarjeta se edita aparte</h3>
+<p><code>mascota-card</code> es una <strong>pieza</strong>, no una página. Se usa dentro del Listado hoy, y mañana podría usarse en el perfil de un dueño o en resultados de búsqueda. Por eso su estilo vive en <strong>su propio archivo</strong>: se viste una vez y se ve igual en todas partes. Eso es reutilización real.</p>
+<p>Esta tarjeta ya existe desde la Clase 1. Hoy le hacemos <strong>tres cambios</strong>: que reciba la foto, que la muestre, y que se vea bonita.</p>
+<h3>Paso 1 — Que la tarjeta pueda recibir la foto</h3>
+<p>Abrimos <code>src/app/components/mascota-card/mascota-card.ts</code>. Le agregamos <strong>una línea</strong>: un <code>@Input</code> para la foto, igual que los que ya tiene.</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Añadir entrada</span><span class="code-file">src/app/components/mascota-card/mascota-card.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mascota-card',
@@ -550,27 +481,33 @@ export class MascotaCard {
   @Input() edad = 0;
   @Input() foto = '';
 }</code></pre>
-            </div>
-            <p>El componente permanece genérico: no conoce a Firulais ni a Michi; solo representa los valores que recibe.</p>
-
-            <div class="checkpoint"><h3>Paso 2 · Mostrar imagen y datos</h3><p>La foto ocupa la zona superior y el texto queda agrupado debajo.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/components/mascota-card/mascota-card.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-html">&lt;div class="card"&gt;
-  &lt;img class="card-foto" [src]="foto" [alt]="'Foto de ' + nombre"&gt;
-  &lt;div class="card-cuerpo"&gt;
-    &lt;h3 class="card-nombre"&gt;{{ nombre }}&lt;/h3&gt;
-    &lt;p class="card-datos"&gt;{{ especie }} · {{ edad }} años&lt;/p&gt;
+</div>
+<p><strong>Guardamos.</strong></p>
+<p>La línea nueva es <code>@Input() foto = ''</code>. Es <strong>exactamente el mismo patrón</strong> de <code>@Input</code> de la Clase 1, aplicado a un dato más. Nada nuevo que aprender aquí.</p>
+<h3>Paso 2 — Mostrar la foto en el HTML de la tarjeta</h3>
+<p>Abrimos <code>src/app/components/mascota-card/mascota-card.html</code>. Reescribimos su contenido para poner la foto arriba y los datos abajo:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/components/mascota-card/mascota-card.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-html">&lt;div class=&quot;card&quot;&gt;
+  &lt;img class=&quot;card-foto&quot; [src]=&quot;foto&quot; [alt]=&quot;'Foto de ' + nombre&quot;&gt;
+  &lt;div class=&quot;card-cuerpo&quot;&gt;
+    &lt;h3 class=&quot;card-nombre&quot;&gt;{{ nombre }}&lt;/h3&gt;
+    &lt;p class=&quot;card-datos&quot;&gt;{{ especie }} · {{ edad }} años&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-            </div>
-            <p><code>[src]="foto"</code> aplica property binding a la imagen. El <code>[alt]</code> describe la foto si no carga y permite que un lector de pantalla comunique su contenido.</p>
-            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Decisión consciente</h3><p><code>NgOptimizedImage</code> puede mejorar la carga en producción, pero exige tamaños fijos y configuración adicional. No se usa hoy porque desviaría el objetivo de routing.</p></div></div>
-
-            <div class="checkpoint"><h3>Paso 3 · Dar forma a la tarjeta</h3><p>La superficie blanca, la sombra suave y el recorte consistente preparan una grilla profesional.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/components/mascota-card/mascota-card.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-css">.card {
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>La línea de la imagen, explicada de cero</h3>
+<p><code>&lt;img [src]=&quot;foto&quot;&gt;</code> es una etiqueta <code>&lt;img&gt;</code> de HTML normal, la misma de cualquier página web. La diferencia está en los corchetes: <code>[src]=&quot;foto&quot;</code> es <strong>el mismo <code>[propiedad]=&quot;valor&quot;</code></strong> que ya usan para <code>[nombre]</code>.</p>
+<p>Le estamos diciendo: &quot;el atributo <code>src</code> de esta imagen es el valor que llega por el <code>@Input() foto</code>.&quot; No es un concepto nuevo, es el binding de siempre, aplicado a una imagen.</p>
+<p><strong><code>[alt]=&quot;'Foto de ' + nombre&quot;</code></strong> es el texto alternativo: lo que se muestra si la imagen no carga, y lo que leen los lectores de pantalla para personas con discapacidad visual. Ponerlo siempre es <strong>accesibilidad</strong>, no un adorno.</p>
+<h3>Nota profesional (una línea, sembrar futuro)</h3>
+<p>Para producción, Angular tiene una directiva optimizada de imágenes (<code>NgOptimizedImage</code>) que mejora la velocidad de carga. Hoy usamos el <code>&lt;img&gt;</code> normal porque la versión optimizada exige tamaños fijos y configuración extra que nos desviaría del tema de hoy. Se menciona para que sepan que existe; se profundiza cuando el proyecto lo pida.</p>
+<h3>Paso 3 — El estilo de la tarjeta</h3>
+<p>Abrimos <code>src/app/components/mascota-card/mascota-card.css</code>. Reemplazamos lo que haya (de la Clase 1) por esto:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/components/mascota-card/mascota-card.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-css">.card {
   background: var(--superficie);
   border: 1px solid var(--borde);
   border-radius: var(--radio);
@@ -598,24 +535,25 @@ export class MascotaCard {
   color: var(--texto-suave);
   font-size: 0.95rem;
 }</code></pre>
-            </div>
-            <p><code>object-fit: cover</code> llena la zona de 180 px sin deformar las fotos. <code>overflow: hidden</code> recorta la imagen en las esquinas redondeadas. La sombra azul tenue crea profundidad sin el ruido de una sombra negra fuerte.</p>
-          </div>
-        </section>
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Las dos líneas que hay que entender sí o sí</h3>
+<ul class="checklist"><li><strong><code>object-fit: cover</code></strong> → hace que la foto <strong>llene</strong> el espacio de 180px de alto sin deformarse: recorta lo que sobra en vez de estirar la imagen. Sin esto, fotos de distintos tamaños se verían aplastadas o estiradas. Es EL truco para que una grilla de fotos se vea pareja y profesional.</li><li><strong><code>overflow: hidden</code> en <code>.card</code></strong> → recorta las esquinas de la foto para que respeten el <code>border-radius</code> redondeado de la tarjeta. Sin él, la foto se sale por las esquinas y se ve mal terminada.</li></ul>
+<h3>Por qué la sombra es tan suave (criterio de diseño)</h3>
+<p><code>box-shadow</code> usa un azul muy tenue y difuminado, no un negro duro. Una sombra sutil da <strong>profundidad sin ruido</strong>: la tarjeta se separa del fondo, pero la pantalla sigue limpia. Sombras negras y fuertes se ven anticuadas. El diseño moderno es sutil: se siente, no se grita.</p>
+</div>
 
-        <section class="section" id="s9">
-          <div class="sec-head">
-            <span class="sec-n">09 · Cascarón de la SPA</span>
-            <h2 class="sec-t"><code>&lt;router-outlet&gt;</code> y navegación con <code>routerLink</code></h2>
-            <p class="sec-s">La barra permanece; el contenido central cambia según la URL.</p>
-          </div>
-          <div class="body">
-            <p>Las páginas y la tarjeta ya existen. Ahora <code>app</code> deja de guardar la lista y asume una sola responsabilidad: ser el cascarón con navegación y outlet.</p>
-
-            <div class="checkpoint"><h3>Paso 1 · Limpiar <code>app.ts</code></h3><p>Importamos las dos piezas que utilizará la plantilla raíz.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/app.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
+</section>
+<section class="section" id="s10">
+<div class="sec-head"><span class="sec-n">10 · VetCare</span><h2 class="sec-t">Cascarón de la aplicación</h2><p class="sec-s">Barra persistente, contenido centrado y el hueco donde cambia cada página.</p></div>
+<div class="body"><h3>Qué es el &quot;cascarón&quot; y por qué lo necesitamos</h3>
+<p>Ahora mismo, <code>app.ts</code> y <code>app.html</code> todavía tienen la lista de mascotas de la Clase 1. Vamos a <strong>vaciarlos</strong> de eso y convertirlos en el <strong>cascarón</strong> de la app: el marco fijo que se ve en <strong>todas</strong> las pantallas (la barra de navegación arriba) más un hueco donde entra la página de turno.</p>
+<p>Ese hueco se llama <strong><code>&lt;router-outlet&gt;</code></strong>. Es la pieza central del routing.</p>
+<h3>Paso 1 — Limpiar la lógica de <code>app.ts</code></h3>
+<p>Abrimos <code>src/app/app.ts</code>. Tiene la lista de mascotas de la Clase 1. La <strong>quitamos</strong> (ya vive en el Listado) y lo dejamos así:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/app.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
@@ -625,30 +563,36 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {}</code></pre>
-            </div>
-            <p><code>RouterOutlet</code> habilita el hueco donde aparecerá la página activa. <code>RouterLink</code> convierte enlaces internos en navegación sin recarga.</p>
-
-            <div class="checkpoint"><h3>Paso 2 · Construir el cascarón</h3><p>La barra queda fuera del outlet y, por tanto, permanece visible en todas las rutas.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/app.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-html">&lt;nav class="barra"&gt;
-  &lt;span class="marca"&gt;🐾 VetCare&lt;/span&gt;
-  &lt;div class="barra-links"&gt;
-    &lt;a routerLink="/" class="barra-link"&gt;Inicio&lt;/a&gt;
-    &lt;a routerLink="/mascotas" class="barra-link"&gt;Mascotas&lt;/a&gt;
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Qué son <code>RouterOutlet</code> y <code>RouterLink</code></h3>
+<ul class="checklist"><li><strong><code>RouterOutlet</code></strong> → representa el hueco <code>&lt;router-outlet&gt;</code> donde se dibuja la página activa.</li><li><strong><code>RouterLink</code></strong> → hace que un enlace navegue sin recargar.</li></ul>
+<p>Los dos se importan porque el HTML de <code>app.html</code> los va a usar. Otra vez la regla de oro: <strong>lo que se usa en el HTML, se importa en <code>imports</code>.</strong></p>
+<h3>Paso 2 — El HTML del cascarón</h3>
+<p>Abrimos <code>src/app/app.html</code>. Tiene el catálogo de la Clase 1. Borramos <strong>todo</strong> y escribimos:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/app.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-html">&lt;nav class=&quot;barra&quot;&gt;
+  &lt;span class=&quot;marca&quot;&gt;🐾 VetCare&lt;/span&gt;
+  &lt;div class=&quot;barra-links&quot;&gt;
+    &lt;a routerLink=&quot;/&quot; class=&quot;barra-link&quot;&gt;Inicio&lt;/a&gt;
+    &lt;a routerLink=&quot;/mascotas&quot; class=&quot;barra-link&quot;&gt;Mascotas&lt;/a&gt;
   &lt;/div&gt;
 &lt;/nav&gt;
 
-&lt;main class="contenido"&gt;
+&lt;main class=&quot;contenido&quot;&gt;
   &lt;router-outlet&gt;&lt;/router-outlet&gt;
 &lt;/main&gt;</code></pre>
-            </div>
-            <p>La barra vive fuera del outlet y no cambia. Dentro del outlet, el Router dibuja Inicio, Listado o Detalle. Ese marco fijo con un centro variable es el corazón de la SPA.</p>
-
-            <div class="checkpoint"><h3>Paso 3 · Estilizar el cascarón</h3><p>Flexbox distribuye la marca y los enlaces; un ancho máximo conserva márgenes cómodos.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/app.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-css">.barra {
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>La idea central del routing, en una frase</h3>
+<p>Lo que está <strong>fuera</strong> del <code>&lt;router-outlet&gt;</code> (la barra) se queda <strong>fijo</strong> en todas las pantallas. Lo que va <strong>dentro</strong> del outlet <strong>cambia</strong> según la URL: a veces Inicio, a veces Listado, a veces Detalle. Ese es el corazón de una SPA: un marco fijo y un centro que cambia.</p>
+<div class="callout" data-tone="info"><span class="callout-icon">i</span><div><p>El <code>&lt;router-outlet&gt;</code> se ve vacío por ahora. En el próximo bloque encendemos las rutas y ese hueco empieza a llenarse. Ahí es donde todo cobra sentido.</p></div></div>
+<h3>Paso 3 — El estilo del cascarón</h3>
+<p>Abrimos <code>src/app/app.css</code> y escribimos:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Crear contenido</span><span class="code-file">src/app/app.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-css">.barra {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -685,54 +629,31 @@ export class App {}</code></pre>
   margin: 0 auto;
   padding: var(--espacio-lg) var(--espacio-md);
 }</code></pre>
-            </div>
-            <p><code>justify-content: space-between</code> separa la marca de los enlaces. <code>max-width</code> evita contenido pegado a los extremos. El hover de opacidad mantiene el mismo lenguaje de respuesta visual que el botón y las tarjetas.</p>
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Qué carga criterio en el cascarón</h3>
+<ul class="checklist"><li><strong><code>display: flex</code> + <code>justify-content: space-between</code></strong> → pone la marca a la izquierda y los enlaces a la derecha, separados automáticamente. <strong>Flexbox</strong> es la herramienta estándar para alinear cosas en una fila; la van a usar todo el tiempo en front.</li><li><strong><code>.contenido</code> con <code>max-width</code> centrado</strong> → el contenido no se pega a los bordes en pantallas anchas. Da esa sensación de app cuidada, con márgenes que respiran.</li><li><strong>El hover que sube la opacidad</strong> → coherente con el hover del botón y de las tarjetas: <strong>toda</strong> la app reacciona igual al mouse. Esa consistencia es lo que se siente &quot;profesional&quot;.</li></ul>
+</div>
 
-            <div class="socratica">
-              <span class="component-label">Decisión técnica</span>
-              <p class="socratica-q">¿Por qué no usar un <code>&lt;a href="/mascotas"&gt;</code> normal?</p>
-              <details class="reveal">
-                <summary>Ver respuesta</summary>
-                <div class="reveal-body">
-                  <p class="lead-answer"><code>routerLink</code> navega dentro de la SPA; <code>href</code> solicita de nuevo toda la página.</p>
-                  <p>Aunque ambos parecen enlaces, <code>href</code> recarga <code>index.html</code>, puede perder estado y produce parpadeo. Para navegación interna en Angular usamos <code>routerLink</code>.</p>
-                </div>
-              </details>
-            </div>
-
-            <div class="checkpoint"><h3>Paso 4 · Probar la navegación</h3><p>Inicia el servidor desde la raíz para observar el cambio de URL y el outlet.</p></div>
-            <div class="code-block" data-tipo="terminal">
-              <div class="code-head"><div><span class="code-context">Ejecutar · raíz del proyecto</span><span class="code-file">Terminal · vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-bash">ng serve</code></pre>
-            </div>
-            <p>Abre <code>http://localhost:4200</code>. La barra azul debe aparecer; al elegir “Mascotas”, la URL cambia a <code>/mascotas</code> sin recarga y el botón Atrás del navegador funciona.</p>
-
-            <div class="callout" data-tone="danger"><span class="callout-icon">!</span><div><h3>Error: <code>router-outlet</code> no es un elemento conocido</h3><p>Se lee como “Angular no reconoce la etiqueta”. Falta importar <code>RouterOutlet</code> en <code>app.ts</code>.</p></div></div>
-            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Error: <code>routerLink</code> no navega</h3><p>Si no hace nada o recarga la página, el Router no controla el clic. Importa <code>RouterLink</code> en el componente cuya plantilla usa el enlace.</p></div></div>
-          </div>
-        </section>
-
-        <section class="section" id="s10">
-          <div class="sec-head">
-            <span class="sec-n">10 · Parámetros de ruta</span>
-            <h2 class="sec-t">Una página de detalle para cualquier mascota</h2>
-            <p class="sec-s">La URL transporta el id; el componente lo recibe y encuentra el registro correspondiente.</p>
-          </div>
-          <div class="body">
-            <p>El Listado ya construye enlaces como <code>/mascotas/1</code>. Ahora la página Detalle debe leer ese <code>1</code>. Antes de hacerlo, necesitamos definir la tabla que relaciona URLs y componentes.</p>
-
-            <div class="panel">
-              <h3>Dónde vive el routing</h3>
-              <ul>
-                <li><code>src/app/app.routes.ts</code>: tabla de rutas, inicialmente vacía.</li>
-                <li><code>src/app/app.config.ts</code>: configuración donde <code>provideRouter(routes)</code> activa el Router.</li>
-              </ul>
-            </div>
-
-            <div class="checkpoint"><h3>Paso 1 · Leer la configuración existente</h3><p>Este archivo fue creado por <code>ng new</code>. No se modifica todavía; lo observamos para comprender cómo se enciende el routing.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Leer · sin modificar</span><span class="code-file">src/app/app.config.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { ApplicationConfig } from '@angular/core';
+</section>
+<section class="section" id="s11">
+<div class="sec-head"><span class="sec-n">11 · VetCare</span><h2 class="sec-t">Encender las rutas</h2><p class="sec-s">La tabla conecta URLs con componentes y permite probar el flujo completo.</p></div>
+<div class="body"><h3>Llegó el momento de conectar todo</h3>
+<p>Tenemos las tres páginas, la tarjeta vestida y el cascarón con su <code>&lt;router-outlet&gt;</code>. Falta la pieza que conecta URLs con páginas: la <strong>tabla de rutas</strong>. Cuando la escribamos, el <code>&lt;router-outlet&gt;</code> va a empezar a mostrar páginas, y por fin veremos todo funcionando.</p>
+<h3>Paso 1 — Crear la página de Detalle (nos faltaba)</h3>
+<p>Antes de las rutas, generamos la última página, aunque su contenido lo llenemos en el Bloque 12:</p>
+<div class="code-block" data-tipo="terminal">
+<div class="code-head"><div><span class="code-context">Terminal</span><span class="code-file">vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-bash">ng generate component pages/mascota-detalle</code></pre>
+</div>
+<p>Qué esperas ver: las líneas <code>CREATE</code> en <code>src/app/pages/mascota-detalle/</code>. La dejamos como el CLI la creó por ahora. Solo necesitábamos que <strong>exista</strong> para poder nombrarla en las rutas.</p>
+<h3>Paso 2 — Conocer los dos archivos de rutas (solo mirar)</h3>
+<p>Cuando se creó el proyecto en la Clase 1, Angular generó dos archivos que <strong>nunca habíamos abierto</strong>:</p>
+<ul class="checklist"><li><code>src/app/app.routes.ts</code> → la <strong>tabla de rutas</strong> (hoy está prácticamente vacía).</li><li><code>src/app/app.config.ts</code> → donde se <strong>encendió</strong> el sistema de rutas.</li></ul>
+<p>Abrimos <code>src/app/app.config.ts</code> solo para verlo (no lo editamos aún):</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Revisar existente</span><span class="code-file">src/app/app.config.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 
@@ -741,13 +662,13 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes)
   ]
 };</code></pre>
-            </div>
-            <p><code>provideRouter(routes)</code> activa el Router en toda la app y le entrega la tabla de destinos. En el modelo mental, es darle a la recepcionista su lista de consultorios.</p>
-
-            <div class="checkpoint"><h3>Paso 2 · Definir la primera tabla de rutas</h3><p>Reemplaza el arreglo vacío por tres rutas directas. Esta versión intermedia permite entender el mapeo antes de optimizarlo.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar · versión intermedia</span><span class="code-file">src/app/app.routes.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
+</div>
+<p><code>provideRouter(routes)</code> es la línea que <strong>enciende el routing</strong> en toda la app y le entrega la tabla de rutas. Es como decirle a la recepcionista: &quot;aquí está tu lista de consultorios, ya puedes atender.&quot; Angular la puso ahí por nosotros; solo falta llenar la lista.</p>
+<h3>Paso 3 — Escribir la tabla de rutas</h3>
+<p>Abrimos <code>src/app/app.routes.ts</code>. Tiene un arreglo vacío (<code>export const routes: Routes = [];</code>). Lo reemplazamos por:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/app.routes.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
 import { Inicio } from './pages/inicio/inicio';
 import { MascotasListado } from './pages/mascotas-listado/mascotas-listado';
 import { MascotaDetalle } from './pages/mascota-detalle/mascota-detalle';
@@ -757,27 +678,58 @@ export const routes: Routes = [
   { path: 'mascotas', component: MascotasListado },
   { path: 'mascotas/:id', component: MascotaDetalle }
 ];</code></pre>
-            </div>
-            <p><code>path: ''</code> representa la raíz y muestra Inicio. <code>mascotas</code> abre el Listado. <code>mascotas/:id</code> envía cualquier id al mismo componente Detalle.</p>
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Leyendo la tabla de rutas línea por línea</h3>
+<ul class="checklist"><li><strong><code>path: ''</code></strong> → la URL raíz (la app recién abierta, <code>localhost:4200/</code>) muestra <strong>Inicio</strong>.</li><li><strong><code>path: 'mascotas'</code></strong> → la URL <code>/mascotas</code> muestra el <strong>Listado</strong>.</li><li><strong><code>path: 'mascotas/:id'</code></strong> → las URLs <code>/mascotas/1</code>, <code>/mascotas/2</code>, etc., muestran el <strong>Detalle</strong>.</li></ul>
+<p>Cada objeto <code>{ path, component }</code> es una regla: &quot;cuando la URL sea <em>esto</em>, muestra <em>este componente</em> en el <code>&lt;router-outlet&gt;</code>.&quot;</p>
+<h3>Qué significan los dos puntos en <code>:id</code></h3>
+<p><code>:id</code> es un <strong>parámetro de ruta</strong>: una parte <strong>variable</strong> de la URL. No es la palabra literal &quot;id&quot;; es un hueco que cambia. <code>/mascotas/1</code> → <code>id</code> vale <code>1</code>; <code>/mascotas/2</code> → <code>id</code> vale <code>2</code>. Gracias a eso, <strong>una sola ruta</strong> sirve para todas las mascotas. Lo aprovechamos en el Bloque 12.</p>
+<div class="checkpoint"><span class="component-label">Comprobación</span><h3>Checkpoint · mirar el navegador</h3></div>
+<p><strong>Guardamos todo</strong> y miramos el navegador (la app se recargó sola).</p>
+<p>Qué debería verse ahora:</p>
+<div class="stepper"><div class="step-item"><span class="step-num">1</span><p>Arriba, la <strong>barra azul</strong> con &quot;🐾 VetCare&quot; y los enlaces &quot;Inicio&quot; y &quot;Mascotas&quot;.</p></div><div class="step-item"><span class="step-num">2</span><p>Debajo, la <strong>pantalla de Inicio</strong>: el título de bienvenida y el botón &quot;Ver mascotas&quot;.</p></div><div class="step-item"><span class="step-num">3</span><p>Clic en el botón <strong>&quot;Ver mascotas&quot;</strong> (o en &quot;Mascotas&quot; de la barra) → aparece el <strong>Listado con las tarjetas y sus fotos</strong>, y la URL de arriba cambia a <code>localhost:4200/mascotas</code>.</p></div><div class="step-item"><span class="step-num">4</span><p>La barra azul <strong>sigue ahí</strong> en las dos pantallas: eso es el cascarón fijo con el outlet cambiando.</p></div><div class="step-item"><span class="step-num">5</span><p>El botón <strong>&quot;atrás&quot;</strong> del navegador te devuelve al Inicio.</p></div></div>
+<p><strong>Esto es el routing funcionando.</strong> Si llegaron hasta aquí, lo esencial de la clase ya está.</p>
+<h3>Si algo no se ve — errores típicos</h3>
+<p><strong>Error #1 — dice que <code>router-outlet</code> no es un elemento conocido.</strong> Se lee como un mensaje sobre <code>router-outlet</code> desconocido. Causa: faltó importar <code>RouterOutlet</code> en el <code>imports</code> de <code>app.ts</code>. Revísalo.</p>
+<p><strong>Error #2 — un enlace no navega o recarga toda la página.</strong> Causa: faltó importar <code>RouterLink</code> en el componente cuya plantilla usa ese enlace.</p>
+<p><strong>Error #3 — la pantalla queda en blanco al entrar a una ruta.</strong> Causa frecuente: un nombre mal escrito en el <code>import</code> de la ruta, o el componente no existe con ese nombre. Revisa que los nombres en <code>app.routes.ts</code> coincidan con los de cada archivo.</p>
+<h3><code>routerLink</code> vs <code>href</code> — la pregunta que cierra el concepto</h3>
+<div class="socratica">
+<span class="component-label">Para pensar</span>
+<p class="socratica-q">¿Por qué no usamos un <code>&lt;a href='/mascotas'&gt;</code> normal, como en HTML de toda la vida?</p>
+<details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+<p class="lead-answer">Un <code>href</code> normal <strong>recarga toda la página</strong>: el navegador pide de nuevo el <code>index.html</code>, se pierde el estado y parpadea.
+<code>routerLink</code> navega <strong>dentro</strong> de la SPA: solo cambia el contenido del outlet, sin recargar. Más rápido y sin perder el estado.
+En Angular, <strong>siempre <code>routerLink</code></strong> para navegación interna. (Se puede comprobar: con <code>href</code> verían el parpadeo blanco; con <code>routerLink</code>, no.)</p>
+<p>Una primera intuición habitual sería: Deberían funcionar igual, los dos son enlaces.</p>
 
-            <div class="callout" data-tone="info"><span class="callout-icon">:</span><div><h3>Qué significa <code>:id</code></h3><p>Es una parte variable, no la palabra literal “id”. En <code>/mascotas/1</code> vale <code>1</code>; en <code>/mascotas/2</code> vale <code>2</code>. Una sola ruta sirve para todas las mascotas.</p></div></div>
+</div></details></div>
+</div>
 
-            <div class="socratica">
-              <span class="component-label">Para pensar</span>
-              <p class="socratica-q">El componente Detalle es uno solo. ¿Cómo sabe si debe mostrar a Firulais, Michi, Rocky o una mascota futura?</p>
-              <details class="reveal">
-                <summary>Ver respuesta</summary>
-                <div class="reveal-body">
-                  <p class="lead-answer">Recibe el <code>id</code> de la URL y con él busca la mascota.</p>
-                  <p>Pasar la mascota completa funciona entre componentes cercanos, pero una URL necesita una identidad estable. Hoy ese id consulta una lista local; en la Clase 4 permitirá llamar <code>GET /mascotas/1</code>. La recepción moderna reutiliza <code>@Input</code>.</p>
-                </div>
-              </details>
-            </div>
+</section>
+<section class="section" id="s12">
+<div class="sec-head"><span class="sec-n">12 · VetCare</span><h2 class="sec-t">Detalle y parámetros</h2><p class="sec-s">El id de la URL llega como entrada, se convierte y permite manejar casos inexistentes.</p></div>
+<div class="body"><h3>Volvemos a la pregunta del inicio de la clase</h3>
+<p>El usuario hace clic en Firulais. La URL ya cambia a <code>/mascotas/1</code> (lo armamos en el Listado). En este momento, si hacen clic en una tarjeta, el <code>&lt;router-outlet&gt;</code> muestra el Detalle <strong>vacío</strong> (el que generó el CLI). Falta que ese Detalle <strong>lea el <code>1</code> de la URL</strong> y muestre a Firulais.</p>
+<h3>La pregunta que abre el tema</h3>
+<div class="socratica">
+<span class="component-label">Para pensar</span>
+<p class="socratica-q">El componente Detalle es <strong>uno solo</strong>, pero debe servir para Firulais, Michi, Rocky y cualquier mascota futura. ¿Cómo sabe ese componente <strong>cuál</strong> mascota mostrar?</p>
+<details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+<p class="lead-answer">No le pasamos la mascota: le pasamos su <strong><code>id</code></strong>, que viene en la <strong>URL</strong>.
+El componente lee el <code>id</code> y con él busca los datos. Hoy busca en una lista local; en la Clase 4 usará ese mismo <code>id</code> para pedirle al backend <code>GET /mascotas/1</code>.
+Y la forma moderna de leer ese <code>id</code> reutiliza algo que <strong>ya conocen</strong>: <code>@Input</code>.</p>
+<p>Una primera intuición habitual sería: Le pasamos la mascota completa, como a la tarjeta.</p>
 
-            <div class="checkpoint"><h3>Paso 3 · Conectar parámetros con inputs</h3><p>Agrega <code>withComponentInputBinding()</code> para que un parámetro como <code>:id</code> llegue automáticamente al <code>@Input</code> del mismo nombre.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Editar · añadir binding</span><span class="code-file">src/app/app.config.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { ApplicationConfig } from '@angular/core';
+</div></details></div>
+<h3>La conexión que hace todo elegante</h3>
+<p>En la Clase 1, <code>@Input</code> recibía datos de un <strong>componente padre</strong>. Angular permite que <code>@Input</code> también reciba el parámetro <code>:id</code> <strong>de la URL</strong>, conectándolo a un <code>@Input() id</code>. Solo hay que <strong>activar</strong> esa conexión una vez, en la configuración. Empecemos por ahí.</p>
+<h3>Paso 1 — Activar el binding de parámetros a inputs</h3>
+<p>Abrimos <code>src/app/app.config.ts</code> (el que solo miramos antes). Le agregamos <code>withComponentInputBinding()</code> dentro de <code>provideRouter</code>:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/app.config.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { ApplicationConfig } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 
@@ -786,13 +738,17 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding())
   ]
 };</code></pre>
-            </div>
-            <p>Sin esta función, <code>@Input() id</code> quedaría vacío. La alternativa histórica usa <code>ActivatedRoute</code> y una suscripción manual; funciona, pero añade código y conceptos que aquí no hacen falta.</p>
-
-            <div class="checkpoint"><h3>Paso 4 · Implementar la lógica de Detalle</h3><p>El componente recibe el id como texto y busca la mascota correspondiente en la lista local.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar · versión consolidada</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
+</div>
+<p><strong>Guardamos.</strong></p>
+<p>Observa dos cambios: agregamos <code>withComponentInputBinding</code> al <code>import</code> de arriba, y lo llamamos como segundo argumento de <code>provideRouter</code>.</p>
+<h3>Qué hace <code>withComponentInputBinding</code></h3>
+<p>Le dice al Router: &quot;cuando una ruta tenga un parámetro (<code>:id</code>), <strong>pásalo automáticamente</strong> al <code>@Input</code> que se llame igual en el componente.&quot; Es la pieza que conecta la <strong>URL</strong> con un <strong><code>@Input</code></strong>. Sin ella, el <code>@Input() id</code> del Detalle llegaría vacío.</p>
+<p>La forma antigua de hacer esto era inyectar un servicio (<code>ActivatedRoute</code>) y suscribirse manualmente: más código y más conceptos nuevos. Esta forma es la moderna y la más limpia, y reutiliza el <code>@Input</code> que ya dominan.</p>
+<h3>Paso 2 — La lógica del Detalle</h3>
+<p>Abrimos <code>src/app/pages/mascota-detalle/mascota-detalle.ts</code>. Reemplazamos todo su contenido por esto:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -814,46 +770,50 @@ export class MascotaDetalle {
     return this.mascotas.find(m =&gt; m.id === Number(this.id));
   }
 }</code></pre>
-            </div>
-            <p><code>@Input() id</code> recibe el parámetro. <code>Number(this.id)</code> convierte el texto de la URL antes de comparar. El getter <code>mascota</code> devuelve el registro cuyo id coincide y mantiene la plantilla enfocada en presentar.</p>
-            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Error silencioso: <code>"1" !== 1</code></h3><p>Todo valor de URL llega como texto. Si se omite <code>Number(...)</code>, <code>find</code> no encuentra la mascota porque la comparación estricta entre texto y número es falsa.</p></div></div>
-
-            <div class="checkpoint"><h3>Paso 5 · Presentar la ficha o un estado vacío</h3><p>La plantilla muestra la ficha cuando existe una coincidencia y una respuesta comprensible cuando no.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-html">@if (mascota) {
-  &lt;section class="detalle"&gt;
-    &lt;img class="detalle-foto" [src]="mascota.foto" [alt]="'Foto de ' + mascota.nombre"&gt;
-    &lt;div class="detalle-info"&gt;
-      &lt;h1 class="detalle-nombre"&gt;{{ mascota.nombre }}&lt;/h1&gt;
-      &lt;p class="detalle-dato"&gt;&lt;strong&gt;Especie:&lt;/strong&gt; {{ mascota.especie }}&lt;/p&gt;
-      &lt;p class="detalle-dato"&gt;&lt;strong&gt;Edad:&lt;/strong&gt; {{ mascota.edad }} años&lt;/p&gt;
-      &lt;p class="detalle-dato"&gt;&lt;strong&gt;Dueño:&lt;/strong&gt; {{ mascota.dueno }}&lt;/p&gt;
-      &lt;a routerLink="/mascotas" class="volver"&gt;← Volver al listado&lt;/a&gt;
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Leyendo las tres piezas clave</h3>
+<ul class="checklist"><li><strong><code>@Input() id = ''</code></strong> → recibe el <code>id</code> que viene en la URL, gracias a <code>withComponentInputBinding</code>. Es el mismo <code>@Input</code> de siempre, pero ahora el dato llega de la ruta, no de un padre.</li><li><strong><code>private mascotas = [...]</code></strong> → por hoy, el Detalle tiene su propia lista (con un dato extra: <code>dueno</code>, y fotos más grandes). En la Clase 3 quitaremos esta duplicación con un servicio.</li><li><strong><code>get mascota()</code></strong> → un <strong>getter</strong>: una función que se usa como si fuera una propiedad. Busca en la lista la mascota cuyo <code>id</code> coincide con el de la URL y la devuelve.</li></ul>
+<h3>El error silencioso #1</h3>
+<p>Miren esta parte: <code>m.id === Number(this.id)</code>.</p>
+<p>Todo lo que viene en una URL es <strong>texto</strong>: <code>/mascotas/1</code> trae el string <code>&quot;1&quot;</code>, no el número <code>1</code>. Pero los <code>id</code> de la lista son <strong>números</strong> (<code>1</code>, <code>2</code>, <code>3</code>). Comparar <code>&quot;1&quot; === 1</code> en TypeScript da <strong>falso</strong>. Por eso convertimos con <code>Number(this.id)</code>.</p>
+<p>Este es el bug más común aquí: sin el <code>Number(...)</code>, el detalle &quot;no encuentra&quot; ninguna mascota y nadie entiende por qué. Que lo sepan de antemano les ahorra media hora de frustración.</p>
+<h3>Paso 3 — El HTML del Detalle</h3>
+<p>Abrimos <code>src/app/pages/mascota-detalle/mascota-detalle.html</code>. Borramos el texto de ejemplo y escribimos:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-html">@if (mascota) {
+  &lt;section class=&quot;detalle&quot;&gt;
+    &lt;img class=&quot;detalle-foto&quot; [src]=&quot;mascota.foto&quot; [alt]=&quot;'Foto de ' + mascota.nombre&quot;&gt;
+    &lt;div class=&quot;detalle-info&quot;&gt;
+      &lt;h1 class=&quot;detalle-nombre&quot;&gt;{{ mascota.nombre }}&lt;/h1&gt;
+      &lt;p class=&quot;detalle-dato&quot;&gt;&lt;strong&gt;Especie:&lt;/strong&gt; {{ mascota.especie }}&lt;/p&gt;
+      &lt;p class=&quot;detalle-dato&quot;&gt;&lt;strong&gt;Edad:&lt;/strong&gt; {{ mascota.edad }} años&lt;/p&gt;
+      &lt;p class=&quot;detalle-dato&quot;&gt;&lt;strong&gt;Dueño:&lt;/strong&gt; {{ mascota.dueno }}&lt;/p&gt;
+      &lt;a routerLink=&quot;/mascotas&quot; class=&quot;volver&quot;&gt;← Volver al listado&lt;/a&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 } @else {
-  &lt;p class="sin-resultado"&gt;No se encontró la mascota solicitada.&lt;/p&gt;
+  &lt;p class=&quot;sin-resultado&quot;&gt;No se encontró la mascota solicitada.&lt;/p&gt;
 }</code></pre>
-            </div>
-            <p>El bloque completo cubre dos estados del dato: encontrado y no encontrado. También ofrece una salida clara hacia el listado.</p>
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Por qué el <code>@else</code> no es opcional</h3>
+<div class="socratica">
+<span class="component-label">Para pensar</span>
+<p class="socratica-q">¿Qué pasa si alguien escribe a mano <code>/mascotas/99</code> en la URL, y no existe una mascota 99?</p>
+<details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+<p class="lead-answer">El <code>find</code> no encuentra nada y <code>mascota</code> queda <strong>indefinida</strong> (vacía).
+Sin el <code>@else</code>, la pantalla quedaría en blanco y confusa. Con él, mostramos un mensaje claro: &quot;No se encontró la mascota&quot;.
+Manejar el caso &quot;no existe&quot; es criterio de <strong>desarrollador senior</strong>: nunca asumir que el dato siempre está. Y es buen UX: el usuario jamás se queda mirando una pantalla vacía sin saber qué pasó.</p>
+<p>Una primera intuición habitual sería: Da error o pantalla en blanco.</p>
 
-            <div class="socratica">
-              <span class="component-label">Caso límite</span>
-              <p class="socratica-q">¿Qué debe ocurrir si alguien escribe manualmente <code>/mascotas/99</code>?</p>
-              <details class="reveal">
-                <summary>Ver respuesta</summary>
-                <div class="reveal-body">
-                  <p class="lead-answer">La aplicación debe explicar que no encontró la mascota.</p>
-                  <p><code>find</code> devuelve <code>undefined</code>. Sin <code>@else</code>, el usuario vería una pantalla vacía. Manejar el caso inexistente demuestra criterio senior y mejora la experiencia.</p>
-                </div>
-              </details>
-            </div>
-
-            <div class="checkpoint"><h3>Paso 6 · Diseñar un detalle adaptable</h3><p>Foto y datos comparten fila cuando hay espacio y se reorganizan automáticamente en pantallas estrechas.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-css">.detalle {
+</div></details></div>
+<h3>Paso 4 — El estilo del Detalle</h3>
+<p>Abrimos <code>src/app/pages/mascota-detalle/mascota-detalle.css</code> y escribimos:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Crear contenido</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-css">.detalle {
   display: flex;
   gap: var(--espacio-lg);
   background: var(--superficie);
@@ -903,41 +863,42 @@ export class MascotaDetalle {
   color: var(--texto-suave);
   padding: var(--espacio-lg);
 }</code></pre>
-            </div>
-            <p><code>flex-wrap: wrap</code> permite que foto y datos se apilen en un celular. <code>flex: 1</code> entrega a la información el espacio restante. El enlace “Volver” evita dejar al usuario en un callejón sin salida.</p>
+</div>
+<p><strong>Guardamos.</strong></p>
+<h3>Qué carga criterio en el Detalle</h3>
+<ul class="checklist"><li><strong><code>display: flex</code> + <code>flex-wrap: wrap</code></strong> → foto y datos van lado a lado en pantalla ancha, pero en un celular la foto <strong>baja</strong> encima de los datos automáticamente. Responsivo sin media queries, otra vez.</li><li><strong><code>flex: 1</code> en <code>.detalle-info</code></strong> → los datos ocupan todo el espacio que sobra al lado de la foto. Así se reparte el ancho entre las dos columnas.</li><li><strong>El enlace &quot;Volver&quot; con la flecha <code>←</code></strong> → una salida clara y visible. Nunca dejes a un usuario en una pantalla sin una forma evidente de regresar. Es UX básico y se agradece muchísimo.</li></ul>
+<div class="checkpoint"><span class="component-label">Comprobación</span><h3>Checkpoint · probar el flujo completo</h3></div>
+<p><strong>Guardamos</strong> y vamos al navegador:</p>
+<div class="stepper"><div class="step-item"><span class="step-num">1</span><p>Inicio → clic en &quot;Ver mascotas&quot; → Listado con fotos.</p></div><div class="step-item"><span class="step-num">2</span><p>Clic en <strong>Firulais</strong> → la URL cambia a <code>/mascotas/1</code> y aparece su <strong>ficha grande</strong>: foto grande, nombre, especie, edad y <strong>dueño</strong>.</p></div><div class="step-item"><span class="step-num">3</span><p>Clic en <strong>&quot;← Volver al listado&quot;</strong> → regresa al Listado.</p></div><div class="step-item"><span class="step-num">4</span><p>Prueba escribir a mano en la URL <code>localhost:4200/mascotas/99</code> → aparece el mensaje &quot;No se encontró la mascota&quot;. El <code>@else</code> funcionando.</p></div></div>
+<p>Esto ya es una <strong>app real navegable y bonita</strong>. Tres pantallas, con fotos, con URLs propias.</p>
+</div>
 
-            <div class="checkpoint"><h3>Paso 7 · Probar el flujo completo</h3><p>Con <code>ng serve</code> activo, recorre Inicio → Ver mascotas → Firulais → <code>/mascotas/1</code> → Volver. La ficha debe mostrar foto y dueño, y Atrás debe conservar el comportamiento del navegador.</p></div>
-          </div>
-        </section>
+</section>
+<section class="section" id="s13">
+<div class="sec-head"><span class="sec-n">13 · VetCare</span><h2 class="sec-t">Lazy loading</h2><p class="sec-s">Cada página se descarga cuando se visita y el comportamiento se verifica en Network.</p></div>
+<div class="body"><h3>El problema que todavía no se ve, pero existe</h3>
+<p>Ahora mismo, al abrir la app, <strong>todo el código de las tres páginas se descarga de una</strong>, aunque el usuario solo quiera ver el Inicio. Con tres páginas no se nota. Pero una veterinaria real tendría citas, dueños, reportes, facturación... cuarenta pantallas. Descargarlas todas de golpe haría que la app <strong>abra lenta</strong>.</p>
+<h3>La pregunta de negocio</h3>
+<div class="socratica">
+<span class="component-label">Para pensar</span>
+<p class="socratica-q">Si un usuario entra solo a ver el Inicio y nunca abre reportes ni facturación, ¿tiene sentido que su navegador <strong>descargue el código de reportes y facturación</strong> apenas abre la app?</p>
+<details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+<p class="lead-answer">No tiene sentido, y <strong>no tiene que ser así</strong>.
+Con <strong>lazy loading</strong> (carga perezosa), el código de cada página se descarga <strong>solo cuando el usuario visita esa ruta</strong>.
+La app abre más rápido porque al inicio baja <strong>solo lo mínimo</strong>. Es el estándar profesional en apps que crecen.</p>
+<p>Una primera intuición habitual sería: No, pero así viene por defecto, ¿no?</p>
 
-        <section class="section" id="s11">
-          <div class="sec-head">
-            <span class="sec-n">11 · Rendimiento</span>
-            <h2 class="sec-t">Lazy loading: cargar cada página cuando se necesita</h2>
-            <p class="sec-s">Con tres vistas casi no se nota; con cuarenta, descargar todo al inicio vuelve lenta la aplicación.</p>
-          </div>
-          <div class="body">
-            <div class="socratica">
-              <span class="component-label">Pregunta de negocio</span>
-              <p class="socratica-q">Si un usuario solo entra al Inicio, ¿tiene sentido descargar de inmediato el código de reportes, facturación y configuración que quizá nunca visitará?</p>
-              <details class="reveal">
-                <summary>Ver respuesta</summary>
-                <div class="reveal-body">
-                  <p class="lead-answer">No: cada página puede descargarse justo cuando se visita.</p>
-                  <p>La aplicación no tiene que cargar todo por defecto. Lazy loading reduce la descarga inicial y se vuelve especialmente valioso cuando el sistema crece.</p>
-                </div>
-              </details>
-            </div>
-
-            <div class="twin">
-              <div class="cell a"><span class="tag">Definición técnica</span><p>Lazy loading es cargar un recurso en el momento en que se necesita. En routing, el código de una página se descarga al navegar a su URL.</p></div>
-              <div class="cell b"><span class="tag">Ejemplo cotidiano</span><p>Un buffet no sirve todos los platos al entrar; entrega el plato pedido cuando se necesita. El navegador hace lo mismo con cada vista.</p></div>
-            </div>
-
-            <div class="checkpoint"><h3>Paso 1 · Convertir las rutas a carga diferida</h3><p>Reemplaza <code>component</code> por <code>loadComponent</code>. Esta es la versión final consolidada de la tabla.</p></div>
-            <div class="code-block">
-              <div class="code-head"><div><span class="code-context">Reemplazar · versión final</span><span class="code-file">src/app/app.routes.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-              <pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
+</div></details></div>
+<h3>Definición y analogía</h3>
+<h3>Definición técnica</h3>
+<p><strong>Lazy loading</strong> es cargar un recurso <strong>en el momento en que se necesita</strong>, no antes. En routing: el código de una página se descarga <strong>al navegar a su ruta</strong>, no al arrancar la app.</p>
+<h3>Analogía de la vida real</h3>
+<p>Un buffet no te sirve <strong>todos</strong> los platos apenas entras. Te sirve <strong>el plato que pides, cuando lo pides</strong>. Lazy loading es igual: el navegador trae cada página cuando el usuario la pide, no todas de golpe.</p>
+<h3>Paso 1 — Convertir las rutas a lazy loading</h3>
+<p>Abrimos <code>src/app/app.routes.ts</code> (el que ya escribimos en el Bloque 11). Lo reemplazamos <strong>completo</strong> por esta versión:</p>
+<div class="code-block">
+<div class="code-head"><div><span class="code-context">Reemplazar · versión final</span><span class="code-file">src/app/app.routes.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+<pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
@@ -956,136 +917,74 @@ export const routes: Routes = [
       import('./pages/mascota-detalle/mascota-detalle').then(m =&gt; m.MascotaDetalle)
   }
 ];</code></pre>
-            </div>
-            <p>Los imports estáticos de las páginas desaparecen porque obligarían a cargarlas al inicio. <code>loadComponent</code> entrega una función; <code>import(...)</code> descarga el archivo al activar la ruta y <code>.then(...)</code> selecciona la clase exportada.</p>
+</div>
+<p><strong>Guardamos.</strong></p>
+<p>Esta es la <strong>versión final</strong> de <code>app.routes.ts</code>.</p>
+<h3>Dos cosas cambiaron — mirémoslas juntas</h3>
+<p><strong>1. Desaparecieron los <code>import</code> de arriba.</strong> Antes, al inicio del archivo, importábamos cada página (<code>import { Inicio } from ...</code>). Con lazy loading esos imports de arriba <strong>se quitan</strong>. Si los dejáramos, la página se cargaría de una y perderíamos el beneficio.</p>
+<p><strong>2. <code>component:</code> se volvió <code>loadComponent:</code>.</strong></p>
+<ul class="checklist"><li><code>component: Inicio</code> → &quot;muestra este componente&quot; (ya cargado).</li><li><code>loadComponent: () =&gt; import(...)</code> → &quot;cuando visiten esta ruta, <strong>entonces</strong> ve a buscar este componente&quot;.</li></ul>
+<h3>Leyendo una ruta lazy línea por línea</h3>
+<ul class="checklist"><li><strong><code>loadComponent: () =&gt; ...</code></strong> → una función que el Router llama <strong>solo cuando</strong> se visita la ruta.</li><li><strong><code>import('./pages/inicio/inicio')</code></strong> → descarga ese archivo en ese momento (esto es un <em>import dinámico</em>).</li><li><strong><code>.then(m =&gt; m.Inicio)</code></strong> → cuando termina de descargar, toma la clase <code>Inicio</code> de ese archivo.</li></ul>
+<div class="checkpoint"><span class="component-label">Comprobación</span><h3>Checkpoint · verlo con nuestros propios ojos (esto es lo que lo hace real)</h3></div>
+<p>Vamos a <strong>comprobar</strong> que cada página se descarga cuando toca. Es el momento más satisfactorio de la clase.</p>
+<div class="stepper"><div class="step-item"><span class="step-num">1</span><p>En el navegador, abrimos las <strong>herramientas de desarrollo</strong>: tecla <strong>F12</strong> (o clic derecho → &quot;Inspeccionar&quot;).</p></div><div class="step-item"><span class="step-num">2</span><p>Vamos a la pestaña <strong>Network</strong> (Red).</p></div><div class="step-item"><span class="step-num">3</span><p><strong>Recargamos</strong> la página del Inicio (F5). Se descargan unos pocos archivos.</p></div><div class="step-item"><span class="step-num">4</span><p>Ahora hacemos clic en <strong>&quot;Mascotas&quot;</strong> y miramos la lista de Network:</p></div></div>
+<p><strong>aparece un archivo nuevo descargándose en ese instante</strong> → es el código del Listado, que llegó <strong>justo cuando lo pedimos</strong>.</p>
+<div class="stepper"><div class="step-item"><span class="step-num">1</span><p>Clic en una mascota → <strong>otro archivo nuevo</strong> → el código del Detalle.</p></div></div>
+<p>Eso que acaban de ver es lazy loading: el código llega <strong>bajo demanda</strong>, no todo de entrada. Verlo en vivo vale más que mil explicaciones.</p>
+<h3>Cuándo NO usar lazy loading (criterio)</h3>
+<p>Si una página se necesita <strong>siempre y de inmediato</strong> (por ejemplo, un encabezado presente en todas las pantallas), cargarla perezosamente no aporta. Lazy loading brilla en <strong>páginas que no todos visitan</strong>: reportes, administración, configuración. Es criterio, no una receta para aplicar a ciegas.</p>
+</div>
 
-            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Cómo verificarlo</h3><p>En las herramientas del navegador, abre Network. Carga Inicio y luego entra a Mascotas: debe aparecer una nueva descarga correspondiente al listado justo en ese momento.</p></div></div>
-            <div class="callout" data-tone="warning"><span class="callout-icon">?</span><div><h3>Cuándo no aporta</h3><p>No conviene diferir algo necesario siempre y de inmediato, como el encabezado común. Lazy loading brilla en páginas que no todos visitan: reportes, administración o configuración.</p></div></div>
-          </div>
-        </section>
+</section>
+<section class="section" id="s14">
+<div class="sec-head"><span class="sec-n">14 · VetCare</span><h2 class="sec-t">IA con criterio</h2><p class="sec-s">Un prompt preciso y una lista de validación para evitar patrones antiguos de Angular.</p></div>
+<div class="body"><h3>Cómo integro la IA hoy</h3>
+<p>La IA es rápida generando rutas, componentes y estilos. Pero genera con frecuencia <strong>sintaxis vieja de Angular</strong>: <code>*ngIf</code>, <code>RouterModule.forRoot</code>, <code>ActivatedRoute</code> con suscripciones. Eso es exactamente lo que <strong>no</strong> usamos.</p>
+<h3>Un buen prompt para hoy</h3>
+<p>Este prompt especifica la versión y el patrón moderno:</p>
+<p>&quot;Genera las rutas de una app Angular 22 standalone con <code>provideRouter</code>, usando <code>loadComponent</code> para lazy loading y <code>withComponentInputBinding</code> para leer parámetros de ruta como <code>@Input</code>. Sin NgModule, sin <code>RouterModule</code>.&quot;</p>
+<p>Ser específico con la versión y las funciones evita que devuelva el patrón antiguo.</p>
+<h3>Qué validar en la respuesta de la IA</h3>
+<div class="socratica">
+<span class="component-label">Para pensar</span>
+<p class="socratica-q">La IA te devuelve un detalle que lee el <code>id</code> con <code>ActivatedRoute</code> y <code>.subscribe(...)</code>. ¿Lo aceptas porque funciona?</p>
+<details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+<p class="lead-answer">Funciona, pero <strong>no es lo que enseñamos</strong> ni lo más limpio.
+Nosotros leemos el <code>id</code> con <code>@Input</code> + <code>withComponentInputBinding</code>: menos código, y reutiliza lo que ya saben.
+Aceptar código solo porque &quot;funciona&quot;, sin criterio de si es la forma actual y mantenible, es lo que separa a un junior de un senior.</p>
+<p>Una primera intuición habitual sería: Sí, si funciona da igual.</p>
 
-        <section class="section" id="s12">
-          <div class="sec-head">
-            <span class="sec-n">12 · IA responsable</span>
-            <h2 class="sec-t">La IA propone; el desarrollador valida</h2>
-            <p class="sec-s">La versión de Angular y las decisiones de arquitectura deben quedar explícitas en el prompt y en la revisión.</p>
-          </div>
-          <div class="body">
-            <p>La IA genera rutas, componentes y estilos con rapidez, pero suele mezclar patrones antiguos: <code>*ngIf</code>, <code>RouterModule.forRoot</code> o <code>ActivatedRoute</code> con suscripciones.</p>
-            <div class="panel">
-              <h3>Prompt de trabajo</h3>
-              <p>“Genera las rutas de una app Angular 22 standalone con <code>provideRouter</code>, usando <code>loadComponent</code> para lazy loading y <code>withComponentInputBinding</code> para leer parámetros de ruta como <code>@Input</code>. Sin NgModule, sin <code>RouterModule</code>.”</p>
-            </div>
-            <p>Antes de pedir código, decide el patrón y la versión. Después compara la respuesta con las restricciones y con el código que ya existe.</p>
+</div></details></div>
+<h3>Errores que la IA suele meter aquí</h3>
+<ul class="checklist"><li>Usa <code><em>ngIf</code> / <code></em>ngFor</code> en vez de <code>@if</code> / <code>@for</code>.</li><li>Propone un <code>app.module.ts</code> con <code>@NgModule</code> (patrón viejo, ya no lo usamos).</li><li>Convierte el <code>id</code> sin <code>Number(...)</code> y el <code>find</code> nunca coincide.</li><li>En CSS, mete colores sueltos en vez de reutilizar tus variables.</li></ul>
+<p>Revisar el código <strong>antes de aceptarlo</strong> es la disciplina de la clase, no un detalle.</p>
+</div>
 
-            <div class="socratica">
-              <span class="component-label">Criterio profesional</span>
-              <p class="socratica-q">La IA devuelve un detalle que lee el id con <code>ActivatedRoute</code> y <code>.subscribe(...)</code>. ¿Se acepta solo porque funciona?</p>
-              <details class="reveal">
-                <summary>Ver respuesta</summary>
-                <div class="reveal-body">
-                  <p class="lead-answer">No se acepta sin evaluar si coincide con la arquitectura actual y el objetivo de la clase.</p>
-                  <p><code>ActivatedRoute</code> puede funcionar, pero aquí <code>@Input</code> y <code>withComponentInputBinding</code> ofrecen menos código y reutilizan un concepto conocido. El criterio está en escoger una solución mantenible, no en aceptar cualquier salida ejecutable.</p>
-                </div>
-              </details>
-            </div>
+</section>
+<section class="section" id="s15">
+<div class="sec-head"><span class="sec-n">15 · VetCare</span><h2 class="sec-t">Mapa de archivos</h2><p class="sec-s">Los 18 archivos y el orden real en que evolucionaron durante la clase.</p></div>
+<div class="body"><p>Orden real en que tocamos cada archivo:</p>
+<div class="table-wrap"><table class="data-table"><caption>Mapa de implementación</caption><thead><tr><th>#</th><th>Archivo</th><th>Ruta</th><th>Qué hicimos</th><th>Bloque</th></tr></thead><tbody><tr><td data-emphasis>1</td><td><code>styles.css</code></td><td><code>src/</code></td><td>Sistema de diseño global (colores, espaciado)</td><td>6</td></tr><tr><td data-emphasis>2</td><td><code>inicio.ts</code></td><td><code>src/app/pages/inicio/</code></td><td>Crear (CLI) + importar RouterLink</td><td>7</td></tr><tr><td data-emphasis>3</td><td><code>inicio.html</code></td><td><code>src/app/pages/inicio/</code></td><td>Bienvenida + botón</td><td>7</td></tr><tr><td data-emphasis>4</td><td><code>inicio.css</code></td><td><code>src/app/pages/inicio/</code></td><td>Estilo del hero</td><td>7</td></tr><tr><td data-emphasis>5</td><td><code>mascotas-listado.ts</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Crear (CLI) + lista con id y foto</td><td>8</td></tr><tr><td data-emphasis>6</td><td><code>mascotas-listado.html</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Grilla de tarjetas clickeables</td><td>8</td></tr><tr><td data-emphasis>7</td><td><code>mascotas-listado.css</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Grilla responsiva + hover</td><td>8</td></tr><tr><td data-emphasis>8</td><td><code>mascota-card.ts</code></td><td><code>src/app/components/mascota-card/</code></td><td>Agregar <code>@Input foto</code></td><td>9</td></tr><tr><td data-emphasis>9</td><td><code>mascota-card.html</code></td><td><code>src/app/components/mascota-card/</code></td><td>Imagen + estructura</td><td>9</td></tr><tr><td data-emphasis>10</td><td><code>mascota-card.css</code></td><td><code>src/app/components/mascota-card/</code></td><td>Estilo de la tarjeta</td><td>9</td></tr><tr><td data-emphasis>11</td><td><code>app.ts</code></td><td><code>src/app/</code></td><td>Vaciar a cascarón (RouterOutlet, RouterLink)</td><td>10</td></tr><tr><td data-emphasis>12</td><td><code>app.html</code></td><td><code>src/app/</code></td><td>Barra + <code>&lt;router-outlet&gt;</code></td><td>10</td></tr><tr><td data-emphasis>13</td><td><code>app.css</code></td><td><code>src/app/</code></td><td>Estilo del cascarón</td><td>10</td></tr><tr><td data-emphasis>14</td><td><code>mascota-detalle.ts</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Crear (CLI) + leer id + buscar</td><td>11, 12</td></tr><tr><td data-emphasis>15</td><td><code>app.routes.ts</code></td><td><code>src/app/</code></td><td>Tabla de rutas → luego lazy loading</td><td>11, 13</td></tr><tr><td data-emphasis>16</td><td><code>app.config.ts</code></td><td><code>src/app/</code></td><td>Agregar <code>withComponentInputBinding</code></td><td>12</td></tr><tr><td data-emphasis>17</td><td><code>mascota-detalle.html</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Ficha con <code>@if / @else</code></td><td>12</td></tr><tr><td data-emphasis>18</td><td><code>mascota-detalle.css</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Estilo del detalle</td><td>12</td></tr></tbody></table></div>
+</div>
 
-            <div class="cards">
-              <div class="card" data-accent="1"><span class="orb" data-accent="1" aria-hidden="true">1</span><b>Sintaxis</b><p>Rechaza <code>*ngIf</code> y <code>*ngFor</code> si el proyecto usa <code>@if</code> y <code>@for</code>.</p></div>
-              <div class="card" data-accent="2"><span class="orb" data-accent="2" aria-hidden="true">2</span><b>Arquitectura</b><p>Descarta <code>app.module.ts</code> y <code>@NgModule</code> en una aplicación standalone.</p></div>
-              <div class="card" data-accent="3"><span class="orb" data-accent="3" aria-hidden="true">3</span><b>Tipos</b><p>Verifica <code>Number(id)</code>; una comparación texto-número falla silenciosamente.</p></div>
-              <div class="card" data-accent="4"><span class="orb" data-accent="4" aria-hidden="true">4</span><b>Diseño</b><p>Evita colores aislados; exige reutilizar las variables del sistema visual.</p></div>
-            </div>
-            <div class="callout" data-tone="info"><span class="callout-icon">∆</span><div><h3>Disciplina de revisión</h3><p>Lee el diff antes de aceptar. Comprueba imports, versión, patrón de routing, conversión de tipos, estados vacíos y coherencia visual.</p></div></div>
-          </div>
-        </section>
-
-        <section class="section" id="s13">
-          <div class="sec-head">
-            <span class="sec-n">13 · Inventario técnico</span>
-            <h2 class="sec-t">Mapa completo de archivos</h2>
-            <p class="sec-s">Cada archivo tiene una ubicación, una acción y un momento concreto de la construcción.</p>
-          </div>
-          <div class="body">
-            <div class="table-wrap">
-              <table class="data-table">
-                <caption>Archivos creados o modificados durante la Clase 2</caption>
-                <thead><tr><th>Archivo</th><th>Ruta</th><th>Acción</th><th>Bloque</th></tr></thead>
-                <tbody>
-                  <tr><td><code>styles.css</code></td><td><code>src/</code></td><td>Editar: sistema de diseño global</td><td>6</td></tr>
-                  <tr><td><code>inicio.ts</code></td><td><code>src/app/pages/inicio/</code></td><td>Crear con CLI y editar</td><td>7</td></tr>
-                  <tr><td><code>inicio.html</code></td><td><code>src/app/pages/inicio/</code></td><td>Editar</td><td>7</td></tr>
-                  <tr><td><code>inicio.css</code></td><td><code>src/app/pages/inicio/</code></td><td>Editar</td><td>7</td></tr>
-                  <tr><td><code>mascotas-listado.ts</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Crear con CLI y editar</td><td>7</td></tr>
-                  <tr><td><code>mascotas-listado.html</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Editar</td><td>7</td></tr>
-                  <tr><td><code>mascotas-listado.css</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Editar</td><td>7</td></tr>
-                  <tr><td><code>mascota-card.ts</code></td><td><code>src/app/components/mascota-card/</code></td><td>Editar: agregar <code>@Input foto</code></td><td>8</td></tr>
-                  <tr><td><code>mascota-card.html</code></td><td><code>src/app/components/mascota-card/</code></td><td>Editar: imagen y estructura</td><td>8</td></tr>
-                  <tr><td><code>mascota-card.css</code></td><td><code>src/app/components/mascota-card/</code></td><td>Editar: estilo de tarjeta</td><td>8</td></tr>
-                  <tr><td><code>app.ts</code></td><td><code>src/app/</code></td><td>Editar: cascarón</td><td>9</td></tr>
-                  <tr><td><code>app.html</code></td><td><code>src/app/</code></td><td>Editar: barra y outlet</td><td>9</td></tr>
-                  <tr><td><code>app.css</code></td><td><code>src/app/</code></td><td>Editar: estilo del cascarón</td><td>9</td></tr>
-                  <tr><td><code>mascota-detalle.ts</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Crear con CLI y editar</td><td>10</td></tr>
-                  <tr><td><code>mascota-detalle.html</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Editar</td><td>10</td></tr>
-                  <tr><td><code>mascota-detalle.css</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Editar</td><td>10</td></tr>
-                  <tr><td><code>app.config.ts</code></td><td><code>src/app/</code></td><td>Editar: agregar binding de parámetros</td><td>10</td></tr>
-                  <tr><td><code>app.routes.ts</code></td><td><code>src/app/</code></td><td>Editar: versión final con lazy loading</td><td>10, 11</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="s14">
-          <div class="sec-head">
-            <span class="sec-n">14 · Cierre y continuidad</span>
-            <h2 class="sec-t">VetCare ya es una aplicación navegable</h2>
-            <p class="sec-s">El routing conecta lo aprendido en componentes con el estado compartido que sigue.</p>
-          </div>
-          <div class="body">
-            <ul class="checklist">
-              <li>Comprendes qué es una SPA y qué problema resuelve el routing.</li>
-              <li>VetCare pasó de una pantalla a Inicio, Listado y Detalle.</li>
-              <li>La interfaz comparte paleta, espaciado, tarjetas y feedback visual.</li>
-              <li>El parámetro <code>:id</code> llega al detalle mediante <code>@Input</code>.</li>
-              <li>Las páginas se cargan de forma diferida con <code>loadComponent</code>.</li>
-            </ul>
-
-            <div class="flow">
-              <div class="flow-step"><b><code>app</code></b><span>Barra + outlet</span></div>
-              <span class="flow-arrow" aria-hidden="true">→</span>
-              <div class="flow-step" data-emphasis><b><code>pages/</code></b><span>Inicio · Listado · Detalle</span></div>
-              <span class="flow-arrow" aria-hidden="true">→</span>
-              <div class="flow-step"><b><code>components/</code></b><span>Tarjeta reutilizable</span></div>
-            </div>
-            <p>El sistema de diseño vive en <code>styles.css</code>. Las rutas se declaran en <code>app.routes.ts</code> y <code>provideRouter</code> las activa desde <code>app.config.ts</code>.</p>
-
-            <div class="callout" data-tone="warning"><span class="callout-icon">→</span><div><h3>Puente a la Clase 3</h3><p>Listado y Detalle todavía mantienen copias separadas de las mismas mascotas. Signals y servicios crearán una sola fuente de estado compartida; en la Clase 4, ese servicio consultará el backend real.</p></div></div>
-
-            <div class="socratica">
-              <span class="component-label">Para continuar pensando</span>
-              <p class="socratica-q">Si Listado y Detalle conservan su propia copia de la lista, ¿qué ocurre cuando se agrega una mascota y por qué se vuelve un problema en una aplicación grande?</p>
-              <details class="reveal">
-                <summary>Ver respuesta</summary>
-                <div class="reveal-body">
-                  <p class="lead-answer">Habría que actualizar varias copias y podrían quedar inconsistentes.</p>
-                  <p>Duplicar el mismo estado hace más costoso mantenerlo y permite que dos pantallas presenten versiones distintas. La siguiente clase resolverá el problema con una fuente compartida mediante Signals y servicios.</p>
-                </div>
-              </details>
-            </div>
-
-            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Evidencia observable</h3><p>Inicio navega al listado; cada tarjeta abre su detalle; las URLs cambian sin recarga; Atrás funciona; una ruta inexistente muestra un mensaje; Network evidencia la carga diferida.</p></div></div>
-          </div>
-          <p class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</p>
-        </section>
-      </div>
+</section>
+<section class="section" id="s16">
+<div class="sec-head"><span class="sec-n">16 · VetCare</span><h2 class="sec-t">Cierre y siguiente paso</h2><p class="sec-s">Arquitectura lograda, evidencia observable y puente hacia Signals y servicios.</p></div>
+<div class="body"><h3>Lo que logramos hoy</h3>
+<ul class="checklist"><li>Entendimos qué es una <strong>SPA</strong> y qué es el <strong>routing</strong>.</li><li>Convertimos VetCare de una pantalla a <strong>tres páginas navegables</strong>.</li><li>Le dimos una <strong>identidad visual de veterinaria moderna</strong> (sistema de diseño, azul, tarjetas con foto, hover).</li><li>Leímos <strong>parámetros de ruta</strong> (<code>:id</code>) con <code>@Input</code>, reutilizando lo de la Clase 1.</li><li>Aplicamos <strong>lazy loading</strong> real y lo <strong>comprobamos</strong> en la pestaña Network.</li></ul>
+<h3>Cómo quedó la arquitectura (recuento visual)</h3>
+<ul class="checklist"><li><code>app</code> es el <strong>cascarón</strong>: barra de navegación + <code>&lt;router-outlet&gt;</code>.</li><li>Cada <strong>página</strong> vive en <code>pages/</code> con su propia URL y su propio estilo.</li><li>La <strong>pieza</strong> <code>mascota-card</code> se reutiliza dentro del Listado.</li><li>El <strong>sistema de diseño</strong> vive en <code>styles.css</code> y lo usa toda la app.</li><li>Las rutas viven en <code>app.routes.ts</code>, encendidas por <code>provideRouter</code> en <code>app.config.ts</code>.</li></ul>
+<h3>Puente a la Clase 3</h3>
+<p>Hoy los datos de las mascotas están <strong>repetidos</strong>: una lista en el Listado, otra en el Detalle. Eso es una mala práctica (dato duplicado, difícil de mantener).</p>
+<p>La Clase 3 introduce <strong>Signals</strong> y <strong>servicios</strong>: un único lugar que guarda el estado de las mascotas y lo comparte entre páginas. Ahí resolvemos esa duplicación, y dejamos todo listo para que en la <strong>Clase 4</strong> ese servicio pida los datos al backend real de VetCare.</p>
+<h3>Pregunta para pensar hasta la próxima clase</h3>
+<p>&quot;Si tanto el Listado como el Detalle tienen su <strong>propia copia</strong> de la lista de mascotas, ¿qué pasa el día que agreguemos una mascota nueva? ¿En cuántos lugares hay que actualizarla, y qué problema real trae eso en una app grande?&quot;</p>
+</div>
+<p class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</p>
+</section></div>
     </main>
   </div>
-
   <div class="watermark" aria-hidden="true">© 2026 ANA ALVARADO</div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-  <script src="ana-clase.js"></script>
-</body>
-</html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script><script src="ana-clase.js"></script>
+</body></html>
