@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<!--
+  MÓDULO 1 · CLASE 3 · GESTIÓN DE ESTADO Y COMUNICACIÓN ENTRE COMPONENTES
+  ANA LEARNING EXPERIENCE SYSTEM v9.0 "ESCENAS VIVAS"
+  © 2026 Ana Alvarado
+-->
+<html lang="es" data-tema="oscuro" data-tema-base="oscuro" data-empresa="dev-senior" data-paleta="cobalto" data-atmosfera="datos">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ana Alvarado">
+  <meta name="copyright" content="© 2026 Ana Alvarado — Todos los derechos reservados">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <title>Clase 3 · Gestión de Estado y Comunicación entre Componentes · Ana Alvarado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+  <link rel="stylesheet" href="anaestilos-v9.css">
+</head>
+<body>
+  <a class="skip-link" href="#s1">Saltar al contenido</a>
+  <div class="topline" id="topline" aria-hidden="true"></div>
+  <div class="controls" aria-label="Controles">
+    <button class="ctrl" id="temaBtn" type="button" aria-label="Cambiar tema">☀</button>
+    <button class="ctrl" id="fullscreenBtn" type="button" aria-label="Pantalla completa">⛶</button>
+  </div>
+
+  <div class="shell" id="shell" data-collapsed="false">
+    <aside class="sidebar" aria-label="Índice de la clase">
+      <div class="sb-top">
+        <span class="brand-mark">A</span>
+        <div class="sb-title"><b>Dev Senior · Angular</b><span>Módulo 1 · Clase 3</span></div>
+      </div>
+      <button class="sb-toggle" id="collapseBtn" type="button" aria-label="Colapsar menú">‹</button>
+      <nav class="sb-nav" id="nav" aria-label="Secciones">
+        <a class="nav-item active" data-icon="✦" href="#portada"><span class="nav-index">00</span><span class="nav-label">Portada</span></a>
+        <a class="nav-item" data-icon="🧭" href="#s1"><span class="nav-index">01</span><span class="nav-label">Dónde quedó VetCare</span></a>
+        <a class="nav-item" data-icon="🪞" href="#s2"><span class="nav-index">02</span><span class="nav-label">Duplicación visible</span></a>
+        <a class="nav-item" data-icon="🎧" href="#s3"><span class="nav-index">03</span><span class="nav-label">Pregunta de negocio</span></a>
+        <a class="nav-item" data-icon="⚠️" href="#s4"><span class="nav-index">04</span><span class="nav-label">El problema</span></a>
+        <a class="nav-item" data-icon="🧠" href="#s5"><span class="nav-index">05</span><span class="nav-label">Qué es estado</span></a>
+        <a class="nav-item" data-icon="📋" href="#s6"><span class="nav-index">06</span><span class="nav-label">La pizarra central</span></a>
+        <a class="nav-item" data-icon="📡" href="#s7"><span class="nav-index">07</span><span class="nav-label">Signals</span></a>
+        <a class="nav-item" data-icon="⚙️" href="#s8"><span class="nav-index">08</span><span class="nav-label">Leer y actualizar</span></a>
+        <a class="nav-item" data-icon="🔎" href="#s9"><span class="nav-index">09</span><span class="nav-label">Buscador local</span></a>
+        <a class="nav-item" data-icon="🧮" href="#s10"><span class="nav-index">10</span><span class="nav-label">computed()</span></a>
+        <a class="nav-item" data-icon="⌨️" href="#s11"><span class="nav-index">11</span><span class="nav-label">Vista y foco</span></a>
+        <a class="nav-item" data-icon="⬇️" href="#s12"><span class="nav-index">12</span><span class="nav-label">Input</span></a>
+        <a class="nav-item" data-icon="⬆️" href="#s13"><span class="nav-index">13</span><span class="nav-label">Output</span></a>
+        <a class="nav-item" data-icon="♿" href="#s14"><span class="nav-index">14</span><span class="nav-label">Botón accesible</span></a>
+        <a class="nav-item" data-icon="🫧" href="#s15"><span class="nav-index">15</span><span class="nav-label">Event bubbling</span></a>
+        <a class="nav-item" data-icon="🔁" href="#s16"><span class="nav-index">16</span><span class="nav-label">Flujo de datos</span></a>
+        <a class="nav-item" data-icon="🏛️" href="#s17"><span class="nav-index">17</span><span class="nav-label">Por qué un servicio</span></a>
+        <a class="nav-item" data-icon="🛠️" href="#s18"><span class="nav-index">18</span><span class="nav-label">Generar servicio</span></a>
+        <a class="nav-item" data-icon="🧱" href="#s19"><span class="nav-index">19</span><span class="nav-label">Fuente única</span></a>
+        <a class="nav-item" data-icon="🛡️" href="#s20"><span class="nav-index">20</span><span class="nav-label">Inmutabilidad</span></a>
+        <a class="nav-item" data-icon="📚" href="#s21"><span class="nav-index">21</span><span class="nav-label">Listado · lógica</span></a>
+        <a class="nav-item" data-icon="🖼️" href="#s22"><span class="nav-index">22</span><span class="nav-label">Listado · vista</span></a>
+        <a class="nav-item" data-icon="🐾" href="#s23"><span class="nav-index">23</span><span class="nav-label">Detalle · lógica</span></a>
+        <a class="nav-item" data-icon="🔍" href="#s24"><span class="nav-index">24</span><span class="nav-label">Detalle · vista</span></a>
+        <a class="nav-item" data-icon="💗" href="#s25"><span class="nav-index">25</span><span class="nav-label">Corazón en tarjeta</span></a>
+        <a class="nav-item" data-icon="🎯" href="#s26"><span class="nav-index">26</span><span class="nav-label">Corazón en detalle</span></a>
+        <a class="nav-item" data-icon="🔴" href="#s27"><span class="nav-index">27</span><span class="nav-label">Badge reactivo</span></a>
+        <a class="nav-item" data-icon="📐" href="#s28"><span class="nav-index">28</span><span class="nav-label">Píldora y posición</span></a>
+        <a class="nav-item" data-icon="✅" href="#s29"><span class="nav-index">29</span><span class="nav-label">Prueba completa</span></a>
+        <a class="nav-item" data-icon="💾" href="#s30"><span class="nav-index">30</span><span class="nav-label">Reto effect()</span></a>
+        <a class="nav-item" data-icon="🤖" href="#s31"><span class="nav-index">31</span><span class="nav-label">IA como copiloto</span></a>
+        <a class="nav-item" data-icon="🗺️" href="#s32"><span class="nav-index">32</span><span class="nav-label">Mapa de archivos</span></a>
+        <a class="nav-item" data-icon="🚀" href="#s33"><span class="nav-index">33</span><span class="nav-label">Cierre y puente</span></a>
+      </nav>
+      <div class="sb-prog">
+        <div class="lbl"><span>Progreso</span><span id="progPct">0%</span></div>
+        <div class="track"><div class="fill" id="progFill"></div></div>
+      </div>
+      <p class="sb-foot">© 2026 Ana Alvarado<br>Educadora Tech &amp; Desarrolladora Full Stack</p>
+    </aside>
+
+    <main class="main">
+      <header class="hero view" id="portada" data-accent="1">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">VetCare Frontend · Módulo 1 · Clase 3</span>
+            <h1 class="hero-title">Un solo estado. <em>Toda la app sincronizada.</em></h1>
+            <p class="hero-lead">Vas a centralizar los datos de VetCare con Signals y servicios, completar la comunicación entre componentes y construir favoritos que responden al mismo clic en Listado, Detalle y navegación.</p>
+            <div class="meta">
+              <span class="pill" data-hot>Angular Signals</span>
+              <span class="pill">Estado local y compartido</span>
+              <span class="pill">Input + Output</span>
+              <span class="pill">VetCare</span>
+            </div>
+          </div>
+          <figure class="hero-visual">
+            <svg viewBox="0 0 420 420" role="img" aria-label="Una señal central sincroniza tres puntos de la aplicación">
+              <circle cx="210" cy="210" r="58" fill="var(--surf-1)" stroke="var(--a1)" stroke-width="7"/>
+              <circle cx="210" cy="210" r="118" fill="none" stroke="var(--a2)" stroke-width="3" stroke-dasharray="8 12"/>
+              <circle cx="210" cy="210" r="172" fill="none" stroke="var(--a4)" stroke-width="2" stroke-dasharray="3 16"/>
+              <path d="M210 152V62M159 239L81 284M261 239l78 45" fill="none" stroke="var(--a3)" stroke-width="7" stroke-linecap="round"/>
+              <circle cx="210" cy="48" r="22" fill="var(--a2)"/>
+              <circle cx="67" cy="292" r="22" fill="var(--a4)"/>
+              <circle cx="353" cy="292" r="22" fill="var(--a3)"/>
+              <path d="M186 210h48M210 186v48" stroke="var(--a1)" stroke-width="10" stroke-linecap="round"/>
+            </svg>
+            <figcaption class="hero-note">La arquitectura de hoy: una fuente única de verdad, tres vistas siempre de acuerdo.</figcaption>
+          </figure>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="section view" id="s1" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧭</span>
+            <div class="sec-copy">
+              <span class="sec-n">01 · Recuento de la Clase 2</span>
+              <h2 class="sec-t">VetCare ya sabe navegar</h2>
+              <p class="sec-s">La app pasó de una pantalla a tres páginas conectadas. Hoy partimos de esa arquitectura, no desde cero.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="timeline">
+              <div class="timeline-item"><h3>Una app de tres páginas</h3><p>Inicio, Listado de mascotas y Detalle de cada mascota. El <strong>Router de Angular</strong> decide qué componente mostrar según la URL actual, sin recargar la página.</p></div>
+              <div class="timeline-item"><h3>Las tres piezas del routing</h3><p><code>app.routes.ts</code> es la tabla URL → componente; <code>&lt;router-outlet&gt;</code> es el espacio donde se dibuja la página activa; <code>routerLink</code> navega sin recargar.</p></div>
+              <div class="timeline-item"><h3>El <code>id</code> viaja en la URL</h3><p>Al abrir Firulais, la URL cambia a <code>/mascotas/1</code>. <code>MascotaDetalle</code> recibe ese <code>1</code> con <code>@Input() id</code>, gracias a <code>withComponentInputBinding()</code> en <code>app.config.ts</code>. Es el mismo Input: esta vez el dato llega desde la URL.</p></div>
+              <div class="timeline-item"><h3>Lazy loading</h3><p>Las rutas cambiaron <code>component:</code> por <code>loadComponent:</code>. Cada página se descarga solo cuando el usuario la visita.</p></div>
+              <div class="timeline-item"><h3>Un sistema de diseño compartido</h3><p><code>styles.css</code> centraliza <code>--azul-principal</code>, <code>--espacio-md</code>, <code>--radio</code>, <code>--sombra</code> y más. Flexbox organiza navegación y detalle; CSS Grid usa <code>repeat(auto-fill, minmax(240px, 1fr))</code> para responder sin media queries.</p></div>
+            </div>
+            <div class="callout" data-tone="info">
+              <span class="callout-icon">i</span>
+              <div><h3>Punto de partida</h3><p>La navegación ya funciona. La deuda que quedó visible es otra: Listado y Detalle guardan copias separadas de las mismas mascotas.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s2" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🪞</span>
+            <div class="sec-copy">
+              <span class="sec-n">02 · La duplicación frente al espejo</span>
+              <h2 class="sec-t">La misma información escrita dos veces</h2>
+              <p class="sec-s">Estos eran los dos archivos al cerrar la Clase 2. Léelos como una sola decisión repetida en lugares distintos.</p>
+            </div>
+          </div>
+          <div class="body">
+            <p>Referencia completa de <code>src/app/pages/mascotas-listado/mascotas-listado.ts</code>:</p>
+            <div class="code-block">
+              <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+              <pre class="line-numbers"><code class="language-typescript">import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { MascotaCard } from '../../components/mascota-card/mascota-card';
+
+@Component({
+  selector: 'app-mascotas-listado',
+  imports: [RouterLink, MascotaCard],
+  templateUrl: './mascotas-listado.html',
+  styleUrl: './mascotas-listado.css'
+})
+export class MascotasListado {
+  mascotas = [
+    { id: 1, nombre: 'Firulais', especie: 'Perro', edad: 4, foto: 'https://placedog.net/400/300?id=1' },
+    { id: 2, nombre: 'Michi', especie: 'Gato', edad: 2, foto: 'https://loremflickr.com/400/300/cat?lock=2' },
+    { id: 3, nombre: 'Rocky', especie: 'Perro', edad: 6, foto: 'https://placedog.net/400/300?id=7' }
+  ];
+}</code></pre>
+            </div>
+            <p>Referencia completa de <code>src/app/pages/mascota-detalle/mascota-detalle.ts</code>:</p>
+            <div class="code-block">
+              <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+              <pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-mascota-detalle',
+  imports: [RouterLink],
+  templateUrl: './mascota-detalle.html',
+  styleUrl: './mascota-detalle.css'
+})
+export class MascotaDetalle {
+  @Input() id = '';
+
+  private mascotas = [
+    { id: 1, nombre: 'Firulais', especie: 'Perro', edad: 4, dueno: 'Ana Torres', foto: 'https://placedog.net/600/400?id=1' },
+    { id: 2, nombre: 'Michi', especie: 'Gato', edad: 2, dueno: 'Luis Pérez', foto: 'https://loremflickr.com/600/400/cat?lock=2' },
+    { id: 3, nombre: 'Rocky', especie: 'Perro', edad: 6, dueno: 'María Gómez', foto: 'https://placedog.net/600/400?id=7' }
+  ];
+
+  get mascota() {
+    return this.mascotas.find(m =&gt; m.id === Number(this.id));
+  }
+}</code></pre>
+            </div>
+            <div class="socratica">
+              <span class="component-label">Para pensar</span>
+              <p class="socratica-q">¿Qué tienen en común esas dos listas de mascotas?</p>
+              <p class="socratica-hint">Compara los datos, pero también observa en cuántos archivos viven.</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+                <p class="lead-answer">Son la misma información escrita dos veces, a mano, en archivos distintos.</p>
+                <p>Aunque una lista tenga el campo <code>dueno</code> y use fotos de otro tamaño, ambas intentan representar las mismas mascotas. Esa duplicación es la incomodidad que impulsa toda la clase.</p>
+              </div></details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s3" data-accent="3" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🎧</span>
+            <div class="sec-copy">
+              <span class="sec-n">03 · Pregunta de negocio</span>
+              <h2 class="sec-t">Un clic, tres pantallas de acuerdo</h2>
+              <p class="sec-s">Spotify hace visible el problema: dar “me gusta” en un lugar actualiza la lista, la reproducción actual y las canciones guardadas.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="socratica">
+              <span class="component-label">Para pensar</span>
+              <p class="socratica-q">¿Cómo logra una app que un solo clic actualice otras pantallas sin recargar y sin tener tres copias del dato?</p>
+              <p class="socratica-hint">La velocidad no se explica solo con “consultar la base de datos”. Piensa en lo que vive dentro del navegador.</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+                <p class="lead-answer">Existe un único lugar en el navegador que guarda el estado compartido.</p>
+                <p>No es magia ni depende únicamente de la base de datos. Todas las pantallas leen del mismo lugar; cuando cambia, cada parte que lo usa se actualiza. En VetCare construiremos ese lugar con <strong>Signals</strong> y <strong>servicios</strong>.</p>
+              </div></details>
+            </div>
+            <div class="shape-board">
+              <div class="shape-card" data-accent="1"><span class="emoji" aria-hidden="true">📋</span><strong>Listado</strong><p>Marca a Firulais como favorito.</p></div>
+              <div class="shape-card" data-accent="2"><span class="emoji" aria-hidden="true">🔎</span><strong>Detalle</strong><p>Refleja el corazón marcado.</p></div>
+              <div class="shape-card" data-accent="3"><span class="emoji" aria-hidden="true">🔴</span><strong>Navegación</strong><p>Actualiza el contador.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s4" data-accent="4" data-layout="focus" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">⚠️</span>
+            <div class="sec-copy">
+              <span class="sec-n">04 · El problema real</span>
+              <h2 class="sec-t">Datos duplicados y componentes que no pueden avisar</h2>
+              <p class="sec-s">VetCare crecerá hacia citas, dueños, login y facturación. Una arquitectura frágil se vuelve más costosa con cada pantalla.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="compare">
+              <div class="compare-card" data-side="negative"><h3>Copias por página</h3><ul><li>Actualizar una mascota obliga a cambiar varios archivos.</li><li>Dos pantallas pueden mostrar valores distintos del mismo dato.</li><li>Un cambio no tiene cómo notificar a las demás vistas.</li></ul></div>
+              <div class="compare-card" data-side="positive"><h3>Una fuente compartida</h3><ul><li>El dato cambia en un único lugar.</li><li>Todas las pantallas leen el mismo estado.</li><li>Las vistas reaccionan cuando la fuente notifica un cambio.</li></ul></div>
+            </div>
+            <div class="panel"><h3>La segunda pieza que falta</h3><p>Hasta ahora el dato solo baja del Listado a <code>mascota-card</code> mediante <code>@Input</code>. El hijo puede mostrar información, pero todavía no puede avisar al padre: “el usuario marcó esta mascota como favorita”. Para eso necesitaremos un <strong>Output</strong>.</p></div>
+            <div class="socratica">
+              <span class="component-label">Para pensar</span>
+              <p class="socratica-q">¿Alcanzan <code>@Input</code> y propiedades normales para sincronizar Listado, Detalle y navegación?</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+                <p class="lead-answer">No: necesitamos comunicación hacia arriba y un estado capaz de notificar cambios.</p>
+                <p><code>@Input</code> solo comunica de padre a hijo. Las tres pantallas no forman esa relación entre sí, y una propiedad normal no garantiza que Angular detecte y redibuje cada dependencia. Signals resuelve la notificación; un servicio resuelve el lugar compartido.</p>
+              </div></details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s5" data-accent="1" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧠</span>
+            <div class="sec-copy">
+              <span class="sec-n">05 · Concepto central</span>
+              <h2 class="sec-t">¿Qué es el estado de una aplicación?</h2>
+              <p class="sec-s">El estado conecta lo que pasó con lo que el usuario ve ahora.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="panel"><h3>Definición técnica</h3><p><strong>Estado</strong> es toda la información que puede cambiar con el tiempo y que determina lo que el usuario ve en pantalla en un momento dado.</p><p>Si un valor depende de lo que hizo el usuario —escribió, hizo clic o cargó datos— forma parte del estado: el texto de un buscador, un menú abierto o la lista de favoritos.</p></div>
+            <div class="cards">
+              <div class="card" data-accent="1"><span class="orb" data-accent="1"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v10H4zM8 4h8v4"/></svg></span><b>Ejemplo cotidiano</b><p>En un cajero, el estado incluye cuánto dinero queda disponible para retirar durante la sesión.</p></div>
+              <div class="card" data-accent="2"><span class="orb" data-accent="2"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.7A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg></span><b>En VetCare</b><p>Qué mascotas existen y cuáles marcó el usuario como favoritas.</p></div>
+            </div>
+            <div class="compare">
+              <div class="compare-card" data-side="positive"><h3>Estado local</h3><ul><li>Le pertenece a un componente.</li><li>A nadie más le importa.</li><li>Ejemplo: texto del buscador del Listado.</li></ul></div>
+              <div class="compare-card" data-side="negative"><h3>Estado compartido</h3><ul><li>Varias vistas lo leen o modifican.</li><li>No requiere relación padre-hijo.</li><li>Ejemplo: mascotas favoritas.</li></ul></div>
+            </div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Regla de oro</h3><p>Estado local vive en el componente. Estado compartido vive en un servicio.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s6" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">📋</span>
+            <div class="sec-copy">
+              <span class="sec-n">06 · Modelo mental</span>
+              <h2 class="sec-t">De muchas libretas a una pizarra central</h2>
+              <p class="sec-s">Una recepción funciona cuando los consultorios comparten la misma información actualizada.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="mindmap">
+              <div class="mindmap-core"><strong>Servicio + Signals</strong><span>La pizarra central de VetCare</span></div>
+              <div class="mindmap-branches">
+                <div class="mindmap-node" data-accent="1"><strong>Listado</strong><p>Mira la misma pizarra para renderizar tarjetas y favoritos.</p></div>
+                <div class="mindmap-node" data-accent="2"><strong>Detalle</strong><p>Consulta la misma mascota y el mismo corazón.</p></div>
+                <div class="mindmap-node" data-accent="3"><strong>Navegación</strong><p>Cuenta favoritos desde la misma fuente.</p></div>
+                <div class="mindmap-node" data-accent="4"><strong>Clase 4</strong><p>El backend alimentará la pizarra desde un solo lugar.</p></div>
+              </div>
+            </div>
+            <div class="twin">
+              <div class="cell a"><span class="tag">Antes</span><p>Cada consultorio tenía su propia libreta de pacientes, copiada a mano de la libreta de al lado.</p></div>
+              <div class="cell b"><span class="tag">Ahora</span><p>Todos miran una pizarra común. Cuando alguien la actualiza, quienes dependen del dato lo ven sin avisos manuales.</p></div>
+            </div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Alcance de hoy</h3><p>El backend real todavía no entra. Dejamos la arquitectura lista para que la conexión de la Clase 4 sea un cambio localizado dentro del servicio, no una reescritura de la app.</p></div></div>
+          </div>
+        </section>
+        <section class="section view" id="s7" data-accent="3" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">📡</span>
+            <div class="sec-copy">
+              <span class="sec-n">07 · Introducción a Signals</span>
+              <h2 class="sec-t">Una variable que sabe quién la está mirando</h2>
+              <p class="sec-s">Signals convierten el cambio de datos en una notificación precisa.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="panel"><h3>Definición técnica</h3><p>Una <strong>Signal</strong> es un contenedor de un valor que notifica automáticamente a quien lo esté usando cuando ese valor cambia.</p><p>En sencillo: es una variable “inteligente”. Guarda el dato, registra quién lo lee y avisa a esas partes para que se actualicen.</p></div>
+            <div class="compare">
+              <div class="compare-card" data-side="negative"><h3>Propiedad normal</h3><ul><li>Guarda un valor.</li><li>Angular debe revisar qué pudo cambiar.</li><li>Es como buscar una aguja repasando todo el pajar.</li></ul></div>
+              <div class="compare-card" data-side="positive"><h3>Signal</h3><ul><li>Guarda el valor y conoce sus dependencias.</li><li>Notifica exactamente qué parte debe redibujarse.</li><li>Hace el cambio más predecible y localizado.</li></ul></div>
+            </div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Aplicación profesional</h3><p>Signals es el mecanismo oficial y moderno de Angular para estado reactivo. Para estado simple reemplaza patrones más pesados como <code>BehaviorSubject</code>. React tiene hooks de estado: la idea común es que los datos notifican sus cambios.</p></div></div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Hacia dónde va Angular</h3><p>El framework evoluciona para depender menos de revisar toda la app y más de las relaciones explícitas entre Signals y sus consumidores.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s8" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">⚙️</span>
+            <div class="sec-copy">
+              <span class="sec-n">08 · Mecánica base</span>
+              <h2 class="sec-t">Crear, leer y actualizar una Signal</h2>
+              <p class="sec-s">Primero dominamos la caja; después la conectamos a VetCare.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Paso 1</span><h3>Crear una Signal con valor inicial</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Ejemplo</span><span class="code-file">Signal mínima · TypeScript</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { signal } from '@angular/core';
+
+contador = signal(0);</code></pre></div>
+            <p><code>signal(0)</code> crea una Signal cuyo valor inicial es <code>0</code>. <code>contador</code> ya no es un número: es una caja que contiene un número.</p>
+            <div class="checkpoint"><span class="component-label">Paso 2</span><h3>Leer el valor llamando la Signal</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Leer</span><span class="code-file">TypeScript y plantilla</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">console.log(contador());</code></pre></div>
+            <div class="panel"><h3>La regla de los paréntesis</h3><p><code>contador</code> es la caja; <code>contador()</code> significa “abre la caja y dame el valor”. En HTML se lee igual: <code>{{ contador() }}</code>, nunca <code>{{ contador }}</code>.</p></div>
+            <div class="checkpoint"><span class="component-label">Paso 3</span><h3>Elegir entre <code>set()</code> y <code>update()</code></h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Actualizar</span><span class="code-file">Signal mínima · TypeScript</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">contador.set(10);
+
+contador.update(valorActual =&gt; valorActual + 1);</code></pre></div>
+            <div class="twin"><div class="cell a"><span class="tag">set()</span><p>Reemplaza el valor directamente. Úsalo cuando ya conoces el valor nuevo.</p></div><div class="cell b"><span class="tag">update()</span><p>Recibe el valor actual y devuelve el nuevo. Úsalo cuando el cambio depende del anterior; evita trabajar con un valor viejo.</p></div></div>
+            <div class="callout" data-tone="danger"><span class="callout-icon">!</span><div><h3>Error típico #1 · Falta llamar la Signal</h3><p><strong>Qué sale:</strong> el HTML muestra algo como <code>function</code> o nada útil. <strong>Cómo se lee:</strong> Angular recibió la caja, no su contenido. <strong>Solución:</strong> usar <code>contador()</code>.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s9" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🔎</span>
+            <div class="sec-copy">
+              <span class="sec-n">09 · Estado local en acción</span>
+              <h2 class="sec-t">El buscador pertenece al Listado</h2>
+              <p class="sec-s">Filtrará en cada tecla, sin botón y sin recarga. Nadie fuera de esta página necesita conocer su texto.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Paso 1 · Editar</span><h3>Convertir <code>mascotas</code> en Signal y agregar <code>busqueda</code></h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Editar</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { MascotaCard } from '../../components/mascota-card/mascota-card';
+
+@Component({
+  selector: 'app-mascotas-listado',
+  imports: [RouterLink, MascotaCard],
+  templateUrl: './mascotas-listado.html',
+  styleUrl: './mascotas-listado.css'
+})
+export class MascotasListado {
+  mascotas = signal([
+    { id: 1, nombre: 'Firulais', especie: 'Perro', edad: 4, foto: 'https://placedog.net/400/300?id=1' },
+    { id: 2, nombre: 'Michi', especie: 'Gato', edad: 2, foto: 'https://loremflickr.com/400/300/cat?lock=2' },
+    { id: 3, nombre: 'Rocky', especie: 'Perro', edad: 6, foto: 'https://placedog.net/400/300?id=7' }
+  ]);
+
+  busqueda = signal('');
+}</code></pre></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Este archivo todavía es intermedio</h3><p>En el Bloque 15 la lista se mudará al servicio. Por ahora practicamos Signals dentro de un componente conocido.</p></div></div>
+            <div class="checkpoint"><span class="component-label">Paso 2 · Añadir</span><h3>Escuchar cada cambio del campo de búsqueda</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Añadir</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.html</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-html">&lt;h1 class="titulo-pagina"&gt;Mascotas de VetCare&lt;/h1&gt;
+
+&lt;input
+  #inputBusqueda
+  type="text"
+  class="buscador"
+  placeholder="Buscar mascota por nombre..."
+  (input)="busqueda.set(inputBusqueda.value)"
+/&gt;</code></pre></div>
+            <div class="cards">
+              <div class="card" data-accent="1"><span class="orb" data-accent="1"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v14H5zM9 9h6M9 13h4"/></svg></span><b><code>#inputBusqueda</code></b><p>Variable de referencia de plantilla. Le da nombre al elemento para leer <code>inputBusqueda.value</code> dentro del mismo HTML.</p></div>
+              <div class="card" data-accent="2"><span class="orb" data-accent="2"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M15 7l5 5-5 5"/></svg></span><b><code>(input)</code></b><p>Event binding que se dispara en cada tecla. Para una acción simple, llama <code>busqueda.set(...)</code> sin método intermedio.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s10" data-accent="2" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧮</span>
+            <div class="sec-copy">
+              <span class="sec-n">10 · Estado derivado</span>
+              <h2 class="sec-t"><code>computed()</code>: una fórmula que nunca se desincroniza</h2>
+              <p class="sec-s">La lista filtrada depende de las mascotas y del texto de búsqueda. No necesita su propia edición manual.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="panel"><h3>Definición técnica</h3><p><code>computed()</code> crea una <strong>Signal derivada</strong>: calcula su valor a partir de otras Signals y se recalcula solo cuando cambia alguna dependencia. Es de solo lectura; no tiene <code>.set()</code> ni <code>.update()</code>.</p><p>Piensa en Excel: una celda con <code>=A1+B1</code> cambia cuando cambian A1 o B1. No editas el resultado directamente.</p></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Añadir</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, signal, computed } from '@angular/core';
+
+// ...dentro de la clase MascotasListado, después de busqueda:
+
+mascotasFiltradas = computed(() =&gt;
+  this.mascotas().filter(m =&gt;
+    m.nombre.toLowerCase().includes(this.busqueda().toLowerCase())
+  )
+);</code></pre></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Angular descubre las dependencias</h3><p>La función lee <code>this.mascotas()</code> y <code>this.busqueda()</code>. Angular registra ambas sin configuración adicional y recalcula cuando cualquiera cambia. <code>toLowerCase()</code> permite que “firu” encuentre “Firulais”.</p></div></div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Cuándo usarlo</h3><p>Totales, contadores, promedios y listas filtradas son candidatos naturales. Al no guardar otra copia, no existe una versión derivada “vieja” que alguien olvidó actualizar.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s11" data-accent="3" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">⌨️</span>
+            <div class="sec-copy">
+              <span class="sec-n">11 · Plantilla y accesibilidad</span>
+              <h2 class="sec-t">Filtrar, explicar el vacío y conservar el foco</h2>
+              <p class="sec-s">La experiencia se completa cuando también comunica “no hay resultados” y funciona con teclado.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Paso 1 · Reemplazar el recorrido</span><h3>Usar <code>mascotasFiltradas()</code> y agregar <code>@empty</code></h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Editar</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.html</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-html">&lt;div class="grid"&gt;
+  @for (m of mascotasFiltradas(); track m.id) {
+    &lt;a [routerLink]="['/mascotas', m.id]" class="card-link"&gt;
+      &lt;app-mascota-card
+        [nombre]="m.nombre"
+        [especie]="m.especie"
+        [edad]="m.edad"
+        [foto]="m.foto"&gt;
+      &lt;/app-mascota-card&gt;
+    &lt;/a&gt;
+  } @empty {
+    &lt;p class="sin-resultado"&gt;No encontramos mascotas con ese nombre.&lt;/p&gt;
+  }
+&lt;/div&gt;</code></pre></div>
+            <div class="panel"><h3><code>@empty</code> pertenece al <code>@for</code></h3><p>Solo aparece cuando el recorrido tiene cero elementos. Antes era común escribir un <code>@if (lista.length === 0)</code> aparte y mantener ambas condiciones sincronizadas. <code>@empty</code> vive pegado a su lista, así que no puede separarse de ella.</p></div>
+            <div class="checkpoint"><span class="component-label">Paso 2 · Añadir estilos</span><h3>Dar forma al buscador y al estado vacío sin borrar el CSS existente</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Añadir</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.css</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-css">.buscador {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: var(--espacio-md);
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--texto);
+}
+
+.buscador:focus {
+  outline: none;
+  border-color: var(--azul-principal);
+  box-shadow: 0 0 0 3px var(--azul-claro);
+}
+
+.sin-resultado {
+  color: var(--texto-suave);
+  padding: var(--espacio-lg) 0;
+}</code></pre></div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Nunca quites el <code>outline</code> sin reemplazo</h3><p>El borde y el halo de <code>box-shadow</code> mantienen visible el foco para quien navega con teclado. El estilo cambia, pero la señal de accesibilidad no desaparece.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s12" data-accent="4" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">⬇️</span>
+            <div class="sec-copy">
+              <span class="sec-n">12 · Comunicación padre → hijo</span>
+              <h2 class="sec-t"><code>@Input</code>: el dato baja</h2>
+              <p class="sec-s">La tarjeta ya recibe nombre, especie, edad y foto. Ahora también debe saber si muestra el corazón activo.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="panel"><h3>Definición aplicada</h3><p><code>@Input()</code> marca una propiedad de un componente como “puedo recibir este dato desde mi padre”. El dato baja desde quien usa <code>mascota-card</code> hacia la tarjeta.</p></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Añadir Input</span><span class="code-file">src/app/components/mascota-card/mascota-card.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-mascota-card',
+  templateUrl: './mascota-card.html',
+  styleUrl: './mascota-card.css'
+})
+export class MascotaCard {
+  @Input() nombre = '';
+  @Input() especie = '';
+  @Input() edad = 0;
+  @Input() foto = '';
+  @Input() esFavorito = false;
+}</code></pre></div>
+            <div class="flow"><div class="flow-step" data-emphasis><span class="fs-index">01</span><strong>Listado</strong><span>Conoce el estado</span></div><div class="flow-arrow">→</div><div class="flow-step"><span class="fs-index">02</span><strong>[esFavorito]</strong><span>El dato baja</span></div><div class="flow-arrow">→</div><div class="flow-step"><span class="fs-index">03</span><strong>Tarjeta</strong><span>Decide cómo mostrarlo</span></div></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Lo nuevo está a continuación</h3><p>La tarjeta ya puede recibir. Falta que pueda levantar la mano y avisar que el usuario hizo clic.</p></div></div>
+          </div>
+        </section>
+        <section class="section view" id="s13" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">⬆️</span>
+            <div class="sec-copy">
+              <span class="sec-n">13 · Comunicación hijo → padre</span>
+              <h2 class="sec-t"><code>output()</code>: el evento sube</h2>
+              <p class="sec-s">La tarjeta detecta la intención. El dueño del estado decide qué cambio ejecutar.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="socratica">
+              <span class="component-label">Para pensar</span>
+              <p class="socratica-q">Cuando el usuario toca el corazón, ¿quién debe decidir si la mascota pasa a favoritos: la tarjeta o el Listado?</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+                <p class="lead-answer">La tarjeta detecta el clic, pero no debe administrar el estado compartido.</p>
+                <p>La tarjeta avisa hacia arriba. El Listado —y después el servicio— decide qué hacer. Así el componente visual no mezcla su responsabilidad con la lógica de negocio.</p>
+              </div></details>
+            </div>
+            <div class="panel"><h3>Definición técnica</h3><p>Un <strong>Output</strong> es una propiedad de un componente que permite emitir eventos hacia el componente padre. Puede subir un dato o solo el aviso de que ocurrió algo.</p><p>Si Input es “recibir un pedido”, Output es “levantar la mano”. Un botón reutilizable suele emitir guardar, eliminar, marcar o seleccionar; no toma por sí mismo la decisión global.</p></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>API moderna</h3><p>Hoy usamos <code>output()</code>. En tutoriales y respuestas antiguas verás <code>@Output() x = new EventEmitter()</code>: sigue funcionando, pero pertenece al patrón anterior.</p></div></div>
+            <div class="checkpoint"><span class="component-label">Versión final consolidada</span><h3>Agregar el Output y emitir desde el método del clic</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/components/mascota-card/mascota-card.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, Input, output } from '@angular/core';
+
+@Component({
+  selector: 'app-mascota-card',
+  templateUrl: './mascota-card.html',
+  styleUrl: './mascota-card.css'
+})
+export class MascotaCard {
+  @Input() nombre = '';
+  @Input() especie = '';
+  @Input() edad = 0;
+  @Input() foto = '';
+  @Input() esFavorito = false;
+
+  favoritoCambiado = output&lt;void&gt;();
+
+  alClicFavorito(evento: Event) {
+    evento.stopPropagation();
+    evento.preventDefault();
+    this.favoritoCambiado.emit();
+  }
+}</code></pre></div>
+            <div class="twin"><div class="cell a"><span class="tag">output&lt;void&gt;()</span><p>Declara el Output. <code>void</code> significa que no viaja un dato adicional: solo el aviso.</p></div><div class="cell b"><span class="tag">emit()</span><p>Dispara el evento para que quien escucha reaccione. La tarjeta no necesita saber qué hará el padre.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s14" data-accent="2" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">♿</span>
+            <div class="sec-copy">
+              <span class="sec-n">14 · Interacción accesible</span>
+              <h2 class="sec-t">Un corazón visible y comprensible</h2>
+              <p class="sec-s">El icono comunica con color; ARIA comunica el mismo estado sin depender de la vista.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Añadir botón</span><span class="code-file">src/app/components/mascota-card/mascota-card.html</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-html">&lt;div class="card"&gt;
+  &lt;div class="card-foto-contenedor"&gt;
+    &lt;img class="card-foto" [src]="foto" [alt]="'Foto de ' + nombre"&gt;
+    &lt;button
+      class="favorito-boton"
+      type="button"
+      [attr.aria-pressed]="esFavorito"
+      [attr.aria-label]="esFavorito ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+      (click)="alClicFavorito($event)"&gt;
+      &lt;span class="favorito-icono" [class.activo]="esFavorito"&gt;♥&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="card-cuerpo"&gt;
+    &lt;h3 class="card-nombre"&gt;{{ nombre }}&lt;/h3&gt;
+    &lt;p class="card-datos"&gt;{{ especie }} · {{ edad }} años&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+            <div class="cards">
+              <div class="card" data-accent="1"><span class="orb" data-accent="1"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"/></svg></span><b><code>aria-pressed</code></b><p>Indica si el botón toggle está activo. Sin este estado, una persona que no ve el corazón rosa no sabe si la mascota ya es favorita.</p></div>
+              <div class="card" data-accent="2"><span class="orb" data-accent="2"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h12M4 17h8"/></svg></span><b><code>aria-label</code></b><p>Describe la acción en palabras y cambia entre “Agregar” y “Quitar” según el estado.</p></div>
+              <div class="card" data-accent="3"><span class="orb" data-accent="3"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M9 12h6"/></svg></span><b>Prefijo <code>attr.</code></b><p><code>aria-pressed</code> es un atributo HTML, no una propiedad JavaScript del elemento; el prefijo le dice a Angular cómo escribirlo.</p></div>
+            </div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Por qué el corazón vive en un <code>&lt;span&gt;</code></h3><p>El carácter Unicode <code>♥</code> no añade archivos ni librerías. El <code>span</code> permite animar y colorear el icono sin afectar todo el botón.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s15" data-accent="3" data-layout="focus" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🫧</span>
+            <div class="sec-copy">
+              <span class="sec-n">15 · Elementos anidados clicables</span>
+              <h2 class="sec-t">El clic que burbujea hasta el enlace</h2>
+              <p class="sec-s">La tarjeta completa navega al Detalle y ahora contiene un botón. Un solo clic puede activar ambos elementos.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="socratica">
+              <span class="component-label">Para pensar</span>
+              <p class="socratica-q">Si el usuario toca el corazón dentro de una tarjeta envuelta en <code>&lt;a [routerLink]&gt;</code>, ¿qué ocurre?</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body">
+                <p class="lead-answer">Se marca el favorito y, además, el enlace intenta navegar al Detalle.</p>
+                <p>El clic del botón sube por sus ancestros hasta el <code>&lt;a&gt;</code>. Ese mecanismo se llama <strong>event bubbling</strong>.</p>
+              </div></details>
+            </div>
+            <div class="panel"><h3>Definición técnica + modelo cotidiano</h3><p><strong>Event bubbling</strong> es la propagación de un evento del DOM desde el elemento donde nació hacia todos sus ancestros, activando sus manejadores.</p><p>Es como gritar en un pasillo: no solo escucha quien está frente a ti; el sonido sigue hacia atrás. En interfaces aparece con botones eliminar dentro de filas clicables, iconos dentro de tarjetas y checkboxes dentro de listas seleccionables.</p></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Solución</span><span class="code-file">src/app/components/mascota-card/mascota-card.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">alClicFavorito(evento: Event) {
+  evento.stopPropagation();
+  evento.preventDefault();
+  this.favoritoCambiado.emit();
+}</code></pre></div>
+            <div class="twin"><div class="cell a"><span class="tag">stopPropagation()</span><p>Corta la burbuja: el clic no sigue subiendo hacia el enlace que contiene la tarjeta.</p></div><div class="cell b"><span class="tag">preventDefault()</span><p>Cancela la acción predeterminada de navegación. Con ambas, el clic en el corazón se queda en el corazón.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s16" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🔁</span>
+            <div class="sec-copy">
+              <span class="sec-n">16 · Flujo de datos Angular</span>
+              <h2 class="sec-t">Los datos bajan; los eventos suben</h2>
+              <p class="sec-s">La dirección clara convierte cada cambio en un camino rastreable.</p>
+            </div>
+          </div>
+          <div class="body">
+            <p>Mapa textual completo del flujo, conservado como referencia reproducible:</p>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Modelo mental</span><span class="code-file">Flujo de datos en Angular · texto</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-plaintext">Servicio (fuente única de verdad, con Signals)
+      │
+      │  se lee con .mascotas(), .esFavorito(), etc.
+      ▼
+Página (Listado / Detalle)
+      │
+      │  pasa datos hacia abajo con [Input]
+      ▼
+Componente hijo (mascota-card)
+      │
+      │  avisa hacia arriba con (Output)
+      ▲
+      └── la página escucha el evento y le pide al servicio que actualice el estado</code></pre></div>
+            <div class="flow">
+              <div class="flow-step" data-emphasis><span class="fs-index">01</span><strong>Servicio</strong><span>Fuente única con Signals</span></div><div class="flow-arrow">→</div>
+              <div class="flow-step"><span class="fs-index">02</span><strong>Página</strong><span>Listado o Detalle lee</span></div><div class="flow-arrow">→</div>
+              <div class="flow-step"><span class="fs-index">03</span><strong>[Input]</strong><span>El dato baja</span></div><div class="flow-arrow">→</div>
+              <div class="flow-step"><span class="fs-index">04</span><strong>Tarjeta</strong><span>Muestra y detecta</span></div><div class="flow-arrow">→</div>
+              <div class="flow-step"><span class="fs-index">05</span><strong>(Output)</strong><span>El evento sube</span></div>
+            </div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Regla que no se rompe</h3><p>El hijo jamás modifica directamente una propiedad del padre. La página escucha el Output y pide al servicio actualizar el estado. Es flujo unidireccional, compartido por Angular, React y Vue.</p></div></div>
+            <div class="socratica">
+              <span class="component-label">Criterio de ingeniería</span>
+              <p class="socratica-q">¿Por qué no dejar que el hijo cambie directamente la variable del padre?</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Porque el cambio dejaría de tener un origen predecible.</p><p>Sería rápido de escribir y difícil de depurar. Si cualquier componente puede modificar cualquier otro, en producción no sabrás quién causó el valor incorrecto. Con el flujo unidireccional, la actualización compartida pasa por el servicio. Es mantenibilidad, no burocracia.</p></div></details>
+            </div>
+            <div class="socratica">
+              <span class="component-label">Conexión con el servicio</span>
+              <p class="socratica-q">Listado y Detalle son páginas hermanas. ¿Cómo comparten favoritos si no tienen Input ni Output entre ellas?</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">No se comunican directamente: ambas hablan con un tercero común.</p><p>Pasar el dato por la URL o inventar un canal entre hermanos no resuelve el diseño. El servicio es el punto estable que ambas pueden leer y actualizar.</p></div></details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s17" data-accent="1" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🏛️</span>
+            <div class="sec-copy">
+              <span class="sec-n">17 · Estado compartido</span>
+              <h2 class="sec-t">El servicio separa datos de interfaz</h2>
+              <p class="sec-s">La página decide cómo se ve; el servicio decide de dónde salen y cómo se manejan los datos.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="panel"><h3>Definición técnica</h3><p>Un <strong>servicio Angular</strong> es una clase marcada con <code>@Injectable</code> que contiene lógica y datos que no pertenecen a un componente visual específico y que pueden ser usados por varios.</p><p>Carritos de compra, usuarios autenticados y catálogos suelen vivir en servicios. Es el principio de <strong>responsabilidad única</strong> de SOLID aplicado al frontend.</p></div>
+            <div class="compare">
+              <div class="compare-card" data-side="positive"><h3>Spring Boot</h3><ul><li><code>@Service</code> es singleton por defecto.</li><li>Existe una instancia para la aplicación.</li><li>Spring la inyecta con <code>@Autowired</code>.</li></ul></div>
+              <div class="compare-card" data-side="negative"><h3>Angular</h3><ul><li><code>providedIn: 'root'</code> crea una instancia.</li><li>La comparte con quien la solicite.</li><li>El patrón es el mismo, del otro lado de la app.</li></ul></div>
+            </div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Forma clásica</span><span class="code-file">Inyección por constructor · TypeScript</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">constructor(private mascotasService: MascotasService) {}</code></pre></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Forma moderna</span><span class="code-file">Inyección con inject() · TypeScript</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">private mascotasService = inject(MascotasService);</code></pre></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Ambas formas son válidas</h3><p>Usaremos <code>inject()</code> porque encaja con el estilo declarativo de Signals: las dependencias quedan como propiedades de la clase, sin lógica adicional en el constructor.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s18" data-accent="2" data-layout="focus" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🛠️</span>
+            <div class="sec-copy">
+              <span class="sec-n">18 · Crear MascotasService</span>
+              <h2 class="sec-t">Generar el hogar del estado compartido</h2>
+              <p class="sec-s">El servicio centralizará la lista de mascotas y el conjunto de ids favoritos.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Paso 1 · Desde vetcare/</span><h3>Generar el servicio con Angular CLI</h3></div>
+            <div class="code-block" data-tipo="terminal"><div class="code-head"><div><span class="code-context">Consola</span><span class="code-file">Raíz del proyecto · vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-bash">ng generate service services/mascotas</code></pre></div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Qué debes observar</h3><p>El CLI muestra <code>CREATE</code> y crea <code>src/app/services/mascotas.service.ts</code> junto con <code>mascotas.service.spec.ts</code>.</p></div></div>
+            <div class="panel"><h3>Convención de nombres</h3><p>Los componentes del proyecto se generaron sin sufijo: <code>inicio.ts</code>, no <code>inicio.component.ts</code>. Los servicios sí conservan <code>.service.ts</code> y la clase termina en <code>Service</code>. La convención permite distinguir <code>Mascota</code>, el tipo de dato, de <code>MascotasService</code>, la clase que lo administra.</p></div>
+          </div>
+        </section>
+        <section class="section view" id="s19" data-accent="3" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧱</span>
+            <div class="sec-copy">
+              <span class="sec-n">19 · Fuente única de verdad</span>
+              <h2 class="sec-t">El servicio completo: mascotas + favoritos</h2>
+              <p class="sec-s">Reemplaza el contenido generado por el CLI. Este archivo concentra el modelo, el estado y los métodos controlados de actualización.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Paso 2 · Reemplazar archivo</span><h3>Definir <code>Mascota</code> y el estado reactivo</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/services/mascotas.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, computed } from '@angular/core';
+
+export interface Mascota {
+  id: number;
+  nombre: string;
+  especie: string;
+  edad: number;
+  dueno: string;
+  foto: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MascotasService {
+  private listaMascotas = signal&lt;Mascota[]&gt;([
+    { id: 1, nombre: 'Firulais', especie: 'Perro', edad: 4, dueno: 'Ana Torres', foto: 'https://placedog.net/600/400?id=1' },
+    { id: 2, nombre: 'Michi', especie: 'Gato', edad: 2, dueno: 'Luis Pérez', foto: 'https://loremflickr.com/600/400/cat?lock=2' },
+    { id: 3, nombre: 'Rocky', especie: 'Perro', edad: 6, dueno: 'María Gómez', foto: 'https://placedog.net/600/400?id=7' }
+  ]);
+
+  mascotas = this.listaMascotas.asReadonly();
+
+  private idsFavoritos = signal&lt;Set&lt;number&gt;&gt;(new Set());
+
+  totalFavoritos = computed(() =&gt; this.idsFavoritos().size);
+
+  esFavorito(id: number): boolean {
+    return this.idsFavoritos().has(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.idsFavoritos.update(actuales =&gt; {
+      const nuevos = new Set(actuales);
+      if (nuevos.has(id)) {
+        nuevos.delete(id);
+      } else {
+        nuevos.add(id);
+      }
+      return nuevos;
+    });
+  }
+}</code></pre></div>
+            <div class="flow"><div class="flow-step"><span class="fs-index">01</span><strong>listaMascotas</strong><span>Signal privada</span></div><div class="flow-arrow">→</div><div class="flow-step"><span class="fs-index">02</span><strong>mascotas</strong><span>Lectura pública</span></div><div class="flow-arrow">→</div><div class="flow-step" data-emphasis><span class="fs-index">03</span><strong>idsFavoritos</strong><span>Set privado</span></div><div class="flow-arrow">→</div><div class="flow-step"><span class="fs-index">04</span><strong>totalFavoritos</strong><span>computed derivado</span></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s20" data-accent="4" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🛡️</span>
+            <div class="sec-copy">
+              <span class="sec-n">20 · Decisiones del servicio</span>
+              <h2 class="sec-t">Tipos, encapsulación e inmutabilidad</h2>
+              <p class="sec-s">La Signal notifica bien porque el servicio protege quién puede escribir y crea referencias nuevas.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="cards">
+              <div class="card" data-accent="1"><span class="orb" data-accent="1"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg></span><b><code>interface Mascota</code></b><p>Declara el contrato de cada objeto. TypeScript ofrece autocompletado y detecta antes de ejecutar si falta, por ejemplo, <code>dueno</code>. Es comparable a un contrato de interfaz en Java.</p></div>
+              <div class="card" data-accent="2"><span class="orb" data-accent="2"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></span><b><code>asReadonly()</code></b><p><code>listaMascotas</code> es privada; <code>mascotas</code> expone la misma Signal solo para lectura. Ningún componente externo puede llamar <code>.set()</code>.</p></div>
+              <div class="card" data-accent="3"><span class="orb" data-accent="3"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="4"/><circle cx="15" cy="12" r="4"/></svg></span><b><code>Set&lt;number&gt;</code></b><p>No permite ids repetidos y pregunta por pertenencia con <code>.has()</code>. Es el equivalente conceptual de <code>HashSet</code> en Java.</p></div>
+            </div>
+            <div class="panel"><h3>La línea decisiva</h3><p><code>const nuevos = new Set(actuales);</code> crea una referencia distinta antes de añadir o quitar el id.</p><p>Si se mutara el mismo Set con <code>actuales.add(id)</code> y se devolviera ese objeto, Angular podría comparar la misma referencia y concluir que no cambió nada. La pantalla no recibiría notificación.</p></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Regla</span><span class="code-file">Dentro de MascotasService</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">const nuevos = new Set(actuales);</code></pre></div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>No mutar estructuras dentro de una Signal</h3><p>Para Set usa <code>new Set(actuales)</code>; para arreglos, <code>[...arreglo]</code>. Trabaja sobre la copia y devuélvela con <code>.set()</code> o <code>.update()</code>.</p></div></div>
+            <div class="callout" data-tone="danger"><span class="callout-icon">!</span><div><h3>Error típico #2 · El corazón no cambia</h3><p><strong>Qué sale:</strong> el clic no lanza error, pero el color nunca se actualiza. <strong>Cómo se lee:</strong> el contenido pudo mutar, pero la Signal no detectó una referencia nueva. <strong>Solución:</strong> clonar antes de modificar.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s21" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">📚</span>
+            <div class="sec-copy">
+              <span class="sec-n">21 · Refactor del Listado</span>
+              <h2 class="sec-t">La lógica consume el servicio y conserva lo local</h2>
+              <p class="sec-s">Desaparece el arreglo duplicado. La búsqueda sigue en el componente porque solo le importa a esta página.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Versión final consolidada</span><h3>Reemplazar la lógica del Listado</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, inject, signal, computed } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { MascotaCard } from '../../components/mascota-card/mascota-card';
+import { MascotasService } from '../../services/mascotas.service';
+
+@Component({
+  selector: 'app-mascotas-listado',
+  imports: [RouterLink, MascotaCard],
+  templateUrl: './mascotas-listado.html',
+  styleUrl: './mascotas-listado.css'
+})
+export class MascotasListado {
+  private mascotasService = inject(MascotasService);
+
+  mascotas = this.mascotasService.mascotas;
+
+  busqueda = signal('');
+
+  mascotasFiltradas = computed(() =&gt;
+    this.mascotas().filter(m =&gt;
+      m.nombre.toLowerCase().includes(this.busqueda().toLowerCase())
+    )
+  );
+
+  esFavorito(id: number) {
+    return this.mascotasService.esFavorito(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.mascotasService.alternarFavorito(id);
+  }
+}</code></pre></div>
+            <div class="twin"><div class="cell a"><span class="tag">Desaparece</span><p>El arreglo <code>mascotas = [...]</code> escrito a mano. Ahora <code>mascotas</code> referencia la Signal pública de solo lectura del servicio.</p></div><div class="cell b"><span class="tag">Se queda</span><p><code>busqueda</code> y <code>mascotasFiltradas</code>. Son estado local: ninguna otra pantalla necesita ese texto ni su resultado.</p></div></div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Nota de rendimiento</h3><p><code>esFavorito(m.id)</code> funciona bien con la lista actual. Con miles de elementos convendría exponer un <code>computed()</code> por mascota. Un desarrollador senior reconsidera esta decisión cuando crece el dataset; no antes por especulación.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s22" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🖼️</span>
+            <div class="sec-copy">
+              <span class="sec-n">22 · Refactor del Listado</span>
+              <h2 class="sec-t">La vista conecta Input, Output y servicio</h2>
+              <p class="sec-s">Cada tarjeta recibe su estado favorito y emite la intención de cambiarlo.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Versión final consolidada</span><h3>Reemplazar el HTML del Listado</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.html</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-html">&lt;h1 class="titulo-pagina"&gt;Mascotas de VetCare&lt;/h1&gt;
+
+&lt;input
+  #inputBusqueda
+  type="text"
+  class="buscador"
+  placeholder="Buscar mascota por nombre..."
+  (input)="busqueda.set(inputBusqueda.value)"
+/&gt;
+
+&lt;div class="grid"&gt;
+  @for (m of mascotasFiltradas(); track m.id) {
+    &lt;a [routerLink]="['/mascotas', m.id]" class="card-link"&gt;
+      &lt;app-mascota-card
+        [nombre]="m.nombre"
+        [especie]="m.especie"
+        [edad]="m.edad"
+        [foto]="m.foto"
+        [esFavorito]="esFavorito(m.id)"
+        (favoritoCambiado)="alternarFavorito(m.id)"&gt;
+      &lt;/app-mascota-card&gt;
+    &lt;/a&gt;
+  } @empty {
+    &lt;p class="sin-resultado"&gt;No encontramos mascotas con ese nombre.&lt;/p&gt;
+  }
+&lt;/div&gt;</code></pre></div>
+            <div class="flow"><div class="flow-step"><span class="fs-index">01</span><strong>esFavorito(m.id)</strong><span>El servicio responde</span></div><div class="flow-arrow">→</div><div class="flow-step"><span class="fs-index">02</span><strong>[esFavorito]</strong><span>El dato baja</span></div><div class="flow-arrow">→</div><div class="flow-step" data-emphasis><span class="fs-index">03</span><strong>Tarjeta</strong><span>El usuario hace clic</span></div><div class="flow-arrow">→</div><div class="flow-step"><span class="fs-index">04</span><strong>(favoritoCambiado)</strong><span>El evento sube</span></div><div class="flow-arrow">→</div><div class="flow-step"><span class="fs-index">05</span><strong>alternarFavorito(m.id)</strong><span>El servicio actualiza</span></div></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Las dos líneas que cierran el circuito</h3><p><code>[esFavorito]</code> entrega el estado puntual a la tarjeta. <code>(favoritoCambiado)</code> escucha el aviso y conserva el <code>m.id</code> del elemento que debe cambiar.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s23" data-accent="3" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🐾</span>
+            <div class="sec-copy">
+              <span class="sec-n">23 · Refactor del Detalle</span>
+              <h2 class="sec-t">La segunda copia de mascotas desaparece</h2>
+              <p class="sec-s">El Detalle consulta la misma fuente y expone el mismo estado favorito que el Listado.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Versión final consolidada</span><h3>Reemplazar la lógica del Detalle</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, Input, inject, computed } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { MascotasService } from '../../services/mascotas.service';
+
+@Component({
+  selector: 'app-mascota-detalle',
+  imports: [RouterLink],
+  templateUrl: './mascota-detalle.html',
+  styleUrl: './mascota-detalle.css'
+})
+export class MascotaDetalle {
+  @Input() id = '';
+
+  private mascotasService = inject(MascotasService);
+
+  mascota = computed(() =&gt;
+    this.mascotasService.mascotas().find(m =&gt; m.id === Number(this.id))
+  );
+
+  esFavorito = computed(() =&gt;
+    this.mascotasService.esFavorito(Number(this.id))
+  );
+
+  alternarFavorito() {
+    this.mascotasService.alternarFavorito(Number(this.id));
+  }
+}</code></pre></div>
+            <div class="panel"><h3>Por qué ahora es <code>computed()</code> y no un getter</h3><p>En la Clase 2, <code>get mascota()</code> leía un arreglo normal. Ahora la fuente es <code>this.mascotasService.mascotas()</code>, una Signal. Hacer que <code>mascota</code> también sea Signal la integra con el sistema reactivo y permite recalcular cuando el servicio reciba datos reales.</p></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>El parámetro sigue siendo texto</h3><p><code>Number(this.id)</code> conserva la conversión de la Clase 2: la URL entrega texto, mientras que las mascotas usan ids numéricos.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s24" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🔍</span>
+            <div class="sec-copy">
+              <span class="sec-n">24 · Refactor del Detalle</span>
+              <h2 class="sec-t">La plantilla reutiliza el valor encontrado</h2>
+              <p class="sec-s">El alias <code>m</code> mantiene el bloque legible y la rama alternativa explica cuando la mascota no existe.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Versión final consolidada</span><h3>Reemplazar el HTML del Detalle</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.html</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-html">@if (mascota(); as m) {
+  &lt;section class="detalle"&gt;
+    &lt;div class="detalle-foto-contenedor"&gt;
+      &lt;img class="detalle-foto" [src]="m.foto" [alt]="'Foto de ' + m.nombre"&gt;
+      &lt;button
+        class="favorito-boton-detalle"
+        type="button"
+        [attr.aria-pressed]="esFavorito()"
+        [attr.aria-label]="esFavorito() ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+        (click)="alternarFavorito()"&gt;
+        &lt;span class="favorito-icono" [class.activo]="esFavorito()"&gt;♥&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="detalle-info"&gt;
+      &lt;h1 class="detalle-nombre"&gt;{{ m.nombre }}&lt;/h1&gt;
+      &lt;p class="detalle-dato"&gt;&lt;strong&gt;Especie:&lt;/strong&gt; {{ m.especie }}&lt;/p&gt;
+      &lt;p class="detalle-dato"&gt;&lt;strong&gt;Edad:&lt;/strong&gt; {{ m.edad }} años&lt;/p&gt;
+      &lt;p class="detalle-dato"&gt;&lt;strong&gt;Dueño:&lt;/strong&gt; {{ m.dueno }}&lt;/p&gt;
+      &lt;a routerLink="/mascotas" class="volver"&gt;← Volver al listado&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+} @else {
+  &lt;p class="sin-resultado"&gt;No se encontró la mascota solicitada.&lt;/p&gt;
+}</code></pre></div>
+            <div class="panel"><h3>Qué hace <code>mascota(); as m</code></h3><p>Primero evalúa si <code>mascota()</code> existe. Cuando existe, guarda el resultado en el alias <code>m</code> para todo el bloque. Evita repetir <code>mascota()!</code> en cada línea y mantiene explícita la posibilidad de <code>undefined</code>.</p><p>Es una variable de plantilla, igual en intención que <code>#inputBusqueda</code>, pero aplicada a un <code>@if</code> en lugar de un elemento HTML.</p></div>
+          </div>
+        </section>
+        <section class="section view" id="s25" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">💗</span>
+            <div class="sec-copy">
+              <span class="sec-n">25 · CSS y accesibilidad</span>
+              <h2 class="sec-t">El corazón flota sobre la tarjeta</h2>
+              <p class="sec-s">El rosa <code>#e0446f</code> rompe deliberadamente la paleta azul de VetCare: la convención universal de “me gusta” reduce el esfuerzo de interpretación.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Paso 1 · Añadir</span><h3>Estilar el botón sin borrar el CSS existente de <code>.card</code></h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Añadir</span><span class="code-file">src/app/components/mascota-card/mascota-card.css</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-css">.card-foto-contenedor {
+  position: relative;
+}
+
+.favorito-boton {
+  position: absolute;
+  top: var(--espacio-xs);
+  right: var(--espacio-xs);
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+}
+
+.favorito-boton:focus-visible {
+  outline: 3px solid var(--azul-principal);
+  outline-offset: 2px;
+}
+
+.favorito-icono {
+  font-size: 1.2rem;
+  color: var(--borde);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorito-icono.activo {
+  color: #e0446f;
+  transform: scale(1.15);
+}</code></pre></div>
+            <div class="cards">
+              <div class="card" data-accent="1"><span class="orb" data-accent="1"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v14H5zM8 8h8v8H8z"/></svg></span><b><code>relative</code> en el contenedor</b><p>Convierte la foto en el ancestro posicionado de referencia.</p></div>
+              <div class="card" data-accent="2"><span class="orb" data-accent="2"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/></svg></span><b><code>absolute</code> en el botón</b><p>Saca el botón del flujo y lo ubica arriba a la derecha de la foto, no de toda la página.</p></div>
+              <div class="card" data-accent="3"><span class="orb" data-accent="3"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8 12h8"/></svg></span><b><code>:focus-visible</code></b><p>Muestra el aro al navegar con Tab, no después de cada clic de mouse. Cada usuario recibe la señal que necesita.</p></div>
+            </div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Par inseparable</h3><p>Un <code>position: absolute</code> sin un ancestro cercano con <code>position: relative</code> se posicionará respecto a otro contexto y parecerá “hacer lo que quiere”.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s26" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🎯</span>
+            <div class="sec-copy">
+              <span class="sec-n">26 · CSS del Detalle</span>
+              <h2 class="sec-t">El mismo patrón, en una escala mayor</h2>
+              <p class="sec-s">La foto del Detalle es más grande; el botón crece de 36 a 48 píxeles, pero conserva posición, foco y estado.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Paso 2 · Añadir</span><h3>Estilar el botón grande sin borrar el CSS existente</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Añadir</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.css</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-css">.detalle-foto-contenedor {
+  position: relative;
+}
+
+.favorito-boton-detalle {
+  position: absolute;
+  top: var(--espacio-sm);
+  right: var(--espacio-sm);
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+}
+
+.favorito-boton-detalle:focus-visible {
+  outline: 3px solid var(--azul-principal);
+  outline-offset: 2px;
+}
+
+.favorito-boton-detalle .favorito-icono {
+  font-size: 1.6rem;
+  color: var(--borde);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorito-boton-detalle .favorito-icono.activo {
+  color: #e0446f;
+  transform: scale(1.15);
+}</code></pre></div>
+            <div class="metrics"><div class="m"><b>36</b><span>px · tarjeta</span></div><div class="m"><b>48</b><span>px · detalle</span></div><div class="m"><b>1.2</b><span>rem · icono tarjeta</span></div><div class="m"><b>1.6</b><span>rem · icono detalle</span></div></div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Reutilizar el criterio</h3><p>El patrón no cambia: contenedor relativo, botón absoluto, foco visible y estado activo. Solo cambia la escala según el contexto visual.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s27" data-accent="3" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🔴</span>
+            <div class="sec-copy">
+              <span class="sec-n">27 · Navegación sincronizada</span>
+              <h2 class="sec-t">El badge lee el total derivado</h2>
+              <p class="sec-s">La raíz de la app no vuelve a contar: expone la Signal <code>totalFavoritos</code> que ya calcula el servicio.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Paso 1 · Versión final</span><h3>Conectar <code>App</code> con <code>MascotasService</code></h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/app.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, inject } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { MascotasService } from './services/mascotas.service';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, RouterLink],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+  private mascotasService = inject(MascotasService);
+
+  totalFavoritos = this.mascotasService.totalFavoritos;
+}</code></pre></div>
+            <div class="checkpoint"><span class="component-label">Paso 2 · Versión final</span><h3>Mostrar el badge solo cuando hay favoritos</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Reemplazar</span><span class="code-file">src/app/app.html</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-html">&lt;nav class="barra"&gt;
+  &lt;span class="marca"&gt;🐾 VetCare&lt;/span&gt;
+  &lt;div class="barra-links"&gt;
+    &lt;a routerLink="/" class="barra-link"&gt;Inicio&lt;/a&gt;
+    &lt;a routerLink="/mascotas" class="barra-link"&gt;
+      Mascotas
+      @if (totalFavoritos() &gt; 0) {
+        &lt;span class="badge"&gt;{{ totalFavoritos() }}&lt;/span&gt;
+      }
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;main class="contenido"&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+&lt;/main&gt;</code></pre></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Ausencia real, no un cero oculto</h3><p>Cuando <code>totalFavoritos()</code> es cero, <code>@if</code> evita que el badge exista en el DOM. La interfaz no muestra información que el usuario no necesita.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s28" data-accent="4" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">📐</span>
+            <div class="sec-copy">
+              <span class="sec-n">28 · Forma y posición</span>
+              <h2 class="sec-t">Una píldora que crece sin deformarse</h2>
+              <p class="sec-s">El badge convive con el texto; no se superpone sobre otro elemento.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Añadir</span><span class="code-file">src/app/app.css</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-css">.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  margin-left: 6px;
+  border-radius: 999px;
+  background: #e0446f;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}</code></pre></div>
+            <div class="panel"><h3><code>border-radius: 999px</code></h3><p>Un radio mucho mayor que la mitad de la altura redondea las esquinas al máximo. Con un dígito parece círculo; con dos o tres, se extiende como píldora sin depender de que ancho y alto sean iguales.</p></div>
+            <div class="compare">
+              <div class="compare-card" data-side="positive"><h3>Badge en línea</h3><ul><li>Usa <code>inline-flex</code>.</li><li>Convive al lado de “Mascotas”.</li><li>Empuja el flujo normal del texto.</li></ul></div>
+              <div class="compare-card" data-side="negative"><h3>Corazón superpuesto</h3><ul><li>Usa <code>position: absolute</code>.</li><li>Flota sobre la foto.</li><li>No ocupa lugar en el flujo normal.</li></ul></div>
+            </div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>El criterio decide la técnica</h3><p>Pregunta si el elemento debe superponerse a otro o convivir en el layout. Esa respuesta determina la estrategia de posicionamiento.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s29" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">✅</span>
+            <div class="sec-copy">
+              <span class="sec-n">29 · Prueba observable</span>
+              <h2 class="sec-t">Tres vistas, una sola verdad</h2>
+              <p class="sec-s">La evidencia de aprendizaje no es “el código compiló”: es recorrer el estado y comprobar que todas las superficies responden.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="checkpoint"><span class="component-label">Paso 1 · Desde la raíz</span><h3>Levantar el servidor</h3></div>
+            <div class="code-block" data-tipo="terminal"><div class="code-head"><div><span class="code-context">Consola</span><span class="code-file">Raíz del proyecto · vetcare/</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-bash">ng serve</code></pre></div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Qué debes observar</h3><p>La aplicación queda disponible en <code>http://localhost:4200</code>.</p></div></div>
+            <div class="stepper">
+              <div class="step-item"><span class="step-num">1</span><h4>Filtra</h4><p>Abre “Mascotas” y escribe <code>mi</code>. Solo Michi queda en pantalla, sin recarga.</p></div>
+              <div class="step-item"><span class="step-num">2</span><h4>Marca</h4><p>Borra el texto y toca el corazón de Firulais. Se vuelve rosa y el badge muestra <code>1</code>.</p></div>
+              <div class="step-item"><span class="step-num">3</span><h4>Navega</h4><p>Abre el Detalle de Firulais. El corazón grande ya está marcado.</p></div>
+              <div class="step-item"><span class="step-num">4</span><h4>Desmarca</h4><p>Quita el favorito desde Detalle y vuelve al Listado. Tarjeta vacía y badge ausente.</p></div>
+            </div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Lo que acabas de demostrar</h3><p>Listado, Detalle y navegación están sincronizados sin una copia duplicada de favoritos.</p></div></div>
+            <div class="callout" data-tone="danger"><span class="callout-icon">!</span><div><h3>Error típico #3 · Las pantallas no coinciden</h3><p><strong>Qué sale:</strong> marcas en una vista y la otra no cambia hasta recargar. <strong>Cómo se lee:</strong> alguna pantalla conserva estado propio. <strong>Solución:</strong> confirmar que Listado y Detalle usan <code>inject(MascotasService)</code> y no arreglos locales.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s30" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">💾</span>
+            <div class="sec-copy">
+              <span class="sec-n">30 · Reto extra opcional</span>
+              <h2 class="sec-t">Persistir favoritos con <code>effect()</code></h2>
+              <p class="sec-s">Para grupos que avanzan más rápido o como tarea. No forma parte obligatoria de la evaluación.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="panel"><h3>El problema</h3><p>Los favoritos viven en memoria. Al recargar la página, el navegador los pierde.</p><p>Un <code>effect()</code> vuelve a ejecutar un bloque cuando cambia alguna Signal leída adentro. A diferencia de <code>computed()</code>, no devuelve un valor: realiza efectos secundarios como guardar, registrar o sincronizar con <code>localStorage</code>.</p></div>
+            <div class="checkpoint"><span class="component-label">Añadir en el servicio</span><h3>Guardar los ids cada vez que cambien</h3></div>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Añadir</span><span class="code-file">src/app/services/mascotas.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, computed, effect } from '@angular/core';
+
+// dentro de la clase MascotasService, agregar un constructor:
+
+constructor() {
+  effect(() =&gt; {
+    const idsActuales = [...this.idsFavoritos()];
+    localStorage.setItem('vetcare-favoritos', JSON.stringify(idsActuales));
+  });
+}</code></pre></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Qué dispara el efecto</h3><p>El bloque lee <code>idsFavoritos()</code>. Cada vez que esa Signal cambia, Angular ejecuta de nuevo la función y guarda la lista actualizada.</p></div></div>
+            <div class="callout" data-tone="danger"><span class="callout-icon">!</span><div><h3>Error opcional · “injection context”</h3><p><code>effect()</code> necesita un contexto de inyección. Si se llama desde un método normal puede fallar. Colócalo en el constructor del servicio o componente.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s31" data-accent="3" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🤖</span>
+            <div class="sec-copy">
+              <span class="sec-n">31 · IA como copiloto</span>
+              <h2 class="sec-t">Pedir la API moderna y revisar el diff</h2>
+              <p class="sec-s">Signals es más reciente que gran parte del código público. Una instrucción precisa evita que la IA regrese por defecto a patrones antiguos.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="panel"><h3>Prompt sugerido</h3><p>“Genera un servicio Angular con <code>providedIn: 'root'</code> que exponga una lista de elementos como Signal de solo lectura (<code>asReadonly()</code>), con un <code>computed()</code> derivado, y un componente hijo que emita un evento hacia su padre usando la función <code>output()</code>, no <code>@Output()</code> con <code>EventEmitter</code>. Sin RxJS, sin <code>BehaviorSubject</code>.”</p></div>
+            <div class="socratica">
+              <span class="component-label">Validar la respuesta</span>
+              <p class="socratica-q">La IA devuelve <code>BehaviorSubject</code>, <code>.subscribe()</code> y no usa Signals. ¿Lo aceptas porque funciona?</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">No sin evaluar si es la herramienta adecuada para este problema.</p><p><code>BehaviorSubject</code> sigue siendo válido, pero para estado simple Signals es más directo y no exige <code>subscribe()</code>/<code>unsubscribe()</code> manual, una fuente común de fugas de memoria. Que compile no convierte la decisión en la mejor para el contexto.</p></div></details>
+            </div>
+            <ul class="checklist">
+              <li>Usa <code>output()</code>, no <code>@Output() new EventEmitter()</code>.</li>
+              <li>No muta arreglos con <code>.push()</code> ni Set con <code>.add()</code> sobre el valor actual.</li>
+              <li>Lee cada Signal con paréntesis en el HTML.</li>
+              <li>No reemplaza <code>@Input</code> + <code>withComponentInputBinding</code> por <code>ActivatedRoute.subscribe()</code>.</li>
+              <li>No llama <code>effect()</code> fuera de un contexto de inyección.</li>
+            </ul>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Disciplina profesional</h3><p>La IA acelera la propuesta; tú sigues siendo responsable de revisar el diff, las APIs elegidas y la dirección del flujo de datos.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s32" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🗺️</span>
+            <div class="sec-copy">
+              <span class="sec-n">32 · Mapa de archivos</span>
+              <h2 class="sec-t">Qué se crea y qué se edita</h2>
+              <p class="sec-s">Inventario completo de la construcción para reproducirla sin adivinar rutas.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="table-wrap">
+              <table class="data-table">
+                <caption>Archivos de la Clase 3</caption>
+                <thead><tr><th>Archivo</th><th>Ruta</th><th>Acción</th><th>Bloque</th></tr></thead>
+                <tbody>
+                  <tr><td data-emphasis><code>mascotas-listado.ts</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Editar · versión final consolidada</td><td>7, 8, 15</td></tr>
+                  <tr><td data-emphasis><code>mascotas-listado.html</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Editar · versión final consolidada</td><td>8, 15</td></tr>
+                  <tr><td data-emphasis><code>mascotas-listado.css</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Editar</td><td>8</td></tr>
+                  <tr><td data-emphasis><code>mascota-card.ts</code></td><td><code>src/app/components/mascota-card/</code></td><td>Editar · versión final consolidada</td><td>9, 10</td></tr>
+                  <tr><td data-emphasis><code>mascota-card.html</code></td><td><code>src/app/components/mascota-card/</code></td><td>Editar</td><td>10</td></tr>
+                  <tr><td data-emphasis><code>mascota-card.css</code></td><td><code>src/app/components/mascota-card/</code></td><td>Editar</td><td>17</td></tr>
+                  <tr><td data-emphasis><code>mascota-detalle.ts</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Editar · versión final consolidada</td><td>16</td></tr>
+                  <tr><td data-emphasis><code>mascota-detalle.html</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Editar · versión final consolidada</td><td>16</td></tr>
+                  <tr><td data-emphasis><code>mascota-detalle.css</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Editar</td><td>17</td></tr>
+                  <tr><td data-emphasis><code>mascotas.service.ts</code></td><td><code>src/app/services/</code></td><td>Crear con CLI + editar</td><td>14, 20 · reto extra</td></tr>
+                  <tr><td data-emphasis><code>app.ts</code></td><td><code>src/app/</code></td><td>Editar · versión final consolidada</td><td>18</td></tr>
+                  <tr><td data-emphasis><code>app.html</code></td><td><code>src/app/</code></td><td>Editar · versión final consolidada</td><td>18</td></tr>
+                  <tr><td data-emphasis><code>app.css</code></td><td><code>src/app/</code></td><td>Editar</td><td>18</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s33" data-accent="1" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🚀</span>
+            <div class="sec-copy">
+              <span class="sec-n">33 · Cierre y puente</span>
+              <h2 class="sec-t">La arquitectura ya está lista para el backend</h2>
+              <p class="sec-s">La recompensa de centralizar el estado es que la siguiente integración tendrá un único punto de cambio.</p>
+            </div>
+          </div>
+          <div class="body">
+            <ul class="checklist">
+              <li>Distingues estado local de estado compartido.</li>
+              <li>Lees y actualizas <code>signal()</code>; derivas con <code>computed()</code> y conoces el reto <code>effect()</code>.</li>
+              <li>Completas la comunicación con <code>@Input</code> y <code>output()</code>.</li>
+              <li>Explicas el flujo unidireccional y el papel del servicio entre páginas hermanas.</li>
+              <li>Eliminas las listas duplicadas con <code>MascotasService</code> como fuente única.</li>
+              <li>Compruebas favoritos sincronizados entre Listado, Detalle y navegación.</li>
+              <li>Aplicaste <code>@empty</code>, <code>#inputBusqueda</code>, <code>@if...as</code>, posicionamiento, <code>:focus-visible</code>, ARIA y event bubbling.</li>
+            </ul>
+            <div class="mindmap">
+              <div class="mindmap-core"><strong>MascotasService</strong><span>Datos + lógica de favoritos</span></div>
+              <div class="mindmap-branches">
+                <div class="mindmap-node" data-accent="1"><strong>Páginas</strong><p>Listado y Detalle leen con <code>inject()</code> y entregan solo lo necesario mediante Input.</p></div>
+                <div class="mindmap-node" data-accent="2"><strong>Tarjeta</strong><p>No conoce el servicio. Recibe datos y emite eventos, por eso sigue reutilizable.</p></div>
+                <div class="mindmap-node" data-accent="3"><strong>Estado local</strong><p>El texto del buscador permanece donde se usa y no ensucia el servicio.</p></div>
+              </div>
+            </div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Puente a la Clase 4</h3><p>Hoy <code>MascotasService</code> usa datos en memoria. Con <code>HttpClient</code> y APIs REST, <code>listaMascotas</code> se llenará desde el backend. El cambio quedará dentro del servicio, sin reescribir Listado, Detalle ni tarjeta.</p></div></div>
+            <div class="question-card"><span class="component-label">Pregunta para la próxima clase</span><p class="question">Cuando los datos lleguen por HTTP y tarden un poco, ¿qué debería ver el usuario mientras espera y qué ocurriría si no manejamos ese momento?</p></div>
+          </div>
+          <p class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</p>
+        </section>
+      </div>
+
+      <nav class="view-controls" id="viewControls" aria-label="Navegación entre secciones">
+        <button class="view-btn" id="prevView" type="button" aria-label="Sección anterior">←</button>
+        <span class="view-position" id="viewPosition" aria-live="polite">Portada</span>
+        <button class="view-btn" id="nextView" type="button" aria-label="Sección siguiente">→</button>
+      </nav>
+    </main>
+  </div>
+
+  <div class="watermark" aria-hidden="true">© 2026 ANA ALVARADO</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="anaclase-v9.js"></script>
+</body>
+</html>
