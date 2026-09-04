@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro" data-tema-base="oscuro" data-empresa="dev-senior" data-paleta="caribe" data-atmosfera="tecnica">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Ana Alvarado"><meta name="copyright" content="© 2026 Ana Alvarado — Todos los derechos reservados">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="description" content="VetCare · Módulo 1, Clase 4. Consumo de APIs y conexión con backend: Angular, HttpClient, Signals, GET y POST de mascotas y dueños.">
+<title>M1 · Clase 4 · Consumo de APIs y conexión con backend · Ana Alvarado</title>
+<link href="vendor/fonts.css" rel="stylesheet">
+<link rel="stylesheet" href="vendor/prism-line-numbers.min.css">
+<link rel="stylesheet" href="anaestilos-v9.css">
+</head><body>
+<a class="skip-link" href="#necesidad">Saltar al contenido</a>
+<div class="topline" id="topline" aria-hidden="true"></div>
+<div class="controls" aria-label="Controles"><button class="ctrl" id="temaBtn" type="button" aria-label="Cambiar tema">☀</button><button class="ctrl" id="fullscreenBtn" type="button" aria-label="Pantalla completa">⛶</button></div>
+<div class="shell" id="shell" data-collapsed="false">
+<aside class="sidebar" aria-label="Índice de la clase"><div class="sb-top"><span class="brand-mark">A</span><div class="sb-title"><b>Dev Senior · VetCare</b><span>Módulo 1 · Clase 4</span></div></div><button class="sb-toggle" id="collapseBtn" type="button" aria-label="Colapsar menú">‹</button><nav class="sb-nav" id="nav" aria-label="Secciones"><a class="nav-item active" data-icon="✦" href="#portada" title="Portada"><span class="nav-index">00</span><span class="nav-label">Portada</span></a>
+<a class="nav-item" data-icon="🎯" href="#necesidad" title="El encargo"><span class="nav-index">01</span><span class="nav-label">El encargo</span></a>
+<a class="nav-item" data-icon="🔄" href="#arquitectura" title="El viaje del dato"><span class="nav-index">02</span><span class="nav-label">El viaje del dato</span></a>
+<a class="nav-item" data-icon="🔌" href="#contrato" title="Contrato y Swagger"><span class="nav-index">03</span><span class="nav-label">Contrato y Swagger</span></a>
+<a class="nav-item" data-icon="⚡" href="#httpclient" title="HttpClient y Observable"><span class="nav-index">04</span><span class="nav-label">HttpClient y Observable</span></a>
+<a class="nav-item" data-icon="📥" href="#primer-get" title="GET de mascotas"><span class="nav-index">05</span><span class="nav-label">GET de mascotas</span></a>
+<a class="nav-item" data-icon="⏳" href="#estados-servicio" title="Carga y error"><span class="nav-index">06</span><span class="nav-label">Carga y error</span></a>
+<a class="nav-item" data-icon="🖥️" href="#estados-vista" title="Mostrar los estados"><span class="nav-index">07</span><span class="nav-label">Mostrar los estados</span></a>
+<a class="nav-item" data-icon="📤" href="#post-servicio" title="POST de mascotas"><span class="nav-index">08</span><span class="nav-label">POST de mascotas</span></a>
+<a class="nav-item" data-icon="📝" href="#post-formulario" title="Formulario de mascota"><span class="nav-index">09</span><span class="nav-label">Formulario de mascota</span></a>
+<a class="nav-item" data-icon="👤" href="#duenos-servicio" title="Ejercicio: Dueños"><span class="nav-index">10</span><span class="nav-label">Ejercicio: Dueños</span></a>
+<a class="nav-item" data-icon="📋" href="#duenos-pagina" title="Página de Dueños"><span class="nav-index">11</span><span class="nav-label">Página de Dueños</span></a>
+<a class="nav-item" data-icon="🧭" href="#rutas" title="Ruta y navegación"><span class="nav-index">12</span><span class="nav-label">Ruta y navegación</span></a>
+<a class="nav-item" data-icon="🔗" href="#selector" title="Conectar ambos recursos"><span class="nav-index">13</span><span class="nav-label">Conectar ambos recursos</span></a>
+<a class="nav-item" data-icon="✅" href="#verificacion" title="Pruebas y errores"><span class="nav-index">14</span><span class="nav-label">Pruebas y errores</span></a>
+<a class="nav-item" data-icon="🏁" href="#cierre" title="Lo que cambió"><span class="nav-index">15</span><span class="nav-label">Lo que cambió</span></a>
+<a class="nav-item" data-icon="📚" href="#consulta-dtos" title="Consulta: DTO"><span class="nav-index">16</span><span class="nav-label">Consulta: DTO</span></a>
+<a class="nav-item" data-icon="⚙️" href="#consulta-backend" title="Consulta: backend"><span class="nav-index">17</span><span class="nav-label">Consulta: backend</span></a>
+<a class="nav-item" data-icon="🗂️" href="#consulta-mapa" title="Consulta: archivos"><span class="nav-index">18</span><span class="nav-label">Consulta: archivos</span></a></nav><div class="sb-prog"><div class="lbl"><span>Progreso</span><span id="progPct">0%</span></div><div class="track"><div class="fill" id="progFill"></div></div></div><p class="sb-foot">Java Full Stack Developer<br>Consumo de APIs · 03 sep 2026</p></aside>
+<main class="main"><header class="hero view" id="portada" data-accent="1" data-layout="focus"><div class="hero-inner"><div class="hero-copy"><span class="eyebrow">Dev Senior · Módulo 1 · Clase 4</span><h1 class="hero-title">VetCare se conecta al <em>backend real</em></h1><p class="hero-lead">Consulta y registra mascotas y dueños con Angular. Del dato que tarda o falla al estado que entiende la pantalla.</p><div class="meta"><span class="pill" data-hot>HttpClient + Signals</span><span class="pill">GET → leer</span><span class="pill">POST → registrar</span></div></div><div class="visual-panel"><div class="chart-title">El recorrido de esta clase</div><div class="flow"><div class="flow-step" data-emphasis><span class="fs-index">01</span><strong>Contrato</strong><span>Qué recibe y devuelve la API</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-step"><span class="fs-index">02</span><strong>Petición</strong><span>El servicio espera la respuesta</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-step"><span class="fs-index">03</span><strong>Pantalla</strong><span>Los Signals reflejan el resultado</span></div></div></div></div></header>
+<div class="content"><section class="section view" id="necesidad" data-accent="1" data-layout="split" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">🎯</span><div class="sec-copy"><span class="sec-n">01 · Problema</span><h2 class="sec-t">VetCare ya no puede inventar sus datos</h2><p class="sec-s">La recepcionista necesita ver y registrar información que de verdad quede en el backend.</p></div></div><div class="body"><div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">¿Qué tendría que cambiar en MascotasService para mostrar lo que está guardado en la base de datos?</p><p class="socratica-hint">El arreglo de la Clase 3 estaba disponible de inmediato. Una respuesta de red no.</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Angular debe pedir los datos por HTTP, esperar sin congelar la aplicación y actualizar el Signal cuando llegue la respuesta. Cambia el origen de los datos; no desaparece el estado centralizado.</p></div></details></div><div class="panel"><h3>El salto de esta clase</h3><p>En las Clases 1–2 construiste Inicio, Listado y Detalle. En la Clase 3 centralizaste mascotas y favoritos con Signals. Ahora ese mismo servicio se conecta a Spring Boot.</p><p><strong>Al terminar:</strong> podrás consultar y registrar mascotas y dueños desde Angular, y distinguir entre carga, fallo y datos disponibles.</p><p>Mercado Libre, Netflix o una app bancaria consultan un servidor para obtener información actualizada. VetCare necesita el mismo cambio.</p></div></div></section>
+<section class="section view" id="arquitectura" data-accent="2" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">🔄</span><div class="sec-copy"><span class="sec-n">02 · Modelo mental</span><h2 class="sec-t">Pedir no es lo mismo que tener</h2><p class="sec-s">El mesero no lleva la comida en el bolsillo: toma el pedido y espera a la cocina.</p></div></div><div class="body"><div class="cards"><div class="card" data-accent="1"><b>Contrato</b><p>El backend define los nombres y la forma del JSON. El frontend consume ese contrato.</p></div><div class="card" data-accent="2"><b>Petición → estado</b><p>HttpClient y Observable transportan la respuesta; un Signal conserva el valor que lee la pantalla.</p></div><div class="card" data-accent="3"><b>Carga, error y datos</b><p>La interfaz informa lo que está pasando mientras el dato todavía no está disponible.</p></div></div><div class="timeline"><div class="timeline-item"><h3>1 · Angular envía el pedido</h3><p>MascotasService se suscribe a GET /api/mascotas. La vista sigue leyendo los Signals mientras espera.</p></div><div class="timeline-item"><h3>2 · El backend atiende la petición</h3><p>Controller recibe HTTP → Service aplica la lógica → Repository consulta la base de datos.</p></div><div class="timeline-item"><h3>3 · La respuesta vuelve a Angular</h3><p>Los registros recorren las capas de regreso y el Controller responde con 200 y JSON de MascotaResponse.</p></div><div class="timeline-item"><h3>4 · El estado cambia la pantalla</h3><p>next actualiza listaMascotas; el template que lee ese Signal se redibuja. Si la petición falla, se informa el error.</p></div></div><p>En el restaurante, <strong>cargando</strong> significa “el pedido está en preparación”; <strong>error</strong>, “no fue posible atenderlo”; <strong>datos</strong>, “el plato está servido”. Una respuesta correcta también puede traer una lista vacía: vacío no significa fallo.</p><div class="callout" data-tone="info"><span class="callout-icon" aria-hidden="true">i</span><div><h3>Cada pieza tiene su responsabilidad</h3><p>En VetCare, los componentes leen Signals y llaman métodos del servicio. HttpClient vive en los servicios de cada recurso. En Spring Boot, Controller recibe HTTP, Service aplica lógica y Repository accede a los datos.</p></div></div></div></section>
+<section class="section view" id="contrato" data-accent="3" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">🔌</span><div class="sec-copy"><span class="sec-n">03 · Preparación</span><h2 class="sec-t">Primero mira qué responde el backend</h2><p class="sec-s">No editamos Spring Boot en esta sesión: consumimos el repositorio preparado para la clase.</p></div></div><div class="body"><div class="callout" data-tone="info"><span class="callout-icon" aria-hidden="true">i</span><div><h3>Punto de partida</h3><p>Trabaja sobre el frontend de la Clase 3, con Inicio, MascotaDetalle, MascotaCard, estilos globales y favoritos ya existentes. Necesitas el repositorio completo del backend que comparte la instructora; su URL no está incluida en la guía.</p></div></div><div class="table-wrap"><table class="data-table"><caption>Endpoints de la sesión</caption><thead><tr><th scope="col">Método</th><th scope="col">Ruta</th><th scope="col">Resultado</th></tr></thead><tbody><tr><td>GET</td><td><code>/api/mascotas</code></td><td>Lista de mascotas</td></tr><tr><td>GET</td><td><code>/api/mascotas/{id}</code></td><td>Una mascota por su ID</td></tr><tr><td>POST</td><td><code>/api/mascotas</code></td><td>Registra una mascota</td></tr><tr><td>GET</td><td><code>/api/duenos</code></td><td>Lista de dueños</td></tr><tr><td>POST</td><td><code>/api/duenos</code></td><td>Registra un dueño</td></tr></tbody></table></div><div class="table-wrap"><table class="data-table"><caption>Enviar y recibir son contratos diferentes</caption><thead><tr><th scope="col">Recurso</th><th scope="col">POST: cuerpo enviado</th><th scope="col">Respuesta</th></tr></thead><tbody><tr><td>Mascota</td><td><code>nombre, especie, raza, edad, duenoId</code></td><td><code>id, nombre, especie, raza, edad, duenoId, dueno, foto</code></td></tr><tr><td>Dueño</td><td><code>nombre, apellido, documento, telefono, email</code></td><td>Los mismos campos más <code>id</code></td></tr></tbody></table></div><p><code>duenoId</code> identifica al dueño que ya existe; <code>dueno</code> es su nombre completo preparado por el backend. El servidor genera el <code>id</code> del recurso nuevo. No lo inventa Angular.</p><div class="panel"><h3>Comprueba la API antes de tocar Angular</h3><ul class="checklist"><li>Ejecuta <code>VetcareApplication</code> con Run en IntelliJ.</li><li>Abre <a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener noreferrer"><u>Swagger de VetCare</u></a>. En <code>mascota-controller</code>, abre <code>GET /api/mascotas</code>.</li><li>Pulsa <strong>Try it out</strong> y <strong>Execute</strong>. Identifica estado <code>200</code>, headers y body JSON.</li><li>Prueba <code>POST /api/duenos</code> con datos ficticios: nombre, apellido y documento obligatorios; teléfono opcional y email válido si se informa. Espera <code>201</code>.</li><li>Ejecuta <code>GET /api/duenos</code> y confirma que aparece el registro con su ID.</li></ul></div><div class="callout" data-tone="info"><span class="callout-icon" aria-hidden="true">i</span><div><h3>Permisos preparados para el laboratorio</h3><p>El origen permitido es <code>http://localhost:4200</code>; el backend corre en <code>http://localhost:8080</code>. Mascotas y dueños están abiertos sin login en esta versión. JWT llega en el Módulo 2. Los DTO, CORS y datos de arranque están completos en las consultas finales.</p></div></div></div></section>
+<section class="section view" id="httpclient" data-accent="4" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">⚡</span><div class="sec-copy"><span class="sec-n">04 · Herramienta</span><h2 class="sec-t">La petición comienza al suscribirse</h2><p class="sec-s">HttpClient se integra con la inyección de Angular y devuelve Observables de RxJS.</p></div></div><div class="body"><div class="cards"><div class="card" data-accent="1"><b>HttpClient</b><p>Servicio de Angular para enviar peticiones HTTP. Aquí se inyecta dentro de MascotasService y DuenosService.</p></div><div class="card" data-accent="2"><b>Observable de HTTP</b><p>Describe una petición pendiente. subscribe() la envía y recibe el dato en next o el fallo en error.</p></div><div class="card" data-accent="3"><b>Signal</b><p>Siempre tiene un valor actual. Primero será []; después guardará el resultado de la petición.</p></div></div><div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">Después de suscribirte a una petición HTTP, ¿se ejecuta primero el console.log que viene debajo o llega primero la respuesta?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">El console.log se ejecuta primero; el programa continúa y la respuesta de red llega después a next. Crear el Observable con http.get() no envía por sí solo la petición: hace falta subscribe().</p></div></details></div><p>Para que <code>inject(HttpClient)</code> encuentre el servicio, regístralo una vez en la configuración. Conserva <code>withComponentInputBinding()</code>, que ya conecta parámetros de ruta con el componente de detalle.</p><div class="code-block" id="codigo-1"><div class="code-head"><div><span class="code-context">Reemplazar · typescript</span><span class="code-file" title="src/app/app.config.ts">src/app/app.config.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/app.config.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { ApplicationConfig } from '@angular/core';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes, withComponentInputBinding()),
+    provideHttpClient()
+  ]
+};</code></pre></div><p><code>provideHttpClient()</code> habilita el cliente HTTP; <code>provideRouter(...)</code> mantiene el enrutamiento. Si omites el proveedor HTTP, falla la inyección. El texto del buscador sigue siendo un Signal local: no necesita una petición.</p><p>Referencia: <a href="https://angular.dev/guide/http/setup" target="_blank" rel="noopener noreferrer"><u>Configuración de HttpClient · Angular</u></a>.</p></div></section>
+<section class="section view" id="primer-get" data-accent="1" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">📥</span><div class="sec-copy"><span class="sec-n">05 · Historia 1</span><h2 class="sec-t">Primera lectura: llegan mascotas reales</h2><p class="sec-s">Conservamos favoritos y la API pública del servicio. Solo cambia el origen de la lista.</p></div></div><div class="body"><div class="flow"><div class="flow-step" data-emphasis><span class="fs-index">01</span><strong>Servicio</strong><span>constructor → cargarMascotas()</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-step"><span class="fs-index">02</span><strong>HTTP</strong><span>GET /api/mascotas</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-step"><span class="fs-index">03</span><strong>Signal</strong><span>listaMascotas.set(datos)</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-step"><span class="fs-index">04</span><strong>Vista</strong><span>El template se actualiza</span></div></div><p>Reemplaza el arreglo escrito a mano por <code>signal&lt;Mascota[]&gt;([])</code>. La URL queda en una sola propiedad y la carga comienza al instanciar el servicio. Esta primera etapa permite observar por qué luego necesitamos estados explícitos.</p><div class="code-block" id="codigo-2"><div class="code-head"><div><span class="code-context">Reemplazar · typescript</span><span class="code-file" title="src/app/services/mascotas.service.ts">src/app/services/mascotas.service.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/services/mascotas.service.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, computed, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+export interface Mascota {
+  id: number;
+  nombre: string;
+  especie: string;
+  edad: number;
+  dueno: string;
+  foto: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MascotasService {
+  private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:8080/api/mascotas';
+
+  private listaMascotas = signal&lt;Mascota[]&gt;([]);
+  mascotas = this.listaMascotas.asReadonly();
+
+  private idsFavoritos = signal&lt;Set&lt;number&gt;&gt;(new Set());
+  totalFavoritos = computed(() =&gt; this.idsFavoritos().size);
+
+  constructor() {
+    this.cargarMascotas();
+  }
+
+  cargarMascotas() {
+    this.http.get&lt;Mascota[]&gt;(this.apiUrl).subscribe(datos =&gt; {
+      this.listaMascotas.set(datos);
+    });
+  }
+
+  esFavorito(id: number): boolean {
+    return this.idsFavoritos().has(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.idsFavoritos.update(actuales =&gt; {
+      const nuevos = new Set(actuales);
+      if (nuevos.has(id)) {
+        nuevos.delete(id);
+      } else {
+        nuevos.add(id);
+      }
+      return nuevos;
+    });
+  }
+}</code></pre></div><div class="callout" data-tone="info"><span class="callout-icon" aria-hidden="true">i</span><div><h3>Una precisión sobre el contrato</h3><p>La interfaz Mascota de la guía contiene los campos usados en pantalla, no todos los del DTO: omite <code>raza</code> y <code>duenoId</code>. El JSON puede traerlos igualmente. El tipo de <code>http.get&lt;Mascota[]&gt;</code> no valida ni transforma la respuesta en ejecución; comprueba nombres y posibles valores nulos en Swagger.</p></div></div><p>Ejecuta el frontend desde la raíz del proyecto de la Clase 3, donde está <code>angular.json</code>. Mantén el backend encendido.</p><div class="code-block" id="codigo-3" data-tipo="terminal"><div class="code-head"><div><span class="code-context">Ejecutar · bash</span><span class="code-file" title="Terminal · raíz de vetcare-frontend">Terminal · raíz de vetcare-frontend</span></div><button class="copy-btn" type="button" aria-label="Copiar Terminal · raíz de vetcare-frontend">Copiar</button></div><pre class="line-numbers"><code class="language-bash">ng serve</code></pre></div><div class="panel"><h3>Prueba observable</h3><p>Entra a <code>http://localhost:4200/mascotas</code>. Deben aparecer los datos reales. Antes de recibirlos puede verse brevemente “No encontramos mascotas con ese nombre”: el arreglo inicial está vacío, aunque no hayas buscado nada. Esa ambigüedad es el problema de la siguiente etapa.</p></div></div></section>
+<section class="section view" id="estados-servicio" data-accent="2" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">⏳</span><div class="sec-copy"><span class="sec-n">06 · Historia 1</span><h2 class="sec-t">Una espera no es una lista vacía</h2><p class="sec-s">El servicio conserva datos, cargando y error como una única fuente de verdad.</p></div></div><div class="body"><div class="table-wrap"><table class="data-table"><caption>Transiciones de la lectura</caption><thead><tr><th scope="col">Momento</th><th scope="col">cargando</th><th scope="col">error</th><th scope="col">Vista</th></tr></thead><tbody><tr><td>Antes del GET</td><td><code>true</code></td><td><code>null</code></td><td>Cargando mascotas…</td></tr><tr><td>Respuesta en next</td><td><code>false</code></td><td><code>null</code></td><td>Grilla o resultado vacío</td></tr><tr><td>Respuesta en error</td><td><code>false</code></td><td>Mensaje</td><td>Aviso de error</td></tr></tbody></table></div><p>Ahora <code>subscribe</code> recibe un objeto con dos caminos. Al iniciar una carga se elimina el error anterior; tanto el éxito como el fallo terminan la espera. Reemplaza el servicio completo por esta etapa.</p><div class="code-block" id="codigo-4"><div class="code-head"><div><span class="code-context">Reemplazar · typescript</span><span class="code-file" title="src/app/services/mascotas.service.ts">src/app/services/mascotas.service.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/services/mascotas.service.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, computed, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+export interface Mascota {
+  id: number;
+  nombre: string;
+  especie: string;
+  edad: number;
+  dueno: string;
+  foto: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MascotasService {
+  private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:8080/api/mascotas';
+
+  private listaMascotas = signal&lt;Mascota[]&gt;([]);
+  private cargandoSignal = signal&lt;boolean&gt;(true);
+  private errorSignal = signal&lt;string | null&gt;(null);
+
+  mascotas = this.listaMascotas.asReadonly();
+  cargando = this.cargandoSignal.asReadonly();
+  error = this.errorSignal.asReadonly();
+
+  private idsFavoritos = signal&lt;Set&lt;number&gt;&gt;(new Set());
+  totalFavoritos = computed(() =&gt; this.idsFavoritos().size);
+
+  constructor() {
+    this.cargarMascotas();
+  }
+
+  cargarMascotas() {
+    this.cargandoSignal.set(true);
+    this.errorSignal.set(null);
+
+    this.http.get&lt;Mascota[]&gt;(this.apiUrl).subscribe({
+      next: (datos) =&gt; {
+        this.listaMascotas.set(datos);
+        this.cargandoSignal.set(false);
+      },
+      error: () =&gt; {
+        this.errorSignal.set(
+          'No pudimos conectarnos con el servidor de VetCare. Verifica que el backend esté corriendo en el puerto 8080.'
+        );
+        this.cargandoSignal.set(false);
+      }
+    });
+  }
+
+  esFavorito(id: number): boolean {
+    return this.idsFavoritos().has(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.idsFavoritos.update(actuales =&gt; {
+      const nuevos = new Set(actuales);
+      if (nuevos.has(id)) {
+        nuevos.delete(id);
+      } else {
+        nuevos.add(id);
+      }
+      return nuevos;
+    });
+  }
+}</code></pre></div><div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">¿Por qué cargando y error viven en el servicio, y no como variables sueltas del componente?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Porque pertenecen a la misma fuente de verdad que los datos. Otra pantalla puede leer esos Signals sin duplicar la petición ni la lógica de estado. El servicio sabe cuándo comienza y termina la operación; la vista decide cómo representarla.</p></div></details></div></div></section>
+<section class="section view" id="estados-vista" data-accent="3" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">🖥️</span><div class="sec-copy"><span class="sec-n">07 · Historia 1</span><h2 class="sec-t">La pantalla explica lo que ocurre</h2><p class="sec-s">El componente expone los Signals del servicio; el template elige qué mostrar.</p></div></div><div class="body"><p>Reemplaza el componente para exponer <code>cargando</code> y <code>error</code>. Conserva el filtro con <code>computed</code> y las acciones de favoritos: esas responsabilidades no cambian.</p><div class="code-block" id="codigo-5"><div class="code-head"><div><span class="code-context">Reemplazar · typescript</span><span class="code-file" title="src/app/pages/mascotas-listado/mascotas-listado.ts">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/mascotas-listado/mascotas-listado.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { RouterLink } from '@angular/router';
+import { MascotaCard } from '../../components/mascota-card/mascota-card';
+import { Component, inject, signal, computed } from '@angular/core';
+import { MascotasService } from '../../services/mascotas.service';
+
+@Component({
+  selector: 'app-mascotas-listado',
+  imports: [RouterLink, MascotaCard],
+  templateUrl: './mascotas-listado.html',
+  styleUrl: './mascotas-listado.css'
+})
+export class MascotasListado {
+  private mascotasService = inject(MascotasService);
+
+  mascotas = this.mascotasService.mascotas;
+  cargando = this.mascotasService.cargando;
+  error = this.mascotasService.error;
+
+  busqueda = signal('');
+
+  mascotasFiltradas = computed(() =&gt;
+    this.mascotas().filter(m =&gt;
+      m.nombre.toLowerCase().includes(this.busqueda().toLowerCase())
+    )
+  );
+
+  esFavorito(id: number) {
+    return this.mascotasService.esFavorito(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.mascotasService.alternarFavorito(id);
+  }
+}</code></pre></div><p>Reemplaza el template: mientras llega la respuesta aparece el aviso de carga; si falla, el mensaje del servicio. La grilla se muestra únicamente cuando no hay carga ni error.</p><div class="code-block" id="codigo-6"><div class="code-head"><div><span class="code-context">Reemplazar · html</span><span class="code-file" title="src/app/pages/mascotas-listado/mascotas-listado.html">src/app/pages/mascotas-listado/mascotas-listado.html</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/mascotas-listado/mascotas-listado.html">Copiar</button></div><pre class="line-numbers"><code class="language-markup">&lt;h1 class=&quot;titulo-pagina&quot;&gt;Mascotas de VetCare&lt;/h1&gt;
+
+&lt;input
+  #inputBusqueda
+  type=&quot;text&quot;
+  class=&quot;buscador&quot;
+  placeholder=&quot;Buscar mascota por nombre...&quot;
+  (input)=&quot;busqueda.set(inputBusqueda.value)&quot;
+/&gt;
+
+@if (cargando()) {
+  &lt;p class=&quot;estado-carga&quot;&gt;Cargando mascotas desde el servidor...&lt;/p&gt;
+}
+
+@if (error()) {
+  &lt;p class=&quot;estado-error&quot;&gt;{{ error() }}&lt;/p&gt;
+}
+
+@if (!cargando() &amp;&amp; !error()) {
+  &lt;div class=&quot;grid&quot;&gt;
+    @for (m of mascotasFiltradas(); track m.id) {
+      &lt;a [routerLink]=&quot;['/mascotas', m.id]&quot; class=&quot;card-link&quot;&gt;
+        &lt;app-mascota-card
+          [nombre]=&quot;m.nombre&quot;
+          [especie]=&quot;m.especie&quot;
+          [edad]=&quot;m.edad&quot;
+          [foto]=&quot;m.foto&quot;
+          [esFavorito]=&quot;esFavorito(m.id)&quot;
+          (favoritoCambiado)=&quot;alternarFavorito(m.id)&quot;&gt;
+        &lt;/app-mascota-card&gt;
+      &lt;/a&gt;
+    } @empty {
+      &lt;p class=&quot;sin-resultado&quot;&gt;No encontramos mascotas con ese nombre.&lt;/p&gt;
+    }
+  &lt;/div&gt;
+}</code></pre></div><p>Estos son los estilos completos de esta etapa: incluyen la base de la Clase 3 y los avisos de carga y error de la guía. Reemplaza el archivo, sin borrar accidentalmente el buscador o la grilla.</p><div class="code-block" id="codigo-7"><div class="code-head"><div><span class="code-context">Reemplazar · css</span><span class="code-file" title="src/app/pages/mascotas-listado/mascotas-listado.css">src/app/pages/mascotas-listado/mascotas-listado.css</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/mascotas-listado/mascotas-listado.css">Copiar</button></div><pre class="line-numbers"><code class="language-css">.titulo-pagina {
+  color: var(--azul-oscuro);
+  margin-bottom: var(--espacio-md);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--espacio-md);
+}
+
+.buscador {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: var(--espacio-md);
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--texto);
+}
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.card-link:hover {
+  transform: translateY(-4px);
+}
+
+.buscador:focus {
+  outline: none;
+  border-color: var(--azul-principal);
+  box-shadow: 0 0 0 3px var(--azul-claro);
+}
+
+.sin-resultado {
+  color: var(--texto-suave);
+  padding: var(--espacio-lg) 0;
+}
+
+.estado-carga {
+  color: var(--texto-suave);
+  padding: var(--espacio-md) 0;
+}
+
+.estado-error {
+  color: #b0413e;
+  background: #fbeceb;
+  border: 1px solid #f0c9c7;
+  border-radius: var(--radio);
+  padding: var(--espacio-sm);
+  margin-bottom: var(--espacio-md);
+}</code></pre></div><div class="panel"><h3>Comprueba fallo y recuperación</h3><ul class="checklist"><li>Con Angular abierto, detén el proceso del backend con Stop en IntelliJ (o Ctrl+C si lo ejecutaste en una terminal).</li><li>Recarga <code>/mascotas</code>: debe aparecer el mensaje de error, no una pantalla sin explicación.</li><li>Inicia nuevamente el backend y recarga: el servicio se crea otra vez, vuelve a pedir los datos y la pantalla se recupera.</li></ul></div></div></section>
+<section class="section view" id="post-servicio" data-accent="4" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">📤</span><div class="sec-copy"><span class="sec-n">08 · Historia 2</span><h2 class="sec-t">Guardar requiere la confirmación del servidor</h2><p class="sec-s">La lista cambia con la mascota creada por el backend, incluido su ID real.</p></div></div><div class="body"><div class="flow"><div class="flow-step" data-emphasis><span class="fs-index">01</span><strong>Formulario</strong><span>Recoge los campos</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-step"><span class="fs-index">02</span><strong>Servicio</strong><span>crearMascota(nueva)</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-step"><span class="fs-index">03</span><strong>Backend</strong><span>Valida y persiste</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-step"><span class="fs-index">04</span><strong>Respuesta</strong><span>201 + mascota creada</span></div></div><p>Un POST lleva información en el body. <code>NuevaMascota</code> describe lo que enviamos; <code>Mascota</code>, lo que consume la pantalla al recibir la respuesta. Reemplaza el servicio por su versión completa con GET, estados, POST y favoritos.</p><div class="code-block" id="codigo-8"><div class="code-head"><div><span class="code-context">Reemplazar · typescript</span><span class="code-file" title="src/app/services/mascotas.service.ts">src/app/services/mascotas.service.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/services/mascotas.service.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, computed, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+export interface Mascota {
+  id: number;
+  nombre: string;
+  especie: string;
+  edad: number;
+  dueno: string;
+  foto: string;
+}
+
+export interface NuevaMascota {
+  nombre: string;
+  especie: string;
+  raza: string;
+  edad: number;
+  duenoId: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MascotasService {
+  private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:8080/api/mascotas';
+
+  private listaMascotas = signal&lt;Mascota[]&gt;([]);
+  private cargandoSignal = signal&lt;boolean&gt;(true);
+  private errorSignal = signal&lt;string | null&gt;(null);
+
+  mascotas = this.listaMascotas.asReadonly();
+  cargando = this.cargandoSignal.asReadonly();
+  error = this.errorSignal.asReadonly();
+
+  private idsFavoritos = signal&lt;Set&lt;number&gt;&gt;(new Set());
+  totalFavoritos = computed(() =&gt; this.idsFavoritos().size);
+
+  constructor() {
+    this.cargarMascotas();
+  }
+
+  // GET /api/mascotas
+  cargarMascotas() {
+    this.cargandoSignal.set(true);
+    this.errorSignal.set(null);
+
+    this.http.get&lt;Mascota[]&gt;(this.apiUrl).subscribe({
+      next: (datos) =&gt; {
+        this.listaMascotas.set(datos);
+        this.cargandoSignal.set(false);
+      },
+      error: () =&gt; {
+        this.errorSignal.set(
+          'No pudimos conectarnos con el servidor de VetCare. Verifica que el backend esté corriendo en el puerto 8080.'
+        );
+        this.cargandoSignal.set(false);
+      }
+    });
+  }
+
+  // POST /api/mascotas
+  crearMascota(nueva: NuevaMascota) {
+    this.http.post&lt;Mascota&gt;(this.apiUrl, nueva).subscribe({
+      next: (creada) =&gt; {
+        this.listaMascotas.update(actuales =&gt; [...actuales, creada]);
+      },
+      error: () =&gt; {
+        this.errorSignal.set('No pudimos registrar la mascota. Revisa los datos e intenta de nuevo.');
+      }
+    });
+  }
+
+  esFavorito(id: number): boolean {
+    return this.idsFavoritos().has(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.idsFavoritos.update(actuales =&gt; {
+      const nuevos = new Set(actuales);
+      if (nuevos.has(id)) {
+        nuevos.delete(id);
+      } else {
+        nuevos.add(id);
+      }
+      return nuevos;
+    });
+  }
+}</code></pre></div><p><code>http.post&lt;Mascota&gt;(this.apiUrl, nueva)</code> envía el objeto como JSON. En <code>next</code>, <code>update(actuales =&gt; [...actuales, creada])</code> construye otro arreglo y conserva los registros anteriores. La grilla reacciona sin recargar toda la página.</p><div class="callout" data-tone="success"><span class="callout-icon" aria-hidden="true">✓</span><div><h3>El ID es una decisión del backend</h3><p>Agrega a la lista el objeto <code>creada</code>, no el formulario original. Solo después de la respuesta conoces la identidad persistida de la mascota.</p></div></div></div></section>
+<section class="section view" id="post-formulario" data-accent="1" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">📝</span><div class="sec-copy"><span class="sec-n">09 · Historia 2</span><h2 class="sec-t">De los campos al body del POST</h2><p class="sec-s">Primero usa un ID existente; después lo reemplazaremos por un selector de dueños.</p></div></div><div class="body"><p>El manejador recibe el evento y las referencias de los inputs. <code>preventDefault()</code> evita la recarga del navegador; la validación local exige nombre, especie y dueño antes de llamar al servicio. Reemplaza el componente.</p><div class="code-block" id="codigo-9"><div class="code-head"><div><span class="code-context">Reemplazar · typescript</span><span class="code-file" title="src/app/pages/mascotas-listado/mascotas-listado.ts">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/mascotas-listado/mascotas-listado.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { RouterLink } from '@angular/router';
+import { MascotaCard } from '../../components/mascota-card/mascota-card';
+import { Component, inject, signal, computed } from '@angular/core';
+import { MascotasService } from '../../services/mascotas.service';
+
+@Component({
+  selector: 'app-mascotas-listado',
+  imports: [RouterLink, MascotaCard],
+  templateUrl: './mascotas-listado.html',
+  styleUrl: './mascotas-listado.css'
+})
+export class MascotasListado {
+  private mascotasService = inject(MascotasService);
+
+  mascotas = this.mascotasService.mascotas;
+  cargando = this.mascotasService.cargando;
+  error = this.mascotasService.error;
+
+  busqueda = signal('');
+
+  mascotasFiltradas = computed(() =&gt;
+    this.mascotas().filter(m =&gt;
+      m.nombre.toLowerCase().includes(this.busqueda().toLowerCase())
+    )
+  );
+
+  esFavorito(id: number) {
+    return this.mascotasService.esFavorito(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.mascotasService.alternarFavorito(id);
+  }
+
+  registrarMascota(
+    evento: SubmitEvent,
+    inputNombre: HTMLInputElement,
+    inputEspecie: HTMLInputElement,
+    inputRaza: HTMLInputElement,
+    inputEdad: HTMLInputElement,
+    inputDuenoId: HTMLInputElement
+  ) {
+    evento.preventDefault();
+
+    if (!inputNombre.value || !inputEspecie.value || !inputDuenoId.value) {
+      return;
+    }
+
+    this.mascotasService.crearMascota({
+      nombre: inputNombre.value,
+      especie: inputEspecie.value,
+      raza: inputRaza.value,
+      edad: Number(inputEdad.value) || 0,
+      duenoId: Number(inputDuenoId.value)
+    });
+
+    (evento.target as HTMLFormElement).reset();
+  }
+}</code></pre></div><p>El template conecta cada <code>#input</code> con el manejador. En una base recién sembrada la guía usa dueños 1 y 2; confirma los IDs reales con <code>GET /api/duenos</code> si ya había registros.</p><div class="code-block" id="codigo-10"><div class="code-head"><div><span class="code-context">Reemplazar · html</span><span class="code-file" title="src/app/pages/mascotas-listado/mascotas-listado.html">src/app/pages/mascotas-listado/mascotas-listado.html</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/mascotas-listado/mascotas-listado.html">Copiar</button></div><pre class="line-numbers"><code class="language-markup">&lt;h1 class=&quot;titulo-pagina&quot;&gt;Mascotas de VetCare&lt;/h1&gt;
+
+&lt;input
+  #inputBusqueda
+  type=&quot;text&quot;
+  class=&quot;buscador&quot;
+  placeholder=&quot;Buscar mascota por nombre...&quot;
+  (input)=&quot;busqueda.set(inputBusqueda.value)&quot;
+/&gt;
+
+@if (cargando()) {
+  &lt;p class=&quot;estado-carga&quot;&gt;Cargando mascotas desde el servidor...&lt;/p&gt;
+}
+
+@if (error()) {
+  &lt;p class=&quot;estado-error&quot;&gt;{{ error() }}&lt;/p&gt;
+}
+
+@if (!cargando() &amp;&amp; !error()) {
+  &lt;div class=&quot;grid&quot;&gt;
+    @for (m of mascotasFiltradas(); track m.id) {
+      &lt;a [routerLink]=&quot;['/mascotas', m.id]&quot; class=&quot;card-link&quot;&gt;
+        &lt;app-mascota-card
+          [nombre]=&quot;m.nombre&quot;
+          [especie]=&quot;m.especie&quot;
+          [edad]=&quot;m.edad&quot;
+          [foto]=&quot;m.foto&quot;
+          [esFavorito]=&quot;esFavorito(m.id)&quot;
+          (favoritoCambiado)=&quot;alternarFavorito(m.id)&quot;&gt;
+        &lt;/app-mascota-card&gt;
+      &lt;/a&gt;
+    } @empty {
+      &lt;p class=&quot;sin-resultado&quot;&gt;No encontramos mascotas con ese nombre.&lt;/p&gt;
+    }
+  &lt;/div&gt;
+}
+
+&lt;section class=&quot;registro&quot;&gt;
+  &lt;h2 class=&quot;registro-titulo&quot;&gt;Registrar nueva mascota&lt;/h2&gt;
+  &lt;form class=&quot;registro-form&quot; (submit)=&quot;registrarMascota($event, inputNombre, inputEspecie, inputRaza, inputEdad, inputDuenoId)&quot;&gt;
+    &lt;input #inputNombre type=&quot;text&quot; placeholder=&quot;Nombre&quot; required&gt;
+    &lt;input #inputEspecie type=&quot;text&quot; placeholder=&quot;Especie (Perro, Gato...)&quot; required&gt;
+    &lt;input #inputRaza type=&quot;text&quot; placeholder=&quot;Raza (opcional)&quot;&gt;
+    &lt;input #inputEdad type=&quot;number&quot; placeholder=&quot;Edad&quot; min=&quot;0&quot;&gt;
+    &lt;input #inputDuenoId type=&quot;number&quot; placeholder=&quot;ID del dueño (usa 1 o 2)&quot; required&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;registro-boton&quot;&gt;Registrar&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt;</code></pre></div><p>El formulario necesita distribución flexible, foco visible y un botón distinguible. Esta versión completa conserva el diseño anterior y añade los estilos del registro.</p><div class="code-block" id="codigo-11"><div class="code-head"><div><span class="code-context">Reemplazar · css</span><span class="code-file" title="src/app/pages/mascotas-listado/mascotas-listado.css">src/app/pages/mascotas-listado/mascotas-listado.css</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/mascotas-listado/mascotas-listado.css">Copiar</button></div><pre class="line-numbers"><code class="language-css">.titulo-pagina {
+  color: var(--azul-oscuro);
+  margin-bottom: var(--espacio-md);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--espacio-md);
+}
+
+.buscador {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: var(--espacio-md);
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--texto);
+}
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.card-link:hover {
+  transform: translateY(-4px);
+}
+
+.buscador:focus {
+  outline: none;
+  border-color: var(--azul-principal);
+  box-shadow: 0 0 0 3px var(--azul-claro);
+}
+
+.sin-resultado {
+  color: var(--texto-suave);
+  padding: var(--espacio-lg) 0;
+}
+
+.estado-carga {
+  color: var(--texto-suave);
+  padding: var(--espacio-md) 0;
+}
+
+.estado-error {
+  color: #b0413e;
+  background: #fbeceb;
+  border: 1px solid #f0c9c7;
+  border-radius: var(--radio);
+  padding: var(--espacio-sm);
+  margin-bottom: var(--espacio-md);
+}
+
+.registro {
+  margin-top: var(--espacio-lg);
+  padding: var(--espacio-md);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.registro-titulo {
+  color: var(--azul-oscuro);
+  margin-bottom: var(--espacio-sm);
+}
+
+.registro-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+}
+
+.registro-form input {
+  flex: 1 1 160px;
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+}
+
+.registro-form input:focus {
+  outline: none;
+  border-color: var(--azul-principal);
+  box-shadow: 0 0 0 3px var(--azul-claro);
+}
+
+.registro-boton {
+  flex: 0 0 auto;
+  padding: var(--espacio-xs) var(--espacio-md);
+  border: none;
+  border-radius: var(--radio);
+  background: var(--azul-principal);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.registro-boton:hover {
+  background: var(--azul-oscuro);
+}</code></pre></div><div class="panel"><h3>Prueba de escritura</h3><p>Llena el formulario con un dueño existente —el ID <code>1</code> en el escenario de la guía— y pulsa Registrar. La mascota debe aparecer en la grilla sin recargar. Después recarga o consulta Swagger para comprobar que quedó guardada en el backend.</p></div><div class="callout" data-tone="warning"><span class="callout-icon" aria-hidden="true">!</span><div><h3>Límite del ejemplo que debes reconocer</h3><p>El código fuente ejecuta <code>reset()</code> inmediatamente después de iniciar el POST. El formulario limpio no confirma éxito; la señal de éxito es la respuesta del backend y la nueva mascota en la lista. Las limitaciones del guardado están reunidas en la consulta final.</p></div></div></div></section>
+<section class="section view" id="duenos-servicio" data-accent="2" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">👤</span><div class="sec-copy"><span class="sec-n">10 · Aplicación del patrón</span><h2 class="sec-t">Aplica el patrón a otro recurso</h2><p class="sec-s">Misma arquitectura; otro contrato, otra URL y otros campos.</p></div></div><div class="body"><div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">¿Qué conservarías de MascotasService al construir DuenosService?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">La inyección de HttpClient, los Signals de datos/carga/error, el GET dentro del constructor y el POST que agrega la respuesta a la lista. Cambian las interfaces, la URL y los campos; los favoritos son propios de mascotas.</p></div></details></div><p>Crea <code>src/app/services/duenos.service.ts</code>. Un dueño se envía sin ID y se recibe con el ID asignado. El formulario pide nombre, apellido y documento; teléfono y email pueden quedar vacíos en esta práctica, y si escribes email debe ser válido.</p><div class="code-block" id="codigo-12"><div class="code-head"><div><span class="code-context">Crear · typescript</span><span class="code-file" title="src/app/services/duenos.service.ts">src/app/services/duenos.service.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/services/duenos.service.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+export interface Dueno {
+  id: number;
+  nombre: string;
+  apellido: string;
+  documento: string;
+  telefono: string;
+  email: string;
+}
+
+export interface NuevoDueno {
+  nombre: string;
+  apellido: string;
+  documento: string;
+  telefono: string;
+  email: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DuenosService {
+  private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:8080/api/duenos';
+
+  private listaDuenos = signal&lt;Dueno[]&gt;([]);
+  private cargandoSignal = signal&lt;boolean&gt;(true);
+  private errorSignal = signal&lt;string | null&gt;(null);
+
+  duenos = this.listaDuenos.asReadonly();
+  cargando = this.cargandoSignal.asReadonly();
+  error = this.errorSignal.asReadonly();
+
+  constructor() {
+    this.cargarDuenos();
+  }
+
+  // GET /api/duenos
+  cargarDuenos() {
+    this.cargandoSignal.set(true);
+    this.errorSignal.set(null);
+
+    this.http.get&lt;Dueno[]&gt;(this.apiUrl).subscribe({
+      next: (datos) =&gt; {
+        this.listaDuenos.set(datos);
+        this.cargandoSignal.set(false);
+      },
+      error: () =&gt; {
+        this.errorSignal.set(
+          'No pudimos conectarnos con el servidor de VetCare. Verifica que el backend esté corriendo en el puerto 8080.'
+        );
+        this.cargandoSignal.set(false);
+      }
+    });
+  }
+
+  // POST /api/duenos
+  crearDueno(nuevo: NuevoDueno) {
+    this.http.post&lt;Dueno&gt;(this.apiUrl, nuevo).subscribe({
+      next: (creado) =&gt; {
+        this.listaDuenos.update(actuales =&gt; [...actuales, creado]);
+      },
+      error: () =&gt; {
+        this.errorSignal.set('No pudimos registrar el dueño. Revisa los datos (el documento y el email deben ser únicos).');
+      }
+    });
+  }
+}</code></pre></div><div class="callout" data-tone="warning"><span class="callout-icon" aria-hidden="true">!</span><div><h3>Lee las restricciones de negocio</h3><p>La guía indica documento y email únicos. Si el backend rechaza un registro, revisa esos valores y el cuerpo de la respuesta. No atribuyas todos los fallos a la red.</p></div></div></div></section>
+<section class="section view" id="duenos-pagina" data-accent="3" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">📋</span><div class="sec-copy"><span class="sec-n">11 · Aplicación del patrón</span><h2 class="sec-t">Consultar y registrar en la misma pantalla</h2><p class="sec-s">Construye los tres archivos del nuevo componente antes de enlazar la ruta.</p></div></div><div class="body"><p>Crea la carpeta <code>src/app/pages/duenos-listado/</code>. El componente lee el estado de DuenosService y convierte el envío del formulario en una llamada a <code>crearDueno</code>; no hace HTTP directamente.</p><div class="code-block" id="codigo-13"><div class="code-head"><div><span class="code-context">Crear · typescript</span><span class="code-file" title="src/app/pages/duenos-listado/duenos-listado.ts">src/app/pages/duenos-listado/duenos-listado.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/duenos-listado/duenos-listado.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, inject } from '@angular/core';
+import { DuenosService } from '../../services/duenos.service';
+
+@Component({
+  selector: 'app-duenos-listado',
+  imports: [],
+  templateUrl: './duenos-listado.html',
+  styleUrl: './duenos-listado.css'
+})
+export class DuenosListado {
+  private duenosService = inject(DuenosService);
+
+  duenos = this.duenosService.duenos;
+  cargando = this.duenosService.cargando;
+  error = this.duenosService.error;
+
+  registrarDueno(
+    evento: SubmitEvent,
+    inputNombre: HTMLInputElement,
+    inputApellido: HTMLInputElement,
+    inputDocumento: HTMLInputElement,
+    inputTelefono: HTMLInputElement,
+    inputEmail: HTMLInputElement
+  ) {
+    evento.preventDefault();
+
+    if (!inputNombre.value || !inputApellido.value || !inputDocumento.value) {
+      return;
+    }
+
+    this.duenosService.crearDueno({
+      nombre: inputNombre.value,
+      apellido: inputApellido.value,
+      documento: inputDocumento.value,
+      telefono: inputTelefono.value,
+      email: inputEmail.value
+    });
+
+    (evento.target as HTMLFormElement).reset();
+  }
+}</code></pre></div><p>El HTML muestra carga, error o tabla; <code>@empty</code> explica que aún no hay dueños. Las referencias de plantilla entregan los valores al manejador, igual que en Mascotas.</p><div class="code-block" id="codigo-14"><div class="code-head"><div><span class="code-context">Crear · html</span><span class="code-file" title="src/app/pages/duenos-listado/duenos-listado.html">src/app/pages/duenos-listado/duenos-listado.html</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/duenos-listado/duenos-listado.html">Copiar</button></div><pre class="line-numbers"><code class="language-markup">&lt;h1 class=&quot;titulo-pagina&quot;&gt;Dueños de VetCare&lt;/h1&gt;
+
+@if (cargando()) {
+  &lt;p class=&quot;estado-carga&quot;&gt;Cargando dueños desde el servidor...&lt;/p&gt;
+}
+
+@if (error()) {
+  &lt;p class=&quot;estado-error&quot;&gt;{{ error() }}&lt;/p&gt;
+}
+
+@if (!cargando() &amp;&amp; !error()) {
+  &lt;table class=&quot;tabla-duenos&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Nombre&lt;/th&gt;
+        &lt;th&gt;Documento&lt;/th&gt;
+        &lt;th&gt;Teléfono&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      @for (d of duenos(); track d.id) {
+        &lt;tr&gt;
+          &lt;td&gt;{{ d.nombre }} {{ d.apellido }}&lt;/td&gt;
+          &lt;td&gt;{{ d.documento }}&lt;/td&gt;
+          &lt;td&gt;{{ d.telefono || '—' }}&lt;/td&gt;
+          &lt;td&gt;{{ d.email || '—' }}&lt;/td&gt;
+        &lt;/tr&gt;
+      } @empty {
+        &lt;tr&gt;&lt;td colspan=&quot;4&quot; class=&quot;sin-resultado&quot;&gt;Todavía no hay dueños registrados.&lt;/td&gt;&lt;/tr&gt;
+      }
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+}
+
+&lt;section class=&quot;registro&quot;&gt;
+  &lt;h2 class=&quot;registro-titulo&quot;&gt;Registrar nuevo dueño&lt;/h2&gt;
+  &lt;form class=&quot;registro-form&quot; (submit)=&quot;registrarDueno($event, inputNombre, inputApellido, inputDocumento, inputTelefono, inputEmail)&quot;&gt;
+    &lt;input #inputNombre type=&quot;text&quot; placeholder=&quot;Nombre&quot; required&gt;
+    &lt;input #inputApellido type=&quot;text&quot; placeholder=&quot;Apellido&quot; required&gt;
+    &lt;input #inputDocumento type=&quot;text&quot; placeholder=&quot;Documento&quot; required&gt;
+    &lt;input #inputTelefono type=&quot;text&quot; placeholder=&quot;Teléfono (opcional)&quot;&gt;
+    &lt;input #inputEmail type=&quot;email&quot; placeholder=&quot;Email (opcional)&quot;&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;registro-boton&quot;&gt;Registrar&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt;</code></pre></div><p>Crea el archivo CSS completo. Sus variables de color, espacio, radio y sombra vienen de los estilos globales del frontend de la Clase 3.</p><div class="code-block" id="codigo-15"><div class="code-head"><div><span class="code-context">Crear · css</span><span class="code-file" title="src/app/pages/duenos-listado/duenos-listado.css">src/app/pages/duenos-listado/duenos-listado.css</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/duenos-listado/duenos-listado.css">Copiar</button></div><pre class="line-numbers"><code class="language-css">.titulo-pagina {
+  color: var(--azul-oscuro);
+  margin-bottom: var(--espacio-md);
+}
+
+.estado-carga {
+  color: var(--texto-suave);
+  padding: var(--espacio-md) 0;
+}
+
+.estado-error {
+  color: #b0413e;
+  background: #fbeceb;
+  border: 1px solid #f0c9c7;
+  border-radius: var(--radio);
+  padding: var(--espacio-sm);
+  margin-bottom: var(--espacio-md);
+}
+
+.tabla-duenos {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--superficie);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+
+.tabla-duenos th,
+.tabla-duenos td {
+  text-align: left;
+  padding: var(--espacio-sm);
+  border-bottom: 1px solid var(--borde);
+}
+
+.tabla-duenos th {
+  background: var(--azul-claro);
+  color: var(--azul-oscuro);
+}
+
+.sin-resultado {
+  color: var(--texto-suave);
+  text-align: center;
+  padding: var(--espacio-lg) 0;
+}
+
+.registro {
+  margin-top: var(--espacio-lg);
+  padding: var(--espacio-md);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.registro-titulo {
+  color: var(--azul-oscuro);
+  margin-bottom: var(--espacio-sm);
+}
+
+.registro-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+}
+
+.registro-form input {
+  flex: 1 1 160px;
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+}
+
+.registro-form input:focus {
+  outline: none;
+  border-color: var(--azul-principal);
+  box-shadow: 0 0 0 3px var(--azul-claro);
+}
+
+.registro-boton {
+  flex: 0 0 auto;
+  padding: var(--espacio-xs) var(--espacio-md);
+  border: none;
+  border-radius: var(--radio);
+  background: var(--azul-principal);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.registro-boton:hover {
+  background: var(--azul-oscuro);
+}</code></pre></div><div class="callout" data-tone="success"><span class="callout-icon" aria-hidden="true">✓</span><div><h3>Qué se mantiene</h3><p>La responsabilidad del componente sigue siendo recoger entradas y mostrar estado. El servicio es quien consulta y registra. No necesitas otra explicación de HTTP para aplicar el mismo diseño.</p></div></div></div></section>
+<section class="section view" id="rutas" data-accent="4" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">🧭</span><div class="sec-copy"><span class="sec-n">12 · Integración</span><h2 class="sec-t">Haz que Dueños sea accesible</h2><p class="sec-s">La nueva página entra en el recorrido de VetCare sin romper Inicio, Mascotas ni Detalle.</p></div></div><div class="body"><p>Reemplaza <code>app.routes.ts</code> con las cuatro rutas. Cada import dinámico coincide con la carpeta y la clase correspondiente; <code>/duenos</code> carga <code>DuenosListado</code>.</p><div class="code-block" id="codigo-16"><div class="code-head"><div><span class="code-context">Reemplazar · typescript</span><span class="code-file" title="src/app/app.routes.ts">src/app/app.routes.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/app.routes.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =&gt;
+      import('./pages/inicio/inicio').then(m =&gt; m.Inicio)
+  },
+  {
+    path: 'mascotas',
+    loadComponent: () =&gt;
+      import('./pages/mascotas-listado/mascotas-listado').then(m =&gt; m.MascotasListado)
+  },
+  {
+    path: 'mascotas/:id',
+    loadComponent: () =&gt;
+      import('./pages/mascota-detalle/mascota-detalle').then(m =&gt; m.MascotaDetalle)
+  },
+  {
+    path: 'duenos',
+    loadComponent: () =&gt;
+      import('./pages/duenos-listado/duenos-listado').then(m =&gt; m.DuenosListado)
+  }
+];</code></pre></div><p>Reemplaza <code>app.html</code> para agregar el enlace a Dueños. El contador de favoritos continúa leyendo <code>totalFavoritos()</code> y <code>router-outlet</code> sigue mostrando la página activa.</p><div class="code-block" id="codigo-17"><div class="code-head"><div><span class="code-context">Reemplazar · html</span><span class="code-file" title="src/app/app.html">src/app/app.html</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/app.html">Copiar</button></div><pre class="line-numbers"><code class="language-markup">&lt;nav class=&quot;barra&quot;&gt;
+  &lt;span class=&quot;marca&quot;&gt;🐾 VetCare&lt;/span&gt;
+  &lt;div class=&quot;barra-links&quot;&gt;
+    &lt;a routerLink=&quot;/&quot; class=&quot;barra-link&quot;&gt;Inicio&lt;/a&gt;
+    &lt;a routerLink=&quot;/mascotas&quot; class=&quot;barra-link&quot;&gt;
+      Mascotas
+      @if (totalFavoritos() &gt; 0) {
+        &lt;span class=&quot;badge&quot;&gt;{{ totalFavoritos() }}&lt;/span&gt;
+      }
+    &lt;/a&gt;
+    &lt;a routerLink=&quot;/duenos&quot; class=&quot;barra-link&quot;&gt;Dueños&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;main class=&quot;contenido&quot;&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+&lt;/main&gt;</code></pre></div><div class="callout" data-tone="info"><span class="callout-icon" aria-hidden="true">i</span><div><h3>Dependencias que vienen de la Clase 3</h3><p>El componente raíz <code>src/app/app.ts</code> ya importa <code>RouterOutlet</code> y <code>RouterLink</code>, e inyecta MascotasService para exponer <code>totalFavoritos</code>. Inicio, MascotaDetalle y MascotaCard se conservan; no se recrean en esta clase.</p></div></div><div class="panel"><h3>Verifica la nueva ruta</h3><p>Abre <code>http://localhost:4200/duenos</code>. Debes ver los dueños del backend, registrar otro y comprobarlo con <code>GET /api/duenos</code>. Después vuelve a Inicio y Mascotas para revisar la navegación.</p></div></div></section>
+<section class="section view" id="selector" data-accent="1" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">🔗</span><div class="sec-copy"><span class="sec-n">13 · Integración</span><h2 class="sec-t">Elegir un dueño, no memorizar su ID</h2><p class="sec-s">El formulario de mascota usa los dueños reales que ya administra DuenosService.</p></div></div><div class="body"><p>Inyecta también DuenosService y expón su Signal <code>duenos</code>. El manejador ahora recibe un <code>HTMLSelectElement</code> y convierte el valor seleccionado a número para enviar <code>duenoId</code>. Este es el componente final completo.</p><div class="code-block" id="codigo-18"><div class="code-head"><div><span class="code-context">Reemplazar · typescript</span><span class="code-file" title="src/app/pages/mascotas-listado/mascotas-listado.ts">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/mascotas-listado/mascotas-listado.ts">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">import { RouterLink } from '@angular/router';
+import { MascotaCard } from '../../components/mascota-card/mascota-card';
+import { Component, inject, signal, computed } from '@angular/core';
+import { MascotasService } from '../../services/mascotas.service';
+import { DuenosService } from '../../services/duenos.service';
+
+@Component({
+  selector: 'app-mascotas-listado',
+  imports: [RouterLink, MascotaCard],
+  templateUrl: './mascotas-listado.html',
+  styleUrl: './mascotas-listado.css'
+})
+export class MascotasListado {
+  private mascotasService = inject(MascotasService);
+  private duenosService = inject(DuenosService);
+
+  mascotas = this.mascotasService.mascotas;
+  cargando = this.mascotasService.cargando;
+  error = this.mascotasService.error;
+
+  // Para el &lt;select&gt; del formulario: se llena con GET /api/duenos (mismo patrón de servicio)
+  duenos = this.duenosService.duenos;
+
+  busqueda = signal('');
+
+  mascotasFiltradas = computed(() =&gt;
+    this.mascotas().filter(m =&gt;
+      m.nombre.toLowerCase().includes(this.busqueda().toLowerCase())
+    )
+  );
+
+  esFavorito(id: number) {
+    return this.mascotasService.esFavorito(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.mascotasService.alternarFavorito(id);
+  }
+
+  registrarMascota(
+    evento: SubmitEvent,
+    inputNombre: HTMLInputElement,
+    inputEspecie: HTMLInputElement,
+    inputRaza: HTMLInputElement,
+    inputEdad: HTMLInputElement,
+    selectDueno: HTMLSelectElement
+  ) {
+    evento.preventDefault();
+
+    if (!inputNombre.value || !inputEspecie.value || !selectDueno.value) {
+      return;
+    }
+
+    this.mascotasService.crearMascota({
+      nombre: inputNombre.value,
+      especie: inputEspecie.value,
+      raza: inputRaza.value,
+      edad: Number(inputEdad.value) || 0,
+      duenoId: Number(selectDueno.value)
+    });
+
+    (evento.target as HTMLFormElement).reset();
+  }
+}</code></pre></div><p>Reemplaza el campo de ID por opciones con nombre y apellido. Si la lista está vacía, el ejemplo guía hacia Dueños. El navegador muestra nombres; el body del POST sigue enviando el ID.</p><div class="code-block" id="codigo-19"><div class="code-head"><div><span class="code-context">Reemplazar · html</span><span class="code-file" title="src/app/pages/mascotas-listado/mascotas-listado.html">src/app/pages/mascotas-listado/mascotas-listado.html</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/mascotas-listado/mascotas-listado.html">Copiar</button></div><pre class="line-numbers"><code class="language-markup">&lt;h1 class=&quot;titulo-pagina&quot;&gt;Mascotas de VetCare&lt;/h1&gt;
+
+&lt;input
+  #inputBusqueda
+  type=&quot;text&quot;
+  class=&quot;buscador&quot;
+  placeholder=&quot;Buscar mascota por nombre...&quot;
+  (input)=&quot;busqueda.set(inputBusqueda.value)&quot;
+/&gt;
+
+@if (cargando()) {
+  &lt;p class=&quot;estado-carga&quot;&gt;Cargando mascotas desde el servidor...&lt;/p&gt;
+}
+
+@if (error()) {
+  &lt;p class=&quot;estado-error&quot;&gt;{{ error() }}&lt;/p&gt;
+}
+
+@if (!cargando() &amp;&amp; !error()) {
+  &lt;div class=&quot;grid&quot;&gt;
+    @for (m of mascotasFiltradas(); track m.id) {
+      &lt;a [routerLink]=&quot;['/mascotas', m.id]&quot; class=&quot;card-link&quot;&gt;
+        &lt;app-mascota-card
+          [nombre]=&quot;m.nombre&quot;
+          [especie]=&quot;m.especie&quot;
+          [edad]=&quot;m.edad&quot;
+          [foto]=&quot;m.foto&quot;
+          [esFavorito]=&quot;esFavorito(m.id)&quot;
+          (favoritoCambiado)=&quot;alternarFavorito(m.id)&quot;&gt;
+        &lt;/app-mascota-card&gt;
+      &lt;/a&gt;
+    } @empty {
+      &lt;p class=&quot;sin-resultado&quot;&gt;No encontramos mascotas con ese nombre.&lt;/p&gt;
+    }
+  &lt;/div&gt;
+}
+
+&lt;section class=&quot;registro&quot;&gt;
+  &lt;h2 class=&quot;registro-titulo&quot;&gt;Registrar nueva mascota&lt;/h2&gt;
+
+  @if (duenos().length === 0) {
+    &lt;p class=&quot;estado-carga&quot;&gt;
+      Todavía no hay dueños registrados. Ve a
+      &lt;a routerLink=&quot;/duenos&quot;&gt;Dueños&lt;/a&gt; y registra uno primero.
+    &lt;/p&gt;
+  } @else {
+    &lt;form class=&quot;registro-form&quot; (submit)=&quot;registrarMascota($event, inputNombre, inputEspecie, inputRaza, inputEdad, selectDueno)&quot;&gt;
+      &lt;input #inputNombre type=&quot;text&quot; placeholder=&quot;Nombre&quot; required&gt;
+      &lt;input #inputEspecie type=&quot;text&quot; placeholder=&quot;Especie (Perro, Gato...)&quot; required&gt;
+      &lt;input #inputRaza type=&quot;text&quot; placeholder=&quot;Raza (opcional)&quot;&gt;
+      &lt;input #inputEdad type=&quot;number&quot; placeholder=&quot;Edad&quot; min=&quot;0&quot;&gt;
+      &lt;select #selectDueno required&gt;
+        &lt;option value=&quot;&quot; disabled selected&gt;Dueño...&lt;/option&gt;
+        @for (d of duenos(); track d.id) {
+          &lt;option [value]=&quot;d.id&quot;&gt;{{ d.nombre }} {{ d.apellido }}&lt;/option&gt;
+        }
+      &lt;/select&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;registro-boton&quot;&gt;Registrar&lt;/button&gt;
+    &lt;/form&gt;
+  }
+&lt;/section&gt;</code></pre></div><p>La versión final completa de los estilos extiende las reglas de inputs al selector. No necesitas ensamblar los tres fragmentos de CSS de la guía.</p><div class="code-block" id="codigo-20"><div class="code-head"><div><span class="code-context">Reemplazar · css</span><span class="code-file" title="src/app/pages/mascotas-listado/mascotas-listado.css">src/app/pages/mascotas-listado/mascotas-listado.css</span></div><button class="copy-btn" type="button" aria-label="Copiar src/app/pages/mascotas-listado/mascotas-listado.css">Copiar</button></div><pre class="line-numbers"><code class="language-css">.titulo-pagina {
+  color: var(--azul-oscuro);
+  margin-bottom: var(--espacio-md);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--espacio-md);
+}
+
+.buscador {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: var(--espacio-md);
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--texto);
+}
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.card-link:hover {
+  transform: translateY(-4px);
+}
+
+.buscador:focus {
+  outline: none;
+  border-color: var(--azul-principal);
+  box-shadow: 0 0 0 3px var(--azul-claro);
+}
+
+.sin-resultado {
+  color: var(--texto-suave);
+  padding: var(--espacio-lg) 0;
+}
+
+.estado-carga {
+  color: var(--texto-suave);
+  padding: var(--espacio-md) 0;
+}
+
+.estado-error {
+  color: #b0413e;
+  background: #fbeceb;
+  border: 1px solid #f0c9c7;
+  border-radius: var(--radio);
+  padding: var(--espacio-sm);
+  margin-bottom: var(--espacio-md);
+}
+
+.registro {
+  margin-top: var(--espacio-lg);
+  padding: var(--espacio-md);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.registro-titulo {
+  color: var(--azul-oscuro);
+  margin-bottom: var(--espacio-sm);
+}
+
+.registro-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+}
+
+.registro-form input,
+.registro-form select {
+  flex: 1 1 160px;
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+}
+
+.registro-form input:focus,
+.registro-form select:focus {
+  outline: none;
+  border-color: var(--azul-principal);
+  box-shadow: 0 0 0 3px var(--azul-claro);
+}
+
+.registro-boton {
+  flex: 0 0 auto;
+  padding: var(--espacio-xs) var(--espacio-md);
+  border: none;
+  border-radius: var(--radio);
+  background: var(--azul-principal);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.registro-boton:hover {
+  background: var(--azul-oscuro);
+}</code></pre></div><div class="callout" data-tone="warning"><span class="callout-icon" aria-hidden="true">!</span><div><h3>No confundir ausencia con espera</h3><p>Este ejemplo solo comprueba <code>duenos().length</code>. Antes de que termine el GET también vale cero; por eso puede mostrar temporalmente “Todavía no hay dueños”. Reconoce la limitación: carga, error y lista vacía del selector todavía no están separados.</p></div></div></div></section>
+<section class="section view" id="verificacion" data-accent="2" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">✅</span><div class="sec-copy"><span class="sec-n">14 · Verificación</span><h2 class="sec-t">Comprueba el recorrido completo</h2><p class="sec-s">El resultado se verifica en la interfaz y en el backend.</p></div></div><div class="body"><ul class="checklist"><li>En <code>/duenos</code>, registra un nuevo dueño con documento y email no repetidos.</li><li>Ve a <code>/mascotas</code>: el selector debe ofrecer al nuevo dueño con nombre y apellido.</li><li>Registra una mascota seleccionándolo; confirma que aparece en la grilla sin recargar.</li><li>Comprueba en <code>GET /api/mascotas</code> el <code>duenoId</code> y el nombre <code>dueno</code> devueltos.</li><li>Recarga para verificar persistencia y prueba el buscador y favoritos. Los favoritos siguen en memoria local del servicio, no se guardan en el backend.</li><li>Repite la prueba de backend detenido y recuperación de la lectura.</li></ul><div class="table-wrap"><table class="data-table"><caption>Interpretar señales, no memorizar errores</caption><thead><tr><th scope="col">Señal</th><th scope="col">Qué significa</th><th scope="col">Qué revisar</th></tr></thead><tbody><tr><td>Bloqueado por CORS</td><td>El navegador no permite al frontend acceder a la respuesta entre esos orígenes.</td><td>Origen exacto <code>http://localhost:4200</code> y versión del repositorio preparada para la clase. No desactives la seguridad del navegador.</td></tr><tr><td>No provider for HttpClient / NullInjectorError</td><td>Angular no encuentra el proveedor solicitado.</td><td><code>provideHttpClient()</code> en <code>app.config.ts</code>.</td></tr><tr><td>La lista no se llena y no hay petición</td><td>El Observable de HTTP no se ha ejecutado.</td><td>Que <code>http.get(...)</code> tenga <code>subscribe(...)</code>.</td></tr><tr><td>400 Bad Request al registrar</td><td>El backend rechazó la petición. El mensaje genérico no identifica la causa exacta.</td><td>Body y respuesta en Network/Swagger; campos requeridos y <code>duenoId</code> existente. Un ID inválido es una posibilidad, no un diagnóstico automático.</td></tr><tr><td>No pudimos conectarnos…</td><td>Falló la carga; el ejemplo agrupa los fallos en un mensaje general.</td><td>Backend en puerto 8080, URL y detalle HTTP. No todos los errores son una caída del servidor.</td></tr></tbody></table></div><div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">¿Basta con dejar que el backend rechace un formulario sin dueño?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">No. Valida también en el frontend para responder inmediatamente y evitar una petición inútil, pero mantén la validación del backend: un cliente puede saltarse el formulario. Ninguna validación del navegador sustituye la del servidor.</p></div></details></div></div></section>
+<section class="section view" id="cierre" data-accent="3" data-layout="focus" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">🏁</span><div class="sec-copy"><span class="sec-n">15 · Cierre</span><h2 class="sec-t">VetCare ya habla con su backend</h2><p class="sec-s">Del arreglo escrito a mano a un recorrido de lectura y escritura verificable.</p></div></div><div class="body"><div class="panel"><h3>El problema que resolvimos</h3><p>La interfaz mostraba información inventada dentro del frontend. Ahora consulta mascotas y dueños del backend, y permite registrar ambos recursos desde la aplicación.</p></div><div class="cards"><div class="card" data-accent="1"><b>1 · Contrato</b><p>Los campos enviados y recibidos deben coincidir con el backend; el servidor asigna los IDs.</p></div><div class="card" data-accent="2"><b>2 · Petición → Signal</b><p>HttpClient pide o envía; subscribe recibe la respuesta y el servicio actualiza el estado de la vista.</p></div><div class="card" data-accent="3"><b>3 · Estado visible</b><p>Una pantalla conectada debe informar espera, fallo y resultado, incluida una respuesta vacía.</p></div></div><p><strong>Qué construiste:</strong> GET y POST en servicios por recurso, estados compartidos, formulario de mascota, página de Dueños y selector con datos reales. La arquitectura de la Clase 3 se conserva; cambia de dónde proviene la información.</p><div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">Hoy cualquiera puede crear una mascota sin iniciar sesión. ¿Cómo sabrá el backend quién hace la petición?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">En el Módulo 2 se incorporará login con JWT: el frontend enviará el token y el backend volverá a exigir y validar la identidad. Los permisos abiertos de este laboratorio no son la configuración final de producción.</p></div></details></div><p>La ruta principal termina aquí. Las escenas siguientes son material de consulta: DTO, backend preparado y mapa de archivos con los límites del ejemplo.</p></div></section>
+<section class="section view" id="consulta-dtos" data-accent="4" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">📚</span><div class="sec-copy"><span class="sec-n">16 · Consulta opcional</span><h2 class="sec-t">El contrato, campo por campo</h2><p class="sec-s">Código del repositorio backend: se lee como referencia y no se modifica durante la práctica.</p></div></div><div class="body"><p><code>MascotaResponse</code> transporta lo que recibe Angular. Un record declara sus componentes y Java genera constructor y métodos de acceso; al serializarse como JSON, los nombres de esos componentes son las claves del contrato.</p><div class="code-block" id="codigo-21"><div class="code-head"><div><span class="code-context">Consultar · java</span><span class="code-file" title="src/main/java/com/devsenior/vetcare/dto/MascotaResponse.java">src/main/java/com/devsenior/vetcare/dto/MascotaResponse.java</span></div><button class="copy-btn" type="button" aria-label="Copiar src/main/java/com/devsenior/vetcare/dto/MascotaResponse.java">Copiar</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.dto;
+
+public record MascotaResponse(
+        Long id,
+        String nombre,
+        String especie,
+        String raza,
+        Integer edad,
+        Long duenoId,
+        String dueno,
+        String foto
+) {}</code></pre></div><p><code>MascotaRequest</code> exige nombre y especie no vacíos y un ID de dueño no nulo. No incluye el ID de la mascota, porque todavía no se ha creado.</p><div class="code-block" id="codigo-22"><div class="code-head"><div><span class="code-context">Consultar · java</span><span class="code-file" title="src/main/java/com/devsenior/vetcare/dto/MascotaRequest.java">src/main/java/com/devsenior/vetcare/dto/MascotaRequest.java</span></div><button class="copy-btn" type="button" aria-label="Copiar src/main/java/com/devsenior/vetcare/dto/MascotaRequest.java">Copiar</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record MascotaRequest(
+        @NotBlank(message = &quot;El nombre es obligatorio&quot;)
+        String nombre,
+
+        @NotBlank(message = &quot;La especie es obligatoria&quot;)
+        String especie,
+
+        String raza,
+        Integer edad,
+
+        @NotNull(message = &quot;El id del dueño es obligatorio&quot;)
+        Long duenoId
+) {}</code></pre></div><p><code>DuenoResponse</code> agrega el ID a la información del dueño que consume el listado.</p><div class="code-block" id="codigo-23"><div class="code-head"><div><span class="code-context">Consultar · java</span><span class="code-file" title="src/main/java/com/devsenior/vetcare/dto/DuenoResponse.java">src/main/java/com/devsenior/vetcare/dto/DuenoResponse.java</span></div><button class="copy-btn" type="button" aria-label="Copiar src/main/java/com/devsenior/vetcare/dto/DuenoResponse.java">Copiar</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.dto;
+
+public record DuenoResponse(
+        Long id,
+        String nombre,
+        String apellido,
+        String documento,
+        String telefono,
+        String email
+) {}</code></pre></div><p><code>DuenoRequest</code> exige nombre, apellido y documento; <code>@Email</code> comprueba el formato del email informado. Las restricciones adicionales de unicidad descritas en la guía pertenecen al backend, no a esta interfaz TypeScript.</p><div class="code-block" id="codigo-24"><div class="code-head"><div><span class="code-context">Consultar · java</span><span class="code-file" title="src/main/java/com/devsenior/vetcare/dto/DuenoRequest.java">src/main/java/com/devsenior/vetcare/dto/DuenoRequest.java</span></div><button class="copy-btn" type="button" aria-label="Copiar src/main/java/com/devsenior/vetcare/dto/DuenoRequest.java">Copiar</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.dto;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
+public record DuenoRequest(
+        @NotBlank(message = &quot;El nombre es obligatorio&quot;)
+        String nombre,
+
+        @NotBlank(message = &quot;El apellido es obligatorio&quot;)
+        String apellido,
+
+        @NotBlank(message = &quot;El documento es obligatorio&quot;)
+        String documento,
+
+        String telefono,
+
+        @Email(message = &quot;El email debe ser válido&quot;)
+        String email
+) {}</code></pre></div></div></section>
+<section class="section view" id="consulta-backend" data-accent="1" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">⚙️</span><div class="sec-copy"><span class="sec-n">17 · Consulta opcional</span><h2 class="sec-t">Lo que ya está preparado en Spring Boot</h2><p class="sec-s">Controller, permisos y datos de arranque: contexto técnico, no una segunda implementación.</p></div></div><div class="body"><p><code>MascotaController</code> recibe las peticiones en <code>/api/mascotas</code>, delega en MascotaService y devuelve códigos HTTP. El POST usa <code>@Valid</code> y responde con <code>201 Created</code>. PUT y DELETE existen en el controlador, pero no se implementan en el frontend de esta sesión.</p><div class="code-block" id="codigo-25"><div class="code-head"><div><span class="code-context">Consultar · java</span><span class="code-file" title="src/main/java/com/devsenior/vetcare/controller/MascotaController.java">src/main/java/com/devsenior/vetcare/controller/MascotaController.java</span></div><button class="copy-btn" type="button" aria-label="Copiar src/main/java/com/devsenior/vetcare/controller/MascotaController.java">Copiar</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.controller;
+
+import com.devsenior.vetcare.dto.MascotaRequest;
+import com.devsenior.vetcare.dto.MascotaResponse;
+import com.devsenior.vetcare.service.MascotaService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/api/mascotas&quot;)
+public class MascotaController {
+
+    private final MascotaService mascotaService;
+
+    public MascotaController(MascotaService mascotaService) {
+        this.mascotaService = mascotaService;
+    }
+
+    @GetMapping
+    public ResponseEntity&lt;List&lt;MascotaResponse&gt;&gt; listarTodos() {
+        return ResponseEntity.ok(mascotaService.listarTodos());
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;MascotaResponse&gt; buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(mascotaService.buscarPorId(id));
+    }
+
+    @PostMapping
+    public ResponseEntity&lt;MascotaResponse&gt; crear(@Valid @RequestBody MascotaRequest request) {
+        MascotaResponse creada = mascotaService.crear(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(creada);
+    }
+
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;MascotaResponse&gt; actualizar(
+            @PathVariable Long id, @Valid @RequestBody MascotaRequest request) {
+        return ResponseEntity.ok(mascotaService.actualizar(id, request));
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; eliminar(@PathVariable Long id) {
+        mascotaService.eliminar(id);
+        return ResponseEntity.noContent().build();
+    }
+}</code></pre></div><p>Este fragmento existente de <code>SecurityConfig.java</code> declara el origen, métodos y encabezados permitidos. Los puertos 4200 y 8080 son orígenes distintos. Se consulta el fragmento; no reemplaces con él el archivo completo.</p><div class="code-block" id="codigo-26"><div class="code-head"><div><span class="code-context">Consultar fragmento · java</span><span class="code-file" title="src/main/java/com/devsenior/vetcare/config/SecurityConfig.java">src/main/java/com/devsenior/vetcare/config/SecurityConfig.java</span></div><button class="copy-btn" type="button" aria-label="Copiar src/main/java/com/devsenior/vetcare/config/SecurityConfig.java">Copiar</button></div><pre class="line-numbers"><code class="language-java">@Bean
+public CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration config = new CorsConfiguration();
+    config.setAllowedOrigins(List.of(&quot;http://localhost:4200&quot;));
+    config.setAllowedMethods(List.of(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;));
+    config.setAllowedHeaders(List.of(&quot;*&quot;));
+
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration(&quot;/**&quot;, config);
+    return source;
+}</code></pre></div><p>El segundo fragmento permite consumir mascotas y dueños sin login en el laboratorio. El resto requiere autenticación; la integración con JWT queda fuera de esta clase.</p><div class="code-block" id="codigo-27"><div class="code-head"><div><span class="code-context">Consultar fragmento · java</span><span class="code-file" title="src/main/java/com/devsenior/vetcare/config/SecurityConfig.java">src/main/java/com/devsenior/vetcare/config/SecurityConfig.java</span></div><button class="copy-btn" type="button" aria-label="Copiar src/main/java/com/devsenior/vetcare/config/SecurityConfig.java">Copiar</button></div><pre class="line-numbers"><code class="language-java">.requestMatchers(&quot;/api/mascotas/**&quot;).permitAll()
+.requestMatchers(&quot;/api/duenos/**&quot;).permitAll()
+.anyRequest().authenticated()</code></pre></div><p><code>DataInitializer</code> prepara dos dueños y tres mascotas. El código comprueba específicamente si ya existe alguna mascota y, si existe, sale sin sembrar. Los IDs dependen de la base: no se asignan explícitamente en este archivo.</p><div class="code-block" id="codigo-28"><div class="code-head"><div><span class="code-context">Consultar · java</span><span class="code-file" title="src/main/java/com/devsenior/vetcare/config/DataInitializer.java">src/main/java/com/devsenior/vetcare/config/DataInitializer.java</span></div><button class="copy-btn" type="button" aria-label="Copiar src/main/java/com/devsenior/vetcare/config/DataInitializer.java">Copiar</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.config;
+
+import com.devsenior.vetcare.model.Dueno;
+import com.devsenior.vetcare.model.Mascota;
+import com.devsenior.vetcare.repository.DuenoRepository;
+import com.devsenior.vetcare.repository.MascotaRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DataInitializer implements CommandLineRunner {
+
+    private final DuenoRepository duenoRepository;
+    private final MascotaRepository mascotaRepository;
+
+    public DataInitializer(DuenoRepository duenoRepository, MascotaRepository mascotaRepository) {
+        this.duenoRepository = duenoRepository;
+        this.mascotaRepository = mascotaRepository;
+    }
+
+    @Override
+    public void run(String... args) {
+        if (mascotaRepository.count() &gt; 0) {
+            return;
+        }
+
+        Dueno anaTorres = new Dueno();
+        anaTorres.setNombre(&quot;Ana&quot;);
+        anaTorres.setApellido(&quot;Torres&quot;);
+        anaTorres.setDocumento(&quot;1000000001&quot;);
+        anaTorres.setTelefono(&quot;3001234567&quot;);
+        anaTorres.setEmail(&quot;ana.torres@example.com&quot;);
+        duenoRepository.save(anaTorres);
+
+        Dueno luisPerez = new Dueno();
+        luisPerez.setNombre(&quot;Luis&quot;);
+        luisPerez.setApellido(&quot;Pérez&quot;);
+        luisPerez.setDocumento(&quot;1000000002&quot;);
+        luisPerez.setTelefono(&quot;3007654321&quot;);
+        luisPerez.setEmail(&quot;luis.perez@example.com&quot;);
+        duenoRepository.save(luisPerez);
+
+        Mascota firulais = new Mascota();
+        firulais.setNombre(&quot;Firulais&quot;);
+        firulais.setEspecie(&quot;Perro&quot;);
+        firulais.setRaza(&quot;Criollo&quot;);
+        firulais.setEdad(4);
+        firulais.setDueno(anaTorres);
+        mascotaRepository.save(firulais);
+
+        Mascota michi = new Mascota();
+        michi.setNombre(&quot;Michi&quot;);
+        michi.setEspecie(&quot;Gato&quot;);
+        michi.setRaza(&quot;Siames&quot;);
+        michi.setEdad(2);
+        michi.setDueno(luisPerez);
+        mascotaRepository.save(michi);
+
+        Mascota rocky = new Mascota();
+        rocky.setNombre(&quot;Rocky&quot;);
+        rocky.setEspecie(&quot;Perro&quot;);
+        rocky.setRaza(&quot;Labrador&quot;);
+        rocky.setEdad(6);
+        rocky.setDueno(anaTorres);
+        mascotaRepository.save(rocky);
+    }
+}</code></pre></div><div class="table-wrap"><table class="data-table"><caption>Datos de ejemplo que siembra el archivo</caption><thead><tr><th scope="col">Dueño</th><th scope="col">Documento</th><th scope="col">Teléfono</th><th scope="col">Email</th></tr></thead><tbody><tr><td>Ana Torres</td><td>1000000001</td><td>3001234567</td><td>ana.torres@example.com</td></tr><tr><td>Luis Pérez</td><td>1000000002</td><td>3007654321</td><td>luis.perez@example.com</td></tr></tbody></table></div><div class="table-wrap"><table class="data-table"><caption>Mascotas iniciales</caption><thead><tr><th scope="col">Nombre</th><th scope="col">Especie</th><th scope="col">Raza</th><th scope="col">Edad</th><th scope="col">Dueño</th></tr></thead><tbody><tr><td>Firulais</td><td>Perro</td><td>Criollo</td><td>4</td><td>Ana Torres</td></tr><tr><td>Michi</td><td>Gato</td><td>Siames</td><td>2</td><td>Luis Pérez</td></tr><tr><td>Rocky</td><td>Perro</td><td>Labrador</td><td>6</td><td>Ana Torres</td></tr></tbody></table></div></div></section>
+<section class="section view" id="consulta-mapa" data-accent="2" data-layout="canvas" hidden><div class="sec-head"><span class="sec-icon" aria-hidden="true">🗂️</span><div class="sec-copy"><span class="sec-n">18 · Consulta opcional</span><h2 class="sec-t">Dónde queda cada pieza</h2><p class="sec-s">Mapa final y límites que conviene reconocer antes de llevar el ejemplo más lejos.</p></div></div><div class="body"><div class="table-wrap"><table class="data-table"><caption>Frontend: versiones que deben quedar al finalizar</caption><thead><tr><th scope="col">Archivo</th><th scope="col">Ubicación</th><th scope="col">Acción final</th></tr></thead><tbody><tr><td>app.config.ts</td><td><code>src/app/</code></td><td>Reemplazar · HttpClient</td></tr><tr><td>mascotas.service.ts</td><td><code>src/app/services/</code></td><td>Reemplazar · versión GET + POST</td></tr><tr><td>mascotas-listado.ts</td><td><code>src/app/pages/mascotas-listado/</code></td><td>Reemplazar · versión con selector</td></tr><tr><td>mascotas-listado.html</td><td><code>src/app/pages/mascotas-listado/</code></td><td>Reemplazar · versión con selector</td></tr><tr><td>mascotas-listado.css</td><td><code>src/app/pages/mascotas-listado/</code></td><td>Reemplazar · CSS final completo</td></tr><tr><td>duenos.service.ts</td><td><code>src/app/services/</code></td><td>Crear</td></tr><tr><td>duenos-listado.ts</td><td><code>src/app/pages/duenos-listado/</code></td><td>Crear</td></tr><tr><td>duenos-listado.html</td><td><code>src/app/pages/duenos-listado/</code></td><td>Crear</td></tr><tr><td>duenos-listado.css</td><td><code>src/app/pages/duenos-listado/</code></td><td>Crear</td></tr><tr><td>app.routes.ts</td><td><code>src/app/</code></td><td>Reemplazar · cuatro rutas</td></tr><tr><td>app.html</td><td><code>src/app/</code></td><td>Reemplazar · enlace Dueños</td></tr></tbody></table></div><div class="table-wrap"><table class="data-table"><caption>Backend: solo referencia, bajo src/main/java/com/devsenior/vetcare/</caption><thead><tr><th scope="col">Archivo</th><th scope="col">Carpeta</th><th scope="col">Uso</th></tr></thead><tbody><tr><td>MascotaController.java</td><td><code>controller/</code></td><td>Consultar · no editar</td></tr><tr><td>MascotaResponse.java</td><td><code>dto/</code></td><td>Consultar · no editar</td></tr><tr><td>MascotaRequest.java</td><td><code>dto/</code></td><td>Consultar · no editar</td></tr><tr><td>DuenoResponse.java</td><td><code>dto/</code></td><td>Consultar · no editar</td></tr><tr><td>DuenoRequest.java</td><td><code>dto/</code></td><td>Consultar · no editar</td></tr><tr><td>SecurityConfig.java</td><td><code>config/</code></td><td>Consultar fragmentos · no reemplazar el archivo</td></tr><tr><td>DataInitializer.java</td><td><code>config/</code></td><td>Consultar · no editar</td></tr></tbody></table></div><div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">¿Qué pasaría si GET /api/mascotas trajera diez mil registros de una vez?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Aumentarían el tamaño de la respuesta, el tiempo de carga y el trabajo de renderizado y memoria del navegador. La siguiente necesidad sería paginar desde el backend —por ejemplo, 20 o 50 registros por página—, no filtrar siempre todo el catálogo en el cliente.</p></div></details></div><details class="reveal"><summary>Límites del código de la práctica</summary><div class="reveal-body"><ul class="checklist"><li>Los formularios se limpian antes de recibir la confirmación del POST. No hay estado independiente de guardado ni bloqueo de doble envío.</li><li>El mismo Signal de error se usa para GET y POST. Después de un POST fallido, una creación posterior puede llegar al backend y agregarse al arreglo, pero el error anterior permanece y la grilla sigue oculta hasta una nueva carga que lo limpie. Recarga para verificar el estado real.</li><li>El selector de dueños no distingue carga, fallo y lista vacía; solo comprueba la longitud del arreglo.</li><li>La interfaz Mascota solo declara un subconjunto de la respuesta. El tipado de TypeScript no valida los datos de red, y no deben suponerse valores no nulos sin revisar el contrato real.</li><li>Los favoritos siguen en memoria; una recarga los reinicia. El buscador filtra localmente los datos recibidos.</li><li>CORS no identifica usuarios. Las rutas abiertas se usan para este laboratorio; la autenticación y los entornos se trabajan en el Módulo 2.</li></ul></div></details><div class="panel"><h3>Buenas decisiones que sí debes conservar</h3><p>Una URL centralizada por servicio, métodos con nombres de intención como <code>cargarMascotas</code> y <code>crearMascota</code>, Signals de solo lectura para las vistas e inmutabilidad al actualizar listas. Cambiar de backend no debe obligar a reescribir los componentes.</p></div><p>Material base: guía M1C4 de Ana Alvarado y sistema visual v9. Los estilos completos del listado integran también el archivo de la Clase 3. Precisión sobre Observables y tipado contrastada con <a href="https://angular.dev/guide/http/making-requests" target="_blank" rel="noopener noreferrer"><u>la documentación oficial de Angular</u></a>.</p></div><p class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</p></section></div>
+<nav class="view-controls" id="viewControls" aria-label="Navegación entre secciones"><button class="view-btn" id="prevView" type="button" aria-label="Sección anterior">←</button><span class="view-position" id="viewPosition" aria-live="polite">Portada</span><button class="view-btn" id="nextView" type="button" aria-label="Sección siguiente">→</button></nav></main></div>
+<script src="vendor/prism-core.min.js"></script>
+<script src="vendor/prism-clike.min.js"></script>
+<script src="vendor/prism-markup.min.js"></script>
+<script src="vendor/prism-css.min.js"></script>
+<script src="vendor/prism-javascript.min.js"></script>
+<script src="vendor/prism-typescript.min.js"></script>
+<script src="vendor/prism-java.min.js"></script>
+<script src="vendor/prism-bash.min.js"></script>
+<script src="vendor/prism-line-numbers.min.js"></script>
+<script src="anaclase-v9.js"></script>
+</body></html>
