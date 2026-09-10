@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro" data-tema-base="oscuro" data-empresa="dev-senior" data-paleta="cian" data-atmosfera="tecnica">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ana Alvarado">
+  <meta name="copyright" content="© 2026 Ana Alvarado — Todos los derechos reservados">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <title>M2C2 · Autenticación con JWT y manejo de sesión · Ana Alvarado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+  <link rel="stylesheet" href="anaestilos-v11.css">
+</head>
+<body>
+  <a class="skip-link" href="#s1">Saltar al contenido</a>
+  <div class="topline" id="topline" aria-hidden="true"></div>
+  <div class="controls" aria-label="Controles">
+    <button class="ctrl" id="temaBtn" type="button" aria-label="Cambiar tema">☀</button>
+    <button class="ctrl" id="fullscreenBtn" type="button" aria-label="Pantalla completa">⛶</button>
+  </div>
+
+  <div class="shell" id="shell" data-collapsed="false">
+    <aside class="sidebar" aria-label="Índice de la clase">
+      <div class="sb-top">
+        <span class="brand-mark">A</span>
+        <div class="sb-title"><b>Java Full Stack · VetCare</b><span>Módulo 2 · Clase 2</span></div>
+      </div>
+      <button class="sb-toggle" id="collapseBtn" type="button" aria-label="Colapsar menú">‹</button>
+      <nav class="sb-nav" id="nav" aria-label="Secciones">
+        <a class="nav-item active" data-icon="✦" href="#portada"><span class="nav-index">00</span><span class="nav-label">Portada</span></a>
+        <a class="nav-item" data-icon="🎯" href="#s1"><span class="nav-index">01</span><span class="nav-label">La necesidad</span></a>
+        <a class="nav-item" data-icon="🪪" href="#s2"><span class="nav-index">02</span><span class="nav-label">Modelo JWT</span></a>
+        <a class="nav-item" data-icon="🔄" href="#s3"><span class="nav-index">03</span><span class="nav-label">Arquitectura</span></a>
+        <a class="nav-item" data-icon="🚪" href="#s4"><span class="nav-index">04</span><span class="nav-label">Contrato backend</span></a>
+        <a class="nav-item" data-icon="🔐" href="#s5"><span class="nav-index">05</span><span class="nav-label">Firma y validación</span></a>
+        <a class="nav-item" data-icon="🧪" href="#s6"><span class="nav-index">06</span><span class="nav-label">Laboratorio API</span></a>
+        <a class="nav-item" data-icon="🧠" href="#s7"><span class="nav-index">07</span><span class="nav-label">Sesión en Angular</span></a>
+        <a class="nav-item" data-icon="🛠️" href="#s8"><span class="nav-index">08</span><span class="nav-label">AuthService</span></a>
+        <a class="nav-item" data-icon="🧾" href="#s9"><span class="nav-index">09</span><span class="nav-label">Pantalla de login</span></a>
+        <a class="nav-item" data-icon="🧭" href="#s10"><span class="nav-index">10</span><span class="nav-label">Rutas y barra</span></a>
+        <a class="nav-item" data-icon="🧵" href="#s11"><span class="nav-index">11</span><span class="nav-label">Traza completa</span></a>
+        <a class="nav-item" data-icon="✅" href="#s12"><span class="nav-index">12</span><span class="nav-label">Pruebas</span></a>
+        <a class="nav-item" data-icon="⚠️" href="#s13"><span class="nav-index">13</span><span class="nav-label">Errores y criterio</span></a>
+        <a class="nav-item" data-icon="🛡️" href="#s14"><span class="nav-index">14</span><span class="nav-label">Decisiones senior</span></a>
+        <a class="nav-item" data-icon="🏁" href="#s15"><span class="nav-index">15</span><span class="nav-label">Cierre</span></a>
+      </nav>
+      <div class="sb-prog">
+        <div class="lbl"><span>Progreso</span><span id="progPct">0%</span></div>
+        <div class="track"><div class="fill" id="progFill"></div></div>
+      </div>
+      <p class="sb-foot">Dev Senior · VetCare<br>Autenticación y sesión</p>
+    </aside>
+
+    <main class="main">
+      <header class="hero view" id="portada" data-accent="1">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">Dev Senior · Módulo 2 · Clase 2</span>
+            <h1 class="hero-title">Autenticación con <em>JWT</em> y manejo de sesión</h1>
+            <p class="hero-lead">VetCare podrá iniciar sesión contra Spring Boot, conservar el token al recargar y reflejar la identidad en toda la interfaz.</p>
+            <div class="meta">
+              <span class="pill" data-hot>Angular + Spring Boot</span>
+              <span class="pill">JWT</span>
+              <span class="pill">Signals</span>
+              <span class="pill">VetCare</span>
+            </div>
+          </div>
+          <figure class="hero-visual">
+            <svg viewBox="0 0 420 420" role="img" aria-label="Token firmado que conecta el navegador con el servidor">
+              <circle cx="210" cy="210" r="150" fill="none" stroke="var(--a2)" stroke-width="3" stroke-dasharray="10 12"/>
+              <path d="M210 66l112 42v88c0 73-45 128-112 158C143 324 98 269 98 196v-88z" fill="var(--surf-1)" stroke="var(--a1)" stroke-width="5"/>
+              <rect x="153" y="182" width="114" height="92" rx="18" fill="var(--a3)"/>
+              <path d="M176 183v-30c0-22 15-39 34-39s34 17 34 39v30" fill="none" stroke="var(--a4)" stroke-width="12" stroke-linecap="round"/>
+              <circle cx="210" cy="222" r="12" fill="var(--a1-ink)"/>
+              <path d="M210 233v19" stroke="var(--a1-ink)" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            <figcaption class="hero-note">Tres ideas: prueba firmada, una sola fuente de verdad y un flujo observable de extremo a extremo.</figcaption>
+          </figure>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="section view" id="s1" data-accent="1" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🎯</span>
+            <div class="sec-copy">
+              <span class="sec-n">01 · Necesidad de negocio</span>
+              <h2 class="sec-t">El backend no puede confiar en una variable del navegador</h2>
+              <p class="sec-s">VetCare ya crea dueños y mascotas, pero todavía trata cada petición como anónima.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="socratica">
+              <span class="component-label">Recupera y decide</span>
+              <p class="socratica-q">¿Por qué no basta con que Angular guarde <code>true</code> para recordar que alguien inició sesión?</p>
+              <p class="socratica-hint">Piensa en quién controla el navegador y quién debe autorizar una operación.</p>
+              <details class="reveal">
+                <summary>Ver respuesta</summary>
+                <div class="reveal-body">
+                  <p class="lead-answer">Porque el navegador está bajo control del usuario.</p>
+                  <p>Cualquiera puede modificar una variable local. Cada petición debe llevar una prueba verificable y el backend debe decidir si confía en ella. Esa prueba será el JWT.</p>
+                </div>
+              </details>
+            </div>
+            <div class="panel">
+              <h3>Estado real del proyecto</h3>
+              <p><strong>Ya funciona:</strong> Angular consume <code>/api/mascotas</code> y <code>/api/duenos</code> con <code>HttpClient</code>.</p>
+              <p><strong>Limitación:</strong> cualquier persona puede crear datos sin identificarse.</p>
+              <p><strong>Meta de hoy:</strong> iniciar y cerrar sesión, conservar el JWT y hacer que la barra reaccione.</p>
+              <div class="callout" data-tone="warning">
+                <span class="callout-icon">!</span>
+                <div><h3>Límite intencional</h3><p>Las rutas de mascotas y dueños continúan con <code>permitAll()</code>. Hoy ganamos identidad; la autorización llega con interceptor y guards en la Clase 3.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s2" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🪪</span>
+            <div class="sec-copy">
+              <span class="sec-n">02 · Modelo mental</span>
+              <h2 class="sec-t">Un JWT es una manilla firmada, no una contraseña portátil</h2>
+              <p class="sec-s">HTTP no recuerda peticiones anteriores: la prueba de identidad debe viajar cada vez.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="cards">
+              <div class="card" data-accent="1"><span class="emoji-orb">🎟️</span><b>Login: control de entrada</b><p>Usuario y contraseña se verifican una vez. Si coinciden, el servidor entrega una prueba temporal.</p></div>
+              <div class="card" data-accent="2"><span class="emoji-orb">🪪</span><b>JWT: la manilla</b><p>Es un texto compacto que identifica al usuario y está firmado para detectar alteraciones.</p></div>
+              <div class="card" data-accent="3"><span class="emoji-orb">🔎</span><b>Backend: quien verifica</b><p>El servidor valida firma, usuario y vencimiento antes de confiar en la petición.</p></div>
+            </div>
+            <div class="code-block">
+              <div class="code-head"><div><span class="code-context">Estructura</span><span class="code-file">JWT · texto de referencia</span></div><button class="copy-btn" type="button">Copiar</button></div>
+              <pre><code class="language-plaintext">eyJhbGciOiJIUzI1NiJ9 . eyJzdWIiOiJhbmEiLCJyb2wiOiJBRE1JTiJ9 . 4f2a9c...
+
+     CABECERA                    PAYLOAD                     FIRMA
+  algoritmo usado        sub, rol, emisión, vencimiento    detecta cambios</code></pre>
+            </div>
+            <div class="callout" data-tone="danger">
+              <span class="callout-icon">!</span>
+              <div><h3>Firmado no significa cifrado</h3><p>El payload usa Base64 y cualquiera puede leerlo. Nunca debe contener contraseñas ni datos sensibles; la firma protege integridad, no confidencialidad.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s3" data-accent="3" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🔄</span>
+            <div class="sec-copy">
+              <span class="sec-n">03 · Arquitectura antes del código</span>
+              <h2 class="sec-t">La identidad recorre todo el sistema</h2>
+              <p class="sec-s">El formulario reúne credenciales; el backend autentica y firma; el servicio conserva el resultado; la interfaz deriva su estado.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="table-wrap">
+              <table class="data-table">
+                <caption>Piezas de seguridad que el backend ya trae</caption>
+                <thead><tr><th>Pieza</th><th>Responsabilidad</th></tr></thead>
+                <tbody>
+                  <tr><td data-emphasis><code>AuthController</code></td><td>Expone registro y login en <code>/api/auth</code>.</td></tr>
+                  <tr><td data-emphasis><code>JwtService</code></td><td>Genera, firma, lee y valida el JWT.</td></tr>
+                  <tr><td data-emphasis><code>JwtFilter</code></td><td>Busca <code>Authorization: Bearer ...</code> y autentica la petición si el token es válido.</td></tr>
+                  <tr><td data-emphasis><code>UsuarioDetailsService</code></td><td>Traduce el usuario de VetCare al contrato de Spring Security.</td></tr>
+                  <tr><td data-emphasis><code>SecurityConfig</code></td><td>Configura BCrypt, modo <code>STATELESS</code>, rutas y orden del filtro.</td></tr>
+                  <tr><td data-emphasis><code>Usuario</code> + <code>Rol</code></td><td>Persisten username, contraseña protegida y rol <code>ADMIN</code> o <code>USER</code>.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="micro-task">
+              <span class="component-label">Predice · 30 segundos</span>
+              <p class="micro-task-q">¿Qué debe ser la fuente de verdad de “hay sesión”: un booleano separado o el token recibido?</p>
+              <details class="micro-reveal"><summary>Comprobar razonamiento</summary><p class="micro-answer"><strong>El token.</strong> La sesión activa se deriva con <code>computed()</code>; así no puede quedar desincronizada de la prueba real.</p></details>
+            </div>
+            <div class="mermaid-panel">
+              <div class="chart-title">Flujo vertical del login</div>
+              <div class="mermaid">
+flowchart LR
+  A[Formulario Angular] --> B[AuthService]
+  B -->|POST /api/auth/login| C[AuthController]
+  C --> D[AuthenticationManager]
+  D --> E[JwtService firma]
+  E -->|token| B
+  B --> F[Signal + localStorage]
+  F --> G[Router + barra de navegación]
+              </div>
+            </div>
+            <div class="cards">
+              <div class="card" data-accent="1"><b>Responsabilidad del componente</b><p>Captura el formulario y muestra el error; no conoce HTTP ni almacenamiento.</p></div>
+              <div class="card" data-accent="2"><b>Responsabilidad del servicio</b><p>Habla con la API, conserva el token y expone el estado de sesión.</p></div>
+              <div class="card" data-accent="3"><b>Responsabilidad del backend</b><p>Verifica credenciales, firma el JWT y decide si una prueba es válida.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s4" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🚪</span>
+            <div class="sec-copy">
+              <span class="sec-n">04 · Contrato backend existente</span>
+              <h2 class="sec-t">Dos endpoints públicos, un mismo resultado: el token</h2>
+              <p class="sec-s">Estos archivos ya existen en Spring Boot. Se consultan para comprender y alinear el contrato; no se editan hoy.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="table-wrap">
+              <table class="data-table">
+                <caption>Contrato que Angular debe respetar</caption>
+                <thead><tr><th>Operación</th><th>Entrada</th><th>Salida</th><th>Decisión</th></tr></thead>
+                <tbody>
+                  <tr><td data-emphasis><code>POST /api/auth/registro</code></td><td><code>username</code>, <code>password</code>, <code>rol</code></td><td><code>{ "token": "..." }</code></td><td>Crea usuario con contraseña protegida.</td></tr>
+                  <tr><td data-emphasis><code>POST /api/auth/login</code></td><td><code>username</code>, <code>password</code></td><td><code>{ "token": "..." }</code></td><td>Verifica credenciales antes de firmar.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <details class="code-reveal" data-reference="true">
+              <summary><span><span class="code-reveal-title">Ver AuthController.java completo</span><span class="code-reveal-note">Referencia · src/main/java/.../controller/AuthController.java · Java · no editar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Ya existe</span><span class="code-file">src/main/java/.../controller/AuthController.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.controller;
+
+import com.devsenior.vetcare.dto.AuthResponse;
+import com.devsenior.vetcare.dto.LoginRequest;
+import com.devsenior.vetcare.dto.RegistroRequest;
+import com.devsenior.vetcare.service.AuthService;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+
+    private final AuthService authService;
+
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
+
+    @PostMapping("/registro")
+    public ResponseEntity&lt;AuthResponse&gt; registrar(
+            @Valid @RequestBody RegistroRequest request) {
+        return ResponseEntity.ok(authService.registrar(request));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity&lt;AuthResponse&gt; login(
+            @Valid @RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authService.login(request));
+    }
+}</code></pre></div></div>
+            </details>
+
+            <details class="code-reveal" data-reference="true">
+              <summary><span><span class="code-reveal-title">Ver LoginRequest.java completo</span><span class="code-reveal-note">Referencia · src/main/java/.../dto/LoginRequest.java · Java · no editar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Ya existe</span><span class="code-file">src/main/java/.../dto/LoginRequest.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.dto;
+
+import jakarta.validation.constraints.NotBlank;
+
+public record LoginRequest(
+        @NotBlank(message = "El username es obligatorio")
+        String username,
+
+        @NotBlank(message = "El password es obligatorio")
+        String password
+) {}</code></pre></div></div>
+            </details>
+
+            <details class="code-reveal" data-reference="true">
+              <summary><span><span class="code-reveal-title">Ver RegistroRequest.java completo</span><span class="code-reveal-note">Referencia · src/main/java/.../dto/RegistroRequest.java · Java · no editar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Ya existe</span><span class="code-file">src/main/java/.../dto/RegistroRequest.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import com.devsenior.vetcare.model.Rol;
+
+public record RegistroRequest(
+        @NotBlank(message = "El username es obligatorio")
+        String username,
+
+        @NotBlank(message = "El password es obligatorio")
+        String password,
+
+        @NotNull(message = "El rol es obligatorio")
+        Rol rol
+) {}</code></pre></div></div>
+            </details>
+
+            <details class="code-reveal" data-reference="true">
+              <summary><span><span class="code-reveal-title">Ver AuthResponse.java completo</span><span class="code-reveal-note">Referencia · src/main/java/.../dto/AuthResponse.java · Java · no editar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Ya existe</span><span class="code-file">src/main/java/.../dto/AuthResponse.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.dto;
+
+public record AuthResponse(
+        String token
+) {}</code></pre></div></div>
+            </details>
+
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Consistencia que importa</h3><p><code>Credenciales</code> en Angular debe usar exactamente <code>username</code> y <code>password</code>; la respuesta debe tiparse con un único campo <code>token</code>.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s5" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🔐</span>
+            <div class="sec-copy">
+              <span class="sec-n">05 · Verificación y firma</span>
+              <h2 class="sec-t">La contraseña se valida; el token se firma</h2>
+              <p class="sec-s">El servicio autentica primero. Solo después busca el rol y genera una prueba con vencimiento.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Verificar credenciales</h3><p class="build-step-purpose"><code>AuthenticationManager</code> compara la contraseña escrita con el hash BCrypt del usuario. Si falla, la ejecución se detiene.</p></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Recuperar el rol</h3><p class="build-step-purpose">El usuario se consulta para incluir <code>ADMIN</code> o <code>USER</code> como claim del token.</p></div></div>
+              <div class="build-step"><span class="build-step-index">03</span><div class="build-step-copy"><h3 class="build-step-title">Firmar y responder</h3><p class="build-step-purpose"><code>JwtService</code> agrega sujeto, rol, emisión y expiración; luego firma con la clave del backend.</p></div></div>
+            </div>
+
+            <details class="code-reveal" data-reference="true">
+              <summary><span><span class="code-reveal-title">Ver AuthServiceImpl.java completo</span><span class="code-reveal-note">Referencia · src/main/java/.../service/impl/AuthServiceImpl.java · Java · no editar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Ya existe</span><span class="code-file">src/main/java/.../service/impl/AuthServiceImpl.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.service.impl;
+
+import com.devsenior.vetcare.dto.AuthResponse;
+import com.devsenior.vetcare.dto.LoginRequest;
+import com.devsenior.vetcare.dto.RegistroRequest;
+import com.devsenior.vetcare.model.Usuario;
+import com.devsenior.vetcare.repository.UsuarioRepository;
+import com.devsenior.vetcare.service.AuthService;
+import com.devsenior.vetcare.service.JwtService;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AuthServiceImpl implements AuthService {
+
+    private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
+
+    public AuthServiceImpl(UsuarioRepository usuarioRepository,
+                           PasswordEncoder passwordEncoder,
+                           JwtService jwtService,
+                           AuthenticationManager authenticationManager) {
+        this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
+        this.authenticationManager = authenticationManager;
+    }
+
+    @Override
+    public AuthResponse registrar(RegistroRequest request) {
+        if (usuarioRepository.findByUsername(request.username()).isPresent()) {
+            throw new RuntimeException("El username ya esta registrado");
+        }
+
+        Usuario usuario = new Usuario();
+        usuario.setUsername(request.username());
+        usuario.setPassword(passwordEncoder.encode(request.password()));
+        usuario.setRol(request.rol());
+        usuarioRepository.save(usuario);
+
+        UserDetails userDetails = new User(usuario.getUsername(), usuario.getPassword(), List.of());
+        String token = jwtService.generarToken(userDetails, usuario.getRol().name());
+        return new AuthResponse(token);
+    }
+
+    @Override
+    public AuthResponse login(LoginRequest request) {
+        // 1. Verifica username + password (lanza excepcion si son incorrectos)
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        request.username(), request.password()));
+
+        // 2. Si paso, busca el usuario para leer su rol
+        Usuario usuario = usuarioRepository.findByUsername(request.username())
+                .orElseThrow(() -&gt; new RuntimeException("Usuario no encontrado"));
+
+        // 3. Genera el token con su rol
+        UserDetails userDetails = new User(usuario.getUsername(), usuario.getPassword(), List.of());
+        String token = jwtService.generarToken(userDetails, usuario.getRol().name());
+        return new AuthResponse(token);
+    }
+}</code></pre></div></div>
+            </details>
+
+            <details class="code-reveal" data-reference="true">
+              <summary><span><span class="code-reveal-title">Ver JwtService.java completo</span><span class="code-reveal-note">Referencia · src/main/java/.../service/JwtService.java · Java · no editar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Ya existe</span><span class="code-file">src/main/java/.../service/JwtService.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.service;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+
+import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+
+@Service
+public class JwtService {
+
+    @Value("${jwt.secret}")
+    private String secret;
+
+    @Value("${jwt.expiration}")
+    private long expiration;
+
+    private SecretKey getKey() {
+        return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+    }
+
+    public String generarToken(UserDetails userDetails, String rol) {
+        return Jwts.builder()
+                .subject(userDetails.getUsername())
+                .claim("rol", rol)
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + expiration))
+                .signWith(getKey())
+                .compact();
+    }
+
+    public String extraerUsername(String token) {
+        return extraerClaims(token).getSubject();
+    }
+
+    private Claims extraerClaims(String token) {
+        return Jwts.parser()
+                .verifyWith(getKey())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
+    }
+
+    public boolean esValido(String token, UserDetails userDetails) {
+        String username = extraerUsername(token);
+        boolean vencido = extraerClaims(token).getExpiration().before(new Date());
+        return username.equals(userDetails.getUsername()) &amp;&amp; !vencido;
+    }
+}</code></pre></div></div>
+            </details>
+
+            <details class="code-reveal" data-reference="true">
+              <summary><span><span class="code-reveal-title">Ver fragmento relevante de SecurityConfig.java</span><span class="code-reveal-note">Referencia · src/main/java/.../config/SecurityConfig.java · Java · fragmento explicado</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Fragmento</span><span class="code-file">src/main/java/.../config/SecurityConfig.java</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-java">@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}
+
+@Bean
+public AuthenticationManager authenticationManager(
+        AuthenticationConfiguration config) throws Exception {
+    return config.getAuthenticationManager();
+}
+
+@Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+            .cors(cors -&gt; cors.configurationSource(corsConfigurationSource()))
+            .csrf(csrf -&gt; csrf.disable())
+            .authorizeHttpRequests(auth -&gt; auth
+                    .requestMatchers("/api/auth/**").permitAll()
+                    .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**").permitAll()
+                    // Clase 4 (Modulo 1 Full Stack): consumo de APIs sin JWT todavia.
+                    // El JWT llega en el Modulo 2. Cuando lo agreguen, quiten estas dos lineas.
+                    .requestMatchers("/api/mascotas/**").permitAll()
+                    .requestMatchers("/api/duenos/**").permitAll()
+                    .anyRequest().authenticated()
+            )
+            .sessionManagement(session -&gt; session
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authenticationProvider(authenticationProvider())
+            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
+    return http.build();
+}</code></pre></div></div>
+            </details>
+
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Lectura arquitectónica</h3><p><code>STATELESS</code> evita sesiones en memoria del servidor; <code>/api/auth/**</code> debe ser público; <code>JwtFilter</code> queda preparado para validar tokens antes del filtro tradicional.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s6" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧪</span>
+            <div class="sec-copy">
+              <span class="sec-n">06 · Laboratorio guiado</span>
+              <h2 class="sec-t">Prueba el contrato antes de escribir Angular</h2>
+              <p class="sec-s">El backend ya funciona. Primero creamos un usuario y observamos el token en Swagger.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="stepper">
+              <div class="step-item"><span class="step-num">1</span><h4>Abrir Swagger</h4><p><code>http://localhost:8080/swagger-ui.html</code></p></div>
+              <div class="step-item"><span class="step-num">2</span><h4>Registrar</h4><p>Ejecutar <code>POST /api/auth/registro</code>.</p></div>
+              <div class="step-item"><span class="step-num">3</span><h4>Decodificar</h4><p>Pegar el token en <code>jwt.io</code> y leer el payload.</p></div>
+              <div class="step-item"><span class="step-num">4</span><h4>Iniciar sesión</h4><p>Ejecutar <code>POST /api/auth/login</code>.</p></div>
+              <div class="step-item"><span class="step-num">5</span><h4>Forzar un error</h4><p>Repetir con contraseña incorrecta.</p></div>
+            </div>
+
+            <div class="cards">
+              <div class="card" data-accent="1"><b>Registro · cuerpo exacto</b><div class="code-block"><div class="code-head"><div><span class="code-context">POST</span><span class="code-file">/api/auth/registro</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-json">{
+  "username": "ana",
+  "password": "vetcare123",
+  "rol": "ADMIN"
+}</code></pre></div></div>
+              <div class="card" data-accent="2"><b>Login · cuerpo exacto</b><div class="code-block"><div class="code-head"><div><span class="code-context">POST</span><span class="code-file">/api/auth/login</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-json">{
+  "username": "ana",
+  "password": "vetcare123"
+}</code></pre></div></div>
+            </div>
+
+            <div class="code-block">
+              <div class="code-head"><div><span class="code-context">Observar</span><span class="code-file">Payload decodificado · valores de tiempo ilustrativos</span></div><button class="copy-btn" type="button">Copiar</button></div>
+              <pre><code class="language-json">{
+  "sub": "ana",
+  "rol": "ADMIN",
+  "iat": 1234567890,
+  "exp": 1234654290
+}</code></pre>
+            </div>
+
+            <div class="checkpoint"><span class="component-label">Checkpoint observable</span><h3>Registro y login responden 200 con un token</h3><p><code>sub</code> identifica a <code>ana</code>, <code>rol</code> vale <code>ADMIN</code> y un nuevo login produce otro <code>iat</code>.</p></div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Contraseña incorrecta: 500 por ahora</h3><p><code>BadCredentialsException</code> no tiene un manejador específico. Hoy Angular traduce cualquier fallo del login al mensaje “Usuario o contraseña incorrectos”.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s7" data-accent="3" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧠</span>
+            <div class="sec-copy">
+              <span class="sec-n">07 · Estado de sesión</span>
+              <h2 class="sec-t">Una fuente de verdad; dos formas de conservarla</h2>
+              <p class="sec-s">El Signal reacciona durante la ejecución. <code>localStorage</code> permite reconstruirlo después de un F5.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="mindmap">
+              <div class="mindmap-core"><strong>tokenSignal</strong><span>fuente de verdad</span></div>
+              <div class="mindmap-branches">
+                <div class="mindmap-node" data-accent="1"><strong><code>sesionActiva</code></strong><p><code>computed()</code> deriva <code>true</code> o <code>false</code>; nunca se modifica a mano.</p></div>
+                <div class="mindmap-node" data-accent="2"><strong><code>localStorage</code></strong><p>Persiste <code>vetcare_token</code> y lo recupera cuando Angular crea el servicio.</p></div>
+                <div class="mindmap-node" data-accent="3"><strong>Interfaz</strong><p>La barra lee el valor derivado y cambia sin recibir notificaciones manuales.</p></div>
+              </div>
+            </div>
+            <div class="panel">
+              <h3>Decisión de diseño</h3>
+              <p>Guardar un booleano y un token crearía dos estados que podrían contradecirse. Derivar la sesión desde el token elimina ese estado inválido.</p>
+              <div class="compare">
+                <div class="compare-card" data-side="positive"><h3>Signal + computed</h3><ul><li>Reactividad automática</li><li>Una sola fuente de verdad</li><li>Lectura de solo consulta</li></ul></div>
+                <div class="compare-card" data-side="negative"><h3>Booleano separado</h3><ul><li>Puede quedar desincronizado</li><li>Exige actualizar dos valores</li><li>Duplica el estado real</li></ul></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s8" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🛠️</span>
+            <div class="sec-copy">
+              <span class="sec-n">08 · Construcción activa</span>
+              <h2 class="sec-t">AuthService concentra red, token, error y navegación</h2>
+              <p class="sec-s">El componente no toca <code>HttpClient</code> ni <code>localStorage</code>: delega esas responsabilidades al servicio.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="micro-task">
+              <span class="component-label">Detecta · 45 segundos</span>
+              <p class="micro-task-q">Al cerrar sesión, ¿qué dos representaciones del token deben borrarse para que el estado sea coherente ahora y después de recargar?</p>
+              <details class="micro-reveal"><summary>Comprobar razonamiento</summary><p class="micro-answer"><strong>Signal y <code>localStorage</code>.</strong> Después se navega a Inicio; <code>sesionActiva()</code> cambia automáticamente.</p></details>
+            </div>
+
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Modelar el contrato</h3><p class="build-step-purpose"><code>Credenciales</code> coincide con <code>LoginRequest</code>; <code>RespuestaAuth</code> coincide con <code>AuthResponse</code>.</p><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Fragmento</span><span class="code-file">src/app/services/auth.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">export interface Credenciales {
+  username: string;
+  password: string;
+}
+
+interface RespuestaAuth {
+  token: string;
+}</code></pre></div></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Derivar la sesión</h3><p class="build-step-purpose">El token inicial se recupera del navegador y la sesión se calcula, no se duplica.</p><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Fragmento</span><span class="code-file">src/app/services/auth.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div><pre class="line-numbers"><code class="language-typescript">private tokenSignal = signal&lt;string | null&gt;(localStorage.getItem(CLAVE_TOKEN));
+sesionActiva = computed(() =&gt; this.tokenSignal() !== null);</code></pre></div></div></div>
+              <div class="build-step"><span class="build-step-index">03</span><div class="build-step-copy"><h3 class="build-step-title">Mantener simetría</h3><p class="build-step-purpose">Login escribe Signal y almacenamiento; logout borra ambos. El Router conduce de vuelta a Inicio.</p></div></div>
+            </div>
+
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver auth.service.ts completo</span><span class="code-reveal-note">Crear · src/app/services/auth.service.ts · TypeScript · listo para copiar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/services/auth.service.ts</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, computed, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+export interface Credenciales {
+  username: string;
+  password: string;
+}
+
+interface RespuestaAuth {
+  token: string;
+}
+
+const CLAVE_TOKEN = 'vetcare_token';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private http = inject(HttpClient);
+  private router = inject(Router);
+  private apiUrl = 'http://localhost:8080/api/auth';
+
+  private tokenSignal = signal&lt;string | null&gt;(localStorage.getItem(CLAVE_TOKEN));
+  private errorSignal = signal&lt;string | null&gt;(null);
+
+  sesionActiva = computed(() =&gt; this.tokenSignal() !== null);
+  error = this.errorSignal.asReadonly();
+
+  iniciarSesion(credenciales: Credenciales) {
+    this.errorSignal.set(null);
+
+    this.http.post&lt;RespuestaAuth&gt;(`${this.apiUrl}/login`, credenciales).subscribe({
+      next: (respuesta) =&gt; {
+        this.tokenSignal.set(respuesta.token);
+        localStorage.setItem(CLAVE_TOKEN, respuesta.token);
+        this.router.navigateByUrl('/');
+      },
+      error: () =&gt; {
+        this.errorSignal.set('Usuario o contraseña incorrectos.');
+      }
+    });
+  }
+
+  cerrarSesion() {
+    this.tokenSignal.set(null);
+    localStorage.removeItem(CLAVE_TOKEN);
+    this.router.navigateByUrl('/');
+  }
+}</code></pre></div></div>
+            </details>
+
+            <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>El servicio puede reconstruir la sesión</h3><p>Si <code>vetcare_token</code> existe al crear el servicio, <code>sesionActiva()</code> inicia en <code>true</code>. Si no existe, inicia en <code>false</code>.</p></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s9" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧾</span>
+            <div class="sec-copy">
+              <span class="sec-n">09 · Interfaz de acceso</span>
+              <h2 class="sec-t">El formulario captura; el servicio decide</h2>
+              <p class="sec-s">La página reúne usuario y contraseña, evita el envío vacío y delega el flujo completo.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="micro-task"><span class="component-label">Explica · 30 segundos</span><p class="micro-task-q">¿Por qué <code>type="password"</code> no vuelve segura la contraseña durante el viaje al backend?</p><details class="micro-reveal"><summary>Comprobar razonamiento</summary><p class="micro-answer">Solo oculta visualmente los caracteres. En producción, HTTPS protege el tránsito y BCrypt protege el valor almacenado.</p></details></div>
+
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver login.ts completo</span><span class="code-reveal-note">Crear · src/app/pages/login/login.ts · TypeScript · listo para copiar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/pages/login/login.ts</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+
+@Component({
+  selector: 'app-login',
+  imports: [],
+  templateUrl: './login.html',
+  styleUrl: './login.css'
+})
+export class Login {
+  private authService = inject(AuthService);
+
+  error = this.authService.error;
+
+  ingresar(
+    evento: SubmitEvent,
+    inputUsername: HTMLInputElement,
+    inputPassword: HTMLInputElement
+  ) {
+    evento.preventDefault();
+
+    if (!inputUsername.value || !inputPassword.value) {
+      return;
+    }
+
+    this.authService.iniciarSesion({
+      username: inputUsername.value,
+      password: inputPassword.value
+    });
+  }
+}</code></pre></div></div>
+            </details>
+
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver login.html completo</span><span class="code-reveal-note">Crear · src/app/pages/login/login.html · HTML · listo para copiar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/pages/login/login.html</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-markup">&lt;section class="login-tarjeta"&gt;
+  &lt;h1 class="login-titulo"&gt;Iniciar sesión en VetCare&lt;/h1&gt;
+
+  @if (error()) {
+    &lt;p class="estado-error"&gt;{{ error() }}&lt;/p&gt;
+  }
+
+  &lt;form class="login-form" (submit)="ingresar($event, inputUsername, inputPassword)"&gt;
+    &lt;input #inputUsername type="text" placeholder="Usuario" required&gt;
+    &lt;input #inputPassword type="password" placeholder="Contraseña" required&gt;
+    &lt;button type="submit" class="login-boton"&gt;Ingresar&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt;</code></pre></div></div>
+            </details>
+
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver login.css completo</span><span class="code-reveal-note">Crear · src/app/pages/login/login.css · CSS · listo para copiar</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/pages/login/login.css</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-css">.login-tarjeta {
+  max-width: 360px;
+  margin: var(--espacio-lg) auto;
+  padding: var(--espacio-md);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.login-titulo {
+  color: var(--azul-oscuro);
+  margin-bottom: var(--espacio-sm);
+  text-align: center;
+}
+
+.estado-error {
+  color: #b0413e;
+  background: #fbeceb;
+  border: 1px solid #f0c9c7;
+  border-radius: var(--radio);
+  padding: var(--espacio-sm);
+  margin-bottom: var(--espacio-sm);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+}
+
+.login-form input {
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--azul-principal);
+  box-shadow: 0 0 0 3px var(--azul-claro);
+}
+
+.login-boton {
+  padding: var(--espacio-xs) var(--espacio-md);
+  border: none;
+  border-radius: var(--radio);
+  background: var(--azul-principal);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.login-boton:hover {
+  background: var(--azul-oscuro);
+}</code></pre></div></div>
+            </details>
+
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Responsabilidad única</h3><p><code>login.ts</code> no conoce la URL del backend, el token ni el almacenamiento. Solo valida la entrada mínima y llama a <code>iniciarSesion()</code>.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s10" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧭</span>
+            <div class="sec-copy">
+              <span class="sec-n">10 · Integración de la aplicación</span>
+              <h2 class="sec-t">Una ruta pública y una barra reactiva</h2>
+              <p class="sec-s"><code>/login</code> debe permanecer pública. El componente raíz expone el servicio porque su plantilla necesita leer la sesión y cerrar sesión.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="micro-task"><span class="component-label">Decide · 20 segundos</span><p class="micro-task-q">¿Por qué <code>authService</code> no puede declararse <code>private</code> en <code>App</code>?</p><details class="micro-reveal"><summary>Comprobar razonamiento</summary><p class="micro-answer">Porque <code>app.html</code> llama <code>authService.sesionActiva()</code> y <code>authService.cerrarSesion()</code>. La plantilla necesita una propiedad accesible.</p></details></div>
+
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver app.routes.ts completo</span><span class="code-reveal-note">Modificar · src/app/app.routes.ts · TypeScript · versión final consolidada</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Modificar</span><span class="code-file">src/app/app.routes.ts</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =&gt;
+      import('./pages/inicio/inicio').then(m =&gt; m.Inicio)
+  },
+  {
+    path: 'mascotas',
+    loadComponent: () =&gt;
+      import('./pages/mascotas-listado/mascotas-listado').then(m =&gt; m.MascotasListado)
+  },
+  {
+    path: 'mascotas/:id',
+    loadComponent: () =&gt;
+      import('./pages/mascota-detalle/mascota-detalle').then(m =&gt; m.MascotaDetalle)
+  },
+  {
+    path: 'duenos',
+    loadComponent: () =&gt;
+      import('./pages/duenos-listado/duenos-listado').then(m =&gt; m.DuenosListado)
+  },
+  {
+    path: 'login',
+    loadComponent: () =&gt;
+      import('./pages/login/login').then(m =&gt; m.Login)
+  }
+];</code></pre></div></div>
+            </details>
+
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver app.ts completo</span><span class="code-reveal-note">Modificar · src/app/app.ts · TypeScript · versión final consolidada</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Modificar</span><span class="code-file">src/app/app.ts</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-typescript">import { Component, inject } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { MascotasService } from './services/mascotas.service';
+import { AuthService } from './services/auth.service';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, RouterLink],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+  private mascotasService = inject(MascotasService);
+  authService = inject(AuthService);
+
+  totalFavoritos = this.mascotasService.totalFavoritos;
+}</code></pre></div></div>
+            </details>
+
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver app.html completo</span><span class="code-reveal-note">Modificar · src/app/app.html · HTML · versión final consolidada</span></span></summary>
+              <div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Modificar</span><span class="code-file">src/app/app.html</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-markup">&lt;nav class="barra"&gt;
+  &lt;span class="marca"&gt;🐾 VetCare&lt;/span&gt;
+  &lt;div class="barra-links"&gt;
+    &lt;a routerLink="/" class="barra-link"&gt;Inicio&lt;/a&gt;
+    &lt;a routerLink="/mascotas" class="barra-link"&gt;
+      Mascotas
+      @if (totalFavoritos() &gt; 0) {
+        &lt;span class="badge"&gt;{{ totalFavoritos() }}&lt;/span&gt;
+      }
+    &lt;/a&gt;
+    &lt;a routerLink="/duenos" class="barra-link"&gt;Dueños&lt;/a&gt;
+
+    @if (authService.sesionActiva()) {
+      &lt;a (click)="authService.cerrarSesion()" class="barra-link"&gt;Cerrar sesión&lt;/a&gt;
+    } @else {
+      &lt;a routerLink="/login" class="barra-link"&gt;Iniciar sesión&lt;/a&gt;
+    }
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;main class="contenido"&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+&lt;/main&gt;</code></pre></div></div>
+            </details>
+
+            <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>La UI depende del estado, no de eventos manuales</h3><p>Al cambiar <code>tokenSignal</code>, <code>sesionActiva()</code> se recalcula y el <code>@if / @else</code> muestra el enlace correcto en el siguiente render.</p></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s11" data-accent="3" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧵</span>
+            <div class="sec-copy">
+              <span class="sec-n">11 · Traza de ejecución</span>
+              <h2 class="sec-t">Sigue el dato desde el formulario hasta la barra</h2>
+              <p class="sec-s">La comprensión real aparece cuando puedes explicar quién recibe el control, qué cambia y qué observa el usuario.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="mermaid-panel">
+              <div class="chart-title">Secuencia completa del login correcto</div>
+              <div class="mermaid">
+sequenceDiagram
+  actor U as Usuario
+  participant L as Login
+  participant A as AuthService
+  participant B as Spring Boot
+  participant S as tokenSignal/localStorage
+  participant R as Router/App
+  U->>L: Envía ana / vetcare123
+  L->>L: preventDefault() y validación
+  L->>A: iniciarSesion(credenciales)
+  A->>B: POST /api/auth/login
+  B->>B: Verifica BCrypt y firma JWT
+  B-->>A: 200 { token }
+  A->>S: Guarda token en ambos estados
+  A->>R: navigateByUrl('/')
+  R->>R: sesionActiva() pasa a true
+  R-->>U: Muestra Cerrar sesión
+              </div>
+            </div>
+            <div class="micro-task"><span class="component-label">Recupera · 45 segundos</span><p class="micro-task-q">Si el backend responde correctamente pero la barra sigue mostrando “Iniciar sesión”, ¿en qué transición del flujo buscarías primero?</p><details class="micro-reveal"><summary>Ver criterio de diagnóstico</summary><p class="micro-answer">Comprueba que <code>next</code> ejecute <code>tokenSignal.set(respuesta.token)</code> y que la plantilla lea el mismo <code>AuthService</code>. La respuesta HTTP por sí sola no cambia la UI.</p></details></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s12" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">✅</span>
+            <div class="sec-copy">
+              <span class="sec-n">12 · Verificación observable</span>
+              <h2 class="sec-t">Cinco pruebas separan “parece funcionar” de “funciona”</h2>
+              <p class="sec-s">Ejecuta con backend y <code>ng serve</code> activos, usando el usuario creado en Swagger.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="table-wrap">
+              <table class="data-table">
+                <caption>Matriz mínima de prueba</caption>
+                <thead><tr><th>Caso</th><th>Acción</th><th>Resultado observable</th></tr></thead>
+                <tbody>
+                  <tr><td data-emphasis>Login correcto</td><td>Entrar a <code>/login</code> con <code>ana / vetcare123</code>.</td><td>Redirige a Inicio y muestra “Cerrar sesión”.</td></tr>
+                  <tr><td data-emphasis>Login incorrecto</td><td>Usar una contraseña equivocada.</td><td>Muestra “Usuario o contraseña incorrectos.” y no navega.</td></tr>
+                  <tr><td data-emphasis>Persistencia</td><td>Con sesión activa, recargar con F5.</td><td>La barra sigue mostrando “Cerrar sesión”.</td></tr>
+                  <tr><td data-emphasis>Logout</td><td>Dar clic en “Cerrar sesión”.</td><td>Vuelve a Inicio y elimina <code>vetcare_token</code>.</td></tr>
+                  <tr><td data-emphasis>Límite de alcance</td><td>Sin login, crear un dueño.</td><td>Todavía funciona porque <code>/api/duenos</code> sigue público.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Cómo verificar el almacenamiento</h3><p>En las herramientas del navegador, abre Application → Local Storage. Tras login debe existir <code>vetcare_token</code>; tras logout ya no debe estar.</p></div></div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>No confundas identidad con autorización</h3><p>Ver “Cerrar sesión” demuestra que Angular conserva identidad. No demuestra que el backend ya proteja mascotas o dueños.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s13" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">⚠️</span>
+            <div class="sec-copy">
+              <span class="sec-n">13 · Diagnóstico</span>
+              <h2 class="sec-t">Lee la señal antes de cambiar código</h2>
+              <p class="sec-s">Cada error apunta a una frontera distinta: autenticación del backend, unicidad del usuario o reconstrucción del estado.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="cards">
+              <div class="card" data-accent="1"><b><code>500</code> al hacer login</b><p><strong>Lectura:</strong> <code>BadCredentialsException</code> no tiene manejador específico. <strong>Hoy:</strong> el frontend muestra el mensaje genérico.</p></div>
+              <div class="card" data-accent="2"><b><code>500</code> al registrar</b><p><strong>Lectura:</strong> el username ya existe y el <code>RuntimeException</code> tampoco se traduce. <strong>Hoy:</strong> usa otro username.</p></div>
+              <div class="card" data-accent="3"><b>La sesión desaparece con F5</b><p><strong>Lectura:</strong> el Signal probablemente inicia en <code>null</code>. <strong>Corrección:</strong> inicializarlo con <code>localStorage.getItem(CLAVE_TOKEN)</code>.</p></div>
+              <div class="card" data-accent="4"><b>El token existe, pero no protege</b><p><strong>Lectura:</strong> comportamiento esperado hoy. <strong>Siguiente clase:</strong> interceptor, guards y cierre de rutas públicas.</p></div>
+            </div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Buena práctica aplicable</h3><p>Componentes y plantillas nunca acceden directamente a <code>localStorage</code>. Si cambia el mecanismo de persistencia, el impacto queda concentrado en <code>AuthService</code>.</p></div></div>
+            <div class="micro-task"><span class="component-label">Detecta · 30 segundos</span><p class="micro-task-q">¿Qué diferencia de diagnóstico hay entre “la petición vuelve 500” y “todo funciona hasta que presiono F5”?</p><details class="micro-reveal"><summary>Comprobar razonamiento</summary><p class="micro-answer">El primer caso está en la respuesta del backend; el segundo ocurre al reconstruir estado en el navegador. Empezarías a inspeccionar capas diferentes.</p></details></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s14" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🛡️</span>
+            <div class="sec-copy">
+              <span class="sec-n">14 · Criterio profesional</span>
+              <h2 class="sec-t">Las decisiones de seguridad tienen consecuencias</h2>
+              <p class="sec-s">No memorices la receta: explica qué riesgo reduce cada elección y qué riesgo continúa abierto.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="socratica">
+              <span class="component-label">Fuente única de verdad</span>
+              <p class="socratica-q">¿Por qué <code>sesionActiva</code> es un <code>computed()</code> y no otro Signal independiente?</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Porque el estado derivado no puede contradecir al token.</p><p>Con dos Signals existirían combinaciones inválidas: “sesión activa” sin token o token presente con “sesión inactiva”.</p></div></details>
+            </div>
+            <div class="socratica">
+              <span class="component-label">Contraseña y transporte</span>
+              <p class="socratica-q">Si el backend guarda BCrypt, ¿por qué Angular todavía envía la contraseña escrita por el usuario?</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Porque BCrypt es de un solo sentido.</p><p>El backend aplica el proceso de comparación al valor recibido; no puede recuperar la contraseña desde el hash. HTTPS es obligatorio en producción para proteger ese viaje.</p></div></details>
+            </div>
+            <div class="socratica">
+              <span class="component-label">Token robado</span>
+              <p class="socratica-q">Si otra persona copia un JWT válido a su navegador, ¿funcionaría?</p>
+              <details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Sí, mientras siga vigente.</p><p>El JWT es una credencial portadora: quien lo presenta puede actuar como su dueño. Por eso debe tener vida limitada, viajar por HTTPS y reducirse la exposición a código malicioso.</p></div></details>
+            </div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Alcance consciente</h3><p>El token vence en 24 horas, pero hoy Angular aún no reacciona a su expiración. Ese comportamiento será observable cuando las rutas queden protegidas y el interceptor empiece a usarlo.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s15" data-accent="3" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🏁</span>
+            <div class="sec-copy">
+              <span class="sec-n">15 · Cierre y puente</span>
+              <h2 class="sec-t">VetCare ya conserva identidad; todavía debe aprender a usarla</h2>
+              <p class="sec-s">La sesión deja de ser una variable aislada y se convierte en un flujo verificable entre navegador, API y UI.</p>
+            </div>
+          </div>
+          <div class="body">
+            <ul class="checklist">
+              <li><strong>Problema resuelto:</strong> Angular obtiene una prueba de identidad emitida por el backend y la conserva al recargar.</li>
+              <li><strong>Construcción:</strong> <code>AuthService</code>, pantalla de login, ruta pública y navegación reactiva.</li>
+              <li><strong>Idea 1:</strong> un JWT es legible, firmado, temporal y verificable; no es un contenedor secreto.</li>
+              <li><strong>Idea 2:</strong> el token es la fuente de verdad y <code>sesionActiva</code> se deriva de él.</li>
+              <li><strong>Idea 3:</strong> identidad no equivale a autorización; hoy las rutas de negocio siguen abiertas.</li>
+            </ul>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <caption>Mapa de archivos trabajados</caption>
+                <thead><tr><th>Archivo</th><th>Ruta</th><th>Acción</th></tr></thead>
+                <tbody>
+                  <tr><td data-emphasis><code>auth.service.ts</code></td><td><code>src/app/services/</code></td><td>Crear</td></tr>
+                  <tr><td data-emphasis><code>login.ts</code>, <code>login.html</code>, <code>login.css</code></td><td><code>src/app/pages/login/</code></td><td>Crear</td></tr>
+                  <tr><td data-emphasis><code>app.routes.ts</code>, <code>app.ts</code>, <code>app.html</code></td><td><code>src/app/</code></td><td>Modificar con versión consolidada</td></tr>
+                  <tr><td data-emphasis><code>AuthController</code>, DTO, <code>AuthServiceImpl</code>, <code>JwtService</code></td><td><code>src/main/java/...</code></td><td>Referencia; no editar</td></tr>
+                  <tr><td data-emphasis><code>SecurityConfig.java</code></td><td><code>src/main/java/.../config/</code></td><td>Fragmento de referencia</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="panel">
+              <h3>Fuentes técnicas de la guía</h3>
+              <p>Código fuente real de <code>DS_JavaFullStack_Backend</code> y <code>DS_JavaFullStack_Front</code>, verificado directamente por la autora.</p>
+              <p>Estructura y semántica de JWT conforme a RFC 7519.</p>
+              <p>Documentación oficial de Spring Security y de <code>jjwt</code> 0.12.5.</p>
+              <p>Documentación oficial de Angular para <code>HttpClient</code>, <code>Router.navigateByUrl</code> y Signals; API Web Storage documentada por MDN.</p>
+            </div>
+
+            <div class="socratica">
+              <span class="component-label">Puente a la Clase 3</span>
+              <p class="socratica-q">Si cien peticiones necesitan el mismo header con el JWT, ¿tiene sentido repetir esa lógica en cada llamada a <code>HttpClient</code>?</p>
+              <details class="reveal"><summary>Ver siguiente necesidad</summary><div class="reveal-body"><p class="lead-answer">No: un interceptor debe adjuntar el token en un solo lugar.</p><p>Los guards impedirán navegar a rutas privadas y el backend dejará de permitir anónimos en mascotas y dueños. Entonces la identidad empezará a autorizar.</p></div></details>
+            </div>
+
+            <p class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</p>
+          </div>
+        </section>
+      </div>
+
+      <nav class="view-controls" id="viewControls" aria-label="Navegación entre secciones">
+        <button class="view-btn" id="prevView" type="button" aria-label="Sección anterior">←</button>
+        <span class="view-position" id="viewPosition" aria-live="polite">Portada</span>
+        <button class="view-btn" id="nextView" type="button" aria-label="Sección siguiente">→</button>
+      </nav>
+    </main>
+  </div>
+
+  <div class="watermark" aria-hidden="true">© 2026 ANA ALVARADO</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+  <script src="anaclase-v11.js"></script>
+</body>
+</html>
