@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro" data-tema-base="oscuro" data-empresa="dev-senior" data-paleta="cobalto" data-atmosfera="tecnica">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ana Alvarado">
+  <meta name="copyright" content="© 2026 Ana Alvarado — Todos los derechos reservados">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <title>Módulo 2 · Clase 2 · Interceptores HTTP y protección de rutas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+  <link rel="stylesheet" href="anaestilos-v11.css">
+</head>
+<body>
+  <a class="skip-link" href="#s1">Saltar al contenido</a>
+  <div class="topline" id="topline" aria-hidden="true"></div>
+  <div class="controls" aria-label="Controles">
+    <button class="ctrl" id="temaBtn" type="button" aria-label="Cambiar tema">☀</button>
+    <button class="ctrl" id="fullscreenBtn" type="button" aria-label="Pantalla completa">⛶</button>
+  </div>
+
+  <div class="shell" id="shell" data-collapsed="false">
+    <aside class="sidebar" aria-label="Índice de la clase">
+      <div class="sb-top">
+        <span class="brand-mark">A</span>
+        <div class="sb-title"><b>Dev Senior · VetCare</b><span>Módulo 2 · Clase 2</span></div>
+      </div>
+      <button class="sb-toggle" id="collapseBtn" type="button" aria-label="Colapsar menú">‹</button>
+      <nav class="sb-nav" id="nav" aria-label="Secciones">
+        <a class="nav-item active" data-icon="✦" href="#portada"><span class="nav-index">00</span><span class="nav-label">Portada</span></a>
+        <a class="nav-item" data-icon="🚨" href="#s1"><span class="nav-index">01</span><span class="nav-label">Incidente</span></a>
+        <a class="nav-item" data-icon="🛡️" href="#s2"><span class="nav-index">02</span><span class="nav-label">Dos guardias</span></a>
+        <a class="nav-item" data-icon="📨" href="#s3"><span class="nav-index">03</span><span class="nav-label">Interceptor</span></a>
+        <a class="nav-item" data-icon="🔑" href="#s4"><span class="nav-index">04</span><span class="nav-label">Exponer token</span></a>
+        <a class="nav-item" data-icon="🧩" href="#s5"><span class="nav-index">05</span><span class="nav-label">Construir interceptor</span></a>
+        <a class="nav-item" data-icon="⚙️" href="#s6"><span class="nav-index">06</span><span class="nav-label">Registrar</span></a>
+        <a class="nav-item" data-icon="🚪" href="#s7"><span class="nav-index">07</span><span class="nav-label">Guard</span></a>
+        <a class="nav-item" data-icon="🗺️" href="#s8"><span class="nav-index">08</span><span class="nav-label">Rutas privadas</span></a>
+        <a class="nav-item" data-icon="🔒" href="#s9"><span class="nav-index">09</span><span class="nav-label">Backend</span></a>
+        <a class="nav-item" data-icon="🔄" href="#s10"><span class="nav-index">10</span><span class="nav-label">Flujo completo</span></a>
+        <a class="nav-item" data-icon="🧪" href="#s11"><span class="nav-index">11</span><span class="nav-label">Pruebas</span></a>
+        <a class="nav-item" data-icon="🩺" href="#s12"><span class="nav-index">12</span><span class="nav-label">Diagnóstico</span></a>
+        <a class="nav-item" data-icon="📁" href="#s13"><span class="nav-index">13</span><span class="nav-label">Mapa de archivos</span></a>
+        <a class="nav-item" data-icon="✅" href="#s14"><span class="nav-index">14</span><span class="nav-label">Cierre</span></a>
+      </nav>
+      <div class="sb-prog">
+        <div class="lbl"><span>Progreso</span><span id="progPct">0%</span></div>
+        <div class="track"><div class="fill" id="progFill"></div></div>
+      </div>
+      <p class="sb-foot">© 2026 Ana Alvarado<br>Educadora Tech &amp; Desarrolladora Full Stack</p>
+    </aside>
+
+    <main class="main">
+      <header class="hero view" id="portada" data-accent="1">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">VetCare · Módulo 2 · Clase 2</span>
+            <h1 class="hero-title">El token deja de estar guardado y empieza a <em>proteger</em></h1>
+            <p class="hero-lead">Conecta el JWT con cada petición, bloquea rutas privadas antes de mostrar la pantalla y exige autenticación real en el backend.</p>
+            <div class="meta">
+              <span class="pill" data-hot>Angular</span>
+              <span class="pill">Spring Security</span>
+              <span class="pill">JWT</span>
+              <span class="pill">VetCare</span>
+            </div>
+          </div>
+          <figure class="hero-visual">
+            <svg viewBox="0 0 420 420" role="img" aria-label="Un token atraviesa un interceptor, un guard de rutas y la seguridad del backend">
+              <circle cx="210" cy="210" r="150" fill="none" stroke="var(--a2)" stroke-width="2" stroke-dasharray="8 12"/>
+              <path d="M82 210h256" fill="none" stroke="var(--a1)" stroke-width="10" stroke-linecap="round"/>
+              <path d="M302 184l36 26-36 26" fill="none" stroke="var(--a1)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="110" y="146" width="86" height="128" rx="22" fill="var(--surf-1)" stroke="var(--a3)" stroke-width="4"/>
+              <path d="M132 202h42M132 222h42" stroke="var(--a3)" stroke-width="6" stroke-linecap="round"/>
+              <path d="M258 171v-22a34 34 0 0 1 68 0v22" fill="none" stroke="var(--a4)" stroke-width="10" stroke-linecap="round"/>
+              <rect x="242" y="171" width="100" height="90" rx="18" fill="var(--surf-1)" stroke="var(--a4)" stroke-width="4"/>
+              <circle cx="292" cy="211" r="10" fill="var(--a4)"/>
+              <path d="M292 221v17" stroke="var(--a4)" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+            <figcaption class="hero-note">Tres capas coordinadas: petición autenticada, navegación controlada y API protegida.</figcaption>
+          </figure>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="section view" id="s1" data-accent="1" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🚨</span>
+            <div class="sec-copy">
+              <span class="sec-n">01 · Punto de partida</span>
+              <h2 class="sec-t">Admin autenticado, petición rechazada</h2>
+              <p class="sec-s">La sesión existe en Angular, pero el backend nunca recibe la credencial.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="socratica">
+              <span class="component-label">Decide antes de revelar</span>
+              <p class="socratica-q">Si cien peticiones necesitan el mismo JWT, ¿debería cada servicio escribir el header por su cuenta?</p>
+              <p class="socratica-hint">Piensa en qué ocurriría cuando aparezca el servicio número once o cambie el lugar donde vive el token.</p>
+              <details class="reveal">
+                <summary>Ver respuesta</summary>
+                <div class="reveal-body">
+                  <p class="lead-answer">No. La autenticación transversal necesita un único punto de control.</p>
+                  <p>Repetir el header funciona hasta que un servicio lo olvida. Un interceptor aplica la misma política a todas las peticiones y permite cambiarla en un solo lugar.</p>
+                </div>
+              </details>
+            </div>
+            <div class="panel">
+              <h3>Estado heredado</h3>
+              <p>VetCare ya tiene login, registro, <code>AuthService</code>, un JWT en <code>localStorage</code> y autorización por rol en operaciones de dueños.</p>
+              <p>El token todavía no viaja, las rutas de Angular siguen abiertas y el backend mantiene mascotas y dueños con <code>permitAll()</code>.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s2" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🛡️</span>
+            <div class="sec-copy">
+              <span class="sec-n">02 · Modelo mental</span>
+              <h2 class="sec-t">Dos guardias, dos responsabilidades</h2>
+              <p class="sec-s">Proteger una pantalla no equivale a proteger los datos que viajan hacia la API.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="cards">
+              <div class="card" data-accent="1">
+                <span class="emoji-orb" aria-hidden="true">📨</span>
+                <b>Interceptor HTTP</b>
+                <p>Revisa cada petición de <code>HttpClient</code>, adjunta el JWT solo al backend propio y observa respuestas como <code>401</code>.</p>
+              </div>
+              <div class="card" data-accent="2">
+                <span class="emoji-orb" aria-hidden="true">🚪</span>
+                <b>Guard de rutas</b>
+                <p>Decide si Angular puede activar una pantalla. Sin sesión, devuelve una redirección a <code>/login</code>.</p>
+              </div>
+              <div class="card" data-accent="3">
+                <span class="emoji-orb" aria-hidden="true">🏦</span>
+                <b>Spring Security</b>
+                <p>Es la barrera real. Aunque alguien evite la interfaz y llame la API directamente, el backend exige autenticación.</p>
+              </div>
+            </div>
+            <div class="callout" data-tone="info">
+              <span class="callout-icon">i</span>
+              <div><h3>La idea que organiza la clase</h3><p>El interceptor protege el viaje, el guard cuida la experiencia de navegación y el backend impone la seguridad. Ninguno sustituye a los otros.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s3" data-accent="3" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">📨</span>
+            <div class="sec-copy">
+              <span class="sec-n">03 · Concepto central</span>
+              <h2 class="sec-t">El interceptor trabaja en la cadena HTTP</h2>
+              <p class="sec-s">Una función recibe la petición, decide si la clona y continúa la cadena con <code>next</code>.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="panel">
+              <h3>Qué es y por qué existe</h3>
+              <p><code>HttpInterceptorFn</code> describe una función que procesa solicitudes antes de enviarlas y respuestas cuando regresan.</p>
+              <p>Las peticiones de Angular son inmutables: para cambiar headers se crea una copia con <code>req.clone()</code>.</p>
+            </div>
+            <div class="micro-task">
+              <span class="component-label">Detecta el riesgo · 30 segundos</span>
+              <p class="micro-task-q">¿Qué ocurriría si el JWT se adjuntara a cualquier URL, incluidas imágenes de servidores externos?</p>
+              <details class="micro-reveal">
+                <summary>Comprobar razonamiento</summary>
+                <p class="micro-answer"><strong>Respuesta:</strong> la aplicación enviaría una credencial privada a terceros. El interceptor debe comprobar que la URL pertenece al backend de VetCare antes de agregar el header.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s4" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🔑</span>
+            <div class="sec-copy">
+              <span class="sec-n">04 · Preparar AuthService</span>
+              <h2 class="sec-t">Lectura pública, escritura privada</h2>
+              <p class="sec-s">El interceptor necesita consultar el token actual sin obtener permiso para modificarlo.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="active-build">
+              <div class="build-step">
+                <span class="build-step-index">01</span>
+                <div class="build-step-copy">
+                  <h3 class="build-step-title">Exponer un Signal de solo lectura</h3>
+                  <p class="build-step-purpose"><code>asReadonly()</code> conserva el encapsulamiento: otras piezas pueden llamar <code>token()</code>, pero solo <code>AuthService</code> conserva <code>.set()</code>.</p>
+                  <div class="code-block" data-role="fragment">
+                    <div class="code-head"><div><span class="code-context">Agregar</span><span class="code-file">src/app/services/auth.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+                    <pre class="line-numbers"><code class="language-typescript">token = this.tokenSignal.asReadonly();</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div class="build-step">
+                <span class="build-step-index">02</span>
+                <div class="build-step-copy">
+                  <h3 class="build-step-title">Distinguir logout voluntario de sesión vencida</h3>
+                  <p class="build-step-purpose">El cierre manual conserva su destino en Inicio. Cuando el backend rechaza un token inválido, el interceptor puede enviar al usuario directamente a Login.</p>
+                  <div class="code-block" data-role="fragment">
+                    <div class="code-head"><div><span class="code-context">Modificar</span><span class="code-file">src/app/services/auth.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+                    <pre class="line-numbers"><code class="language-typescript">cerrarSesion(redireccion: '/' | '/login' = '/') {
+  this.tokenSignal.set(null);
+  localStorage.removeItem(CLAVE_TOKEN);
+  this.router.navigateByUrl(redireccion);
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver auth.service.ts completo</span><span class="code-reveal-note">Modificar · src/app/services/auth.service.ts · TypeScript · versión consolidada</span></span></summary>
+              <div class="code-reveal-body">
+                <div class="code-block">
+                  <div class="code-head"><div><span class="code-context">Modificar</span><span class="code-file">src/app/services/auth.service.ts</span></div><button class="copy-btn" type="button">Copiar archivo</button></div>
+                  <pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, computed, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+export interface Credenciales {
+  username: string;
+  password: string;
+}
+
+interface NuevoUsuario {
+  username: string;
+  password: string;
+  rol: 'USER' | 'ADMIN';
+}
+
+interface RespuestaAuth {
+  token: string;
+}
+
+const CLAVE_TOKEN = 'vetcare_token';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private http = inject(HttpClient);
+  private router = inject(Router);
+  private apiUrl = 'http://localhost:8080/api/auth';
+
+  private tokenSignal = signal&lt;string | null&gt;(
+    localStorage.getItem(CLAVE_TOKEN)
+  );
+  private errorSignal = signal&lt;string | null&gt;(null);
+
+  sesionActiva = computed(() =&gt; this.tokenSignal() !== null);
+  token = this.tokenSignal.asReadonly();
+  error = this.errorSignal.asReadonly();
+
+  iniciarSesion(credenciales: Credenciales) {
+    this.errorSignal.set(null);
+
+    this.http.post&lt;RespuestaAuth&gt;(
+      `${this.apiUrl}/login`,
+      credenciales
+    ).subscribe({
+      next: (respuesta) =&gt; {
+        this.tokenSignal.set(respuesta.token);
+        localStorage.setItem(CLAVE_TOKEN, respuesta.token);
+        this.router.navigateByUrl('/');
+      },
+      error: () =&gt; {
+        this.errorSignal.set('Usuario o contraseña incorrectos.');
+      }
+    });
+  }
+
+  registrar(credenciales: Credenciales) {
+    this.errorSignal.set(null);
+
+    const nuevoUsuario: NuevoUsuario = {
+      ...credenciales,
+      rol: 'USER'
+    };
+
+    this.http.post&lt;RespuestaAuth&gt;(
+      `${this.apiUrl}/registro`,
+      nuevoUsuario
+    ).subscribe({
+      next: (respuesta) =&gt; {
+        this.tokenSignal.set(respuesta.token);
+        localStorage.setItem(CLAVE_TOKEN, respuesta.token);
+        this.router.navigateByUrl('/');
+      },
+      error: () =&gt; {
+        this.errorSignal.set(
+          'No se pudo registrar. ¿Ese usuario ya existe?'
+        );
+      }
+    });
+  }
+
+  cerrarSesion(redireccion: '/' | '/login' = '/') {
+    this.tokenSignal.set(null);
+    localStorage.removeItem(CLAVE_TOKEN);
+    this.router.navigateByUrl(redireccion);
+  }
+}</code></pre>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="section view" id="s5" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧩</span>
+            <div class="sec-copy">
+              <span class="sec-n">05 · Construcción activa</span>
+              <h2 class="sec-t">Adjuntar el JWT sin filtrarlo a terceros</h2>
+              <p class="sec-s">El interceptor evalúa destino, sesión y tipo de endpoint antes de cambiar la petición.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="micro-task">
+              <span class="component-label">Predice · 45 segundos</span>
+              <p class="micro-task-q">¿Debería un <code>401</code> del endpoint de login cerrar la sesión y redirigir, o mostrar “credenciales incorrectas” en el formulario?</p>
+              <details class="micro-reveal">
+                <summary>Comprobar decisión</summary>
+                <p class="micro-answer"><strong>Respuesta:</strong> el login debe manejar su propio <code>401</code>. El cierre automático solo aplica cuando ya existe un token y falla una petición protegida.</p>
+              </details>
+            </div>
+
+            <div class="active-build">
+              <div class="build-step">
+                <span class="build-step-index">01</span>
+                <div class="build-step-copy">
+                  <h3 class="build-step-title">Definir el límite de confianza</h3>
+                  <p class="build-step-purpose">La barra final hace que <code>http://localhost:8080.ejemplo.com</code> no coincida por accidente. Los endpoints públicos de autenticación tampoco reciben un token existente.</p>
+                  <div class="code-block" data-role="fragment">
+                    <div class="code-head"><div><span class="code-context">Fragmento</span><span class="code-file">src/app/interceptors/jwt.interceptor.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+                    <pre class="line-numbers"><code class="language-typescript">const URL_BASE_BACKEND = 'http://localhost:8080/';
+const RUTA_AUTENTICACION = `${URL_BASE_BACKEND}api/auth/`;
+
+const esPeticionAlBackend = req.url.startsWith(URL_BASE_BACKEND);
+const esPeticionDeAutenticacion = req.url.startsWith(RUTA_AUTENTICACION);</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div class="build-step">
+                <span class="build-step-index">02</span>
+                <div class="build-step-copy">
+                  <h3 class="build-step-title">Clonar solo cuando corresponde</h3>
+                  <p class="build-step-purpose">La petición original permanece intacta. La copia recibe el formato que Spring espera: <code>Authorization: Bearer &lt;token&gt;</code>.</p>
+                  <div class="code-block" data-role="fragment">
+                    <div class="code-head"><div><span class="code-context">Fragmento</span><span class="code-file">src/app/interceptors/jwt.interceptor.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+                    <pre class="line-numbers"><code class="language-typescript">const debeAdjuntarToken =
+  token &amp;&amp; esPeticionAlBackend &amp;&amp; !esPeticionDeAutenticacion;
+
+const peticion = debeAdjuntarToken
+  ? req.clone({
+      setHeaders: { Authorization: `Bearer ${token}` }
+    })
+  : req;</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div class="checkpoint">
+                <span class="component-label">Checkpoint</span>
+                <h3>Antes de continuar</h3>
+                <p>Las imágenes externas no reciben el JWT, login y registro conservan sus propios errores, y una sesión inválida termina en <code>/login</code>.</p>
+              </div>
+            </div>
+
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver jwt.interceptor.ts completo</span><span class="code-reveal-note">Crear · src/app/interceptors/jwt.interceptor.ts · TypeScript · listo para copiar</span></span></summary>
+              <div class="code-reveal-body">
+                <div class="code-block">
+                  <div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/interceptors/jwt.interceptor.ts</span></div><button class="copy-btn" type="button">Copiar archivo</button></div>
+                  <pre class="line-numbers"><code class="language-typescript">import {
+  HttpErrorResponse,
+  HttpInterceptorFn
+} from '@angular/common/http';
+import { inject } from '@angular/core';
+import { catchError, throwError } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+
+const URL_BASE_BACKEND = 'http://localhost:8080/';
+const RUTA_AUTENTICACION = `${URL_BASE_BACKEND}api/auth/`;
+
+export const jwtInterceptor: HttpInterceptorFn = (req, next) =&gt; {
+  const authService = inject(AuthService);
+  const token = authService.token();
+  const esPeticionAlBackend = req.url.startsWith(URL_BASE_BACKEND);
+  const esPeticionDeAutenticacion =
+    req.url.startsWith(RUTA_AUTENTICACION);
+
+  const debeAdjuntarToken =
+    token &amp;&amp; esPeticionAlBackend &amp;&amp; !esPeticionDeAutenticacion;
+
+  const peticion = debeAdjuntarToken
+    ? req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+    : req;
+
+  return next(peticion).pipe(
+    catchError((error: HttpErrorResponse) =&gt; {
+      const sesionRechazada =
+        error.status === 401 &amp;&amp;
+        Boolean(token) &amp;&amp;
+        esPeticionAlBackend &amp;&amp;
+        !esPeticionDeAutenticacion;
+
+      if (sesionRechazada) {
+        authService.cerrarSesion('/login');
+      }
+
+      return throwError(() =&gt; error);
+    })
+  );
+};</code></pre>
+                </div>
+              </div>
+            </details>
+
+            <div class="callout" data-tone="info">
+              <span class="callout-icon">i</span>
+              <div><h3>Qué aporta el tipo</h3><p><code>HttpInterceptorFn</code> verifica en compilación que la función respete el contrato. Angular la ejecuta porque se registra con <code>withInterceptors()</code>, no por la anotación de tipo por sí sola.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s6" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">⚙️</span>
+            <div class="sec-copy">
+              <span class="sec-n">06 · Activar la cadena</span>
+              <h2 class="sec-t">Un archivo existente no se ejecuta solo</h2>
+              <p class="sec-s">El interceptor entra en la configuración de <code>HttpClient</code> y desde ahí alcanza todos los servicios.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="callout" data-tone="warning">
+              <span class="callout-icon">!</span>
+              <div><h3>Verifica el archivo real antes de reemplazarlo</h3><p>La guía original no incluye el <code>app.config.ts</code> actual. Conserva cualquier proveedor existente; si ya usa <code>withFetch()</code>, agrega <code>withInterceptors(...)</code> como otro argumento.</p></div>
+            </div>
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver app.config.ts de referencia</span><span class="code-reveal-note">Modificar · src/app/app.config.ts · TypeScript · conservar proveedores adicionales</span></span></summary>
+              <div class="code-reveal-body">
+                <div class="code-block">
+                  <div class="code-head"><div><span class="code-context">Modificar</span><span class="code-file">src/app/app.config.ts</span></div><button class="copy-btn" type="button">Copiar archivo</button></div>
+                  <pre class="line-numbers"><code class="language-typescript">import { ApplicationConfig } from '@angular/core';
+import {
+  provideRouter,
+  withComponentInputBinding
+} from '@angular/router';
+import {
+  provideHttpClient,
+  withInterceptors
+} from '@angular/common/http';
+import { routes } from './app.routes';
+import { jwtInterceptor } from './interceptors/jwt.interceptor';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes, withComponentInputBinding()),
+    provideHttpClient(
+      withInterceptors([jwtInterceptor])
+    )
+  ]
+};</code></pre>
+                </div>
+              </div>
+            </details>
+            <div class="checkpoint">
+              <span class="component-label">Señal observable</span>
+              <h3>¿Cómo sabes que sí quedó registrado?</h3>
+              <p>Con sesión activa, una petición a <code>/api/mascotas</code> muestra el header <code>Authorization</code> en la pestaña Red del navegador.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s7" data-accent="3" data-layout="split" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🚪</span>
+            <div class="sec-copy">
+              <span class="sec-n">07 · Segundo concepto central</span>
+              <h2 class="sec-t">El guard decide antes de activar la ruta</h2>
+              <p class="sec-s">La redirección se devuelve como resultado; no se dispara como efecto lateral.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="micro-task">
+              <span class="component-label">Compara · 30 segundos</span>
+              <p class="micro-task-q">¿Qué comunica mejor la decisión: navegar a <code>/login</code> y luego devolver <code>false</code>, o devolver un <code>UrlTree</code>?</p>
+              <details class="micro-reveal">
+                <summary>Ver criterio</summary>
+                <p class="micro-answer"><strong>Respuesta:</strong> devolver un <code>UrlTree</code>. Angular recibe una única decisión declarativa: reemplazar la navegación solicitada por la ruta de login.</p>
+              </details>
+            </div>
+            <div class="panel">
+              <h3>Resultado posible</h3>
+              <p><code>true</code> permite activar la ruta. Un <code>UrlTree</code> redirige. Angular recomienda devolver la redirección en vez de retornar <code>false</code> y navegar manualmente.</p>
+            </div>
+          </div>
+          <div class="body">
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver auth.guard.ts completo</span><span class="code-reveal-note">Crear · src/app/guards/auth.guard.ts · TypeScript · listo para copiar</span></span></summary>
+              <div class="code-reveal-body">
+                <div class="code-block">
+                  <div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/guards/auth.guard.ts</span></div><button class="copy-btn" type="button">Copiar archivo</button></div>
+                  <pre class="line-numbers"><code class="language-typescript">import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+
+export const authGuard: CanActivateFn = () =&gt; {
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  return authService.sesionActiva()
+    ? true
+    : router.createUrlTree(['/login']);
+};</code></pre>
+                </div>
+              </div>
+            </details>
+            <div class="callout" data-tone="warning">
+              <span class="callout-icon">!</span>
+              <div><h3>Qué no garantiza este guard</h3><p><code>sesionActiva()</code> confirma que existe un token, no que siga vigente ni que su firma sea válida. Esa verificación pertenece al backend; un <code>401</code> posterior limpia la sesión.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s8" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🗺️</span>
+            <div class="sec-copy">
+              <span class="sec-n">08 · Aplicar la política</span>
+              <h2 class="sec-t">Cada ruta privada declara su guard</h2>
+              <p class="sec-s">La ruta de detalle es independiente de la lista: entrar directamente a <code>/mascotas/7</code> también debe estar protegido.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="compare">
+              <div class="compare-card" data-side="positive"><h3>Protegidas</h3><ul><li><code>/mascotas</code></li><li><code>/mascotas/:id</code></li><li><code>/duenos</code></li></ul></div>
+              <div class="compare-card" data-side="negative"><h3>Públicas</h3><ul><li><code>/</code> Inicio</li><li><code>/login</code></li><li><code>/registro</code></li></ul></div>
+            </div>
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver app.routes.ts completo</span><span class="code-reveal-note">Modificar · src/app/app.routes.ts · TypeScript · versión consolidada</span></span></summary>
+              <div class="code-reveal-body">
+                <div class="code-block">
+                  <div class="code-head"><div><span class="code-context">Modificar</span><span class="code-file">src/app/app.routes.ts</span></div><button class="copy-btn" type="button">Copiar archivo</button></div>
+                  <pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =&gt;
+      import('./pages/inicio/inicio').then(m =&gt; m.Inicio)
+  },
+  {
+    path: 'mascotas',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascotas-listado/mascotas-listado')
+        .then(m =&gt; m.MascotasListado)
+  },
+  {
+    path: 'mascotas/:id',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascota-detalle/mascota-detalle')
+        .then(m =&gt; m.MascotaDetalle)
+  },
+  {
+    path: 'duenos',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/duenos-listado/duenos-listado')
+        .then(m =&gt; m.DuenosListado)
+  },
+  {
+    path: 'login',
+    loadComponent: () =&gt;
+      import('./pages/login/login').then(m =&gt; m.Login)
+  },
+  {
+    path: 'registro',
+    loadComponent: () =&gt;
+      import('./pages/registro/registro').then(m =&gt; m.Registro)
+  }
+];</code></pre>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="section view" id="s9" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🔒</span>
+            <div class="sec-copy">
+              <span class="sec-n">09 · Seguridad real</span>
+              <h2 class="sec-t">El frontend no puede ser la única barrera</h2>
+              <p class="sec-s">Cualquiera puede omitir Angular y llamar la API desde Swagger, Postman u otro cliente.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="socratica">
+              <span class="component-label">Para pensar</span>
+              <p class="socratica-q">Si el guard ya bloquea la pantalla, ¿por qué cambiar también <code>SecurityConfig</code>?</p>
+              <details class="reveal">
+                <summary>Ver respuesta</summary>
+                <div class="reveal-body"><p class="lead-answer">Porque una ruta del navegador no protege un endpoint.</p><p>El guard mejora la experiencia. La autorización real ocurre en Spring Security, donde cada cliente —incluido uno que nunca carga Angular— debe presentar un token válido.</p></div>
+              </details>
+            </div>
+            <div class="active-build">
+              <div class="build-step">
+                <span class="build-step-index">01</span>
+                <div class="build-step-copy">
+                  <h3 class="build-step-title">Eliminar las excepciones públicas</h3>
+                  <p class="build-step-purpose">Al quitar los <code>permitAll()</code> de mascotas y dueños, esas rutas caen bajo <code>anyRequest().authenticated()</code>. Login, registro y documentación siguen públicos.</p>
+                </div>
+              </div>
+            </div>
+            <details class="code-reveal">
+              <summary><span><span class="code-reveal-title">Ver securityFilterChain completo</span><span class="code-reveal-note">Reemplazar método · src/main/java/.../config/SecurityConfig.java · Java · conservar package, imports y resto de la clase</span></span></summary>
+              <div class="code-reveal-body">
+                <div class="code-block">
+                  <div class="code-head"><div><span class="code-context">Reemplazar método</span><span class="code-file">src/main/java/.../config/SecurityConfig.java</span></div><button class="copy-btn" type="button">Copiar método</button></div>
+                  <pre class="line-numbers"><code class="language-java">@Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http)
+        throws Exception {
+    http
+            .cors(cors -&gt; cors.configurationSource(
+                    corsConfigurationSource()))
+            .csrf(csrf -&gt; csrf.disable())
+            .authorizeHttpRequests(auth -&gt; auth
+                    .requestMatchers("/api/auth/**").permitAll()
+                    .requestMatchers(
+                            "/swagger-ui/**",
+                            "/swagger-ui.html",
+                            "/v3/api-docs/**"
+                    ).permitAll()
+                    .anyRequest().authenticated()
+            )
+            .sessionManagement(session -&gt; session
+                    .sessionCreationPolicy(
+                            SessionCreationPolicy.STATELESS))
+            .authenticationProvider(authenticationProvider())
+            .addFilterBefore(
+                    jwtFilter,
+                    UsernamePasswordAuthenticationFilter.class);
+
+    return http.build();
+}</code></pre>
+                </div>
+              </div>
+            </details>
+            <div class="callout" data-tone="info">
+              <span class="callout-icon">i</span>
+              <div><h3>Autenticación no es autorización por rol</h3><p>Un usuario <code>USER</code> autenticado puede consultar mascotas y dueños. Las operaciones con <code>@PreAuthorize("hasRole('ADMIN')")</code> siguen reservadas para <code>ADMIN</code>.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s10" data-accent="2" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🔄</span>
+            <div class="sec-copy">
+              <span class="sec-n">10 · Traza de ejecución</span>
+              <h2 class="sec-t">Del clic a la respuesta autenticada</h2>
+              <p class="sec-s">Seguir el dato completo permite ubicar con precisión dónde falla cada caso.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="visual-panel">
+              <div class="chart-title">Caso normal · sesión válida</div>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-index">01</span><strong>Navegar</strong><span>Usuario abre /mascotas</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-step"><span class="fs-index">02</span><strong>Guard</strong><span>La sesión existe</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-step" data-emphasis><span class="fs-index">03</span><strong>Interceptor</strong><span>Adjunta Bearer JWT</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-step"><span class="fs-index">04</span><strong>Backend</strong><span>Valida y responde 200</span></div>
+              </div>
+            </div>
+            <div class="visual-panel">
+              <div class="chart-title">Token vencido · recuperación controlada</div>
+              <div class="flow">
+                <div class="flow-step"><span class="fs-index">01</span><strong>Guard</strong><span>Ve un token almacenado</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-step"><span class="fs-index">02</span><strong>Backend</strong><span>Rechaza la firma o vigencia</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-step" data-emphasis><span class="fs-index">03</span><strong>401</strong><span>El interceptor lo detecta</span></div>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <div class="flow-step"><span class="fs-index">04</span><strong>Recuperar</strong><span>Borra token y abre Login</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s11" data-accent="3" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🧪</span>
+            <div class="sec-copy">
+              <span class="sec-n">11 · Verificación observable</span>
+              <h2 class="sec-t">Seis pruebas, seis señales claras</h2>
+              <p class="sec-s">No basta con que compile: cada responsabilidad debe demostrar su comportamiento.</p>
+            </div>
+          </div>
+          <div class="body">
+            <ul class="checklist">
+              <li><strong>Sin sesión:</strong> abrir <code>/mascotas</code> redirige de inmediato a <code>/login</code>.</li>
+              <li><strong>Con sesión:</strong> <code>/mascotas</code> y <code>/duenos</code> cargan con normalidad.</li>
+              <li><strong>Header real:</strong> Red → petición a la API → <code>Authorization: Bearer ...</code>.</li>
+              <li><strong>401:</strong> alterar el token, pedir un recurso protegido y comprobar que se borra la sesión y aparece Login.</li>
+              <li><strong>403:</strong> un usuario <code>USER</code> intenta crear un dueño; conserva la sesión porque el token sí es válido.</li>
+              <li><strong>API directa:</strong> Swagger sin Authorize recibe <code>401</code> al consultar mascotas.</li>
+            </ul>
+            <div class="micro-task">
+              <span class="component-label">Interpreta el resultado</span>
+              <p class="micro-task-q">Si Angular deja entrar a la pantalla, pero la primera consulta devuelve <code>401</code>, ¿qué sabe el guard y qué sabe el backend?</p>
+              <details class="micro-reveal"><summary>Ver respuesta</summary><p class="micro-answer"><strong>Respuesta:</strong> el guard solo sabe que hay un valor almacenado. El backend sabe si su firma y vencimiento son válidos; por eso tiene la última palabra.</p></details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s12" data-accent="4" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">🩺</span>
+            <div class="sec-copy">
+              <span class="sec-n">12 · Diagnóstico</span>
+              <h2 class="sec-t">Leer el síntoma antes de tocar el código</h2>
+              <p class="sec-s">El código HTTP y el momento del fallo indican qué responsabilidad revisar.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="cards">
+              <div class="card" data-accent="1"><b>No aparece el header</b><p>El interceptor compila, pero no está dentro de <code>withInterceptors([...])</code>. Angular nunca lo ejecuta.</p></div>
+              <div class="card" data-accent="2"><b>401 Unauthorized</b><p>No existe una autenticación válida: token ausente, alterado o vencido. La sesión local debe limpiarse.</p></div>
+              <div class="card" data-accent="3"><b>403 Forbidden</b><p>La identidad sí fue reconocida, pero el rol no permite la operación. No se debe cerrar la sesión.</p></div>
+              <div class="card" data-accent="4"><b>Bucle en Login</b><p><code>/login</code> fue protegido por accidente. El guard solo pertenece a rutas privadas.</p></div>
+            </div>
+            <div class="callout" data-tone="warning">
+              <span class="callout-icon">!</span>
+              <div><h3>Login fallido no equivale a sesión vencida</h3><p>Un <code>401</code> en <code>/api/auth/login</code> debe alimentar el mensaje del formulario. Por eso el interceptor excluye los endpoints de autenticación de su cierre global.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s13" data-accent="1" data-layout="canvas" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">📁</span>
+            <div class="sec-copy">
+              <span class="sec-n">13 · Reproducibilidad</span>
+              <h2 class="sec-t">Mapa exacto de cambios</h2>
+              <p class="sec-s">Cada archivo tiene una responsabilidad observable dentro del flujo.</p>
+            </div>
+          </div>
+          <div class="body">
+            <div class="table-wrap">
+              <table class="data-table">
+                <caption>Archivos de la clase</caption>
+                <thead><tr><th>Archivo</th><th>Ruta</th><th>Acción</th><th>Resultado</th></tr></thead>
+                <tbody>
+                  <tr><td data-emphasis><code>jwt.interceptor.ts</code></td><td><code>src/app/interceptors/</code></td><td>Crear</td><td>Adjunta JWT y procesa sesiones rechazadas.</td></tr>
+                  <tr><td data-emphasis><code>auth.guard.ts</code></td><td><code>src/app/guards/</code></td><td>Crear</td><td>Redirige rutas privadas hacia Login.</td></tr>
+                  <tr><td data-emphasis><code>auth.service.ts</code></td><td><code>src/app/services/</code></td><td>Modificar</td><td>Expone token de solo lectura y distingue destinos de cierre.</td></tr>
+                  <tr><td data-emphasis><code>app.config.ts</code></td><td><code>src/app/</code></td><td>Modificar</td><td>Registra el interceptor en <code>HttpClient</code>.</td></tr>
+                  <tr><td data-emphasis><code>app.routes.ts</code></td><td><code>src/app/</code></td><td>Modificar</td><td>Aplica el guard a tres rutas privadas.</td></tr>
+                  <tr><td data-emphasis><code>SecurityConfig.java</code></td><td><code>src/main/java/.../config/</code></td><td>Modificar</td><td>Elimina excepciones públicas de mascotas y dueños.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="micro-task">
+              <span class="component-label">Transferencia · decide sin copiar</span>
+              <p class="micro-task-q">Mañana aparece <code>/reportes</code>: ¿qué tres preguntas debes responder antes de protegerla?</p>
+              <details class="micro-reveal"><summary>Ver criterio de decisión</summary><p class="micro-answer"><strong>Respuesta:</strong> si la pantalla es privada, si el endpoint exige autenticación y si necesita además un rol específico. Guard, interceptor y autorización del backend resuelven preguntas distintas.</p></details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s14" data-accent="2" data-layout="focus" hidden>
+          <div class="sec-head">
+            <span class="sec-icon" aria-hidden="true">✅</span>
+            <div class="sec-copy">
+              <span class="sec-n">14 · Cierre</span>
+              <h2 class="sec-t">VetCare ya distingue guardar una sesión de hacerla cumplir</h2>
+              <p class="sec-s">El proyecto pasó de tener un token inerte a coordinar identidad, navegación y autorización.</p>
+            </div>
+          </div>
+          <div class="body">
+            <ul class="checklist">
+              <li><strong>Problema resuelto:</strong> el JWT ahora viaja sin repetir lógica en cada servicio.</li>
+              <li><strong>Cambio visible:</strong> una persona sin sesión no entra a mascotas ni dueños.</li>
+              <li><strong>Seguridad real:</strong> la API exige autenticación incluso fuera de Angular.</li>
+              <li><strong>Idea 1:</strong> un interceptor centraliza políticas transversales de HTTP.</li>
+              <li><strong>Idea 2:</strong> un guard organiza navegación; no reemplaza la seguridad del backend.</li>
+              <li><strong>Idea 3:</strong> <code>401</code> y <code>403</code> describen problemas diferentes y exigen respuestas diferentes.</li>
+            </ul>
+            <div class="socratica">
+              <span class="component-label">Puente a la siguiente clase</span>
+              <p class="socratica-q">Si el JWT ya contiene el rol, ¿cómo podría Angular ocultar “Crear dueño” para un usuario que no sea <code>ADMIN</code>?</p>
+              <details class="reveal"><summary>Guardar para la próxima sesión</summary><div class="reveal-body"><p class="lead-answer">Angular tendrá que leer el payload y convertir el rol en estado reactivo.</p><p>La siguiente necesidad ya no es “¿hay sesión?”, sino “¿qué puede hacer esta sesión?”.</p></div></details>
+            </div>
+            <div class="panel">
+              <h3>Fuentes técnicas oficiales</h3>
+              <p><a href="https://angular.dev/guide/http/interceptors" target="_blank" rel="noopener noreferrer">Angular · Intercepting requests and responses</a></p>
+              <p><a href="https://angular.dev/guide/routing/route-guards" target="_blank" rel="noopener noreferrer">Angular · Control route access with guards</a></p>
+              <p><a href="https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html" target="_blank" rel="noopener noreferrer">Spring Security · Authorize HTTP requests</a></p>
+            </div>
+            <p class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</p>
+          </div>
+        </section>
+      </div>
+
+      <nav class="view-controls" id="viewControls" aria-label="Navegación entre secciones">
+        <button class="view-btn" id="prevView" type="button" aria-label="Sección anterior">←</button>
+        <span class="view-position" id="viewPosition" aria-live="polite">Portada</span>
+        <button class="view-btn" id="nextView" type="button" aria-label="Sección siguiente">→</button>
+      </nav>
+    </main>
+  </div>
+
+  <div class="watermark" aria-hidden="true">© 2026 ANA ALVARADO</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="anaclase-v11.js"></script>
+</body>
+</html>
