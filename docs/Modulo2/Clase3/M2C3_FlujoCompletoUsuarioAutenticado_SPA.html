@@ -1,0 +1,3005 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro" data-tema-base="oscuro" data-empresa="dev-senior" data-paleta="cobalto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Clase visual paso a paso: flujo completo de usuario autenticado en VetCare con Angular 21.2 y Spring Boot.">
+  <title>VetCare · Flujo completo de usuario autenticado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+  <link rel="stylesheet" href="anaestilos-v12.css">
+</head>
+<body>
+  <a class="skip-link" href="#s1">Saltar al contenido</a>
+  <div class="topline" id="topline" aria-hidden="true"></div>
+  <div class="controls" aria-label="Controles de la clase">
+    <button class="ctrl" id="temaBtn" type="button" aria-label="Cambiar tema">☀</button>
+    <button class="ctrl" id="fullscreenBtn" type="button" aria-label="Pantalla completa">⛶</button>
+  </div>
+
+  <div class="shell" id="shell" data-collapsed="false">
+    <aside class="sidebar" aria-label="Índice de la clase">
+      <div class="sb-top">
+        <span class="brand-mark">A</span>
+        <div class="sb-title"><b>Java Full Stack · Módulo 2</b><span>Clase 3 · 180 min</span></div>
+      </div>
+      <button class="sb-toggle" id="collapseBtn" type="button" aria-label="Colapsar menú">‹</button>
+      <nav class="sb-nav" id="nav" aria-label="Secciones">
+        <a class="nav-item active" href="#portada"><span class="nav-index">00</span><span class="nav-label">Portada</span></a>
+        <span class="nav-group">Descubrir el problema</span>
+        <a class="nav-item" href="#s1"><span class="nav-index">01</span><span class="nav-label">El bug de las 7:30</span></a>
+        <a class="nav-item" href="#s2"><span class="nav-index">02</span><span class="nav-label">Arrancar y comprobar</span></a>
+        <a class="nav-item" href="#s3"><span class="nav-index">03</span><span class="nav-label">Carné y cerradura</span></a>
+        <a class="nav-item" href="#s4"><span class="nav-index">04</span><span class="nav-label">Contrato del backend</span></a>
+        <span class="nav-group">Construir identidad</span>
+        <a class="nav-item" href="#s5"><span class="nav-index">05</span><span class="nav-label">Núcleo compartido</span></a>
+        <a class="nav-item" href="#s6"><span class="nav-index">06</span><span class="nav-label">Leer el JWT</span></a>
+        <a class="nav-item" href="#s7"><span class="nav-index">07</span><span class="nav-label">Barra e interceptor</span></a>
+        <a class="nav-item" href="#s8"><span class="nav-index">08</span><span class="nav-label">Cerrar registro público</span></a>
+        <span class="nav-group">Seguir la sesión</span>
+        <a class="nav-item" href="#s9"><span class="nav-index">09</span><span class="nav-label">Entender effect</span></a>
+        <a class="nav-item" href="#s10"><span class="nav-index">10</span><span class="nav-label">Servicios reactivos</span></a>
+        <span class="nav-group">Autorizar y orientar</span>
+        <a class="nav-item" href="#s11"><span class="nav-index">11</span><span class="nav-label">Roles en Angular</span></a>
+        <a class="nav-item" href="#s12"><span class="nav-index">12</span><span class="nav-label">Guard y formulario</span></a>
+        <span class="nav-group">Integrar la Agenda</span>
+        <a class="nav-item" href="#s13"><span class="nav-index">13</span><span class="nav-label">Servicios de Agenda</span></a>
+        <a class="nav-item" href="#s14"><span class="nav-index">14</span><span class="nav-label">Componente Agenda</span></a>
+        <a class="nav-item" href="#s15"><span class="nav-index">15</span><span class="nav-label">Plantilla y Momento IA</span></a>
+        <a class="nav-item" href="#s16"><span class="nav-index">16</span><span class="nav-label">Rutas finales</span></a>
+        <span class="nav-group">Probar y cerrar</span>
+        <a class="nav-item" href="#s17"><span class="nav-index">17</span><span class="nav-label">Traza completa</span></a>
+        <a class="nav-item" href="#s18"><span class="nav-index">18</span><span class="nav-label">Pruebas por rol</span></a>
+        <a class="nav-item" href="#s19"><span class="nav-index">19</span><span class="nav-label">Errores que hablan</span></a>
+        <a class="nav-item" href="#s20"><span class="nav-index">20</span><span class="nav-label">Cierre y puente</span></a>
+      </nav>
+      <div class="sb-prog">
+        <div class="lbl"><span>Progreso</span><span id="progPct">0%</span></div>
+        <div class="track"><div class="fill" id="progFill"></div></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="hero view" id="portada" data-accent="1">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">Dev Senior · VetCare · Módulo 2, Clase 3</span>
+            <h1 class="hero-title">De guardar un token a entender <em>quién trabaja</em></h1>
+            <p class="hero-lead">Construye un flujo completo en el que la identidad, los datos y los permisos cambian con la sesión, sin fugas entre usuarios.</p>
+            <div class="meta">
+              <span class="pill" data-hot>180 minutos</span>
+              <span class="pill">Angular 21.2 + Spring Boot</span>
+              <span class="pill">JWT · effect() · roles</span>
+            </div>
+          </div>
+          <figure class="hero-visual">
+            <svg viewBox="0 0 700 430" role="img" aria-label="Carné de Laura Gómez con usuario, rol y vencimiento, los datos que Angular lee del JWT">
+              <rect x="70" y="52" width="560" height="320" rx="28" fill="var(--paper-2)" stroke="var(--paper-line)" stroke-width="3"/>
+              <rect x="70" y="52" width="560" height="70" rx="28" fill="var(--a1-papel)"/>
+              <rect x="70" y="96" width="560" height="26" fill="var(--a1-papel)"/>
+              <text x="108" y="97" font-family="Bricolage Grotesque" font-size="28" font-weight="700" fill="var(--paper)">VETCARE · CARNÉ DIGITAL</text>
+              <circle cx="170" cy="226" r="62" fill="var(--paper)" stroke="var(--paper-line)" stroke-width="3"/>
+              <circle cx="170" cy="202" r="23" fill="var(--a1-papel)"/>
+              <path d="M125 276c8-33 28-51 45-51s37 18 45 51" fill="var(--a1-papel)"/>
+              <text x="270" y="178" font-family="Inter" font-size="17" font-weight="600" fill="var(--paper-soft)">NOMBRE</text>
+              <text x="270" y="211" font-family="Bricolage Grotesque" font-size="30" font-weight="700" fill="var(--paper-ink)">Laura Gómez</text>
+              <text x="270" y="257" font-family="Inter" font-size="17" font-weight="600" fill="var(--paper-soft)">ROL</text>
+              <rect x="270" y="272" width="218" height="43" rx="21" fill="var(--paper)" stroke="var(--a1-papel)" stroke-width="2"/>
+              <text x="292" y="300" font-family="IBM Plex Mono" font-size="18" font-weight="600" fill="var(--a1-papel)">VETERINARIO</text>
+              <text x="108" y="344" font-family="IBM Plex Mono" font-size="16" fill="var(--paper-soft)">sub: dra.gomez · exp: vigente</text>
+            </svg>
+            <figcaption class="hero-note">Angular puede leer el carné para orientar la interfaz. Solo el backend verifica la firma y permite la acción.</figcaption>
+          </figure>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="section view" id="s1" data-accent="1" data-layout="split" data-escena="apertura" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Problema real · 7:30 a. m.</span>
+            <h2 class="sec-t">El servidor funciona, pero VetCare dice que está caído</h2>
+            <p class="sec-s">Juliana inicia sesión, abre Mascotas y ve un error. Presiona F5 y aparecen seis mascotas. El orden de los eventos está mintiendo.</p>
+          </div>
+          <div class="body">
+            <figure class="figura">
+              <div class="figura-stage">
+                <svg viewBox="0 0 700 390" role="img" aria-label="Ticket de soporte que muestra error antes de F5 y seis mascotas después de F5">
+                  <rect x="75" y="40" width="550" height="310" rx="22" fill="var(--paper-2)" stroke="var(--paper-line)" stroke-width="3"/>
+                  <text x="110" y="92" font-family="Bricolage Grotesque" font-size="27" font-weight="700" fill="var(--paper-ink)">INCIDENTE VET-30</text>
+                  <text x="110" y="130" font-family="IBM Plex Mono" font-size="18" fill="var(--paper-soft)">07:30 · recepción · /mascotas</text>
+                  <rect x="110" y="166" width="480" height="58" rx="12" fill="var(--paper)" stroke="var(--danger)" stroke-width="3"/>
+                  <text x="135" y="202" font-family="Inter" font-size="19" font-weight="600" fill="var(--danger)">“No pudimos conectarnos con el servidor”</text>
+                  <path d="M350 241v38" stroke="var(--paper-soft)" stroke-width="3"/>
+                  <path d="M338 267l12 13 12-13" fill="none" stroke="var(--paper-soft)" stroke-width="3"/>
+                  <rect x="185" y="286" width="330" height="42" rx="21" fill="var(--a1-papel)"/>
+                  <text x="220" y="313" font-family="Inter" font-size="18" font-weight="700" fill="var(--paper)">F5 → aparecen 6 mascotas</text>
+                </svg>
+              </div>
+              <figcaption>F5 no corrige el código: solo reinicia Angular cuando el token ya existe.</figcaption>
+            </figure>
+            <div>
+              <div class="socratica">
+                <span class="component-label">Para pensar</span>
+                <p class="socratica-q">Si el backend estaba encendido, ¿quién mintió: el servidor, el mensaje o el momento de pedir los datos?</p>
+                <details class="reveal">
+                  <summary>Ver respuesta</summary>
+                  <div class="reveal-body">
+                    <p class="lead-answer">El problema está en el momento de la petición y en cómo se traduce el error.</p>
+                    <p><code>MascotasService</code> pide datos al arrancar la app, todavía sin token: recibe <code>401</code>. El login ocurre después y nadie vuelve a cargar. El mensaje, además, confunde “no autenticado” con “sin conexión”.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="micro-task">
+                <span class="component-label">Predice · 30 segundos</span>
+                <p class="micro-task-q">Juliana sale y entra el doctor Ruiz, sin F5. ¿Qué mascotas y favoritos quedan en memoria?</p>
+                <details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer"><strong>Quedan los de Juliana.</strong> Borrar el token no vacía los Signals de los servicios. En un computador compartido, eso es una fuga entre usuarios.</p></details>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s2" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Preparar · backend y frontend</span>
+            <h2 class="sec-t">Antes de programar, comprobamos el contrato real</h2>
+            <p class="sec-s">Usa el backend actualizado, arranca ambos proyectos y verifica que el JWT ya trae <code>nombre</code> y un rol real.</p>
+          </div>
+          <div class="body">
+            <div class="papel"><span class="component-label">Punto de partida</span><p>Programa en <code>Modulo2/Clase3_Oct_01/vetcare-frontend</code>. El backend actualizado vive en <code>Modulo2/backend</code> y también se comparte como <code>VetCare_backend_M2C3.zip</code>. La solución completa está en <code>Clase3_Oct_01/vetcare-frontend-solucion</code>.</p></div>
+            <div class="table-wrap"><table class="data-table">
+              <caption>Cuentas sembradas · contraseña común: <code>vetcare123</code></caption>
+              <thead><tr><th>Usuario</th><th>Rol</th><th>Nombre</th></tr></thead>
+              <tbody><tr><td><code>admin</code></td><td>ADMIN</td><td>Carolina Rojas</td></tr><tr><td><code>recepcion</code></td><td>RECEPCIONISTA</td><td>Juliana Pérez</td></tr><tr><td><code>dra.gomez</code></td><td>VETERINARIO</td><td>Laura Gómez · Medicina general</td></tr><tr><td><code>dr.ruiz</code></td><td>VETERINARIO</td><td>Andrés Ruiz · Cirugía</td></tr></tbody>
+            </table></div>
+            <div class="active-build">
+              <div class="build-step">
+                <span class="build-step-index">01</span>
+                <div class="build-step-copy">
+                  <h3 class="build-step-title">Levanta Spring Boot</h3>
+                  <p class="build-step-purpose">Desde la raíz del backend, donde está <code>pom.xml</code>. No borres la base de datos: <code>MigracionEsquema</code> actualiza roles y citas.</p>
+                  <div class="dos-col"><div><div class="code-block" data-tipo="terminal">
+    <div class="code-head"><div><span class="code-context">Windows</span><span class="code-file">backend/</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre><code class="language-bash">mvnw.cmd spring-boot:run</code></pre>
+  </div></div><div><div class="code-block" data-tipo="terminal">
+    <div class="code-head"><div><span class="code-context">macOS / Linux</span><span class="code-file">backend/</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre><code class="language-bash">./mvnw spring-boot:run</code></pre>
+  </div></div></div>
+                </div>
+              </div>
+              <div class="build-step">
+                <span class="build-step-index">02</span>
+                <div class="build-step-copy">
+                  <h3 class="build-step-title">Levanta Angular 21.2</h3>
+                  <p class="build-step-purpose">Desde <code>Clase3_Oct_01/vetcare-frontend</code>. Espera <code>Local: http://localhost:4200/</code>.</p>
+                  <div class="code-block" data-tipo="terminal">
+    <div class="code-head"><div><span class="code-context">Terminal</span><span class="code-file">vetcare-frontend/</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre><code class="language-bash">npm start</code></pre>
+  </div>
+                </div>
+              </div>
+              <div class="build-step">
+                <span class="build-step-index">03</span>
+                <div class="build-step-copy">
+                  <h3 class="build-step-title">Inicia sesión desde Swagger y mira el payload</h3>
+                  <p class="build-step-purpose"><code>POST /api/auth/login</code> debe responder <code>200</code>. Las fechas cambian; <code>sub</code>, <code>rol</code> y <code>nombre</code> son la identidad de trabajo.</p>
+                  <div class="dos-col"><div><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Petición</span><span class="code-file">Swagger · POST /api/auth/login</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre><code class="language-json">{
+  &quot;username&quot;: &quot;dra.gomez&quot;,
+  &quot;password&quot;: &quot;vetcare123&quot;
+}</code></pre>
+  </div></div><div><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Payload esperado</span><span class="code-file">jwt.io · parte central</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre><code class="language-json">{
+  &quot;sub&quot;: &quot;dra.gomez&quot;,
+  &quot;rol&quot;: &quot;VETERINARIO&quot;,
+  &quot;nombre&quot;: &quot;Laura Gómez&quot;,
+  &quot;iat&quot;: 1790885605,
+  &quot;exp&quot;: 1790972005
+}</code></pre>
+  </div></div></div>
+                </div>
+              </div>
+              <div class="checkpoint">
+                <span class="component-label">Checkpoint</span>
+                <h3>Backend: <code>Started VetcareApplication</code> · Frontend: puerto 4200 · Login: token con nombre y rol</h3>
+                <p>Si todavía existe <code>POST /api/auth/registro</code> en Swagger, estás ejecutando el backend anterior.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s3" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Modelo mental · identidad y seguridad</span>
+            <h2 class="sec-t">El token es el carné; el backend es la cerradura</h2>
+            <p class="sec-s">Angular lee la identidad para mostrar la experiencia correcta. Spring verifica la firma antes de tocar los datos.</p>
+          </div>
+          <div class="body">
+            <div class="pipeline" role="group" aria-label="Del carné al permiso real">
+              <div class="pipe-step"><span class="component-label">Carné</span><h3>Payload JWT</h3><ul><li>sub</li><li>nombre</li><li>rol</li><li>exp</li></ul></div>
+              <div class="pipe-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <div class="pipe-step" data-emphasis><span class="component-label">Vigilante</span><h3>Angular orienta</h3><ul><li>barra</li><li>guard</li><li>@if</li></ul></div>
+              <div class="pipe-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <div class="pipe-step"><span class="component-label">Cerradura</span><h3>Spring protege</h3><ul><li>firma</li><li>@PreAuthorize</li><li>401 / 403</li></ul></div>
+            </div>
+            <div class="definicion">
+              <div class="def-tecnica"><span class="component-label">Definición técnica</span><p class="def-termino">Payload JWT</p><p>Objeto JSON codificado en Base64URL con claims sobre el usuario y metadatos como <code>exp</code>.</p><span class="def-fuente">RFC 7519 · JSON Web Token</span></div>
+              <div class="def-vida"><span class="component-label">Lo que no debe confundirse</span><p>Leer el payload no verifica la firma. El frontend puede confiar en él para decidir qué mostrar, pero nunca para autorizar una operación sensible.</p></div>
+            </div>
+            <div class="micro-task">
+              <span class="component-label">Decide · 45 segundos</span>
+              <p class="micro-task-q">Si alguien cambia <code>RECEPCIONISTA</code> por <code>ADMIN</code> en el payload, ¿qué capa puede dejarse engañar y cuál debe detenerlo?</p>
+              <details class="micro-reveal"><summary>Ver conclusión</summary><p class="micro-answer"><strong>Angular puede mostrar por un instante la interfaz de admin.</strong> La firma queda inválida; el backend responde <code>401</code> y el interceptor cierra la sesión.</p></details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s4" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Contrato · backend ya actualizado</span>
+            <h2 class="sec-t">Angular puede actuar porque Spring ahora responde con precisión</h2>
+            <p class="sec-s">No se escribe este backend en clase. Se consulta para entender el contrato: identidad, permisos, citas filtradas y reglas de negocio.</p>
+          </div>
+          <div class="body">
+            <div class="table-wrap"><table class="data-table">
+              <caption>El idioma compartido entre Angular y Spring Boot</caption>
+              <thead><tr><th>Código</th><th>Significado</th><th>Ejemplo en VetCare</th></tr></thead>
+              <tbody>
+                <tr><td class="num">400</td><td>Petición mal armada</td><td>Agendar sin hora</td></tr>
+                <tr><td class="num" data-emphasis>401</td><td>No sé quién eres</td><td>Sin token, vencido, adulterado o clave mala</td></tr>
+                <tr><td class="num" data-emphasis>403</td><td>Sé quién eres; no puedes</td><td>Veterinario intenta agendar</td></tr>
+                <tr><td class="num">404</td><td>Recurso inexistente</td><td>Mascota 99999</td></tr>
+                <tr><td class="num">409</td><td>El negocio no lo permite</td><td>Atender una cita ya atendida</td></tr>
+              </tbody>
+            </table></div>
+            <div class="table-wrap"><table class="data-table">
+              <caption>Matriz de permisos de la clínica</caption>
+              <thead><tr><th>Acción</th><th>Administración</th><th>Recepción</th><th>Veterinario</th></tr></thead>
+              <tbody>
+                <tr><td>Ver mascotas y dueños</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+                <tr><td>Registrar y editar</td><td>Sí</td><td>Sí</td><td>No</td></tr>
+                <tr><td>Ver agenda completa</td><td>Sí</td><td>Sí</td><td>No</td></tr>
+                <tr><td>Ver “mis citas”</td><td>No</td><td>No</td><td>Sí</td></tr>
+                <tr><td>Agendar y cancelar</td><td>Sí</td><td>Sí</td><td>No</td></tr>
+                <tr><td>Atender cita propia</td><td>No</td><td>No</td><td>Sí</td></tr>
+                <tr><td>Eliminar dueños, mascotas o citas</td><td>Sí</td><td>No</td><td>No</td></tr>
+                <tr><td>Gestionar veterinarios y cuentas</td><td>Sí</td><td>No</td><td>No</td></tr>
+              </tbody>
+            </table></div>
+            <div class="table-wrap"><table class="data-table">
+              <caption>Reglas de negocio que responden 409</caption>
+              <thead><tr><th>Situación</th><th>Mensaje del backend</th></tr></thead>
+              <tbody>
+                <tr><td>Atender una cita atendida o cancelada</td><td><code>La cita ya fue atendida</code></td></tr>
+                <tr><td>Cancelar una cita que no está programada</td><td><code>Solo se puede cancelar una cita programada</code></td></tr>
+                <tr><td>Eliminar un dueño con mascotas</td><td><code>No se puede eliminar: el dueño tiene mascotas registradas</code></td></tr>
+                <tr><td>Eliminar una mascota con citas</td><td><code>No se puede eliminar: la mascota tiene historia clinica (citas)</code></td></tr>
+                <tr><td>Eliminar un veterinario con citas</td><td><code>No se puede eliminar: el veterinario tiene citas registradas</code></td></tr>
+                <tr><td>Documento, email o tarjeta repetidos</td><td><code>Ya existe un registro con esos datos (...)</code></td></tr>
+                <tr><td>Username existente</td><td><code>El username ... ya esta registrado</code></td></tr>
+              </tbody>
+            </table></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>La petición “mis citas” no recibe un username</h3><p><code>GET /api/citas/mias</code> obtiene la identidad del token validado. Cambiar un parámetro nunca permite espiar la agenda de otra persona.</p></div></div>
+            <details class="code-reveal" data-reference="true">
+    <summary><span><span class="code-reveal-title">SecurityConfig.java</span><span class="code-reveal-note">Referencia · backend ya actualizado · src/main/java/com/devsenior/vetcare/config/ · Java</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Referencia · backend ya actualizado</span><span class="code-file">src/main/java/com/devsenior/vetcare/config/SecurityConfig.java</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
+
+@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity   // habilita @PreAuthorize (roles por metodo)
+public class SecurityConfig {
+
+    private final JwtFilter jwtFilter;
+    private final UserDetailsService userDetailsService;
+
+    public SecurityConfig(JwtFilter jwtFilter,
+                          UserDetailsService userDetailsService) {
+        this.jwtFilter = jwtFilter;
+        this.userDetailsService = userDetailsService;
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(List.of(&quot;http://localhost:4200&quot;));
+        config.setAllowedMethods(List.of(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;));
+        config.setAllowedHeaders(List.of(&quot;*&quot;));
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration(&quot;/**&quot;, config);
+        return source;
+    }
+
+    // Provee el modo de autenticar: usa nuestro UserDetailsService + BCrypt
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
+    }
+
+    // El AuthenticationManager lo usa el login para verificar credenciales
+    @Bean
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
+
+    // La cadena de seguridad: que se protege y que no
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http)
+            throws Exception {
+        http
+                .cors(cors -&gt; cors.configurationSource(
+                        corsConfigurationSource()))
+                .csrf(csrf -&gt; csrf.disable())
+                .authorizeHttpRequests(auth -&gt; auth
+                        .requestMatchers(&quot;/api/auth/**&quot;).permitAll()
+                        // /error debe ser publico: si no, CUALQUIER error del backend
+                        // (404, 409, 500...) llega al cliente disfrazado de 403
+                        .requestMatchers(&quot;/error&quot;).permitAll()
+                        .requestMatchers(
+                                &quot;/swagger-ui/**&quot;,
+                                &quot;/swagger-ui.html&quot;,
+                                &quot;/v3/api-docs/**&quot;
+                        ).permitAll()
+                        .anyRequest().authenticated()
+                )
+                // Sin token (o con token invalido/vencido) -&gt; 401, no 403.
+                // Asi Angular puede distinguir &quot;no se quien eres&quot; (401)
+                // de &quot;se quien eres y no puedes&quot; (403).
+                .exceptionHandling(ex -&gt; ex
+                        .authenticationEntryPoint((request, response, authException) -&gt; {
+                            response.setStatus(HttpStatus.UNAUTHORIZED.value());
+                            response.setContentType(&quot;application/json;charset=UTF-8&quot;);
+                            response.getWriter().write(
+                                    &quot;{\&quot;codigo\&quot;:401,\&quot;mensaje\&quot;:\&quot;Tu sesion no es valida o ya vencio\&quot;}&quot;);
+                        }))
+                .sessionManagement(session -&gt; session
+                        .sessionCreationPolicy(
+                                SessionCreationPolicy.STATELESS))
+                .authenticationProvider(authenticationProvider())
+                .addFilterBefore(
+                        jwtFilter,
+                        UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
+}</code></pre>
+  </div></div>
+  </details>
+            <details class="code-reveal" data-reference="true">
+    <summary><span><span class="code-reveal-title">JwtFilter.java</span><span class="code-reveal-note">Referencia · backend ya actualizado · src/main/java/com/devsenior/vetcare/config/ · Java</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Referencia · backend ya actualizado</span><span class="code-file">src/main/java/com/devsenior/vetcare/config/JwtFilter.java</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.config;
+
+import com.devsenior.vetcare.service.JwtService;
+import io.jsonwebtoken.JwtException;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import java.io.IOException;
+
+@Component
+public class JwtFilter extends OncePerRequestFilter {
+
+    private final JwtService jwtService;
+    private final UserDetailsService userDetailsService;
+
+    public JwtFilter(JwtService jwtService, UserDetailsService userDetailsService) {
+        this.jwtService = jwtService;
+        this.userDetailsService = userDetailsService;
+    }
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain)
+            throws ServletException, IOException {
+
+        String header = request.getHeader(&quot;Authorization&quot;);
+
+        // Si no hay header o no empieza con &quot;Bearer &quot;, seguimos sin autenticar
+        if (header == null || !header.startsWith(&quot;Bearer &quot;)) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        String token = header.substring(7);          // quita &quot;Bearer &quot;
+
+        // Un token adulterado o vencido hace que jjwt lance una excepcion.
+        // Si la dejamos escapar del filtro, Spring responde un error confuso.
+        // La atrapamos: la peticion sigue SIN autenticar y SecurityConfig responde 401.
+        try {
+            String username = jwtService.extraerUsername(token);
+
+            if (username != null
+                    &amp;&amp; SecurityContextHolder.getContext().getAuthentication() == null) {
+
+                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+
+                if (jwtService.esValido(token, userDetails)) {
+                    UsernamePasswordAuthenticationToken auth =
+                            new UsernamePasswordAuthenticationToken(
+                                    userDetails, null, userDetails.getAuthorities());
+                    auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(auth); // autenticado
+                }
+            }
+        } catch (JwtException | IllegalArgumentException | UsernameNotFoundException e) {
+            SecurityContextHolder.clearContext();
+        }
+
+        filterChain.doFilter(request, response); // deja seguir la peticion
+    }
+}</code></pre>
+  </div></div>
+  </details>
+            <details class="code-reveal" data-reference="true">
+    <summary><span><span class="code-reveal-title">ManejadorGlobalExcepciones.java</span><span class="code-reveal-note">Referencia · backend ya actualizado · src/main/java/com/devsenior/vetcare/exception/ · Java</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Referencia · backend ya actualizado</span><span class="code-file">src/main/java/com/devsenior/vetcare/exception/ManejadorGlobalExcepciones.java</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.exception;
+
+import com.devsenior.vetcare.dto.ErrorResponse;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.time.LocalDateTime;
+
+// Cada error del negocio responde con su codigo HTTP honesto
+// y siempre con el mismo formato: { codigo, mensaje, fecha }
+@RestControllerAdvice
+public class ManejadorGlobalExcepciones {
+
+    // 400: fallo una validacion de @Valid
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; validacion(MethodArgumentNotValidException ex) {
+        String mensaje = ex.getBindingResult().getFieldErrors().stream()
+                .findFirst()
+                .map(e -&gt; e.getField() + &quot;: &quot; + e.getDefaultMessage())
+                .orElse(&quot;Error de validacion&quot;);
+        return responder(HttpStatus.BAD_REQUEST, mensaje);
+    }
+
+    // 400: el JSON llego mal armado (ej: un rol o una fecha que no existe)
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; jsonInvalido(HttpMessageNotReadableException ex) {
+        return responder(HttpStatus.BAD_REQUEST, &quot;El cuerpo de la peticion tiene un formato invalido&quot;);
+    }
+
+    // 401: usuario o contraseña incorrectos en el login
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; credenciales(AuthenticationException ex) {
+        return responder(HttpStatus.UNAUTHORIZED, &quot;Usuario o contraseña incorrectos&quot;);
+    }
+
+    // 403: autenticado, pero su rol no le permite esta accion
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; accesoDenegado(AccessDeniedException ex) {
+        return responder(HttpStatus.FORBIDDEN, &quot;No tienes permiso para realizar esta accion&quot;);
+    }
+
+    // 404: recurso no encontrado
+    @ExceptionHandler(RecursoNoEncontradoException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; noEncontrado(RecursoNoEncontradoException ex) {
+        return responder(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+    // 409: la peticion es valida, pero el negocio no la permite
+    @ExceptionHandler(ReglaNegocioException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; reglaNegocio(ReglaNegocioException ex) {
+        return responder(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+    // 409: dato repetido que la base de datos exige unico (documento, email, tarjeta...)
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; datoDuplicado(DataIntegrityViolationException ex) {
+        return responder(HttpStatus.CONFLICT,
+                &quot;Ya existe un registro con esos datos (documento, email o tarjeta repetidos)&quot;);
+    }
+
+    private ResponseEntity&lt;ErrorResponse&gt; responder(HttpStatus estado, String mensaje) {
+        return ResponseEntity.status(estado)
+                .body(new ErrorResponse(estado.value(), mensaje, LocalDateTime.now()));
+    }
+}</code></pre>
+  </div></div>
+  </details>
+            <details class="code-reveal" data-reference="true">
+    <summary><span><span class="code-reveal-title">CitaController.java</span><span class="code-reveal-note">Referencia · backend ya actualizado · src/main/java/com/devsenior/vetcare/controller/ · Java</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Referencia · backend ya actualizado</span><span class="code-file">src/main/java/com/devsenior/vetcare/controller/CitaController.java</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.controller;
+
+import com.devsenior.vetcare.dto.AtencionRequest;
+import com.devsenior.vetcare.dto.CitaRequest;
+import com.devsenior.vetcare.dto.CitaResponse;
+import com.devsenior.vetcare.service.CitaService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/api/citas&quot;)
+public class CitaController {
+
+    private final CitaService citaService;
+
+    public CitaController(CitaService citaService) {
+        this.citaService = citaService;
+    }
+
+    // Agenda completa: administracion y recepcion
+    @PreAuthorize(&quot;hasAnyRole('ADMIN', 'RECEPCIONISTA')&quot;)
+    @GetMapping
+    public ResponseEntity&lt;List&lt;CitaResponse&gt;&gt; listarTodos() {
+        return ResponseEntity.ok(citaService.listarTodos());
+    }
+
+    // &quot;Mi agenda&quot;: el username sale del token, no de la URL
+    @PreAuthorize(&quot;hasRole('VETERINARIO')&quot;)
+    @GetMapping(&quot;/mias&quot;)
+    public ResponseEntity&lt;List&lt;CitaResponse&gt;&gt; listarMias(Authentication autenticacion) {
+        return ResponseEntity.ok(citaService.listarMias(autenticacion.getName()));
+    }
+
+    // Historia clinica de una mascota: cualquier usuario autenticado
+    @GetMapping(&quot;/mascota/{mascotaId}&quot;)
+    public ResponseEntity&lt;List&lt;CitaResponse&gt;&gt; listarPorMascota(@PathVariable Long mascotaId) {
+        return ResponseEntity.ok(citaService.listarPorMascota(mascotaId));
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;CitaResponse&gt; buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(citaService.buscarPorId(id));
+    }
+
+    @PreAuthorize(&quot;hasAnyRole('ADMIN', 'RECEPCIONISTA')&quot;)
+    @PostMapping
+    public ResponseEntity&lt;CitaResponse&gt; crear(@Valid @RequestBody CitaRequest request) {
+        CitaResponse creada = citaService.crear(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(creada);
+    }
+
+    @PreAuthorize(&quot;hasAnyRole('ADMIN', 'RECEPCIONISTA')&quot;)
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;CitaResponse&gt; actualizar(
+            @PathVariable Long id,
+            @Valid @RequestBody CitaRequest request) {
+        return ResponseEntity.ok(citaService.actualizar(id, request));
+    }
+
+    @PreAuthorize(&quot;hasRole('VETERINARIO')&quot;)
+    @PatchMapping(&quot;/{id}/atender&quot;)
+    public ResponseEntity&lt;CitaResponse&gt; atender(
+            @PathVariable Long id,
+            @Valid @RequestBody AtencionRequest request,
+            Authentication autenticacion) {
+        return ResponseEntity.ok(citaService.atender(id, request, autenticacion.getName()));
+    }
+
+    @PreAuthorize(&quot;hasAnyRole('ADMIN', 'RECEPCIONISTA')&quot;)
+    @PatchMapping(&quot;/{id}/cancelar&quot;)
+    public ResponseEntity&lt;CitaResponse&gt; cancelar(@PathVariable Long id) {
+        return ResponseEntity.ok(citaService.cancelar(id));
+    }
+
+    @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; eliminar(@PathVariable Long id) {
+        citaService.eliminar(id);
+        return ResponseEntity.noContent().build();
+    }
+}</code></pre>
+  </div></div>
+  </details>
+            <details class="code-reveal" data-reference="true">
+    <summary><span><span class="code-reveal-title">CitaServiceImpl.java</span><span class="code-reveal-note">Referencia · backend ya actualizado · src/main/java/com/devsenior/vetcare/service/impl/ · Java</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Referencia · backend ya actualizado</span><span class="code-file">src/main/java/com/devsenior/vetcare/service/impl/CitaServiceImpl.java</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-java">package com.devsenior.vetcare.service.impl;
+
+import com.devsenior.vetcare.dto.AtencionRequest;
+import com.devsenior.vetcare.dto.CitaRequest;
+import com.devsenior.vetcare.dto.CitaResponse;
+import com.devsenior.vetcare.exception.RecursoNoEncontradoException;
+import com.devsenior.vetcare.exception.ReglaNegocioException;
+import com.devsenior.vetcare.model.Cita;
+import com.devsenior.vetcare.model.Dueno;
+import com.devsenior.vetcare.model.EstadoCita;
+import com.devsenior.vetcare.model.Mascota;
+import com.devsenior.vetcare.model.Usuario;
+import com.devsenior.vetcare.model.Veterinario;
+import com.devsenior.vetcare.repository.CitaRepository;
+import com.devsenior.vetcare.repository.MascotaRepository;
+import com.devsenior.vetcare.repository.VeterinarioRepository;
+import com.devsenior.vetcare.service.CitaService;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CitaServiceImpl implements CitaService {
+
+    private final CitaRepository citaRepository;
+    private final MascotaRepository mascotaRepository;
+    private final VeterinarioRepository veterinarioRepository;
+
+    public CitaServiceImpl(CitaRepository citaRepository,
+                           MascotaRepository mascotaRepository,
+                           VeterinarioRepository veterinarioRepository) {
+        this.citaRepository = citaRepository;
+        this.mascotaRepository = mascotaRepository;
+        this.veterinarioRepository = veterinarioRepository;
+    }
+
+    @Override
+    public List&lt;CitaResponse&gt; listarTodos() {
+        return citaRepository.findAllByOrderByFechaAscHoraAsc()
+                .stream().map(this::toResponse).toList();
+    }
+
+    // El backend decide QUE citas ve el veterinario, a partir del token
+    @Override
+    public List&lt;CitaResponse&gt; listarMias(String username) {
+        return citaRepository.findByVeterinarioUsuarioUsernameOrderByFechaAscHoraAsc(username)
+                .stream().map(this::toResponse).toList();
+    }
+
+    @Override
+    public List&lt;CitaResponse&gt; listarPorMascota(Long mascotaId) {
+        if (!mascotaRepository.existsById(mascotaId)) {
+            throw new RecursoNoEncontradoException(&quot;No existe una mascota con id &quot; + mascotaId);
+        }
+        return citaRepository.findByMascotaIdOrderByFechaDescHoraDesc(mascotaId)
+                .stream().map(this::toResponse).toList();
+    }
+
+    @Override
+    public CitaResponse buscarPorId(Long id) {
+        return toResponse(buscarEntidad(id));
+    }
+
+    @Override
+    public CitaResponse crear(CitaRequest request) {
+        Cita cita = new Cita();
+        aplicarDatos(cita, request);
+        cita.setEstado(EstadoCita.PROGRAMADA);   // toda cita nueva arranca programada
+        return toResponse(citaRepository.save(cita));
+    }
+
+    @Override
+    public CitaResponse actualizar(Long id, CitaRequest request) {
+        Cita cita = buscarEntidad(id);
+        if (cita.getEstado() != EstadoCita.PROGRAMADA) {
+            throw new ReglaNegocioException(&quot;Solo se puede reprogramar una cita que siga programada&quot;);
+        }
+        aplicarDatos(cita, request);
+        return toResponse(citaRepository.save(cita));
+    }
+
+    @Override
+    public CitaResponse atender(Long id, AtencionRequest request, String username) {
+        Cita cita = buscarEntidad(id);
+
+        // Regla 1: un veterinario solo atiende SUS citas
+        Usuario cuentaDelVeterinario = cita.getVeterinario() == null
+                ? null : cita.getVeterinario().getUsuario();
+        if (cuentaDelVeterinario == null || !cuentaDelVeterinario.getUsername().equals(username)) {
+            throw new AccessDeniedException(&quot;Esta cita no esta asignada a ti&quot;);
+        }
+
+        // Regla 2: solo se atiende lo que sigue programado
+        if (cita.getEstado() != EstadoCita.PROGRAMADA) {
+            throw new ReglaNegocioException(&quot;La cita ya fue &quot; + cita.getEstado().name().toLowerCase());
+        }
+
+        cita.setNotas(request.notas());
+        cita.setCosto(request.costo());
+        cita.setEstado(EstadoCita.ATENDIDA);
+        return toResponse(citaRepository.save(cita));
+    }
+
+    @Override
+    public CitaResponse cancelar(Long id) {
+        Cita cita = buscarEntidad(id);
+        if (cita.getEstado() != EstadoCita.PROGRAMADA) {
+            throw new ReglaNegocioException(&quot;Solo se puede cancelar una cita programada&quot;);
+        }
+        cita.setEstado(EstadoCita.CANCELADA);
+        return toResponse(citaRepository.save(cita));
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        if (!citaRepository.existsById(id)) {
+            throw new RecursoNoEncontradoException(&quot;No existe una cita con id &quot; + id);
+        }
+        citaRepository.deleteById(id);
+    }
+
+    // --- Ayudantes privados ---
+
+    private Cita buscarEntidad(Long id) {
+        return citaRepository.findById(id)
+                .orElseThrow(() -&gt; new RecursoNoEncontradoException(
+                        &quot;No existe una cita con id &quot; + id));
+    }
+
+    private void aplicarDatos(Cita cita, CitaRequest request) {
+        Mascota mascota = mascotaRepository.findById(request.mascotaId())
+                .orElseThrow(() -&gt; new RecursoNoEncontradoException(
+                        &quot;No existe una mascota con id &quot; + request.mascotaId()));
+
+        Veterinario veterinario = veterinarioRepository.findById(request.veterinarioId())
+                .orElseThrow(() -&gt; new RecursoNoEncontradoException(
+                        &quot;No existe un veterinario con id &quot; + request.veterinarioId()));
+
+        cita.setFecha(request.fecha());
+        cita.setHora(request.hora());
+        cita.setMotivo(request.motivo());
+        cita.setMascota(mascota);
+        cita.setVeterinario(veterinario);
+    }
+
+    private CitaResponse toResponse(Cita cita) {
+        Mascota mascota = cita.getMascota();
+        Dueno dueno = mascota.getDueno();
+        Veterinario vet = cita.getVeterinario();
+        return new CitaResponse(
+                cita.getId(), cita.getFecha(), cita.getHora(), cita.getMotivo(),
+                cita.getEstado() == null ? null : cita.getEstado().name(),
+                cita.getCosto(), cita.getNotas(),
+                mascota.getId(), mascota.getNombre(), mascota.getEspecie(),
+                dueno.getNombre() + &quot; &quot; + dueno.getApellido(),
+                vet == null ? null : vet.getId(),
+                vet == null ? &quot;Sin asignar&quot; : vet.getNombre()
+        );
+    }
+}</code></pre>
+  </div></div>
+  </details>
+          </div>
+        </section>
+
+        <section class="section view" id="s5" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Construir · núcleo compartido</span>
+            <h2 class="sec-t">Una sola dirección y errores que dicen la verdad</h2>
+            <p class="sec-s">Antes de sumar servicios, centralizamos la URL y traducimos cada estado HTTP a un mensaje útil.</p>
+          </div>
+          <div class="body">
+            <div class="micro-task"><span class="component-label">Detecta · 30 segundos</span><p class="micro-task-q">¿Por qué <code>status === 0</code> sí significa “no hay conexión”, pero <code>401</code> no?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer"><strong>Porque 401 es una respuesta válida del servidor.</strong> Hubo conexión; lo que falta es una identidad aceptada.</p></details></div>
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Crea la carpeta <code>core</code> y define la dirección</h3><p class="build-step-purpose">Evita seis copias de <code>http://localhost:8080/api</code>.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">api.ts</span><span class="code-reveal-note">Crear · src/app/core/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/core/api.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">// Una sola dirección del backend para toda la aplicación.
+// Si mañana el backend cambia de servidor, se cambia aquí y en ningún otro lado.
+export const API_URL = 'http://localhost:8080/api';</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Convierte estados HTTP en mensajes honestos</h3><p class="build-step-purpose">Si el backend envía su propio <code>mensaje</code>, esa regla de negocio tiene prioridad.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">errores.ts</span><span class="code-reveal-note">Crear · src/app/core/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/core/errores.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { HttpErrorResponse } from '@angular/common/http';
+
+// Traduce un error HTTP a un mensaje honesto para la persona que usa VetCare.
+// El backend responde { codigo, mensaje, fecha }: si trae mensaje, lo usamos.
+export function mensajeDeError(error: HttpErrorResponse): string {
+  if (error.status === 0) {
+    return 'No pudimos conectarnos con el servidor de VetCare. Verifica que el backend esté corriendo en el puerto 8080.';
+  }
+  if (error.status === 401) {
+    return 'Tu sesión venció. Inicia sesión de nuevo.';
+  }
+  if (error.status === 403) {
+    return 'Tu rol no tiene permiso para realizar esta acción.';
+  }
+  return error.error?.mensaje ?? 'Ocurrió un error inesperado. Intenta de nuevo.';
+}</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="checkpoint"><span class="component-label">Checkpoint</span><h3><code>API_URL</code> y <code>mensajeDeError()</code> quedan listos para todos los servicios.</h3></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s6" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Construir · auth.service.ts</span>
+            <h2 class="sec-t">El token se convierte en una única fuente de identidad</h2>
+            <p class="sec-s"><code>usuario</code>, <code>nombre</code>, <code>rol</code> y <code>sesionActiva</code> se derivan del mismo token. Al borrarlo, todo cambia a la vez.</p>
+          </div>
+          <div class="body">
+            <div class="micro-task"><span class="component-label">Decide · 45 segundos</span><p class="micro-task-q">¿Guardarías <code>nombre</code> y <code>rol</code> en otras llaves de <code>localStorage</code>?</p><details class="micro-reveal"><summary>Ver criterio</summary><p class="micro-answer"><strong>No.</strong> Tendrías varias fuentes de verdad que podrían quedar en desacuerdo. Los <code>computed</code> mantienen identidad y token sincronizados.</p></details></div>
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Decodifica Base64URL sin romper tildes</h3><p class="build-step-purpose"><code>TextDecoder</code> evita que “Gómez” termine como “GÃ³mez”. Esto solo lee: la firma se verifica en el backend.</p><div class="code-block" data-role="fragment">
+    <div class="code-head"><div><span class="code-context">Fragmento para razonar</span><span class="code-file">src/app/services/auth.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">// eso solo lo puede hacer el backend, que es quien conoce la clave secreta.
+function leerToken(token: string): ContenidoToken | null {
+  try {
+    const payload = token.split('.')[1];
+    const base64 = payload.replace(/-/g, '+').replace(/_/g, '/');
+    const bytes = Uint8Array.from(atob(base64), letra =&gt; letra.charCodeAt(0));
+    return JSON.parse(new TextDecoder().decode(bytes));
+  } catch {
+    return null;
+  }
+}
+</code></pre>
+  </div></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Deriva sesión, usuario, nombre y rol</h3><p class="build-step-purpose">El claim <code>exp</code> está en segundos; <code>Date.now()</code>, en milisegundos.</p><div class="code-block" data-role="fragment">
+    <div class="code-head"><div><span class="code-context">Fragmento para razonar</span><span class="code-file">src/app/services/auth.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">  private contenido = computed(() =&gt; {
+    const token = this.tokenSignal();
+    return token ? leerToken(token) : null;
+  });
+
+  sesionActiva = computed(() =&gt; {
+    const contenido = this.contenido();
+    return contenido !== null &amp;&amp; contenido.exp * 1000 &gt; Date.now();
+  });
+
+  usuario = computed(() =&gt; (this.sesionActiva() ? this.contenido()!.sub : null));
+  nombre = computed(() =&gt; (this.sesionActiva() ? this.contenido()!.nombre : ''));
+  rol = computed(() =&gt; (this.sesionActiva() ? this.contenido()!.rol : null));
+
+  token = this.tokenSignal.asReadonly();</code></pre>
+  </div></div></div>
+              <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>Con un token vigente: <code>usuario() === 'dra.gomez'</code>, <code>nombre() === 'Laura Gómez'</code> y <code>rol() === 'VETERINARIO'</code>.</h3></div>
+            </div>
+            <details class="code-reveal">
+    <summary><span><span class="code-reveal-title">auth.service.ts</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/services/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/services/auth.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, computed, inject } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { API_URL } from '../core/api';
+import { mensajeDeError } from '../core/errores';
+
+export type Rol = 'ADMIN' | 'RECEPCIONISTA' | 'VETERINARIO';
+
+export interface Credenciales {
+  username: string;
+  password: string;
+}
+
+interface RespuestaAuth {
+  token: string;
+}
+
+// Lo que viaja dentro del payload del JWT que firma el backend
+interface ContenidoToken {
+  sub: string;
+  rol: Rol;
+  nombre: string;
+  exp: number;
+}
+
+const CLAVE_TOKEN = 'vetcare_token';
+
+// Lee el payload del JWT (la parte del medio). No verifica la firma:
+// eso solo lo puede hacer el backend, que es quien conoce la clave secreta.
+function leerToken(token: string): ContenidoToken | null {
+  try {
+    const payload = token.split('.')[1];
+    const base64 = payload.replace(/-/g, '+').replace(/_/g, '/');
+    const bytes = Uint8Array.from(atob(base64), letra =&gt; letra.charCodeAt(0));
+    return JSON.parse(new TextDecoder().decode(bytes));
+  } catch {
+    return null;
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private http = inject(HttpClient);
+  private router = inject(Router);
+  private apiUrl = `${API_URL}/auth`;
+
+  private tokenSignal = signal&lt;string | null&gt;(localStorage.getItem(CLAVE_TOKEN));
+  private errorSignal = signal&lt;string | null&gt;(null);
+
+  private contenido = computed(() =&gt; {
+    const token = this.tokenSignal();
+    return token ? leerToken(token) : null;
+  });
+
+  sesionActiva = computed(() =&gt; {
+    const contenido = this.contenido();
+    return contenido !== null &amp;&amp; contenido.exp * 1000 &gt; Date.now();
+  });
+
+  usuario = computed(() =&gt; (this.sesionActiva() ? this.contenido()!.sub : null));
+  nombre = computed(() =&gt; (this.sesionActiva() ? this.contenido()!.nombre : ''));
+  rol = computed(() =&gt; (this.sesionActiva() ? this.contenido()!.rol : null));
+
+  token = this.tokenSignal.asReadonly();
+  error = this.errorSignal.asReadonly();
+
+  constructor() {
+    // Si al abrir la app el token guardado ya venció, se limpia de una vez
+    if (this.tokenSignal() &amp;&amp; !this.sesionActiva()) {
+      this.borrarToken();
+    }
+  }
+
+  tieneRol(...roles: Rol[]): boolean {
+    const rolActual = this.rol();
+    return rolActual !== null &amp;&amp; roles.includes(rolActual);
+  }
+
+  iniciarSesion(credenciales: Credenciales) {
+    this.errorSignal.set(null);
+
+    this.http.post&lt;RespuestaAuth&gt;(`${this.apiUrl}/login`, credenciales).subscribe({
+      next: (respuesta) =&gt; {
+        this.tokenSignal.set(respuesta.token);
+        localStorage.setItem(CLAVE_TOKEN, respuesta.token);
+        this.router.navigateByUrl('/agenda');
+      },
+      error: (error: HttpErrorResponse) =&gt; {
+        this.errorSignal.set(
+          error.status === 401 ? 'Usuario o contraseña incorrectos.' : mensajeDeError(error)
+        );
+      }
+    });
+  }
+
+  cerrarSesion(redireccion: '/' | '/login' = '/') {
+    this.borrarToken();
+    this.router.navigateByUrl(redireccion);
+  }
+
+  private borrarToken() {
+    this.tokenSignal.set(null);
+    localStorage.removeItem(CLAVE_TOKEN);
+  }
+}</code></pre>
+  </div></div>
+  </details>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Leer no es verificar</h3><p><code>leerToken()</code> no conoce la clave secreta. El rol del frontend organiza la interfaz; no protege los datos.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s7" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Construir · integración visible</span>
+            <h2 class="sec-t">La barra saluda, el interceptor acompaña y el rol organiza</h2>
+            <p class="sec-s">El interceptor usa la URL central; la barra muestra nombre, etiqueta y enlaces sin duplicar la fuente de identidad.</p>
+          </div>
+          <div class="body">
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Actualiza el interceptor</h3><p class="build-step-purpose">Adjunta el token solo a la API y, ante <code>401</code>, cierra la sesión. Un <code>403</code> no debe expulsar al usuario.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">jwt.interceptor.ts</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/interceptors/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/interceptors/jwt.interceptor.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { catchError, throwError } from 'rxjs';
+import { API_URL } from '../core/api';
+import { AuthService } from '../services/auth.service';
+
+const RUTA_AUTENTICACION = `${API_URL}/auth/`;
+
+export const jwtInterceptor: HttpInterceptorFn = (req, next) =&gt; {
+  const authService = inject(AuthService);
+  const token = authService.token();
+  const esPeticionAlBackend = req.url.startsWith(API_URL);
+  const esPeticionDeAutenticacion = req.url.startsWith(RUTA_AUTENTICACION);
+
+  const debeAdjuntarToken = token &amp;&amp; esPeticionAlBackend &amp;&amp; !esPeticionDeAutenticacion;
+
+  const peticion = debeAdjuntarToken
+    ? req.clone({ setHeaders: { Authorization: `Bearer ${token}` } })
+    : req;
+
+  return next(peticion).pipe(
+    catchError((error: HttpErrorResponse) =&gt; {
+      const sesionRechazada =
+        error.status === 401 &amp;&amp; Boolean(token) &amp;&amp; esPeticionAlBackend &amp;&amp; !esPeticionDeAutenticacion;
+
+      if (sesionRechazada) {
+        authService.cerrarSesion('/login');
+      }
+
+      return throwError(() =&gt; error);
+    })
+  );
+};</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Calcula la etiqueta y los enlaces permitidos</h3><p class="build-step-purpose"><code>tieneRol()</code> vive en el servicio; la barra solo decide qué presentar.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">app.ts</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/app.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Component, inject, computed } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { MascotasService } from './services/mascotas.service';
+import { AuthService } from './services/auth.service';
+
+const NOMBRES_DE_ROL = {
+  ADMIN: 'Administración',
+  RECEPCIONISTA: 'Recepción',
+  VETERINARIO: 'Veterinario'
+};
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, RouterLink],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+  private mascotasService = inject(MascotasService);
+  authService = inject(AuthService);
+
+  totalFavoritos = this.mascotasService.totalFavoritos;
+
+  etiquetaRol = computed(() =&gt; {
+    const rol = this.authService.rol();
+    return rol ? NOMBRES_DE_ROL[rol] : '';
+  });
+
+  puedeVerDuenos = computed(() =&gt; this.authService.tieneRol('ADMIN', 'RECEPCIONISTA'));
+}</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="build-step"><span class="build-step-index">03</span><div class="build-step-copy"><h3 class="build-step-title">Reemplaza la plantilla y los estilos de la barra</h3><p class="build-step-purpose">Con sesión: Agenda, Mascotas, nombre, rol y salir. Dueños solo para administración y recepción.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">app.html</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/ · HTML</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/app.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-html">&lt;nav class=&quot;barra&quot;&gt;
+  &lt;a routerLink=&quot;/&quot; class=&quot;marca&quot;&gt;🐾 VetCare&lt;/a&gt;
+
+  @if (authService.sesionActiva()) {
+    &lt;div class=&quot;barra-links&quot;&gt;
+      &lt;a routerLink=&quot;/agenda&quot; class=&quot;barra-link&quot;&gt;Agenda&lt;/a&gt;
+      &lt;a routerLink=&quot;/mascotas&quot; class=&quot;barra-link&quot;&gt;
+        Mascotas
+        @if (totalFavoritos() &gt; 0) {
+          &lt;span class=&quot;badge&quot;&gt;{{ totalFavoritos() }}&lt;/span&gt;
+        }
+      &lt;/a&gt;
+      @if (puedeVerDuenos()) {
+        &lt;a routerLink=&quot;/duenos&quot; class=&quot;barra-link&quot;&gt;Dueños&lt;/a&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class=&quot;barra-usuario&quot;&gt;
+      &lt;span class=&quot;saludo&quot;&gt;Hola, &lt;strong&gt;{{ authService.nombre() }}&lt;/strong&gt;&lt;/span&gt;
+      &lt;span class=&quot;rol-chip&quot;&gt;{{ etiquetaRol() }}&lt;/span&gt;
+      &lt;button type=&quot;button&quot; class=&quot;boton-salir&quot; (click)=&quot;authService.cerrarSesion()&quot;&gt;
+        Cerrar sesión
+      &lt;/button&gt;
+    &lt;/div&gt;
+  } @else {
+    &lt;a routerLink=&quot;/login&quot; class=&quot;barra-link&quot;&gt;Iniciar sesión&lt;/a&gt;
+  }
+&lt;/nav&gt;
+
+&lt;main class=&quot;contenido&quot;&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+&lt;/main&gt;</code></pre>
+  </div></div>
+  </details><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">app.css</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/ · CSS</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/app.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-css">.barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-sm);
+  background: var(--azul-principal);
+  padding: var(--espacio-sm) var(--espacio-lg);
+  box-shadow: var(--sombra);
+}
+
+.marca {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.barra-links {
+  display: flex;
+  gap: var(--espacio-md);
+}
+
+.barra-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.barra-link:hover {
+  opacity: 1;
+}
+
+.barra-usuario {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+  color: #ffffff;
+}
+
+.rol-chip {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.boton-salir {
+  padding: 6px var(--espacio-sm);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radio);
+  background: transparent;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.boton-salir:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.contenido {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--espacio-lg) var(--espacio-md);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  margin-left: 6px;
+  border-radius: 999px;
+  background: #e0446f;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="checkpoint"><span class="component-label">Checkpoint</span><h3><code>recepcion</code> ve “Hola, Juliana Pérez · Recepción”; <code>dra.gomez</code> ve “Laura Gómez · Veterinario” y no ve Dueños.</h3></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s8" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Construir · cerrar código muerto</span>
+            <h2 class="sec-t">El registro público desaparece también del frontend</h2>
+            <p class="sec-s">Una cuenta de personal la crea la administración. La ruta y la pantalla que llaman a un endpoint inexistente deben salir.</p>
+          </div>
+          <div class="body">
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Elimina <code>src/app/pages/registro/</code></h3><p class="build-step-purpose">Borra <code>registro.ts</code>, <code>registro.html</code> y <code>registro.css</code>. Esta eliminación es intencional: cierra una funcionalidad que el negocio ya no permite.</p></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Usa una ruta comodín mientras Agenda aún no existe</h3><p class="build-step-purpose">El comodín va al final. Durante este bloque evita <code>NG04002</code> cuando el login navega a <code>/agenda</code>.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">app.routes.ts · versión intermedia 1</span><span class="code-reveal-note">Reemplazar temporalmente · src/app/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar temporalmente</span><span class="code-file">src/app/app.routes.ts · versión intermedia 1</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =&gt;
+      import('./pages/inicio/inicio').then(m =&gt; m.Inicio)
+  },
+  {
+    path: 'login',
+    loadComponent: () =&gt;
+      import('./pages/login/login').then(m =&gt; m.Login)
+  },
+  {
+    path: 'mascotas',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascotas-listado/mascotas-listado')
+        .then(m =&gt; m.MascotasListado)
+  },
+  {
+    path: 'mascotas/:id',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascota-detalle/mascota-detalle')
+        .then(m =&gt; m.MascotaDetalle)
+  },
+  {
+    path: 'duenos',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/duenos-listado/duenos-listado')
+        .then(m =&gt; m.DuenosListado)
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
+];</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="build-step"><span class="build-step-index">03</span><div class="build-step-copy"><h3 class="build-step-title">Retira el enlace a registro del login</h3><p class="build-step-purpose">El formulario se mantiene; el texto final explica la nueva regla de negocio.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">login.ts</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/pages/login/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/pages/login/login.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+
+@Component({
+  selector: 'app-login',
+  imports: [],
+  templateUrl: './login.html',
+  styleUrl: './login.css'
+})
+export class Login {
+  private authService = inject(AuthService);
+
+  error = this.authService.error;
+
+  ingresar(
+    evento: SubmitEvent,
+    inputUsername: HTMLInputElement,
+    inputPassword: HTMLInputElement
+  ) {
+    evento.preventDefault();
+
+    if (!inputUsername.value || !inputPassword.value) {
+      return;
+    }
+
+    this.authService.iniciarSesion({
+      username: inputUsername.value,
+      password: inputPassword.value
+    });
+  }
+}</code></pre>
+  </div></div>
+  </details><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">login.html</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/pages/login/ · HTML</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/pages/login/login.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-html">&lt;section class=&quot;login-tarjeta&quot;&gt;
+  &lt;h1 class=&quot;login-titulo&quot;&gt;Iniciar sesión en VetCare&lt;/h1&gt;
+
+  @if (error()) {
+    &lt;p class=&quot;estado-error&quot;&gt;{{ error() }}&lt;/p&gt;
+  }
+
+  &lt;form class=&quot;login-form&quot; (submit)=&quot;ingresar($event, inputUsername, inputPassword)&quot;&gt;
+    &lt;input #inputUsername type=&quot;text&quot; placeholder=&quot;Usuario&quot; required&gt;
+    &lt;input #inputPassword type=&quot;password&quot; placeholder=&quot;Contraseña&quot; required&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;login-boton&quot;&gt;Ingresar&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;p class=&quot;login-nota&quot;&gt;
+    ¿No tienes cuenta? La administración de la clínica crea las cuentas del personal.
+  &lt;/p&gt;
+&lt;/section&gt;</code></pre>
+  </div></div>
+  </details><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">login.css</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/pages/login/ · CSS</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/pages/login/login.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-css">.login-tarjeta {
+    max-width: 360px;
+    margin: var(--espacio-lg) auto;
+    padding: var(--espacio-md);
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+  }
+  
+  .login-titulo {
+    color: var(--azul-oscuro);
+    margin-bottom: var(--espacio-sm);
+    text-align: center;
+  }
+  
+  .estado-error {
+    color: #b0413e;
+    background: #fbeceb;
+    border: 1px solid #f0c9c7;
+    border-radius: var(--radio);
+    padding: var(--espacio-sm);
+    margin-bottom: var(--espacio-sm);
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-sm);
+  }
+  
+  .login-form input {
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--texto);
+  }
+  
+  .login-form input:focus {
+    outline: none;
+    border-color: var(--azul-principal);
+    box-shadow: 0 0 0 3px var(--azul-claro);
+  }
+  
+  .login-boton {
+    padding: var(--espacio-xs) var(--espacio-md);
+    border: none;
+    border-radius: var(--radio);
+    background: var(--azul-principal);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .login-boton:hover {
+    background: var(--azul-oscuro);
+  }
+.login-nota {
+  margin-top: var(--espacio-sm);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}</code></pre>
+  </div></div>
+  </details></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s9" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Concepto central 2 · effect()</span>
+            <h2 class="sec-t">Cada servicio observa la sesión y reacciona solo</h2>
+            <p class="sec-s">El login no debe conocer mascotas, dueños, veterinarios y citas. Cada servicio carga al entrar y limpia al salir.</p>
+          </div>
+          <div class="body">
+            <div class="definicion">
+              <div class="def-tecnica"><span class="component-label">Definición técnica</span><p class="def-termino">effect()</p><p>Ejecuta una función una vez y vuelve a ejecutarla cuando cambia algún Signal leído durante la ejecución. Sirve para efectos secundarios: HTTP, almacenamiento o limpieza.</p><span class="def-fuente">Angular Signals · efectos reactivos</span></div>
+              <div class="def-vida"><span class="component-label">Diferencia esencial</span><p><code>computed()</code> responde “¿cuánto vale?”. <code>effect()</code> cumple “cuando cambie, haz esto”. No uses <code>effect + set</code> para copiar un valor derivado.</p></div>
+            </div>
+            <div class="pipeline" role="group" aria-label="La sesión cambia y el servicio reacciona">
+              <div class="pipe-step"><span class="component-label">Arranque</span><h3><code>usuario() = null</code></h3><ul><li>limpiar</li></ul></div>
+              <div class="pipe-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <div class="pipe-step" data-emphasis><span class="component-label">Login</span><h3><code>recepcion</code></h3><ul><li>GET datos</li><li>mostrar</li></ul></div>
+              <div class="pipe-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <div class="pipe-step"><span class="component-label">Logout</span><h3><code>usuario() = null</code></h3><ul><li>vaciar</li><li>reiniciar</li></ul></div>
+            </div>
+            <div class="micro-task"><span class="component-label">Compara · 45 segundos</span><p class="micro-task-q">¿Por qué no llamar <code>cargarMascotas()</code> directamente desde <code>iniciarSesion()</code>?</p><details class="micro-reveal"><summary>Ver criterio</summary><p class="micro-answer"><strong>Porque AuthService quedaría acoplado a todos los servicios de datos.</strong> Además, todavía faltaría reaccionar al logout, al vencimiento y al <code>401</code>.</p></details></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s10" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Construir · mascotas y dueños</span>
+            <h2 class="sec-t">Cargar al entrar; borrar al salir</h2>
+            <p class="sec-s">El mismo patrón se aplica a cada entidad. Mascotas también limpia favoritos para que no pasen de una cuenta a otra.</p>
+          </div>
+          <div class="body">
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Observa <code>usuario()</code></h3><p class="build-step-purpose">Esta decisión sustituye la carga ciega del constructor.</p><div class="code-block" data-role="fragment">
+    <div class="code-head"><div><span class="code-context">Fragmento para razonar</span><span class="code-file">src/app/services/mascotas.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">  constructor() {
+    // Los datos siguen a la sesión: entra alguien -&gt; se cargan; sale -&gt; se limpian
+    effect(() =&gt; {
+      if (this.authService.usuario()) {
+        this.cargarMascotas();
+      } else {
+        this.limpiar();
+      }
+    });
+  }</code></pre>
+  </div></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Mantén completos los dos servicios</h3><p class="build-step-purpose">El servicio de dueños repite el patrón porque la responsabilidad pertenece a cada conjunto de datos.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">mascotas.service.ts</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/services/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/services/mascotas.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, computed, inject, effect } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { API_URL } from '../core/api';
+import { mensajeDeError } from '../core/errores';
+import { AuthService } from './auth.service';
+
+export interface Mascota {
+  id: number;
+  nombre: string;
+  especie: string;
+  raza: string | null;
+  edad: number;
+  duenoId: number;
+  dueno: string;
+  foto: string;
+}
+
+export interface NuevaMascota {
+  nombre: string;
+  especie: string;
+  raza: string;
+  edad: number;
+  duenoId: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MascotasService {
+  private http = inject(HttpClient);
+  private authService = inject(AuthService);
+  private apiUrl = `${API_URL}/mascotas`;
+
+  private listaMascotas = signal&lt;Mascota[]&gt;([]);
+  private cargandoSignal = signal&lt;boolean&gt;(false);
+  private errorSignal = signal&lt;string | null&gt;(null);
+
+  mascotas = this.listaMascotas.asReadonly();
+  cargando = this.cargandoSignal.asReadonly();
+  error = this.errorSignal.asReadonly();
+
+  private idsFavoritos = signal&lt;Set&lt;number&gt;&gt;(new Set());
+  totalFavoritos = computed(() =&gt; this.idsFavoritos().size);
+
+  constructor() {
+    // Los datos siguen a la sesión: entra alguien -&gt; se cargan; sale -&gt; se limpian
+    effect(() =&gt; {
+      if (this.authService.usuario()) {
+        this.cargarMascotas();
+      } else {
+        this.limpiar();
+      }
+    });
+  }
+
+  // GET /api/mascotas
+  cargarMascotas() {
+    this.cargandoSignal.set(true);
+    this.errorSignal.set(null);
+
+    this.http.get&lt;Mascota[]&gt;(this.apiUrl).subscribe({
+      next: (datos) =&gt; {
+        this.listaMascotas.set(datos);
+        this.cargandoSignal.set(false);
+      },
+      error: (error: HttpErrorResponse) =&gt; {
+        this.errorSignal.set(mensajeDeError(error));
+        this.cargandoSignal.set(false);
+      }
+    });
+  }
+
+  // POST /api/mascotas
+  crearMascota(nueva: NuevaMascota) {
+    this.http.post&lt;Mascota&gt;(this.apiUrl, nueva).subscribe({
+      next: (creada) =&gt; {
+        this.listaMascotas.update(actuales =&gt; [...actuales, creada]);
+      },
+      error: (error: HttpErrorResponse) =&gt; {
+        this.errorSignal.set(mensajeDeError(error));
+      }
+    });
+  }
+
+  esFavorito(id: number): boolean {
+    return this.idsFavoritos().has(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.idsFavoritos.update(actuales =&gt; {
+      const nuevos = new Set(actuales);
+      if (nuevos.has(id)) {
+        nuevos.delete(id);
+      } else {
+        nuevos.add(id);
+      }
+      return nuevos;
+    });
+  }
+
+  // Al cerrar sesión no puede quedar nada del usuario anterior en memoria
+  private limpiar() {
+    this.listaMascotas.set([]);
+    this.idsFavoritos.set(new Set());
+    this.errorSignal.set(null);
+    this.cargandoSignal.set(false);
+  }
+}</code></pre>
+  </div></div>
+  </details><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">duenos.service.ts</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/services/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/services/duenos.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, inject, effect } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { API_URL } from '../core/api';
+import { mensajeDeError } from '../core/errores';
+import { AuthService } from './auth.service';
+
+export interface Dueno {
+  id: number;
+  nombre: string;
+  apellido: string;
+  documento: string;
+  telefono: string | null;
+  email: string | null;
+}
+
+export interface NuevoDueno {
+  nombre: string;
+  apellido: string;
+  documento: string;
+  telefono: string;
+  email: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DuenosService {
+  private http = inject(HttpClient);
+  private authService = inject(AuthService);
+  private apiUrl = `${API_URL}/duenos`;
+
+  private listaDuenos = signal&lt;Dueno[]&gt;([]);
+  private cargandoSignal = signal&lt;boolean&gt;(false);
+  private errorSignal = signal&lt;string | null&gt;(null);
+
+  duenos = this.listaDuenos.asReadonly();
+  cargando = this.cargandoSignal.asReadonly();
+  error = this.errorSignal.asReadonly();
+
+  constructor() {
+    effect(() =&gt; {
+      if (this.authService.usuario()) {
+        this.cargarDuenos();
+      } else {
+        this.limpiar();
+      }
+    });
+  }
+
+  // GET /api/duenos
+  cargarDuenos() {
+    this.cargandoSignal.set(true);
+    this.errorSignal.set(null);
+
+    this.http.get&lt;Dueno[]&gt;(this.apiUrl).subscribe({
+      next: (datos) =&gt; {
+        this.listaDuenos.set(datos);
+        this.cargandoSignal.set(false);
+      },
+      error: (error: HttpErrorResponse) =&gt; {
+        this.errorSignal.set(mensajeDeError(error));
+        this.cargandoSignal.set(false);
+      }
+    });
+  }
+
+  // POST /api/duenos
+  crearDueno(nuevo: NuevoDueno) {
+    this.http.post&lt;Dueno&gt;(this.apiUrl, nuevo).subscribe({
+      next: (creado) =&gt; {
+        this.listaDuenos.update(actuales =&gt; [...actuales, creado]);
+      },
+      error: (error: HttpErrorResponse) =&gt; {
+        this.errorSignal.set(mensajeDeError(error));
+      }
+    });
+  }
+
+  private limpiar() {
+    this.listaDuenos.set([]);
+    this.errorSignal.set(null);
+    this.cargandoSignal.set(false);
+  }
+}</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="checkpoint"><span class="component-label">Prueba observable</span><h3>Sin F5: login de recepción → seis mascotas. Favorito de Juliana → logout → login de doctor Ruiz → contador vuelve a cero.</h3><p>En DevTools, <code>GET /api/mascotas</code> sale justo después del login con el token de la cuenta actual.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s11" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Concepto central 3 · autorización</span>
+            <h2 class="sec-t">La UI orienta; el backend protege</h2>
+            <p class="sec-s">Autenticación responde “¿quién eres?”. Autorización responde “¿qué puedes hacer?”. No son la misma decisión.</p>
+          </div>
+          <div class="body">
+            <div class="table-wrap"><table class="data-table"><caption>Tres capas, tres responsabilidades</caption><thead><tr><th>Capa</th><th>Qué hace</th><th>¿Es seguridad?</th></tr></thead><tbody><tr><td><code>@if</code></td><td>Oculta acciones imposibles</td><td>No: experiencia</td></tr><tr><td>Guard</td><td>Evita entrar a una pantalla</td><td>No: experiencia</td></tr><tr><td><code>@PreAuthorize</code></td><td>Rechaza la petición</td><td data-emphasis>Sí</td></tr></tbody></table></div>
+            <div class="sin-ia"><span class="sin-ia-icono" aria-hidden="true"></span><div><h3>Sin IA aquí</h3><p>Quién ve cada pantalla y qué botón existe es una regla de negocio de la clínica. Se decide con la matriz de permisos, no se delega.</p></div></div>
+            <div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">Si el backend ya responde 403, ¿por qué ocultar al veterinario el formulario de registrar mascota?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Porque un formulario que siempre falla es una mala experiencia.</p><p>El frontend evita trabajo inútil y orienta. El backend sigue siendo indispensable porque la API también recibe llamadas desde Swagger, Postman o DevTools.</p></div></details></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s12" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Construir · rolGuard y Mascotas</span>
+            <h2 class="sec-t">Una fábrica de guards sirve a varias rutas</h2>
+            <p class="sec-s">La función recibe roles permitidos y devuelve un guard. La misma regla alimenta las rutas y las vistas condicionales.</p>
+          </div>
+          <div class="body">
+            <div class="micro-task"><span class="component-label">Predice · 30 segundos</span><p class="micro-task-q">¿Dónde debe ejecutarse <code>inject(AuthService)</code>: al fabricar el guard o dentro de la función que Angular ejecuta?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer"><strong>Dentro de la función devuelta.</strong> Así ocurre en el contexto de inyección de Angular y evita <code>NG0203</code>.</p></details></div>
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Crea la fábrica <code>rolGuard(...roles)</code></h3><p class="build-step-purpose">Si el rol no está permitido, devuelve un <code>UrlTree</code> hacia Agenda.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">rol.guard.ts</span><span class="code-reveal-note">Crear · src/app/guards/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/guards/rol.guard.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { AuthService, Rol } from '../services/auth.service';
+
+// Una &quot;fábrica&quot; de guards: recibe los roles permitidos y devuelve el guard listo.
+// Uso en las rutas: canActivate: [authGuard, rolGuard('ADMIN', 'RECEPCIONISTA')]
+export function rolGuard(...rolesPermitidos: Rol[]): CanActivateFn {
+  return () =&gt; {
+    const authService = inject(AuthService);
+    const router = inject(Router);
+
+    return authService.tieneRol(...rolesPermitidos)
+      ? true
+      : router.createUrlTree(['/agenda']);
+  };
+}</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Protege Dueños por rol</h3><p class="build-step-purpose">Esta es la segunda versión intermedia; la ruta final llegará cuando Agenda exista.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">app.routes.ts · versión intermedia 2</span><span class="code-reveal-note">Reemplazar temporalmente · src/app/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar temporalmente</span><span class="code-file">src/app/app.routes.ts · versión intermedia 2</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
+import { rolGuard } from './guards/rol.guard';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =&gt;
+      import('./pages/inicio/inicio').then(m =&gt; m.Inicio)
+  },
+  {
+    path: 'login',
+    loadComponent: () =&gt;
+      import('./pages/login/login').then(m =&gt; m.Login)
+  },
+  {
+    path: 'mascotas',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascotas-listado/mascotas-listado')
+        .then(m =&gt; m.MascotasListado)
+  },
+  {
+    path: 'mascotas/:id',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascota-detalle/mascota-detalle')
+        .then(m =&gt; m.MascotaDetalle)
+  },
+  {
+    path: 'duenos',
+    canActivate: [authGuard, rolGuard('ADMIN', 'RECEPCIONISTA')],
+    loadComponent: () =&gt;
+      import('./pages/duenos-listado/duenos-listado')
+        .then(m =&gt; m.DuenosListado)
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
+];</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="build-step"><span class="build-step-index">03</span><div class="build-step-copy"><h3 class="build-step-title">Oculta el formulario, no las mascotas</h3><p class="build-step-purpose">El veterinario consulta mascotas, pero solo administración y recepción registran.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">mascotas-listado.ts</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/pages/mascotas-listado/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { RouterLink } from '@angular/router';
+import { MascotaCard } from '../../components/mascota-card/mascota-card';
+import { Component, inject, signal, computed } from '@angular/core';
+import { MascotasService } from '../../services/mascotas.service';
+import { DuenosService } from '../../services/duenos.service';
+import { AuthService } from '../../services/auth.service';
+
+@Component({
+  selector: 'app-mascotas-listado',
+  imports: [RouterLink, MascotaCard],
+  templateUrl: './mascotas-listado.html',
+  styleUrl: './mascotas-listado.css'
+})
+export class MascotasListado {
+  private mascotasService = inject(MascotasService);
+  private duenosService = inject(DuenosService);
+  private authService = inject(AuthService);
+
+  mascotas = this.mascotasService.mascotas;
+  cargando = this.mascotasService.cargando;
+  error = this.mascotasService.error;
+
+  // Para el &lt;select&gt; del formulario: se llena con GET /api/duenos (mismo patrón de servicio)
+  duenos = this.duenosService.duenos;
+
+  // El veterinario consulta mascotas, pero no las registra
+  puedeRegistrar = computed(() =&gt; this.authService.tieneRol('ADMIN', 'RECEPCIONISTA'));
+
+  busqueda = signal('');
+
+  mascotasFiltradas = computed(() =&gt;
+    this.mascotas().filter(m =&gt;
+      m.nombre.toLowerCase().includes(this.busqueda().toLowerCase())
+    )
+  );
+
+  esFavorito(id: number) {
+    return this.mascotasService.esFavorito(id);
+  }
+
+  alternarFavorito(id: number) {
+    this.mascotasService.alternarFavorito(id);
+  }
+
+  registrarMascota(
+    evento: SubmitEvent,
+    inputNombre: HTMLInputElement,
+    inputEspecie: HTMLInputElement,
+    inputRaza: HTMLInputElement,
+    inputEdad: HTMLInputElement,
+    selectDueno: HTMLSelectElement
+  ) {
+    evento.preventDefault();
+
+    if (!inputNombre.value || !inputEspecie.value || !selectDueno.value) {
+      return;
+    }
+
+    this.mascotasService.crearMascota({
+      nombre: inputNombre.value,
+      especie: inputEspecie.value,
+      raza: inputRaza.value,
+      edad: Number(inputEdad.value) || 0,
+      duenoId: Number(selectDueno.value)
+    });
+
+    (evento.target as HTMLFormElement).reset();
+  }
+}</code></pre>
+  </div></div>
+  </details><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">mascotas-listado.html</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/pages/mascotas-listado/ · HTML</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/pages/mascotas-listado/mascotas-listado.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-html">&lt;h1 class=&quot;titulo-pagina&quot;&gt;Mascotas de VetCare&lt;/h1&gt;
+
+&lt;input
+  #inputBusqueda
+  type=&quot;text&quot;
+  class=&quot;buscador&quot;
+  placeholder=&quot;Buscar mascota por nombre...&quot;
+  (input)=&quot;busqueda.set(inputBusqueda.value)&quot;
+/&gt;
+
+@if (cargando()) {
+  &lt;p class=&quot;estado-carga&quot;&gt;Cargando mascotas desde el servidor...&lt;/p&gt;
+}
+
+@if (error()) {
+  &lt;p class=&quot;estado-error&quot;&gt;{{ error() }}&lt;/p&gt;
+}
+
+@if (!cargando() &amp;&amp; !error()) {
+  &lt;div class=&quot;grid&quot;&gt;
+    @for (m of mascotasFiltradas(); track m.id) {
+      &lt;a [routerLink]=&quot;['/mascotas', m.id]&quot; class=&quot;card-link&quot;&gt;
+        &lt;app-mascota-card
+          [nombre]=&quot;m.nombre&quot;
+          [especie]=&quot;m.especie&quot;
+          [edad]=&quot;m.edad&quot;
+          [foto]=&quot;m.foto&quot;
+          [esFavorito]=&quot;esFavorito(m.id)&quot;
+          (favoritoCambiado)=&quot;alternarFavorito(m.id)&quot;&gt;
+        &lt;/app-mascota-card&gt;
+      &lt;/a&gt;
+    } @empty {
+      &lt;p class=&quot;sin-resultado&quot;&gt;No encontramos mascotas con ese nombre.&lt;/p&gt;
+    }
+  &lt;/div&gt;
+}
+
+@if (puedeRegistrar()) {
+&lt;section class=&quot;registro&quot;&gt;
+  &lt;h2 class=&quot;registro-titulo&quot;&gt;Registrar nueva mascota&lt;/h2&gt;
+
+  @if (duenos().length === 0) {
+    &lt;p class=&quot;estado-carga&quot;&gt;
+      Todavía no hay dueños registrados. Ve a
+      &lt;a routerLink=&quot;/duenos&quot;&gt;Dueños&lt;/a&gt; y registra uno primero.
+    &lt;/p&gt;
+  } @else {
+    &lt;form class=&quot;registro-form&quot; (submit)=&quot;registrarMascota($event, inputNombre, inputEspecie, inputRaza, inputEdad, selectDueno)&quot;&gt;
+      &lt;input #inputNombre type=&quot;text&quot; placeholder=&quot;Nombre&quot; required&gt;
+      &lt;input #inputEspecie type=&quot;text&quot; placeholder=&quot;Especie (Perro, Gato...)&quot; required&gt;
+      &lt;input #inputRaza type=&quot;text&quot; placeholder=&quot;Raza (opcional)&quot;&gt;
+      &lt;input #inputEdad type=&quot;number&quot; placeholder=&quot;Edad&quot; min=&quot;0&quot;&gt;
+      &lt;select #selectDueno required&gt;
+        &lt;option value=&quot;&quot; disabled selected&gt;Dueño...&lt;/option&gt;
+        @for (d of duenos(); track d.id) {
+          &lt;option [value]=&quot;d.id&quot;&gt;{{ d.nombre }} {{ d.apellido }}&lt;/option&gt;
+        }
+      &lt;/select&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;registro-boton&quot;&gt;Registrar&lt;/button&gt;
+    &lt;/form&gt;
+  }
+&lt;/section&gt;
+}</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>Veterinaria: ve tarjetas sin formulario y no entra a Dueños. Recepción: ve tarjetas, formulario y Dueños.</h3></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s13" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Integrar · servicios de Agenda</span>
+            <h2 class="sec-t">Una pantalla pregunta distinto según quién inició sesión</h2>
+            <p class="sec-s">Recepción y administración piden la agenda completa. Veterinaria pide <code>/citas/mias</code>; el backend filtra con la identidad del token.</p>
+          </div>
+          <div class="body">
+            <div class="papel"><span class="component-label">Ticket VET-31</span><p><strong>Recepción</strong> ve, agenda y cancela. <strong>Veterinaria</strong> ve solo sus citas y registra notas y costo. <strong>Administración</strong> ve además los ingresos del día.</p></div>
+            <div class="micro-task"><span class="component-label">Decide · 45 segundos</span><p class="micro-task-q">¿Debe el frontend enviar <code>?veterinario=dra.gomez</code> para pedir “mis citas”?</p><details class="micro-reveal"><summary>Ver criterio</summary><p class="micro-answer"><strong>No.</strong> El backend obtiene al usuario del token ya validado. Un parámetro permitiría intentar consultar la agenda ajena.</p></details></div>
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Carga veterinarios para el selector</h3><p class="build-step-purpose">Servicio pequeño: lista al entrar y limpia al salir.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">veterinarios.service.ts</span><span class="code-reveal-note">Crear · src/app/services/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/services/veterinarios.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, inject, effect } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { API_URL } from '../core/api';
+import { AuthService } from './auth.service';
+
+export interface Veterinario {
+  id: number;
+  nombre: string;
+  especialidad: string | null;
+  tarjetaProfesional: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class VeterinariosService {
+  private http = inject(HttpClient);
+  private authService = inject(AuthService);
+
+  private listaVeterinarios = signal&lt;Veterinario[]&gt;([]);
+  veterinarios = this.listaVeterinarios.asReadonly();
+
+  constructor() {
+    effect(() =&gt; {
+      if (this.authService.usuario()) {
+        this.http.get&lt;Veterinario[]&gt;(`${API_URL}/veterinarios`)
+          .subscribe(datos =&gt; this.listaVeterinarios.set(datos));
+      } else {
+        this.listaVeterinarios.set([]);
+      }
+    });
+  }
+}</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Elige el endpoint correcto en <code>CitasService</code></h3><p class="build-step-purpose">El frontend formula la pregunta adecuada; el backend decide si puede responderla.</p><div class="code-block" data-role="fragment">
+    <div class="code-head"><div><span class="code-context">Fragmento para razonar</span><span class="code-file">src/app/services/citas.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">  // El veterinario pide SOLO sus citas; recepción y admin piden la agenda completa
+  cargarCitas() {
+    const url = this.authService.tieneRol('VETERINARIO')
+      ? `${this.apiUrl}/mias`
+      : this.apiUrl;
+
+    this.cargandoSignal.set(true);
+    this.errorSignal.set(null);
+
+    this.http.get&lt;Cita[]&gt;(url).subscribe({
+      next: (datos) =&gt; {
+        this.listaCitas.set(datos);
+        this.cargandoSignal.set(false);
+      },
+      error: (error: HttpErrorResponse) =&gt; {
+        this.errorSignal.set(mensajeDeError(error));
+        this.cargandoSignal.set(false);
+      }
+    });
+  }</code></pre>
+  </div></div></div>
+            </div>
+            <details class="code-reveal">
+    <summary><span><span class="code-reveal-title">citas.service.ts</span><span class="code-reveal-note">Crear · src/app/services/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">src/app/services/citas.service.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Injectable, signal, inject, effect } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { API_URL } from '../core/api';
+import { mensajeDeError } from '../core/errores';
+import { AuthService } from './auth.service';
+
+export type EstadoCita = 'PROGRAMADA' | 'ATENDIDA' | 'CANCELADA';
+
+export interface Cita {
+  id: number;
+  fecha: string;
+  hora: string;
+  motivo: string;
+  estado: EstadoCita;
+  costo: number | null;
+  notas: string | null;
+  mascotaId: number;
+  mascotaNombre: string;
+  mascotaEspecie: string;
+  duenoNombre: string;
+  veterinarioId: number;
+  veterinarioNombre: string;
+}
+
+export interface NuevaCita {
+  fecha: string;
+  hora: string;
+  motivo: string;
+  mascotaId: number;
+  veterinarioId: number;
+}
+
+export interface Atencion {
+  notas: string;
+  costo: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CitasService {
+  private http = inject(HttpClient);
+  private authService = inject(AuthService);
+  private apiUrl = `${API_URL}/citas`;
+
+  private listaCitas = signal&lt;Cita[]&gt;([]);
+  private cargandoSignal = signal&lt;boolean&gt;(false);
+  private errorSignal = signal&lt;string | null&gt;(null);
+
+  citas = this.listaCitas.asReadonly();
+  cargando = this.cargandoSignal.asReadonly();
+  error = this.errorSignal.asReadonly();
+
+  constructor() {
+    effect(() =&gt; {
+      if (this.authService.usuario()) {
+        this.cargarCitas();
+      } else {
+        this.listaCitas.set([]);
+        this.errorSignal.set(null);
+      }
+    });
+  }
+
+  // El veterinario pide SOLO sus citas; recepción y admin piden la agenda completa
+  cargarCitas() {
+    const url = this.authService.tieneRol('VETERINARIO')
+      ? `${this.apiUrl}/mias`
+      : this.apiUrl;
+
+    this.cargandoSignal.set(true);
+    this.errorSignal.set(null);
+
+    this.http.get&lt;Cita[]&gt;(url).subscribe({
+      next: (datos) =&gt; {
+        this.listaCitas.set(datos);
+        this.cargandoSignal.set(false);
+      },
+      error: (error: HttpErrorResponse) =&gt; {
+        this.errorSignal.set(mensajeDeError(error));
+        this.cargandoSignal.set(false);
+      }
+    });
+  }
+
+  // POST /api/citas (recepción y admin)
+  agendar(nueva: NuevaCita) {
+    this.errorSignal.set(null);
+    this.http.post&lt;Cita&gt;(this.apiUrl, nueva).subscribe({
+      next: (creada) =&gt; this.listaCitas.update(actuales =&gt; [...actuales, creada]),
+      error: (error: HttpErrorResponse) =&gt; this.errorSignal.set(mensajeDeError(error))
+    });
+  }
+
+  // PATCH /api/citas/{id}/atender (solo el veterinario de esa cita)
+  atender(id: number, atencion: Atencion) {
+    this.errorSignal.set(null);
+    this.http.patch&lt;Cita&gt;(`${this.apiUrl}/${id}/atender`, atencion).subscribe({
+      next: (actualizada) =&gt; this.reemplazar(actualizada),
+      error: (error: HttpErrorResponse) =&gt; this.errorSignal.set(mensajeDeError(error))
+    });
+  }
+
+  // PATCH /api/citas/{id}/cancelar (recepción y admin)
+  cancelar(id: number) {
+    this.errorSignal.set(null);
+    this.http.patch&lt;Cita&gt;(`${this.apiUrl}/${id}/cancelar`, {}).subscribe({
+      next: (actualizada) =&gt; this.reemplazar(actualizada),
+      error: (error: HttpErrorResponse) =&gt; this.errorSignal.set(mensajeDeError(error))
+    });
+  }
+
+  // Cambia en la lista solo la cita que el backend devolvió actualizada
+  private reemplazar(actualizada: Cita) {
+    this.listaCitas.update(actuales =&gt;
+      actuales.map(cita =&gt; (cita.id === actualizada.id ? actualizada : cita))
+    );
+  }
+}</code></pre>
+  </div></div>
+  </details>
+          </div>
+        </section>
+
+        <section class="section view" id="s14" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Construir · agenda.ts</span>
+            <h2 class="sec-t">La Agenda deriva su vista; no duplica datos</h2>
+            <p class="sec-s">Fecha, rol, citas del día, pendientes, atendidas e ingresos se calculan con Signals. Agendar, cancelar y atender delegan en el servicio.</p>
+          </div>
+          <div class="body">
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Genera el componente</h3><p class="build-step-purpose">Crea los tres archivos sin archivo de pruebas.</p><div class="code-block" data-tipo="terminal">
+    <div class="code-head"><div><span class="code-context">Terminal</span><span class="code-file">vetcare-frontend/</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre><code class="language-bash">ng generate component pages/agenda --skip-tests</code></pre>
+  </div></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Deriva rol, fecha y resumen</h3><p class="build-step-purpose">Los <code>computed</code> no guardan otra copia: ordenan y resumen las citas actuales.</p><div class="code-block" data-role="fragment">
+    <div class="code-head"><div><span class="code-context">Fragmento para razonar</span><span class="code-file">src/app/pages/agenda/agenda.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">  esVeterinario = computed(() =&gt; this.authService.rol() === 'VETERINARIO');
+  esAdmin = computed(() =&gt; this.authService.rol() === 'ADMIN');
+  puedeGestionar = computed(() =&gt; this.authService.tieneRol('ADMIN', 'RECEPCIONISTA'));
+
+  fechaSeleccionada = signal(hoyComoTexto());
+  citaEnAtencion = signal&lt;number | null&gt;(null);
+
+  citasDelDia = computed(() =&gt;
+    this.citas()
+      .filter(cita =&gt; cita.fecha === this.fechaSeleccionada())
+      .sort((a, b) =&gt; a.hora.localeCompare(b.hora))
+  );
+
+  pendientes = computed(() =&gt;
+    this.citasDelDia().filter(cita =&gt; cita.estado === 'PROGRAMADA').length
+  );
+
+  atendidas = computed(() =&gt;
+    this.citasDelDia().filter(cita =&gt; cita.estado === 'ATENDIDA').length
+  );
+
+  ingresosDelDia = computed(() =&gt;
+    this.citasDelDia()
+      .filter(cita =&gt; cita.estado === 'ATENDIDA')
+      .reduce((total, cita) =&gt; total + (cita.costo ?? 0), 0)
+  );
+</code></pre>
+  </div></div></div>
+              <div class="build-step"><span class="build-step-index">03</span><div class="build-step-copy"><h3 class="build-step-title">Conserva la fecha local</h3><p class="build-step-purpose">No uses <code>toISOString()</code>: después de las 7 p. m. en Colombia ya puede representar “mañana” en UTC.</p><div class="code-block" data-role="fragment">
+    <div class="code-head"><div><span class="code-context">Fragmento para razonar</span><span class="code-file">src/app/pages/agenda/agenda.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">// Fecha de HOY en formato AAAA-MM-DD, según el reloj del computador (hora Colombia).
+// No usamos toISOString(): esa da la fecha en UTC y después de las 7 p. m. ya es &quot;mañana&quot;.
+function hoyComoTexto(): string {
+  const hoy = new Date();
+  const mes = String(hoy.getMonth() + 1).padStart(2, '0');
+  const dia = String(hoy.getDate()).padStart(2, '0');
+  return `${hoy.getFullYear()}-${mes}-${dia}`;
+}
+
+const formatoPesos = new Intl.NumberFormat('es-CO', {
+  style: 'currency',
+  currency: 'COP',
+  maximumFractionDigits: 0
+});</code></pre>
+  </div></div></div>
+              <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>Un solo componente decide qué día mostrar, en qué orden y qué acciones corresponden al rol actual.</h3></div>
+            </div>
+            <details class="code-reveal">
+    <summary><span><span class="code-reveal-title">agenda.ts</span><span class="code-reveal-note">Reemplazar contenido generado · src/app/pages/agenda/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido generado</span><span class="code-file">src/app/pages/agenda/agenda.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Component, inject, signal, computed } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { CitasService, Cita } from '../../services/citas.service';
+import { MascotasService } from '../../services/mascotas.service';
+import { VeterinariosService } from '../../services/veterinarios.service';
+
+// Fecha de HOY en formato AAAA-MM-DD, según el reloj del computador (hora Colombia).
+// No usamos toISOString(): esa da la fecha en UTC y después de las 7 p. m. ya es &quot;mañana&quot;.
+function hoyComoTexto(): string {
+  const hoy = new Date();
+  const mes = String(hoy.getMonth() + 1).padStart(2, '0');
+  const dia = String(hoy.getDate()).padStart(2, '0');
+  return `${hoy.getFullYear()}-${mes}-${dia}`;
+}
+
+const formatoPesos = new Intl.NumberFormat('es-CO', {
+  style: 'currency',
+  currency: 'COP',
+  maximumFractionDigits: 0
+});
+
+@Component({
+  selector: 'app-agenda',
+  imports: [],
+  templateUrl: './agenda.html',
+  styleUrl: './agenda.css'
+})
+export class Agenda {
+  private authService = inject(AuthService);
+  private citasService = inject(CitasService);
+  private mascotasService = inject(MascotasService);
+  private veterinariosService = inject(VeterinariosService);
+
+  citas = this.citasService.citas;
+  cargando = this.citasService.cargando;
+  error = this.citasService.error;
+  mascotas = this.mascotasService.mascotas;
+  veterinarios = this.veterinariosService.veterinarios;
+
+  // ¿Quién está mirando la agenda? Cada rol ve y puede hacer cosas distintas
+  esVeterinario = computed(() =&gt; this.authService.rol() === 'VETERINARIO');
+  esAdmin = computed(() =&gt; this.authService.rol() === 'ADMIN');
+  puedeGestionar = computed(() =&gt; this.authService.tieneRol('ADMIN', 'RECEPCIONISTA'));
+
+  fechaSeleccionada = signal(hoyComoTexto());
+  citaEnAtencion = signal&lt;number | null&gt;(null);
+
+  citasDelDia = computed(() =&gt;
+    this.citas()
+      .filter(cita =&gt; cita.fecha === this.fechaSeleccionada())
+      .sort((a, b) =&gt; a.hora.localeCompare(b.hora))
+  );
+
+  pendientes = computed(() =&gt;
+    this.citasDelDia().filter(cita =&gt; cita.estado === 'PROGRAMADA').length
+  );
+
+  atendidas = computed(() =&gt;
+    this.citasDelDia().filter(cita =&gt; cita.estado === 'ATENDIDA').length
+  );
+
+  ingresosDelDia = computed(() =&gt;
+    this.citasDelDia()
+      .filter(cita =&gt; cita.estado === 'ATENDIDA')
+      .reduce((total, cita) =&gt; total + (cita.costo ?? 0), 0)
+  );
+
+  hora(cita: Cita): string {
+    return cita.hora.slice(0, 5);
+  }
+
+  pesos(valor: number): string {
+    return formatoPesos.format(valor);
+  }
+
+  agendar(
+    evento: SubmitEvent,
+    selectMascota: HTMLSelectElement,
+    selectVeterinario: HTMLSelectElement,
+    inputFecha: HTMLInputElement,
+    inputHora: HTMLInputElement,
+    inputMotivo: HTMLInputElement
+  ) {
+    evento.preventDefault();
+
+    if (!selectMascota.value || !selectVeterinario.value || !inputFecha.value
+        || !inputHora.value || !inputMotivo.value) {
+      return;
+    }
+
+    this.citasService.agendar({
+      mascotaId: Number(selectMascota.value),
+      veterinarioId: Number(selectVeterinario.value),
+      fecha: inputFecha.value,
+      hora: inputHora.value,
+      motivo: inputMotivo.value
+    });
+
+    this.fechaSeleccionada.set(inputFecha.value);
+    (evento.target as HTMLFormElement).reset();
+  }
+
+  cancelar(cita: Cita) {
+    const confirmado = confirm(`¿Cancelar la cita de ${cita.mascotaNombre} a las ${this.hora(cita)}?`);
+    if (confirmado) {
+      this.citasService.cancelar(cita.id);
+    }
+  }
+
+  atender(
+    evento: SubmitEvent,
+    cita: Cita,
+    textareaNotas: HTMLTextAreaElement,
+    inputCosto: HTMLInputElement
+  ) {
+    evento.preventDefault();
+
+    if (!textareaNotas.value || !inputCosto.value) {
+      return;
+    }
+
+    this.citasService.atender(cita.id, {
+      notas: textareaNotas.value,
+      costo: Number(inputCosto.value)
+    });
+    this.citaEnAtencion.set(null);
+  }
+}</code></pre>
+  </div></div>
+  </details>
+          </div>
+        </section>
+
+        <section class="section view" id="s15" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Construir · agenda.html y agenda.css</span>
+            <h2 class="sec-t">La misma agenda ofrece acciones distintas sin esconder la lógica</h2>
+            <p class="sec-s">Primero revisa qué clases y estados necesita la plantilla. Después delega únicamente el CSS mecánico.</p>
+          </div>
+          <div class="body">
+            <details class="code-reveal">
+    <summary><span><span class="code-reveal-title">agenda.html</span><span class="code-reveal-note">Reemplazar contenido generado · src/app/pages/agenda/ · HTML</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido generado</span><span class="code-file">src/app/pages/agenda/agenda.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-html">&lt;header class=&quot;agenda-encabezado&quot;&gt;
+  &lt;div&gt;
+    &lt;h1 class=&quot;titulo-pagina&quot;&gt;{{ esVeterinario() ? 'Mi agenda' : 'Agenda de la clínica' }}&lt;/h1&gt;
+    &lt;p class=&quot;subtitulo&quot;&gt;Citas del día seleccionado, en orden de hora.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;label class=&quot;campo-fecha&quot;&gt;
+    Día
+    &lt;input
+      #inputDia
+      type=&quot;date&quot;
+      [value]=&quot;fechaSeleccionada()&quot;
+      (change)=&quot;fechaSeleccionada.set(inputDia.value)&quot;&gt;
+  &lt;/label&gt;
+&lt;/header&gt;
+
+&lt;section class=&quot;resumen&quot;&gt;
+  &lt;article class=&quot;resumen-tarjeta&quot;&gt;
+    &lt;span class=&quot;resumen-numero&quot;&gt;{{ citasDelDia().length }}&lt;/span&gt;
+    &lt;span class=&quot;resumen-texto&quot;&gt;Citas del día&lt;/span&gt;
+  &lt;/article&gt;
+  &lt;article class=&quot;resumen-tarjeta&quot;&gt;
+    &lt;span class=&quot;resumen-numero&quot;&gt;{{ pendientes() }}&lt;/span&gt;
+    &lt;span class=&quot;resumen-texto&quot;&gt;Por atender&lt;/span&gt;
+  &lt;/article&gt;
+  &lt;article class=&quot;resumen-tarjeta&quot;&gt;
+    &lt;span class=&quot;resumen-numero&quot;&gt;{{ atendidas() }}&lt;/span&gt;
+    &lt;span class=&quot;resumen-texto&quot;&gt;Atendidas&lt;/span&gt;
+  &lt;/article&gt;
+  @if (esAdmin()) {
+    &lt;article class=&quot;resumen-tarjeta resumen-destacada&quot;&gt;
+      &lt;span class=&quot;resumen-numero&quot;&gt;{{ pesos(ingresosDelDia()) }}&lt;/span&gt;
+      &lt;span class=&quot;resumen-texto&quot;&gt;Ingresos del día&lt;/span&gt;
+    &lt;/article&gt;
+  }
+&lt;/section&gt;
+
+@if (error()) {
+  &lt;p class=&quot;estado-error&quot;&gt;{{ error() }}&lt;/p&gt;
+}
+
+@if (cargando()) {
+  &lt;p class=&quot;estado-carga&quot;&gt;Cargando la agenda...&lt;/p&gt;
+} @else {
+  &lt;ul class=&quot;lista-citas&quot;&gt;
+    @for (cita of citasDelDia(); track cita.id) {
+      &lt;li
+        class=&quot;cita&quot;
+        [class.cita-atendida]=&quot;cita.estado === 'ATENDIDA'&quot;
+        [class.cita-cancelada]=&quot;cita.estado === 'CANCELADA'&quot;&gt;
+        &lt;span class=&quot;cita-hora&quot;&gt;{{ hora(cita) }}&lt;/span&gt;
+
+        &lt;div class=&quot;cita-cuerpo&quot;&gt;
+          &lt;p class=&quot;cita-titulo&quot;&gt;
+            {{ cita.mascotaNombre }} &lt;span class=&quot;cita-especie&quot;&gt;· {{ cita.mascotaEspecie }}&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class=&quot;cita-detalle&quot;&gt;{{ cita.motivo }} · Dueño: {{ cita.duenoNombre }}&lt;/p&gt;
+          @if (!esVeterinario()) {
+            &lt;p class=&quot;cita-detalle&quot;&gt;Atiende: {{ cita.veterinarioNombre }}&lt;/p&gt;
+          }
+          @if (cita.notas) {
+            &lt;p class=&quot;cita-notas&quot;&gt;
+              {{ cita.notas }}
+              @if (cita.costo !== null) {
+                &lt;strong&gt; · {{ pesos(cita.costo) }}&lt;/strong&gt;
+              }
+            &lt;/p&gt;
+          }
+
+          @if (citaEnAtencion() === cita.id) {
+            &lt;form class=&quot;form-atencion&quot; (submit)=&quot;atender($event, cita, textareaNotas, inputCosto)&quot;&gt;
+              &lt;textarea #textareaNotas rows=&quot;3&quot; placeholder=&quot;Diagnóstico y tratamiento&quot; required&gt;&lt;/textarea&gt;
+              &lt;input #inputCosto type=&quot;number&quot; min=&quot;0&quot; step=&quot;1000&quot; placeholder=&quot;Costo de la consulta&quot; required&gt;
+              &lt;div class=&quot;acciones&quot;&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;boton&quot;&gt;Guardar atención&lt;/button&gt;
+                &lt;button type=&quot;button&quot; class=&quot;boton-secundario&quot; (click)=&quot;citaEnAtencion.set(null)&quot;&gt;Cerrar&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/form&gt;
+          }
+        &lt;/div&gt;
+
+        &lt;div class=&quot;cita-lado&quot;&gt;
+          &lt;span class=&quot;chip&quot; [class]=&quot;'chip-' + cita.estado.toLowerCase()&quot;&gt;{{ cita.estado }}&lt;/span&gt;
+          @if (cita.estado === 'PROGRAMADA') {
+            @if (esVeterinario() &amp;&amp; citaEnAtencion() !== cita.id) {
+              &lt;button type=&quot;button&quot; class=&quot;boton&quot; (click)=&quot;citaEnAtencion.set(cita.id)&quot;&gt;Atender&lt;/button&gt;
+            }
+            @if (puedeGestionar()) {
+              &lt;button type=&quot;button&quot; class=&quot;boton-peligro&quot; (click)=&quot;cancelar(cita)&quot;&gt;Cancelar&lt;/button&gt;
+            }
+          }
+        &lt;/div&gt;
+      &lt;/li&gt;
+    } @empty {
+      &lt;li class=&quot;sin-resultado&quot;&gt;No hay citas para este día.&lt;/li&gt;
+    }
+  &lt;/ul&gt;
+}
+
+@if (puedeGestionar()) {
+  &lt;section class=&quot;registro&quot;&gt;
+    &lt;h2 class=&quot;registro-titulo&quot;&gt;Agendar cita&lt;/h2&gt;
+    &lt;form
+      class=&quot;registro-form&quot;
+      (submit)=&quot;agendar($event, selectMascota, selectVeterinario, inputFecha, inputHora, inputMotivo)&quot;&gt;
+      &lt;select #selectMascota required&gt;
+        &lt;option value=&quot;&quot; disabled selected&gt;Mascota...&lt;/option&gt;
+        @for (m of mascotas(); track m.id) {
+          &lt;option [value]=&quot;m.id&quot;&gt;{{ m.nombre }} ({{ m.dueno }})&lt;/option&gt;
+        }
+      &lt;/select&gt;
+      &lt;select #selectVeterinario required&gt;
+        &lt;option value=&quot;&quot; disabled selected&gt;Veterinario...&lt;/option&gt;
+        @for (v of veterinarios(); track v.id) {
+          &lt;option [value]=&quot;v.id&quot;&gt;{{ v.nombre }} — {{ v.especialidad }}&lt;/option&gt;
+        }
+      &lt;/select&gt;
+      &lt;input #inputFecha type=&quot;date&quot; [value]=&quot;fechaSeleccionada()&quot; required&gt;
+      &lt;input #inputHora type=&quot;time&quot; required&gt;
+      &lt;input #inputMotivo type=&quot;text&quot; placeholder=&quot;Motivo de la consulta&quot; required&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;registro-boton&quot;&gt;Agendar&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/section&gt;
+}</code></pre>
+  </div></div>
+  </details>
+            <div class="momento-ia">
+              <div class="momento-ia-head"><span class="momento-ia-titulo">Momento IA</span><span class="ia-nivel">Nivel 2 · Copiloto</span><span class="ia-herramienta">Copilot VS Code o chat</span></div>
+              <div class="momento-ia-body">
+                <p class="ia-porque">El CSS de tarjetas, lista, chips y botones es mecánico; la lógica de roles ya fue razonada y no se delega.</p>
+                <div class="ia-grid"><div><span class="component-label">Primero razonas tú</span><p>Lista las clases reales de <code>agenda.html</code> y los estados que deben distinguirse.</p></div><div class="ia-no-delega"><span class="component-label">No se delega</span><p>Qué ve cada rol, qué acciones existen y cuándo se habilitan.</p></div></div>
+                <div class="code-block" data-tipo="prompt">
+    <div class="code-head"><div><span class="code-context">Prompt sugerido</span><span class="code-file">Chat de Copilot</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre><code class="language-plaintext">Estoy en un proyecto Angular con estas variables CSS en styles.css: --azul-principal, --azul-oscuro, --azul-claro, --fondo, --superficie, --texto, --texto-suave, --borde, --espacio-xs (8px), --espacio-sm (16px), --espacio-md (24px), --espacio-lg (40px), --radio y --sombra. Te paso agenda.html. Escribe agenda.css usando solo esas variables para colores y espacios (excepto verde para atendida y gris para cancelada). Cada cita es una tarjeta con la hora a la izquierda, la información al centro y el estado y los botones a la derecha (usa CSS Grid). El resumen son tarjetas en una fila que se acomodan solas (auto-fit). No uses frameworks ni !important. Explícame cada bloque en una línea.</code></pre>
+  </div>
+                <div><span class="component-label">Cómo validar la respuesta</span><ul class="checklist"><li>Cada clase del HTML tiene una regla y no aparecen clases inventadas.</li><li>Usa las variables existentes y no una paleta paralela.</li><li>Se comporta bien con 0, 1 y 7 citas.</li><li><code>ng serve</code> no muestra la advertencia de budget de 4 kB.</li></ul></div>
+              </div>
+            </div>
+            <details class="code-reveal">
+    <summary><span><span class="code-reveal-title">agenda.css · versión de referencia</span><span class="code-reveal-note">Reemplazar contenido generado · src/app/pages/agenda/ · CSS</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido generado</span><span class="code-file">src/app/pages/agenda/agenda.css · versión de referencia</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-css">.agenda-encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--espacio-sm);
+  margin-bottom: var(--espacio-md);
+}
+
+.titulo-pagina {
+  color: var(--azul-oscuro);
+}
+
+.subtitulo {
+  color: var(--texto-suave);
+}
+
+.campo-fecha {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+/* --- Tarjetas de resumen --- */
+.resumen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--espacio-sm);
+  margin-bottom: var(--espacio-md);
+}
+
+.resumen-tarjeta {
+  display: flex;
+  flex-direction: column;
+  padding: var(--espacio-sm) var(--espacio-md);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.resumen-numero {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+}
+
+.resumen-texto {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.resumen-destacada {
+  background: var(--azul-principal);
+  border-color: var(--azul-principal);
+}
+
+.resumen-destacada .resumen-numero,
+.resumen-destacada .resumen-texto {
+  color: #ffffff;
+}
+
+/* --- Lista de citas --- */
+.lista-citas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+}
+
+.cita {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: var(--espacio-sm);
+  align-items: start;
+  padding: var(--espacio-sm) var(--espacio-md);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--azul-principal);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.cita-atendida {
+  border-left-color: #2f9e6e;
+}
+
+.cita-cancelada {
+  border-left-color: #b0b8bf;
+  opacity: 0.7;
+}
+
+.cita-hora {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+}
+
+.cita-titulo {
+  font-weight: 700;
+}
+
+.cita-especie {
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+.cita-detalle {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.cita-notas {
+  margin-top: var(--espacio-xs);
+  padding: var(--espacio-xs) var(--espacio-sm);
+  background: var(--azul-claro);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.cita-lado {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--espacio-xs);
+}
+
+/* --- Chip de estado --- */
+.chip {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.chip-programada {
+  background: var(--azul-claro);
+  color: var(--azul-oscuro);
+}
+
+.chip-atendida {
+  background: #e3f5ec;
+  color: #1f7a52;
+}
+
+.chip-cancelada {
+  background: #eef0f2;
+  color: #5f6b75;
+}
+
+/* --- Formulario de atención (veterinario) --- */
+.form-atencion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  margin-top: var(--espacio-sm);
+}
+
+.campo-fecha input,
+.form-atencion textarea,
+.form-atencion input {
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+}
+
+.acciones {
+  display: flex;
+  gap: var(--espacio-xs);
+}
+
+/* --- Botones --- */
+.boton,
+.boton-secundario,
+.boton-peligro {
+  padding: 6px var(--espacio-sm);
+  border-radius: var(--radio);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton {
+  border: none;
+  background: var(--azul-principal);
+  color: #ffffff;
+}
+
+.boton:hover {
+  background: var(--azul-oscuro);
+}
+
+.boton-secundario {
+  border: 1px solid var(--borde);
+  background: var(--superficie);
+  color: var(--texto);
+}
+
+.boton-peligro {
+  border: 1px solid #f0c9c7;
+  background: #fbeceb;
+  color: #b0413e;
+}
+
+/* --- Estados y formulario (copiados de otras páginas: en la Clase 4 se vuelven globales) --- */
+.estado-carga,
+.sin-resultado {
+  color: var(--texto-suave);
+  padding: var(--espacio-md) 0;
+}
+
+.estado-error {
+  color: #b0413e;
+  background: #fbeceb;
+  border: 1px solid #f0c9c7;
+  border-radius: var(--radio);
+  padding: var(--espacio-sm);
+  margin-bottom: var(--espacio-md);
+}
+
+.registro {
+  margin-top: var(--espacio-lg);
+  padding: var(--espacio-md);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.registro-titulo {
+  color: var(--azul-oscuro);
+  margin-bottom: var(--espacio-sm);
+}
+
+.registro-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+}
+
+.registro-form input,
+.registro-form select {
+  flex: 1 1 160px;
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+}
+
+.registro-boton {
+  padding: var(--espacio-xs) var(--espacio-md);
+  border: none;
+  border-radius: var(--radio);
+  background: var(--azul-principal);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}</code></pre>
+  </div></div>
+  </details>
+          </div>
+        </section>
+
+        <section class="section view" id="s16" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Consolidar · rutas y consistencias</span>
+            <h2 class="sec-t">Agenda entra al flujo y los detalles dejan de contradecirla</h2>
+            <p class="sec-s">La versión final de rutas protege Agenda con sesión y Dueños con rol. Tres archivos pequeños completan la navegación.</p>
+          </div>
+          <div class="body">
+            <div class="active-build">
+              <div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Reemplaza las rutas por la versión final</h3><p class="build-step-purpose"><code>/agenda</code> ya existe; el comodín redirige allí.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">app.routes.ts · versión final</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/ · TypeScript</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/app.routes.ts · versión final</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
+import { rolGuard } from './guards/rol.guard';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =&gt;
+      import('./pages/inicio/inicio').then(m =&gt; m.Inicio)
+  },
+  {
+    path: 'login',
+    loadComponent: () =&gt;
+      import('./pages/login/login').then(m =&gt; m.Login)
+  },
+  {
+    path: 'agenda',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/agenda/agenda').then(m =&gt; m.Agenda)
+  },
+  {
+    path: 'mascotas',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascotas-listado/mascotas-listado')
+        .then(m =&gt; m.MascotasListado)
+  },
+  {
+    path: 'mascotas/:id',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascota-detalle/mascota-detalle')
+        .then(m =&gt; m.MascotaDetalle)
+  },
+  {
+    path: 'duenos',
+    canActivate: [authGuard, rolGuard('ADMIN', 'RECEPCIONISTA')],
+    loadComponent: () =&gt;
+      import('./pages/duenos-listado/duenos-listado')
+        .then(m =&gt; m.DuenosListado)
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
+];</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Muestra raza, conecta Inicio y corrige el título</h3><p class="build-step-purpose">Son consistencias pequeñas, pero visibles para el estudiante que recorre el flujo completo.</p><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">mascota-detalle.html</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/pages/mascota-detalle/ · HTML</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/pages/mascota-detalle/mascota-detalle.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-html">@if (mascota(); as m) {
+  &lt;section class=&quot;detalle&quot;&gt;
+    &lt;div class=&quot;detalle-foto-contenedor&quot;&gt;
+      &lt;img class=&quot;detalle-foto&quot; [src]=&quot;m.foto&quot; [alt]=&quot;'Foto de ' + m.nombre&quot;&gt;
+      &lt;button
+        class=&quot;favorito-boton-detalle&quot;
+        type=&quot;button&quot;
+        [attr.aria-pressed]=&quot;esFavorito()&quot;
+        [attr.aria-label]=&quot;esFavorito() ? 'Quitar de favoritos' : 'Agregar a favoritos'&quot;
+        (click)=&quot;alternarFavorito()&quot;&gt;
+        &lt;span class=&quot;favorito-icono&quot; [class.activo]=&quot;esFavorito()&quot;&gt;♥&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;detalle-info&quot;&gt;
+      &lt;h1 class=&quot;detalle-nombre&quot;&gt;{{ m.nombre }}&lt;/h1&gt;
+      &lt;p class=&quot;detalle-dato&quot;&gt;&lt;strong&gt;Especie:&lt;/strong&gt; {{ m.especie }}&lt;/p&gt;
+      &lt;p class=&quot;detalle-dato&quot;&gt;&lt;strong&gt;Raza:&lt;/strong&gt; {{ m.raza || 'Sin registrar' }}&lt;/p&gt;
+      &lt;p class=&quot;detalle-dato&quot;&gt;&lt;strong&gt;Edad:&lt;/strong&gt; {{ m.edad }} años&lt;/p&gt;
+      &lt;p class=&quot;detalle-dato&quot;&gt;&lt;strong&gt;Dueño:&lt;/strong&gt; {{ m.dueno }}&lt;/p&gt;
+      &lt;a routerLink=&quot;/mascotas&quot; class=&quot;volver&quot;&gt;← Volver al listado&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+} @else {
+  &lt;p class=&quot;sin-resultado&quot;&gt;No se encontró la mascota solicitada.&lt;/p&gt;
+}</code></pre>
+  </div></div>
+  </details><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">inicio.html</span><span class="code-reveal-note">Reemplazar contenido completo · src/app/pages/inicio/ · HTML</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Reemplazar contenido completo</span><span class="code-file">src/app/pages/inicio/inicio.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-html">&lt;section class=&quot;hero&quot;&gt;
+  &lt;h1 class=&quot;hero-titulo&quot;&gt;Bienvenido a VetCare&lt;/h1&gt;
+  &lt;p class=&quot;hero-texto&quot;&gt;
+    El sistema para gestionar las mascotas y su atención en la clínica.
+  &lt;/p&gt;
+  &lt;a routerLink=&quot;/agenda&quot; class=&quot;boton&quot;&gt;Ir a la agenda&lt;/a&gt;
+&lt;/section&gt;</code></pre>
+  </div></div>
+  </details><details class="code-reveal">
+    <summary><span><span class="code-reveal-title">index.html</span><span class="code-reveal-note">Editar / reemplazar · src/ · HTML</span></span></summary>
+    <div class="code-reveal-body"><div class="code-block">
+    <div class="code-head"><div><span class="code-context">Editar / reemplazar</span><span class="code-file">src/index.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre class="line-numbers"><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;VetCare · Clínica veterinaria&lt;/title&gt;
+  &lt;base href=&quot;/&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;favicon.ico&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;app-root&gt;&lt;/app-root&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div></div>
+  </details></div></div>
+              <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>Login navega a Agenda; el logo vuelve a Inicio; una URL desconocida vuelve a Agenda; la pestaña dice “VetCare”.</h3></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s17" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Traza · doctora Gómez atiende a Firulais</span>
+            <h2 class="sec-t">Sigue el dato de punta a punta</h2>
+            <p class="sec-s">La interfaz, los Signals, el interceptor, Spring Security y PostgreSQL participan en una sola acción observable.</p>
+          </div>
+          <div class="body">
+            <div class="code-block">
+    <div class="code-head"><div><span class="code-context">Traza completa</span><span class="code-file">dra.gomez → Firulais → atención</span></div><button class="copy-btn" type="button">Copiar</button></div>
+    <pre><code class="language-plaintext">dra.gomez escribe usuario y clave → clic en Ingresar
+↓
+AuthService.iniciarSesion() → POST /api/auth/login (el interceptor NO adjunta token: es ruta /auth/)
+↓
+AuthServiceImpl.login() verifica con BCrypt → JwtService firma:
+  { sub: &quot;dra.gomez&quot;, rol: &quot;VETERINARIO&quot;, nombre: &quot;Laura Gómez&quot;, exp: ... }
+↓
+Angular: tokenSignal.set(token) + localStorage
+↓
+computed en cadena: contenido → sesionActiva = true → usuario = &quot;dra.gomez&quot; → rol = &quot;VETERINARIO&quot;
+↓
+La barra se redibuja: &quot;Hola, Laura Gómez · Veterinario&quot;, sin &quot;Dueños&quot;
+↓
+effect de MascotasService, DuenosService, VeterinariosService y CitasService: usuario cambió → cargar
+↓
+CitasService.cargarCitas(): tieneRol('VETERINARIO') = true → GET /api/citas/mias
+↓
+jwtInterceptor adjunta  Authorization: Bearer eyJ...
+↓
+JwtFilter valida firma y vencimiento → SecurityContext = dra.gomez con ROLE_VETERINARIO
+↓
+@PreAuthorize(&quot;hasRole('VETERINARIO')&quot;) ✔ → listarMias(autenticacion.getName() = &quot;dra.gomez&quot;)
+↓
+SQL con JOIN citas → veterinarios → usuarios WHERE username = 'dra.gomez'
+↓
+200 → 3 citas de hoy (08:30 Firulais, 09:30 Michi, 11:30 Tambor) + su historia
+↓
+router.navigateByUrl('/agenda') → authGuard ✔ → Agenda
+↓
+citasDelDia() filtra por hoy y ordena → título &quot;Mi agenda&quot; → botones &quot;Atender&quot;
+↓
+Clic en Atender (08:30) → citaEnAtencion = 7 → aparece el formulario
+↓
+Notas &quot;Paciente sano. Vacuna aplicada.&quot; + costo 70000 → Guardar atención
+↓
+PATCH /api/citas/7/atender  { notas, costo }
+↓
+CitaServiceImpl.atender(): Regla 1 (¿es suya?) ✔ · Regla 2 (¿programada?) ✔ → ATENDIDA
+↓
+200 → CitasService.reemplazar() cambia solo esa cita en la lista
+↓
+La tarjeta se vuelve verde: chip ATENDIDA, notas y &quot;$ 70.000&quot;. Resumen: 2 por atender, 1 atendida</code></pre>
+  </div>
+            <div class="micro-task"><span class="component-label">Recupera · 60 segundos</span><p class="micro-task-q">¿En qué punto se decide que la cita pertenece realmente a la doctora Gómez?</p><details class="micro-reveal"><summary>Ver respuesta</summary><p class="micro-answer"><strong>En el backend, después de validar el JWT.</strong> La ruta y los <code>@if</code> guían la experiencia; el servicio contrasta la cita con la identidad autenticada antes de guardar.</p></details></div>
+            <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>El ID de la cita puede cambiar</h3><p>La base de cada estudiante puede producir otro ID. Sigue la cita de las 08:30; no memorices el número del ejemplo.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s18" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Prueba · cambia de persona, no de aplicación</span>
+            <h2 class="sec-t">Siete pruebas demuestran que la experiencia y la seguridad coinciden</h2>
+            <p class="sec-s">Los datos exactos suponen una base nueva; si existen registros previos, valida la lógica, no los números.</p>
+          </div>
+          <div class="body">
+            <div class="table-wrap"><table class="data-table"><caption>Recorrido de aceptación</caption><thead><tr><th>Prueba</th><th>Acción</th><th>Resultado observable</th></tr></thead><tbody>
+              <tr><td>1 · sin sesión</td><td>Abrir <code>/agenda</code></td><td>Redirige a <code>/login</code></td></tr>
+              <tr><td>2 · clave mala</td><td><code>admin / mala</code></td><td><code>401</code> y mensaje “Usuario o contraseña incorrectos”</td></tr>
+              <tr><td>3 · recepción</td><td><code>recepcion / vetcare123</code>. Agendar Michi con Laura Gómez, hoy 17:00, “Control anual”; después cancelar</td><td>“Hola, Juliana Pérez · Recepción”; 6 citas y 6 pendientes al entrar, luego 7; formulario y botón Cancelar</td></tr>
+              <tr><td>4 · veterinaria</td><td><code>dra.gomez / vetcare123</code>. Atender Firulais 08:30 con “Paciente sano. Vacuna aplicada.” y <code>70000</code></td><td>Ve 08:30 Firulais, 09:30 Michi y 11:30 Tambor; botón Atender, sin Cancelar; nota y $70.000</td></tr>
+              <tr><td>5 · administración</td><td><code>admin / vetcare123</code></td><td>“Hola, Carolina Rojas · Administración” e Ingresos del día por $70.000</td></tr>
+              <tr><td>6 · token falsificado</td><td>Cambiar el rol del payload</td><td>Firma inválida → <code>401</code> → sesión cerrada</td></tr>
+              <tr><td>7 · API directa</td><td>Veterinaria llama <code>POST /api/citas</code></td><td><code>403</code>: el backend también dice no</td></tr>
+            </tbody></table></div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Falsifica el payload, no agregues un carácter al final</h3><p>Cambiar la parte central rompe la firma de forma clara. Alterar los últimos bits de Base64 puede producir una prueba confusa.</p></div></div>
+            <div class="checkpoint"><span class="component-label">Aceptación completa</span><h3>Tres roles ven tres VetCare distintos sobre el mismo código, y ninguna manipulación del frontend concede permisos reales.</h3></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s19" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Diagnóstico · leer señales</span>
+            <h2 class="sec-t">Cada error apunta a una capa concreta</h2>
+            <p class="sec-s">No memorices soluciones sueltas. Relaciona mensaje, causa probable y verificación observable.</p>
+          </div>
+          <div class="body">
+            <div class="table-wrap"><table class="data-table"><caption>Mapa rápido de errores</caption><thead><tr><th>Señal</th><th>Lectura</th><th>Qué revisar</th></tr></thead><tbody>
+              <tr><td><code>NG04002 /agenda</code></td><td>Angular no encuentra la ruta</td><td>Versión de <code>app.routes.ts</code> y comodín al final</td></tr>
+              <tr><td><code>403</code> incluso en login malo</td><td>Backend anterior</td><td>Swagger no debe mostrar registro público</td></tr>
+              <tr><td>Error CORS en <code>PATCH</code></td><td>Método no permitido</td><td><code>SecurityConfig</code> actualizado</td></tr>
+              <tr><td><code>NG0203 inject()</code></td><td>Inyección fuera de contexto</td><td><code>inject()</code> dentro de la función devuelta por el guard</td></tr>
+              <tr><td><code>Laura GÃ³mez</code></td><td>UTF-8 mal decodificado</td><td><code>TextDecoder</code> en <code>leerToken</code></td></tr>
+              <tr><td>Veterinaria recibe 403 en Agenda</td><td>Endpoint equivocado</td><td>Debe salir <code>/citas/mias</code></td></tr>
+              <tr><td><code>usuarios_rol_check</code></td><td>Restricción vieja</td><td><code>MigracionEsquema</code> del backend nuevo</td></tr>
+              <tr><td><code>exceeded maximum budget</code></td><td>CSS de componente &gt; 4 kB</td><td>Comparar con la versión de referencia</td></tr>
+            </tbody></table></div>
+            <div class="micro-task"><span class="component-label">Diagnostica · 60 segundos</span><p class="micro-task-q">Login funciona, pero Agenda de veterinaria responde 403. ¿Miras primero el CSS, el guard o la pestaña Red?</p><details class="micro-reveal"><summary>Ver ruta</summary><p class="micro-answer"><strong>La pestaña Red.</strong> Confirma si <code>CitasService</code> pidió <code>/api/citas</code> en lugar de <code>/api/citas/mias</code>.</p></details></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s20" data-accent="1" data-layout="canvas" data-escena="cierre" hidden>
+          <div class="sec-head">
+            <span class="sec-n">Cierre · qué cambió de verdad</span>
+            <h2 class="sec-t">VetCare dejó de tener una sesión genérica</h2>
+            <p class="sec-s">Ahora cada persona entra a una experiencia coherente con su identidad, sus datos y sus permisos.</p>
+          </div>
+          <div class="body">
+            <div class="compare"><div class="compare-card" data-side="negative"><h3>Al inicio</h3><ol><li>Datos antes del login</li><li>F5 “arregla” la carga</li><li>Información queda entre usuarios</li><li>La UI no conoce el rol</li><li>Todos los errores parecen conexión</li></ol></div><div class="compare-card" data-side="positive"><h3>Al terminar</h3><ol><li>JWT como identidad única</li><li>Servicios reaccionan con <code>effect()</code></li><li>Logout vacía datos y favoritos</li><li>Rutas y vistas cambian por rol</li><li>Backend conserva la autoridad</li></ol></div></div>
+            <ol class="ideas"><li><strong>El token es el carné:</strong> Angular lo lee para mostrar; el backend verifica para permitir.</li><li><strong>Los datos siguen a la sesión:</strong> cada servicio observa <code>usuario()</code>, carga o limpia.</li><li><strong>La UI orienta; el backend protege:</strong> guards y <code>@if</code> mejoran la experiencia, <code>@PreAuthorize</code> garantiza la regla.</li></ol>
+            <div class="micro-task"><span class="component-label">Pregunta que abre la Clase 4</span><p class="micro-task-q">VetCare ya funciona para tres roles. ¿Qué necesita para parecer un producto profesional y dejar de repetir CSS?</p><details class="micro-reveal"><summary>Ver puente</summary><p class="micro-answer"><strong>Un sistema de diseño y un layout de aplicación.</strong> La siguiente clase aborda navegación lateral, formularios accesibles, diálogos, estados vacíos, responsive, panel administrativo e historia clínica.</p></details></div>
+            <p class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</p>
+          </div>
+        </section>
+      </div>
+
+      <nav class="view-controls" id="viewControls" aria-label="Navegación entre secciones">
+        <button class="view-btn" id="prevView" type="button" aria-label="Sección anterior">←</button>
+        <span class="view-position" id="viewPosition" aria-live="polite">Portada</span>
+        <button class="view-btn" id="nextView" type="button" aria-label="Sección siguiente">→</button>
+      </nav>
+    </main>
+  </div>
+
+  <div class="watermark" aria-hidden="true">© 2026 ANA ALVARADO</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="anaclase-v12.js"></script>
+</body>
+</html>
