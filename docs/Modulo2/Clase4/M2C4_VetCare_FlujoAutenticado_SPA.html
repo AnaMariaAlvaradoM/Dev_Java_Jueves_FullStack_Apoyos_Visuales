@@ -6,7 +6,7 @@
   <meta name="author" content="Ana Alvarado">
   <meta name="copyright" content="© 2026 Ana Alvarado — Todos los derechos reservados">
   <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
-  <meta name="description" content="Clase visual sobre sistema de diseño, piezas compartidas y flujo autenticado completo en VetCare.">
+  <meta name="description" content="Sesión ordenada de la Clase 4: VetCare listo para producción, con cada explicación y archivo en el momento exacto de la clase.">
   <title>Módulo 2 · Clase 4 · VetCare listo para producción · Ana Alvarado</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,27 +22,36 @@
     <aside class="sidebar" aria-label="Índice de la clase">
       <div class="sb-top"><span class="brand-mark">A</span><div class="sb-title"><b>Java Full Stack · Módulo 2</b><span>Clase 4 · 180 min</span></div></div>
       <button class="sb-toggle" id="collapseBtn" type="button" aria-label="Colapsar menú">‹</button>
-      <nav class="sb-nav" id="nav" aria-label="Secciones"><span class="nav-group">Problema</span><a class="nav-item active" href="#portada"><span class="nav-index">00</span><span class="nav-label">Portada</span></a>
-<a class="nav-item" href="#s1"><span class="nav-index">01</span><span class="nav-label">¿Lo comprarías?</span></a>
-<span class="nav-group">Comprender</span><a class="nav-item" href="#s2"><span class="nav-index">02</span><span class="nav-label">De proyecto a producto</span></a>
-<a class="nav-item" href="#s3"><span class="nav-index">03</span><span class="nav-label">La clínica por dentro</span></a>
-<span class="nav-group">Construir</span><a class="nav-item" href="#s4"><span class="nav-index">04</span><span class="nav-label">Sistema de diseño</span></a>
-<a class="nav-item" href="#s5"><span class="nav-index">05</span><span class="nav-label">Avisar y preguntar</span></a>
-<a class="nav-item" href="#s6"><span class="nav-index">06</span><span class="nav-label">Sesión completa</span></a>
-<a class="nav-item" href="#s7"><span class="nav-index">07</span><span class="nav-label">Plano por rol</span></a>
-<a class="nav-item" href="#s8"><span class="nav-index">08</span><span class="nav-label">Pantallas finales</span></a>
-<span class="nav-group">Probar</span><a class="nav-item" href="#s9"><span class="nav-index">09</span><span class="nav-label">Un día en VetCare</span></a>
-<a class="nav-item" href="#s10"><span class="nav-index">10</span><span class="nav-label">Sin sesión y admin</span></a>
-<a class="nav-item" href="#s11"><span class="nav-index">11</span><span class="nav-label">Recepción y veterinaria</span></a>
-<a class="nav-item" href="#s12"><span class="nav-index">12</span><span class="nav-label">Seguridad y celular</span></a>
-<a class="nav-item" href="#s13"><span class="nav-index">13</span><span class="nav-label">Leer las señales</span></a>
-<span class="nav-group">Referencia</span><a class="nav-item" href="#s14"><span class="nav-index">14</span><span class="nav-label">Ref. arranque y CSS</span></a>
-<a class="nav-item" href="#s15"><span class="nav-index">15</span><span class="nav-label">Ref. UX compartida</span></a>
-<a class="nav-item" href="#s16"><span class="nav-index">16</span><span class="nav-label">Ref. autenticación</span></a>
-<a class="nav-item" href="#s17"><span class="nav-index">17</span><span class="nav-label">Ref. servicios y agenda</span></a>
-<a class="nav-item" href="#s18"><span class="nav-index">18</span><span class="nav-label">Ref. pacientes y dueños</span></a>
-<a class="nav-item" href="#s19"><span class="nav-index">19</span><span class="nav-label">Ref. panel y personal</span></a>
-<span class="nav-group">Cerrar</span><a class="nav-item" href="#s20"><span class="nav-index">20</span><span class="nav-label">Cierre y mapa</span></a></nav>
+      <nav class="sb-nav" id="nav" aria-label="Secciones"><span class="nav-group">Contexto</span><a class="nav-item active" href="#portada"><span class="nav-index">00</span><span class="nav-label">Portada</span></a>
+<a class="nav-item" href="#s1"><span class="nav-index">01</span><span class="nav-label">Punto de partida</span></a>
+<a class="nav-item" href="#s2"><span class="nav-index">02</span><span class="nav-label">Preparación</span></a>
+<a class="nav-item" href="#s3"><span class="nav-index">03</span><span class="nav-label">¿Lo comprarías?</span></a>
+<span class="nav-group">Construir</span><a class="nav-item" href="#s4"><span class="nav-index">04</span><span class="nav-label">Limpieza inicial</span></a>
+<a class="nav-item" href="#s5"><span class="nav-index">05</span><span class="nav-label">Identidad visual</span></a>
+<a class="nav-item" href="#s6"><span class="nav-index">06</span><span class="nav-label">Sistema de diseño</span></a>
+<a class="nav-item" href="#s7"><span class="nav-index">07</span><span class="nav-label">Íconos compartidos</span></a>
+<a class="nav-item" href="#s8"><span class="nav-index">08</span><span class="nav-label">Notificaciones</span></a>
+<a class="nav-item" href="#s9"><span class="nav-index">09</span><span class="nav-label">Confirmación</span></a>
+<a class="nav-item" href="#s10"><span class="nav-index">10</span><span class="nav-label">Utilidades y raíz</span></a>
+<span class="nav-group">Proteger</span><a class="nav-item" href="#s11"><span class="nav-index">11</span><span class="nav-label">Sesión completa</span></a>
+<a class="nav-item" href="#s12"><span class="nav-index">12</span><span class="nav-label">Guard, 404 y rutas</span></a>
+<a class="nav-item" href="#s13"><span class="nav-index">13</span><span class="nav-label">Login y seguridad</span></a>
+<a class="nav-item" href="#s14"><span class="nav-index">14</span><span class="nav-label">Layout por rol</span></a>
+<span class="nav-group">Completar</span><a class="nav-item" href="#s15"><span class="nav-index">15</span><span class="nav-label">Servicios de datos</span></a>
+<a class="nav-item" href="#s16"><span class="nav-index">16</span><span class="nav-label">Agenda</span></a>
+<a class="nav-item" href="#s17"><span class="nav-index">17</span><span class="nav-label">Pacientes</span></a>
+<a class="nav-item" href="#s18"><span class="nav-index">18</span><span class="nav-label">Historia clínica</span></a>
+<a class="nav-item" href="#s19"><span class="nav-index">19</span><span class="nav-label">Dueños</span></a>
+<a class="nav-item" href="#s20"><span class="nav-index">20</span><span class="nav-label">Inicio</span></a>
+<a class="nav-item" href="#s21"><span class="nav-index">21</span><span class="nav-label">Panel e IA</span></a>
+<a class="nav-item" href="#s22"><span class="nav-index">22</span><span class="nav-label">Personal y rutas</span></a>
+<span class="nav-group">Probar</span><a class="nav-item" href="#s23"><span class="nav-index">23</span><span class="nav-label">Un día en VetCare</span></a>
+<a class="nav-item" href="#s24"><span class="nav-index">24</span><span class="nav-label">Sin sesión</span></a>
+<a class="nav-item" href="#s25"><span class="nav-index">25</span><span class="nav-label">Administración</span></a>
+<a class="nav-item" href="#s26"><span class="nav-index">26</span><span class="nav-label">Recepción y veterinaria</span></a>
+<a class="nav-item" href="#s27"><span class="nav-index">27</span><span class="nav-label">Celular y seguridad</span></a>
+<a class="nav-item" href="#s28"><span class="nav-index">28</span><span class="nav-label">Leer las señales</span></a>
+<span class="nav-group">Cerrar</span><a class="nav-item" href="#s29"><span class="nav-index">29</span><span class="nav-label">Reflexión y cierre</span></a></nav>
       <div class="sb-prog"><div class="lbl"><span>Progreso</span><span id="progPct">0%</span></div><div class="track"><div class="fill" id="progFill"></div></div></div>
     </aside>
     <main class="main">
@@ -50,36 +59,125 @@
         <div class="hero-inner"><div class="hero-copy"><span class="eyebrow">Dev Senior · Proyecto VetCare</span><h1 class="hero-title">De “funciona” a “se puede entregar”</h1><p class="hero-lead">Consolida una experiencia autenticada completa: diseño coherente, acciones que responden, roles claros y una sesión que sabe cuándo terminar.</p><div class="meta"><span class="pill" data-hot>180 minutos</span><span class="pill">Angular 21</span><span class="pill">JWT · UX · CSS</span></div></div><figure class="hero-visual"><img src="img/vetcare-de-prototipo-a-producto.png" alt="Una clínica veterinaria pasa de un entorno fragmentado a una operación ordenada, segura y lista para clientes"><figcaption class="hero-note">La misma lógica se convierte en un producto confiable cuando la experiencia, el flujo y la seguridad trabajan juntos.</figcaption></figure></div>
       </header>
       <div class="content"><section class="section view" id="s1" data-accent="1" data-layout="canvas" data-escena="apertura" hidden>
-    <div class="sec-head"><span class="sec-n">Problema de producto</span><h2 class="sec-t">VetCare funciona. ¿Pero una clínica pagaría por usarlo?</h2><p class="sec-s">La doctora Patricia lo prueba diez minutos en computador y celular antes de firmar.</p></div>
-    <div class="body">
-      <div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">¿Qué tres cosas te harían dudar de pagar por este sistema?</p><p class="socratica-hint">Mira más allá de “se ve simple”: piensa en confianza, respuesta y seguridad.</p><details class="reveal"><summary>Ver diagnóstico</summary><div class="reveal-body"><p class="lead-answer">El problema no es uno: la experiencia visual, el flujo y la sesión todavía se sienten incompletos.</p><div class="cards"><div class="card"><b>Visual</b><p>CSS repetido, formularios sin etiquetas y la huella de Angular en la pestaña.</p></div><div class="card"><b>Experiencia</b><p>Sin confirmaciones, avisos ni una vista útil para administración.</p></div><div class="card"><b>Seguridad y flujo</b><p>La sesión vencida parece activa, el login sigue abierto y una URL inexistente no se explica.</p></div></div></div></details></div>
-      <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>La lista de objeciones es el plan de la clase</h3><p>Al terminar, cada problema debe estar resuelto y probado de punta a punta.</p></div></div></div>
+    <div class="sec-head"><span class="sec-n">Punto de partida</span><h2 class="sec-t">VetCare ya funciona; ahora debe sentirse como un producto</h2><p class="sec-s">La clase parte del proyecto anterior y define con precisión qué debe mejorar sin tocar el backend.</p></div>
+    <div class="body"><div class="table-wrap"><table class="data-table"><caption>Evolución acumulativa del proyecto</caption><thead><tr><th>Clase</th><th>Qué agregó</th><th>Pregunta de negocio que resolvió</th></tr></thead><tbody><tr><td>Frontend 1</td><td>HTML, CSS, TypeScript, componentes, <code>@Input</code>, <code>@for</code>, <code>@if</code></td><td>¿Cómo mostramos las mascotas en pantalla?</td></tr><tr><td>Frontend 2</td><td>Rutas, páginas, <code>routerLink</code>, lazy loading, detalle por <code>:id</code></td><td>¿Cómo navega la recepcionista entre pantallas?</td></tr><tr><td>Frontend 3</td><td>Signals, <code>computed</code>, servicios, favoritos, <code>output()</code></td><td>¿Dónde vive el estado que comparten varias pantallas?</td></tr><tr><td>M1 · Clase 4</td><td><code>HttpClient</code>, backend real, carga y errores, CORS</td><td>¿Cómo dejamos de usar datos inventados?</td></tr><tr><td>M2 · Clase 1</td><td>Login con JWT, <code>AuthService</code>, <code>localStorage</code></td><td>¿Cómo sabe el sistema quién está trabajando?</td></tr><tr><td>M2 · Clase 2</td><td>Interceptor JWT, guards, <code>401</code> y <code>403</code></td><td>¿Cómo viaja la identidad en cada petición y quién entra a cada pantalla?</td></tr><tr><td>M2 · Clase 3</td><td>Tres roles, JWT decodificado, <code>effect()</code>, <code>rolGuard</code>, Agenda</td><td>¿Cómo trabaja cada persona de la clínica según su cargo?</td></tr><tr><td><strong>M2 · Clase 4 (hoy)</strong></td><td>Sistema de diseño, layout, avisos, diálogos, cierre automático, panel, personal, historia clínica</td><td>¿Lo podemos entregar a una clínica real?</td></tr></tbody></table></div>
+      <div class="cards"><div class="card"><b>Sistema de diseño</b><p>Una sola gramática visual para toda la aplicación.</p></div><div class="card"><b>Piezas compartidas</b><p>Avisos y decisiones visibles sin repetir lógica.</p></div><div class="card"><b>Flujo autenticado</b><p>Entrada, trabajo y dos formas de salida de sesión.</p></div></div>
+      <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Contrato de esta clase</h3><p>Se reutiliza exactamente el backend de la Clase 3. PostgreSQL continúa con <code>vetcare_db</code>; los cambios de producto están en el frontend.</p></div></div></div>
   </section>
-<section class="section view" id="s2" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
-    <div class="sec-head"><span class="sec-n">Evolución del proyecto</span><h2 class="sec-t">De mostrar mascotas a entregar un producto completo</h2><p class="sec-s">Cada clase agregó una capa que respondía una pregunta de negocio.</p></div>
-    <div class="body"><div class="table-wrap"><table class="data-table"><caption>El recorrido acumulativo de VetCare</caption><thead><tr><th>Clase</th><th>Qué agregó</th><th>Pregunta de negocio que resolvió</th></tr></thead><tbody><tr><td>Frontend 1</td><td>HTML, CSS, TypeScript, componentes, <code>@Input</code>, <code>@for</code>, <code>@if</code></td><td>¿Cómo mostramos las mascotas en pantalla?</td></tr><tr><td>Frontend 2</td><td>Rutas, páginas, <code>routerLink</code>, lazy loading, detalle por <code>:id</code></td><td>¿Cómo navega la recepcionista entre pantallas?</td></tr><tr><td>Frontend 3</td><td>Signals, <code>computed</code>, servicios, favoritos, <code>output()</code></td><td>¿Dónde vive el estado que comparten varias pantallas?</td></tr><tr><td>M1 · Clase 4</td><td><code>HttpClient</code>, backend real, carga y errores, CORS</td><td>¿Cómo dejamos de usar datos inventados?</td></tr><tr><td>M2 · Clase 1</td><td>Login con JWT, <code>AuthService</code>, <code>localStorage</code></td><td>¿Cómo sabe el sistema quién está trabajando?</td></tr><tr><td>M2 · Clase 2</td><td>Interceptor JWT, guards, <code>401</code> y <code>403</code></td><td>¿Cómo viaja la identidad en cada petición y quién entra a cada pantalla?</td></tr><tr><td>M2 · Clase 3</td><td>Tres roles, JWT decodificado, <code>effect()</code>, <code>rolGuard</code>, Agenda</td><td>¿Cómo trabaja cada persona de la clínica según su cargo?</td></tr><tr><td><strong>M2 · Clase 4 (hoy)</strong></td><td>Sistema de diseño, layout, avisos, diálogos, cierre automático, panel, personal, historia clínica</td><td>¿Lo podemos entregar a una clínica real?</td></tr></tbody></table></div>
-      <div class="checkpoint"><span class="component-label">Punto de partida verificable</span><h3>Backend sin cambios; frontend de Clase 3 como base.</h3><p>PostgreSQL sigue usando <code>vetcare_db</code>. El backend levanta en 8080 y el frontend en 4200. Con <code>recepcion</code> se debe ver la agenda anterior con seis citas.</p></div></div>
-  </section>
-<section class="section view" id="s3" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
-    <div class="sec-head"><span class="sec-n">Modelo mental</span><h2 class="sec-t">Una clínica confiable tiene señalética, plano, recepcionista y vigilante</h2></div>
-    <div class="body">
-      <div class="pipeline" role="group" aria-label="Traducción de una clínica física a VetCare">
-        <div class="pipe-step"><span class="component-label">Señalética</span><h3>Sistema de diseño</h3><p>Tokens y componentes globales.</p></div><div class="pipe-arrow" aria-hidden="true">→</div>
-        <div class="pipe-step"><span class="component-label">Recepcionista</span><h3>Avisa y pregunta</h3><p>Notificaciones y confirmación.</p></div><div class="pipe-arrow" aria-hidden="true">→</div>
-        <div class="pipe-step" data-emphasis><span class="component-label">Vigilante</span><h3>Cuida la sesión</h3><p>JWT, guards e interceptor.</p></div><div class="pipe-arrow" aria-hidden="true">→</div>
-        <div class="pipe-step"><span class="component-label">Plano</span><h3>Layout por rol</h3><p>Menú, barra y contenido.</p></div>
-      </div>
-      <ol class="ideas"><li><span><strong>La interfaz común</strong> convierte muchas pantallas en un solo producto.</span></li><li><span><strong>Las piezas compartidas</strong> hacen visible el resultado de cada acción.</span></li><li><span><strong>El flujo autenticado</strong> cubre entrada, uso y las dos formas de salida.</span></li></ol></div>
-  </section>
-<section class="section view" id="s4" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Concepto central 1</span><h2 class="sec-t">El sistema de diseño convierte decisiones visuales en una infraestructura</h2><p class="sec-s">Variables, cascada y componentes globales reemplazan el CSS copiado pantalla por pantalla.</p></div>
-    <div class="body">
-      <div class="definicion"><div class="def-tecnica"><span class="component-label">Definición técnica</span><p class="def-termino">Sistema de diseño</p><p>Conjunto de tokens reutilizables y componentes visuales construidos con ellos.</p><span class="def-fuente">Aplicado globalmente desde src/styles.css</span></div><div class="def-vida"><span class="component-label">En la clínica</span><p>Es el manual de marca escrito en CSS: cambiar cuatro variables puede transformar toda la aplicación.</p></div></div>
-      <div class="compare"><div class="compare-card" data-side="negative"><h3>Antes</h3><ol><li><code>.estado-error</code> repetido.</li><li>Botones distintos por pantalla.</li><li>Placeholder usado como etiqueta.</li></ol></div><div class="compare-card" data-side="positive"><h3>Después</h3><ol><li><code>.alerta-error</code> global.</li><li><code>.btn</code> con variantes.</li><li><code>.campo</code> con <code>&lt;label&gt;</code> visible.</li></ol></div></div>
-      <div class="micro-task"><span class="component-label">Predice · 30 segundos</span><p class="micro-task-q">Si mañana la clínica cambia de azul a verde, ¿cuántos archivos deberían modificarse?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer"><strong>Uno.</strong> Los tokens viven en <code>src/styles.css</code>; las pantallas consumen variables.</p></details></div>
+<section class="section view" id="s2" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Preparación</span><h2 class="sec-t">Levantar primero, cambiar después</h2><p class="sec-s">Backend, dependencias y frontend deben quedar comprobados antes de modificar una sola pantalla.</p></div>
+    <div class="body"><div class="active-build"><div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Abrir la base correcta</h3><p class="build-step-purpose">El backend sigue conectado a <code>vetcare_db</code>.</p></div></div><div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Levantar Spring Boot</h3><p class="build-step-purpose">La API debe responder en el puerto 8080.</p></div></div><div class="build-step"><span class="build-step-index">03</span><div class="build-step-copy"><h3 class="build-step-title">Instalar y levantar Angular</h3><p class="build-step-purpose">La señal esperada es <code>Local: http://localhost:4200/</code>.</p></div></div></div>
       
     <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">styles.css · sistema de diseño completo</span><span class="code-reveal-note">reemplazar el contenido completo · en src/ · versión final consolidada</span></span></summary>
+      <summary><span><span class="code-reveal-title">Paso 2 · El backend · terminal</span><span class="code-reveal-note">Líneas 121–123 de la guía</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block" data-tipo="terminal">
+          <div class="code-head"><div><span class="code-context">Ejecutar</span><span class="code-file">Paso 2 · El backend</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-bash">mvnw.cmd spring-boot:run</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">Paso 3 · El frontend de hoy · terminal</span><span class="code-reveal-note">Líneas 133–135 de la guía</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block" data-tipo="terminal">
+          <div class="code-head"><div><span class="code-context">Ejecutar</span><span class="code-file">Paso 3 · El frontend de hoy</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-bash">npm install</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">Paso 3 · El frontend de hoy · terminal</span><span class="code-reveal-note">Líneas 141–143 de la guía</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block" data-tipo="terminal">
+          <div class="code-head"><div><span class="code-context">Ejecutar</span><span class="code-file">Paso 3 · El frontend de hoy</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-bash">npm start</code></pre>
+        </div>
+      </div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>La sesión anterior todavía funciona.</h3><p>Con <code>recepcion</code> se ve la agenda con sus seis citas antes de iniciar la transformación.</p></div></div>
+  </section>
+<section class="section view" id="s3" data-accent="1" data-layout="canvas" data-escena="apertura" hidden>
+    <div class="sec-head"><span class="sec-n">Apertura de producto</span><h2 class="sec-t">¿Pagarías por usar VetCare tal como está hoy?</h2><p class="sec-s">La doctora Patricia lo prueba diez minutos en computador y celular antes de decidir.</p></div>
+    <div class="body"><div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">¿Qué tres cosas te harían dudar de firmar el contrato?</p><p class="socratica-hint">Piensa en confianza, respuesta de las acciones y seguridad de la sesión.</p><details class="reveal"><summary>Ver diagnóstico</summary><div class="reveal-body"><p class="lead-answer">La lógica existe, pero la experiencia todavía se siente fragmentada.</p><div class="cards"><div class="card"><b>Visual</b><p>CSS repetido, formularios sin etiquetas y una identidad incompleta.</p></div><div class="card"><b>Experiencia</b><p>Sin confirmaciones ni avisos, cada acción deja dudas.</p></div><div class="card"><b>Seguridad y flujo</b><p>La sesión vencida parece activa y una URL inexistente no se explica.</p></div></div></div></details></div>
+      <div class="pipeline" role="group" aria-label="Traducción de una clínica física a VetCare"><div class="pipe-step"><span class="component-label">Señalética</span><h3>Sistema de diseño</h3><p>Reglas visuales compartidas.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step"><span class="component-label">Recepcionista</span><h3>Avisa y pregunta</h3><p>Notificaciones y confirmación.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step" data-emphasis><span class="component-label">Vigilante</span><h3>Cuida la sesión</h3><p>JWT, guards e interceptor.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step"><span class="component-label">Plano</span><h3>Layout por rol</h3><p>Menú, barra y contenido.</p></div></div></div>
+  </section>
+<section class="section view" id="s4" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Limpieza inicial</span><h2 class="sec-t">Quitar deuda antes de construir</h2><p class="sec-s">Se elimina lo obsoleto, se corrige el nombre del servicio y Agenda vuelve a apuntar al archivo correcto.</p></div>
+    <div class="body"><div class="active-build"><div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Eliminar registro</h3><p class="build-step-purpose">Esa pantalla ya no pertenece al flujo del producto.</p></div></div><div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Renombrar citas.services.ts</h3><p class="build-step-purpose">El nombre queda alineado con la convención del proyecto.</p></div></div><div class="build-step"><span class="build-step-index">03</span><div class="build-step-copy"><h3 class="build-step-title">Corregir Agenda</h3><p class="build-step-purpose">El import consume el nuevo nombre sin cambiar el comportamiento.</p></div></div></div>
+      
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">agenda.ts</span><span class="code-reveal-note">editar una línea · en src/app/pages/agenda/ · fragmento</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">editar una línea</span><span class="code-file">src/app/pages/agenda/agenda.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">import { CitasService, Cita } from '../../services/citas.service';</code></pre>
+        </div>
+      </div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Checkpoint</span><h3><code>ng serve</code> compila y Agenda se comporta igual.</h3><p>La limpieza no agrega funcionalidad: despeja el camino para lo que sigue.</p></div></div>
+  </section>
+<section class="section view" id="s5" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Base visual</span><h2 class="sec-t">La identidad empieza en index.html y favicon.svg</h2><p class="sec-s">Idioma, título, fuente, metadatos e ícono preparan la puerta de entrada del producto.</p></div>
+    <div class="body"><div class="definicion"><div class="def-tecnica"><span class="component-label">Definición técnica</span><p class="def-termino">Sistema de diseño</p><p>Conjunto de tokens y componentes visuales reutilizables.</p><span class="def-fuente">Aplicado globalmente desde src/styles.css</span></div><div class="def-vida"><span class="component-label">En la clínica</span><p>Es el manual de marca escrito como reglas que todas las pantallas obedecen.</p></div></div>
+      <div class="compare"><div class="compare-card" data-side="negative"><h3>Antes</h3><ol><li>Marca de Angular en la pestaña.</li><li>Decisiones visuales aisladas.</li><li>La aplicación no se presenta.</li></ol></div><div class="compare-card" data-side="positive"><h3>Después</h3><ol><li>Identidad propia de VetCare.</li><li>Metadatos coherentes.</li><li>Base preparada para el sistema global.</li></ol></div></div>
+      
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">index.html</span><span class="code-reveal-note">reemplazar el contenido completo · en src/ · versión final consolidada</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/index.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;VetCare · Software para clínicas veterinarias&lt;/title&gt;
+  &lt;base href=&quot;/&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;VetCare: agenda, pacientes, historia clínica y facturación diaria para clínicas veterinarias.&quot;&gt;
+  &lt;meta name=&quot;theme-color&quot; content=&quot;#143e52&quot;&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/svg+xml&quot; href=&quot;favicon.svg&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;app-root&gt;&lt;/app-root&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">favicon.svg</span><span class="code-reveal-note">crear · en public/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">public/favicon.svg</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-markup">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 32 32&quot;&gt;
+  &lt;rect width=&quot;32&quot; height=&quot;32&quot; rx=&quot;8&quot; fill=&quot;#2b7a9e&quot;/&gt;
+  &lt;g fill=&quot;#ffffff&quot;&gt;
+    &lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;2.4&quot;/&gt;
+    &lt;circle cx=&quot;21&quot; cy=&quot;11&quot; r=&quot;2.4&quot;/&gt;
+    &lt;circle cx=&quot;7&quot; cy=&quot;16.5&quot; r=&quot;2.2&quot;/&gt;
+    &lt;circle cx=&quot;25&quot; cy=&quot;16.5&quot; r=&quot;2.2&quot;/&gt;
+    &lt;path d=&quot;M16 15c-3.6 0-7 4-7 7.4 0 1.9 1.5 3.1 3.3 3.1 1.4 0 2.4-.7 3.7-.7s2.3.7 3.7.7c1.8 0 3.3-1.2 3.3-3.1C23 19 19.6 15 16 15z&quot;/&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;</code></pre>
+        </div>
+      </div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Verificación</span><h3>La pestaña ya dice VetCare y muestra su huella.</h3><p>La fuente Plus Jakarta Sans queda disponible para la interfaz completa.</p></div></div>
+  </section>
+<section class="section view" id="s6" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Sistema de diseño</span><h2 class="sec-t">styles.css se convierte en la infraestructura visual</h2><p class="sec-s">Tokens, cascada y componentes globales reemplazan el CSS copiado pantalla por pantalla.</p></div>
+    <div class="body"><div class="micro-task"><span class="component-label">Predice · 30 segundos</span><p class="micro-task-q">Si mañana la clínica cambia de azul a verde, ¿cuántos archivos deberían modificarse?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer"><strong>Uno.</strong> Las pantallas consumen variables; las decisiones viven en <code>src/styles.css</code>.</p></details></div>
+      <div class="cards"><div class="card"><b>Tokens</b><p>Color, espacio, radio, sombra, transición y tipografía.</p></div><div class="card"><b>Base</b><p>Reset, cuerpo, enlaces, títulos y foco visible.</p></div><div class="card"><b>Componentes</b><p>Botones, campos, tarjetas, tablas, alertas y estados.</p></div></div>
+      
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">styles.css</span><span class="code-reveal-note">reemplazar el contenido completo · en src/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
         <div class="code-block">
           <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/styles.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
@@ -520,13 +618,91 @@ h3 {
 }</code></pre>
         </div>
       </div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Checkpoint visual</span><h3>Las pantallas antiguas siguen funcionando.</h3><p>Se preservan los nombres de variables que ya consumía la aplicación.</p></div></div>
+  </section>
+<section class="section view" id="s7" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Primera pieza compartida</span><h2 class="sec-t">Un ícono común evita repetir SVG por toda la aplicación</h2><p class="sec-s">La pieza recibe un nombre, hereda el color del contexto y conserva una sola fuente visual.</p></div>
+    <div class="body"><div class="pipeline" role="group" aria-label="Flujo de un componente compartido"><div class="pipe-step"><span class="component-label">Pantalla</span><h3>Declara el ícono</h3><p>Usa un nombre comprensible.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step" data-emphasis><span class="component-label">Componente</span><h3>Elige el SVG</h3><p>Centraliza el dibujo.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step"><span class="component-label">CSS</span><h3>Aporta el color</h3><p><code>currentColor</code> mantiene el contexto.</p></div></div>
+      
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">El patrón que se repite tres veces hoy · text</span><span class="code-reveal-note">Líneas 951–956 de la guía</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">El patrón que se repite tres veces hoy</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-plaintext">Cualquier servicio o página  ──llama──▶  Servicio compartido (guarda un Signal)
+                                                      │
+                                                      ▼
+                                      Componente único en app.html (lo dibuja)</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">icono.ts</span><span class="code-reveal-note">crear · en src/app/components/icono/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/icono/icono.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
+
+// Cada ícono es un trazo SVG de 24 x 24. Se dibuja con &quot;currentColor&quot;:
+// toma el color del texto que lo rodea, así un solo ícono sirve en cualquier lugar.
+const TRAZOS = {
+  panel: 'M3 20h18M6 16v-5M11 16V6M16 16v-8',
+  agenda: 'M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM3 10h18M8 3v4M16 3v4',
+  mascotas: 'M8.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM15.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM18.5 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM12 12c-2.5 0-5 3-5 5.5 0 1.4 1.1 2.5 2.5 2.5.9 0 1.6-.5 2.5-.5s1.6.5 2.5.5c1.4 0 2.5-1.1 2.5-2.5 0-2.5-2.5-5.5-5-5.5z',
+  duenos: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20a6 6 0 0 1 12 0M16 5a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6',
+  personal: 'M4 6h16v14H4zM9 3h6v3H9zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8 17a4 4 0 0 1 8 0',
+  salir: 'M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9',
+  menu: 'M4 6h16M4 12h16M4 18h16',
+  cerrar: 'M6 6l12 12M18 6L6 18',
+  mas: 'M12 5v14M5 12h14',
+  basura: 'M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6',
+  buscar: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-4.3-4.3',
+  anterior: 'M15 6l-6 6 6 6',
+  siguiente: 'M9 6l6 6-6 6',
+  ojo: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z',
+  ojoCerrado: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 3l18 18',
+  historia: 'M9 3h6v3H9zM9 4H6a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-3M9 12h6M9 16h4',
+  check: 'M5 12l5 5 9-10',
+  alerta: 'M12 8v5M12 17h.01M10.3 3.9L2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'
+};
+
+export type NombreIcono = keyof typeof TRAZOS;
+
+@Component({
+  selector: 'app-icono',
+  template: `
+    &lt;svg
+      [attr.width]=&quot;tamano&quot;
+      [attr.height]=&quot;tamano&quot;
+      viewBox=&quot;0 0 24 24&quot;
+      fill=&quot;none&quot;
+      stroke=&quot;currentColor&quot;
+      stroke-width=&quot;2&quot;
+      stroke-linecap=&quot;round&quot;
+      stroke-linejoin=&quot;round&quot;
+      aria-hidden=&quot;true&quot;&gt;
+      &lt;path [attr.d]=&quot;trazo&quot;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  `,
+  styles: `:host { display: inline-flex; flex-shrink: 0; }`
+})
+export class Icono {
+  @Input() nombre: NombreIcono = 'menu';
+  @Input() tamano = 20;
+
+  get trazo(): string {
+    return TRAZOS[this.nombre];
+  }
+}</code></pre>
+        </div>
+      </div>
     </details></div>
   </section>
-<section class="section view" id="s5" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Concepto central 2</span><h2 class="sec-t">Una pieza compartida separa quién decide el mensaje de quién lo dibuja</h2><p class="sec-s">Un servicio guarda el estado; un componente único lo muestra en la raíz.</p></div>
-    <div class="body">
-      <div class="pipeline" role="group" aria-label="Flujo de una pieza compartida"><div class="pipe-step"><span class="component-label">Cualquier pantalla</span><h3>Pide una acción</h3><p>Éxito, error o confirmación.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step" data-emphasis><span class="component-label">Servicio</span><h3>Guarda el estado</h3><p>Una sola fuente de verdad.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step"><span class="component-label">Componente raíz</span><h3>Lo hace visible</h3><p>Aviso apilado o diálogo modal.</p></div></div>
-      <div class="dos-col"><div class="papel"><span class="component-label">Notificación</span><h3>La aplicación avisa</h3><p>Crear, cancelar, atender o eliminar produce una señal clara, cerca de la atención del usuario.</p></div><div class="papel"><span class="component-label">Promesa</span><h3>La aplicación espera</h3><p>El diálogo devuelve <code>true</code> o <code>false</code> cuando la persona decide.</p></div></div>
+<section class="section view" id="s8" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Notificaciones</span><h2 class="sec-t">La aplicación debe responder después de cada acción</h2><p class="sec-s">El servicio guarda el estado y un único componente raíz hace visibles éxito, error e información.</p></div>
+    <div class="body"><div class="pipeline" role="group" aria-label="Flujo de notificaciones"><div class="pipe-step"><span class="component-label">Cualquier pantalla</span><h3>Solicita un aviso</h3><p>Éxito, error o información.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step" data-emphasis><span class="component-label">Servicio</span><h3>Guarda el estado</h3><p>Una sola fuente reactiva.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step"><span class="component-label">Componente</span><h3>Lo dibuja</h3><p>Aviso accesible y temporal.</p></div></div>
       
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">notificaciones.service.ts</span><span class="code-reveal-note">crear · en src/app/services/ · completo</span></span></summary>
@@ -581,6 +757,130 @@ export class NotificacionesService {
         </div>
       </div>
     </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">notificaciones.ts</span><span class="code-reveal-note">crear · en src/app/components/notificaciones/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/notificaciones/notificaciones.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">import { Component, inject } from '@angular/core';
+import { NotificacionesService } from '../../services/notificaciones.service';
+import { Icono } from '../icono/icono';
+
+@Component({
+  selector: 'app-notificaciones',
+  imports: [Icono],
+  templateUrl: './notificaciones.html',
+  styleUrl: './notificaciones.css'
+})
+export class Notificaciones {
+  private notificacionesService = inject(NotificacionesService);
+
+  notificaciones = this.notificacionesService.notificaciones;
+
+  cerrar(id: number) {
+    this.notificacionesService.cerrar(id);
+  }
+}</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">notificaciones.html</span><span class="code-reveal-note">crear · en src/app/components/notificaciones/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/notificaciones/notificaciones.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-markup">&lt;section class=&quot;notificaciones&quot; aria-live=&quot;polite&quot; aria-label=&quot;Notificaciones&quot;&gt;
+  @for (aviso of notificaciones(); track aviso.id) {
+    &lt;div
+      class=&quot;notificacion&quot;
+      [class]=&quot;'notificacion-' + aviso.tipo&quot;
+      [attr.role]=&quot;aviso.tipo === 'error' ? 'alert' : 'status'&quot;&gt;
+      &lt;app-icono [nombre]=&quot;aviso.tipo === 'error' ? 'alerta' : 'check'&quot; /&gt;
+      &lt;p class=&quot;notificacion-texto&quot;&gt;{{ aviso.mensaje }}&lt;/p&gt;
+      &lt;button type=&quot;button&quot; class=&quot;notificacion-cerrar&quot; aria-label=&quot;Cerrar aviso&quot; (click)=&quot;cerrar(aviso.id)&quot;&gt;
+        &lt;app-icono nombre=&quot;cerrar&quot; [tamano]=&quot;16&quot; /&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  }
+&lt;/section&gt;</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">notificaciones.css</span><span class="code-reveal-note">crear · en src/app/components/notificaciones/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/notificaciones/notificaciones.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-css">.notificaciones {
+  position: fixed;
+  right: var(--espacio-sm);
+  bottom: var(--espacio-sm);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  width: min(380px, calc(100vw - 32px));
+}
+
+.notificacion {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radio-sm);
+  border-left: 4px solid currentColor;
+  background: var(--superficie);
+  box-shadow: var(--sombra-lg);
+  animation: entrar 0.25s ease-out;
+}
+
+.notificacion-exito {
+  color: var(--exito);
+}
+
+.notificacion-error {
+  color: var(--peligro);
+}
+
+.notificacion-info {
+  color: var(--azul-principal);
+}
+
+.notificacion-texto {
+  flex: 1;
+  color: var(--texto);
+  font-size: var(--texto-sm);
+  font-weight: 600;
+}
+
+.notificacion-cerrar {
+  border: none;
+  background: transparent;
+  color: var(--texto-suave);
+  cursor: pointer;
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}</code></pre>
+        </div>
+      </div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Resultado</span><h3>La persona ya no necesita adivinar si una acción terminó.</h3><p>El mismo sistema sirve a todas las pantallas que se completarán después.</p></div></div>
+  </section>
+<section class="section view" id="s9" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Confirmación</span><h2 class="sec-t">Las acciones destructivas preguntan y esperan una decisión</h2><p class="sec-s">El diálogo compartido devuelve una Promise: la pantalla continúa solo cuando la persona responde.</p></div>
+    <div class="body"><div class="dos-col"><div class="papel"><span class="component-label">La aplicación pregunta</span><h3>¿Deseas continuar?</h3><p>El servicio abre el diálogo con el mensaje y el tono correctos.</p></div><div class="papel"><span class="component-label">La persona decide</span><h3>true o false</h3><p>La Promise se resuelve; entonces la operación continúa o se cancela.</p></div></div>
       
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">confirmacion.service.ts</span><span class="code-reveal-note">crear · en src/app/services/ · completo</span></span></summary>
@@ -621,13 +921,267 @@ export class ConfirmacionService {
 }</code></pre>
         </div>
       </div>
-    </details></div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">dialogo-confirmacion.ts</span><span class="code-reveal-note">crear · en src/app/components/dialogo-confirmacion/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/dialogo-confirmacion/dialogo-confirmacion.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">import { Component, ElementRef, effect, inject, viewChild } from '@angular/core';
+import { ConfirmacionService } from '../../services/confirmacion.service';
+
+@Component({
+  selector: 'app-dialogo-confirmacion',
+  templateUrl: './dialogo-confirmacion.html',
+  styleUrl: './dialogo-confirmacion.css'
+})
+export class DialogoConfirmacion {
+  private confirmacionService = inject(ConfirmacionService);
+
+  peticion = this.confirmacionService.peticion;
+
+  // Referencia al elemento &lt;dialog&gt; real del HTML
+  private dialogo = viewChild.required&lt;ElementRef&lt;HTMLDialogElement&gt;&gt;('dialogo');
+
+  constructor() {
+    // Si hay una petición, se abre como modal; si no, se cierra
+    effect(() =&gt; {
+      const elemento = this.dialogo().nativeElement;
+      if (this.peticion() &amp;&amp; !elemento.open) {
+        elemento.showModal();
+      } else if (!this.peticion() &amp;&amp; elemento.open) {
+        elemento.close();
+      }
+    });
+  }
+
+  responder(respuesta: boolean) {
+    this.confirmacionService.responder(respuesta);
+  }
+}</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">dialogo-confirmacion.html</span><span class="code-reveal-note">crear · en src/app/components/dialogo-confirmacion/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/dialogo-confirmacion/dialogo-confirmacion.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-markup">&lt;dialog
+  #dialogo
+  class=&quot;dialogo&quot;
+  aria-labelledby=&quot;dialogo-titulo&quot;
+  (cancel)=&quot;responder(false)&quot;&gt;
+  @if (peticion(); as p) {
+    &lt;h2 id=&quot;dialogo-titulo&quot; class=&quot;dialogo-titulo&quot;&gt;{{ p.titulo }}&lt;/h2&gt;
+    &lt;p class=&quot;dialogo-mensaje&quot;&gt;{{ p.mensaje }}&lt;/p&gt;
+    &lt;div class=&quot;dialogo-acciones&quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn btn-secundario&quot; (click)=&quot;responder(false)&quot;&gt;Volver&lt;/button&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn btn-peligro&quot; (click)=&quot;responder(true)&quot;&gt;{{ p.textoConfirmar }}&lt;/button&gt;
+    &lt;/div&gt;
+  }
+&lt;/dialog&gt;</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">dialogo-confirmacion.css</span><span class="code-reveal-note">crear · en src/app/components/dialogo-confirmacion/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/dialogo-confirmacion/dialogo-confirmacion.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-css">.dialogo {
+  width: min(440px, calc(100vw - 32px));
+  margin: auto;
+  padding: var(--espacio-md);
+  border: none;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-lg);
+}
+
+.dialogo::backdrop {
+  background: rgba(20, 62, 82, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.dialogo-titulo {
+  font-size: var(--texto-lg);
+  margin-bottom: var(--espacio-xs);
+}
+
+.dialogo-mensaje {
+  color: var(--texto-suave);
+  margin-bottom: var(--espacio-md);
+}
+
+.dialogo-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--espacio-xs);
+}</code></pre>
+        </div>
+      </div>
+    </details>
+      <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>El modal vive una sola vez</h3><p>Así conserva el foco, el lenguaje y el comportamiento en Agenda, Pacientes y Dueños.</p></div></div></div>
   </section>
-<section class="section view" id="s6" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
-    <div class="sec-head"><span class="sec-n">Concepto central 3</span><h2 class="sec-t">Una sesión completa sabe entrar, trabajar y salir de dos maneras</h2><p class="sec-s">El frontend orienta la experiencia; el backend sigue siendo quien protege.</p></div>
-    <div class="body">
-      <figure class="figura"><div class="figura-stage"><img src="img/ciclo-sesion-jwt-vetcare.png" alt="Una empleada entra a una clínica con una credencial, trabaja y sale por cierre voluntario o por vencimiento automático"></div><figcaption>Inicio, uso, salida voluntaria y vencimiento forman un solo ciclo.<span class="figura-credito">Ilustración original creada para esta clase.</span></figcaption></figure>
-      <div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">Si el token vence mientras la agenda queda abierta, ¿la interfaz lo descubre solo por el paso del tiempo?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">No, si solo reacciona cuando cambia el token.</p><p>El <code>effect</code> programa una alarma para el segundo exacto de <code>exp</code>. Así evita que la siguiente petición sea la primera en descubrir una sesión vencida.</p></div></details></div>
+<section class="section view" id="s10" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Utilidades y raíz</span><h2 class="sec-t">Formularios, formatos y componentes globales se conectan en la raíz</h2><p class="sec-s">Primero se crean ayudas pequeñas; después app.ts y app.html alojan avisos y diálogo una sola vez.</p></div>
+    <div class="body"><div class="cards"><div class="card"><b>formularios.ts</b><p><code>leerCampo</code> obtiene valores por el atributo <code>name</code>.</p></div><div class="card"><b>formato.ts</b><p>Fechas y valores COP quedan consistentes en toda la clínica.</p></div><div class="card"><b>app.* intermedio</b><p>Conecta las piezas compartidas antes de construir el layout final.</p></div></div>
+      
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">formularios.ts</span><span class="code-reveal-note">crear · en src/app/core/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/core/formularios.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">// Lee un campo de un formulario por su atributo name, ya sin espacios sobrantes.
+// Si el campo no existe o está vacío, devuelve ''.
+export function leerCampo(datos: FormData, nombre: string): string {
+  return String(datos.get(nombre) ?? '').trim();
+}</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">formato.ts</span><span class="code-reveal-note">crear · en src/app/core/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/core/formato.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">// Utilidades de fecha y dinero que usan varias pantallas.
+// Las fechas viajan como texto 'AAAA-MM-DD', igual que las envía el backend.
+
+// Convierte un Date en 'AAAA-MM-DD' usando la hora LOCAL (no UTC)
+export function fechaComoTexto(fecha: Date): string {
+  const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+  const dia = String(fecha.getDate()).padStart(2, '0');
+  return `${fecha.getFullYear()}-${mes}-${dia}`;
+}
+
+export function hoyComoTexto(): string {
+  return fechaComoTexto(new Date());
+}
+
+// Suma (o resta, si dias es negativo) días a una fecha en texto
+export function sumarDias(fechaTexto: string, dias: number): string {
+  const [anio, mes, dia] = fechaTexto.split('-').map(Number);
+  return fechaComoTexto(new Date(anio, mes - 1, dia + dias));
+}
+
+// '2026-10-08' -&gt; 'jueves, 8 de octubre'
+export function fechaLarga(fechaTexto: string): string {
+  const [anio, mes, dia] = fechaTexto.split('-').map(Number);
+  return new Intl.DateTimeFormat('es-CO', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long'
+  }).format(new Date(anio, mes - 1, dia));
+}
+
+const formatoPesos = new Intl.NumberFormat('es-CO', {
+  style: 'currency',
+  currency: 'COP',
+  maximumFractionDigits: 0
+});
+
+export function pesos(valor: number): string {
+  return formatoPesos.format(valor);
+}</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">app.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/ · versión intermedia (la final está en el Bloque 4)</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/app.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">import { Component, inject, computed } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { MascotasService } from './services/mascotas.service';
+import { AuthService } from './services/auth.service';
+import { Notificaciones } from './components/notificaciones/notificaciones';
+import { DialogoConfirmacion } from './components/dialogo-confirmacion/dialogo-confirmacion';
+
+const NOMBRES_DE_ROL = {
+  ADMIN: 'Administración',
+  RECEPCIONISTA: 'Recepción',
+  VETERINARIO: 'Veterinario'
+};
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, RouterLink, Notificaciones, DialogoConfirmacion],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+  private mascotasService = inject(MascotasService);
+  authService = inject(AuthService);
+
+  totalFavoritos = this.mascotasService.totalFavoritos;
+
+  etiquetaRol = computed(() =&gt; {
+    const rol = this.authService.rol();
+    return rol ? NOMBRES_DE_ROL[rol] : '';
+  });
+
+  puedeVerDuenos = computed(() =&gt; this.authService.tieneRol('ADMIN', 'RECEPCIONISTA'));
+}</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">app.html</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/ · versión intermedia (la final está en el Bloque 4)</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/app.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-markup">&lt;nav class=&quot;barra&quot;&gt;
+  &lt;a routerLink=&quot;/&quot; class=&quot;marca&quot;&gt;🐾 VetCare&lt;/a&gt;
+
+  @if (authService.sesionActiva()) {
+    &lt;div class=&quot;barra-links&quot;&gt;
+      &lt;a routerLink=&quot;/agenda&quot; class=&quot;barra-link&quot;&gt;Agenda&lt;/a&gt;
+      &lt;a routerLink=&quot;/mascotas&quot; class=&quot;barra-link&quot;&gt;
+        Mascotas
+        @if (totalFavoritos() &gt; 0) {
+          &lt;span class=&quot;badge&quot;&gt;{{ totalFavoritos() }}&lt;/span&gt;
+        }
+      &lt;/a&gt;
+      @if (puedeVerDuenos()) {
+        &lt;a routerLink=&quot;/duenos&quot; class=&quot;barra-link&quot;&gt;Dueños&lt;/a&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class=&quot;barra-usuario&quot;&gt;
+      &lt;span class=&quot;saludo&quot;&gt;Hola, &lt;strong&gt;{{ authService.nombre() }}&lt;/strong&gt;&lt;/span&gt;
+      &lt;span class=&quot;rol-chip&quot;&gt;{{ etiquetaRol() }}&lt;/span&gt;
+      &lt;button type=&quot;button&quot; class=&quot;boton-salir&quot; (click)=&quot;authService.cerrarSesion()&quot;&gt;
+        Cerrar sesión
+      &lt;/button&gt;
+    &lt;/div&gt;
+  } @else {
+    &lt;a routerLink=&quot;/login&quot; class=&quot;barra-link&quot;&gt;Iniciar sesión&lt;/a&gt;
+  }
+&lt;/nav&gt;
+
+&lt;main class=&quot;contenido&quot;&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+&lt;/main&gt;
+
+&lt;app-notificaciones /&gt;
+&lt;app-dialogo-confirmacion /&gt;</code></pre>
+        </div>
+      </div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>La aplicación compila; avisos y diálogo esperan su primera acción.</h3><p>Esta versión intermedia se reemplazará de forma explícita cuando llegue el layout.</p></div></div>
+  </section>
+<section class="section view" id="s11" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
+    <div class="sec-head"><span class="sec-n">Sesión completa</span><h2 class="sec-t">Entrar, trabajar y salir son partes del mismo ciclo</h2><p class="sec-s">El frontend orienta la experiencia; el backend sigue siendo quien autoriza y protege los datos.</p></div>
+    <div class="body"><figure class="figura"><div class="figura-stage"><img src="img/ciclo-sesion-jwt-vetcare.png" alt="Una empleada entra a una clínica con una credencial, trabaja y sale por cierre voluntario o por vencimiento automático"></div><figcaption>Inicio, uso, salida voluntaria y vencimiento forman un solo ciclo.<span class="figura-credito">Ilustración original creada para esta clase.</span></figcaption></figure>
+      <div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">Si el token vence mientras Agenda permanece abierta, ¿la interfaz lo descubre solo por el paso del tiempo?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">No, si únicamente reacciona cuando cambia el token.</p><p>El <code>effect</code> programa una alarma para el segundo exacto de <code>exp</code>. Así la siguiente petición no tiene que ser quien descubra una sesión vencida.</p></div></details></div>
       
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">auth.service.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/services/ · versión final consolidada</span></span></summary>
@@ -777,6 +1331,7 @@ export class AuthService {
         </div>
       </div>
     </details>
+
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">jwt.interceptor.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/interceptors/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
@@ -817,7 +1372,12 @@ export const jwtInterceptor: HttpInterceptorFn = (req, next) =&gt; {
 };</code></pre>
         </div>
       </div>
-    </details>
+    </details></div>
+  </section>
+<section class="section view" id="s12" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Rutas protegidas</span><h2 class="sec-t">El guard orienta la entrada y la ruta 404 explica el error</h2><p class="sec-s">Quien ya inició sesión no vuelve al login; quien escribe una URL inválida recibe una salida comprensible.</p></div>
+    <div class="body"><div class="cards"><div class="card"><b>invitado.guard.ts</b><p>Reserva el login para quien todavía no está autenticado.</p></div><div class="card"><b>no-encontrada.ts</b><p>Una URL inválida deja de redirigir en silencio.</p></div><div class="card"><b>app.routes.ts intermedia</b><p>Organiza títulos, guards y la salida 404 antes de las pantallas finales.</p></div></div>
+      
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">invitado.guard.ts</span><span class="code-reveal-note">crear · en src/app/guards/ · completo</span></span></summary>
       <div class="code-reveal-body">
@@ -839,15 +1399,365 @@ export const invitadoGuard: CanActivateFn = () =&gt; {
 };</code></pre>
         </div>
       </div>
-    </details></div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">no-encontrada.ts</span><span class="code-reveal-note">crear · en src/app/pages/no-encontrada/ · completo</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/pages/no-encontrada/no-encontrada.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+
+@Component({
+  selector: 'app-no-encontrada',
+  imports: [RouterLink],
+  template: `
+    &lt;section class=&quot;no-encontrada&quot;&gt;
+      &lt;p class=&quot;codigo&quot;&gt;404&lt;/p&gt;
+      &lt;h1 class=&quot;titulo-pagina&quot;&gt;Esta página no existe&lt;/h1&gt;
+      &lt;p class=&quot;subtitulo&quot;&gt;Puede que el enlace esté mal escrito o que la página se haya movido.&lt;/p&gt;
+      &lt;a [routerLink]=&quot;authService.sesionActiva() ? authService.rutaInicial() : '/'&quot; class=&quot;btn btn-primario&quot;&gt;
+        Volver a VetCare
+      &lt;/a&gt;
+    &lt;/section&gt;
+  `,
+  styles: `
+    .no-encontrada {
+      display: grid;
+      justify-items: center;
+      gap: var(--espacio-sm);
+      padding: var(--espacio-xl) var(--espacio-md);
+      text-align: center;
+    }
+
+    .codigo {
+      font-size: 6rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--azul-claro);
+      -webkit-text-stroke: 2px var(--azul-principal);
+    }
+  `
+})
+export class NoEncontrada {
+  authService = inject(AuthService);
+}</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">app.routes.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/ · versión intermedia (la final, con Panel y Personal, está en la sección 10.9)</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/app.routes.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
+import { rolGuard } from './guards/rol.guard';
+import { invitadoGuard } from './guards/invitado.guard';
+
+export const routes: Routes = [
+  {
+    path: '',
+    title: 'VetCare · Software para clínicas veterinarias',
+    canActivate: [invitadoGuard],
+    loadComponent: () =&gt; import('./pages/inicio/inicio').then(m =&gt; m.Inicio)
+  },
+  {
+    path: 'login',
+    title: 'Iniciar sesión · VetCare',
+    canActivate: [invitadoGuard],
+    loadComponent: () =&gt; import('./pages/login/login').then(m =&gt; m.Login)
+  },
+  {
+    path: 'agenda',
+    title: 'Agenda · VetCare',
+    canActivate: [authGuard],
+    loadComponent: () =&gt; import('./pages/agenda/agenda').then(m =&gt; m.Agenda)
+  },
+  {
+    path: 'mascotas',
+    title: 'Pacientes · VetCare',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascotas-listado/mascotas-listado').then(m =&gt; m.MascotasListado)
+  },
+  {
+    path: 'mascotas/:id',
+    title: 'Ficha del paciente · VetCare',
+    canActivate: [authGuard],
+    loadComponent: () =&gt;
+      import('./pages/mascota-detalle/mascota-detalle').then(m =&gt; m.MascotaDetalle)
+  },
+  {
+    path: 'duenos',
+    title: 'Dueños · VetCare',
+    canActivate: [authGuard, rolGuard('ADMIN', 'RECEPCIONISTA')],
+    loadComponent: () =&gt;
+      import('./pages/duenos-listado/duenos-listado').then(m =&gt; m.DuenosListado)
+  },
+  {
+    path: '**',
+    title: 'Página no encontrada · VetCare',
+    loadComponent: () =&gt;
+      import('./pages/no-encontrada/no-encontrada').then(m =&gt; m.NoEncontrada)
+  }
+];</code></pre>
+        </div>
+      </div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Verificación</span><h3>El navegador siempre puede explicar dónde está la persona.</h3><p>Las rutas ya distinguen entrada, área privada y dirección inexistente.</p></div></div>
   </section>
-<section class="section view" id="s7" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Plano de la aplicación</span><h2 class="sec-t">El layout muestra el lugar correcto a cada rol</h2><p class="sec-s">Menú lateral, barra superior y contenido sustituyen una barra que ya no cabía.</p></div>
-    <div class="body">
-      <div class="table-wrap"><table class="data-table"><caption>Usuarios y primera pantalla</caption><thead><tr><th>Usuario</th><th>Rol</th><th>Nombre</th><th>Primera pantalla</th></tr></thead><tbody><tr><td><code>admin</code></td><td>ADMIN</td><td>Carolina Rojas</td><td><code>/panel</code></td></tr><tr><td><code>recepcion</code></td><td>RECEPCIONISTA</td><td>Juliana Pérez</td><td><code>/agenda</code></td></tr><tr><td><code>dra.gomez</code></td><td>VETERINARIO</td><td>Laura Gómez</td><td><code>/agenda</code> (Mi agenda)</td></tr><tr><td><code>dr.ruiz</code></td><td>VETERINARIO</td><td>Andrés Ruiz</td><td><code>/agenda</code> (Mi agenda)</td></tr><tr><td><code>dra.mejia</code></td><td>VETERINARIO</td><td>Paula Mejía</td><td><strong>No existe todavía</strong>: el admin la crea en clase</td></tr></tbody></table></div>
-      <div class="cards"><div class="card"><b>Administración</b><p>Panel, Agenda, Pacientes, Dueños y Personal.</p></div><div class="card"><b>Recepción</b><p>Agenda, Pacientes y Dueños.</p></div><div class="card"><b>Veterinaria</b><p>Mi agenda y Pacientes.</p></div></div>
-      <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>El menú es una lista de datos</h3><p>Cada enlace declara los roles que lo ven. Agregar una pantalla es cambiar configuración, no duplicar HTML.</p></div></div>
+<section class="section view" id="s13" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Login y seguridad</span><h2 class="sec-t">La puerta de entrada se vuelve clara, accesible y consciente del riesgo</h2><p class="sec-s">Etiquetas, autocompletado, mostrar contraseña y estados de carga mejoran el uso sin confundir conveniencia con seguridad.</p></div>
+    <div class="body"><div class="cards"><div class="card"><b>Entrada legible</b><p>Cada campo tiene etiqueta, propósito y autocompletado correcto.</p></div><div class="card"><b>Respuesta visible</b><p>El botón comunica que está procesando y evita envíos duplicados.</p></div><div class="card"><b>Límite honesto</b><p>El token en el navegador exige prevenir XSS; ocultarlo visualmente no lo protege.</p></div></div>
       
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">login.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/login/ · versión final consolidada</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/pages/login/login.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-typescript">import { Component, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { Icono } from '../../components/icono/icono';
+import { leerCampo } from '../../core/formularios';
+
+@Component({
+  selector: 'app-login',
+  imports: [RouterLink, Icono],
+  templateUrl: './login.html',
+  styleUrl: './login.css'
+})
+export class Login {
+  private authService = inject(AuthService);
+
+  error = this.authService.error;
+  cargando = this.authService.cargando;
+  mostrarClave = signal(false);
+
+  ingresar(evento: SubmitEvent) {
+    evento.preventDefault();
+    const datos = new FormData(evento.target as HTMLFormElement);
+
+    this.authService.iniciarSesion({
+      username: leerCampo(datos, 'username'),
+      password: leerCampo(datos, 'password')
+    });
+  }
+}</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">login.html</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/login/ · versión final consolidada</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/pages/login/login.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-markup">&lt;div class=&quot;login&quot;&gt;
+  &lt;section class=&quot;login-marca&quot;&gt;
+    &lt;a routerLink=&quot;/&quot; class=&quot;marca&quot;&gt;
+      &lt;img src=&quot;favicon.svg&quot; alt=&quot;&quot; width=&quot;36&quot; height=&quot;36&quot;&gt;
+      &lt;span&gt;VetCare&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;div&gt;
+      &lt;p class=&quot;marca-frase&quot;&gt;Menos papeles, más tiempo para tus pacientes.&lt;/p&gt;
+      &lt;ul class=&quot;marca-lista&quot;&gt;
+        &lt;li&gt;&lt;app-icono nombre=&quot;check&quot; [tamano]=&quot;18&quot; /&gt; Agenda del día por veterinario&lt;/li&gt;
+        &lt;li&gt;&lt;app-icono nombre=&quot;check&quot; [tamano]=&quot;18&quot; /&gt; Historia clínica de cada paciente&lt;/li&gt;
+        &lt;li&gt;&lt;app-icono nombre=&quot;check&quot; [tamano]=&quot;18&quot; /&gt; Ingresos diarios en un panel&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;login-formulario&quot;&gt;
+    &lt;form class=&quot;tarjeta formulario&quot; (submit)=&quot;ingresar($event)&quot;&gt;
+      &lt;h1 class=&quot;titulo-pagina&quot;&gt;Iniciar sesión&lt;/h1&gt;
+      &lt;p class=&quot;subtitulo&quot;&gt;Usa la cuenta que te entregó la administración de la clínica.&lt;/p&gt;
+
+      @if (error()) {
+        &lt;p class=&quot;alerta alerta-error&quot; role=&quot;alert&quot;&gt;{{ error() }}&lt;/p&gt;
+      }
+
+      &lt;label class=&quot;campo&quot;&gt;
+        &lt;span&gt;Usuario&lt;/span&gt;
+        &lt;input name=&quot;username&quot; type=&quot;text&quot; autocomplete=&quot;username&quot; required autofocus&gt;
+      &lt;/label&gt;
+
+      &lt;div class=&quot;campo&quot;&gt;
+        &lt;label for=&quot;clave&quot;&gt;Contraseña&lt;/label&gt;
+        &lt;div class=&quot;campo-clave&quot;&gt;
+          &lt;input
+            id=&quot;clave&quot;
+            name=&quot;password&quot;
+            [type]=&quot;mostrarClave() ? 'text' : 'password'&quot;
+            autocomplete=&quot;current-password&quot;
+            required&gt;
+          &lt;button
+            type=&quot;button&quot;
+            class=&quot;ver-clave&quot;
+            [attr.aria-label]=&quot;mostrarClave() ? 'Ocultar contraseña' : 'Mostrar contraseña'&quot;
+            [attr.aria-pressed]=&quot;mostrarClave()&quot;
+            (click)=&quot;mostrarClave.set(!mostrarClave())&quot;&gt;
+            &lt;app-icono [nombre]=&quot;mostrarClave() ? 'ojoCerrado' : 'ojo'&quot; [tamano]=&quot;18&quot; /&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;button type=&quot;submit&quot; class=&quot;btn btn-primario btn-bloque&quot; [disabled]=&quot;cargando()&quot;&gt;
+        {{ cargando() ? 'Ingresando...' : 'Ingresar' }}
+      &lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">login.css</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/login/ · versión final consolidada</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/pages/login/login.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-css">.login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* Mitad izquierda: la marca */
+.login-marca {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--espacio-lg);
+  background: linear-gradient(150deg, var(--azul-profundo), var(--azul-principal));
+  color: #ffffff;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-size: var(--texto-lg);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.marca-frase {
+  max-width: 16ch;
+  margin-bottom: var(--espacio-md);
+  font-size: var(--texto-2xl);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.marca-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  opacity: 0.9;
+}
+
+.marca-lista li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Mitad derecha: el formulario */
+.login-formulario {
+  display: grid;
+  place-items: center;
+  padding: var(--espacio-md);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+  width: min(400px, 100%);
+}
+
+.formulario .alerta {
+  margin-bottom: 0;
+}
+
+.campo-clave {
+  position: relative;
+}
+
+.campo-clave input {
+  padding-right: 44px;
+}
+
+.ver-clave {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 6px;
+  border: none;
+  background: transparent;
+  color: var(--texto-suave);
+  cursor: pointer;
+}
+
+.btn-bloque {
+  width: 100%;
+  padding: 12px;
+  font-size: var(--texto-base);
+}
+
+@media (max-width: 800px) {
+  .login {
+    grid-template-columns: 1fr;
+  }
+
+  .login-marca {
+    display: none;
+  }
+}</code></pre>
+        </div>
+      </div>
+    </details>
+      <div class="table-wrap"><table class="data-table"><caption>Decisiones de seguridad del login</caption><thead><tr><th>Práctica</th><th>En VetCare</th><th>Por qué</th></tr></thead><tbody><tr><td>El frontend <strong>nunca</strong> es la seguridad</td><td>Guards y <code>@if</code> orientan; <code>@PreAuthorize</code> protege</td><td>Cualquiera puede editar el JavaScript en su navegador</td></tr><tr><td>No confiar en datos del cliente</td><td>El backend ignora <code>rol</code> y <code>estado</code> que mande el cliente</td><td>Cerrado en la Clase 3 (registro público)</td></tr><tr><td>Sesión con vencimiento</td><td>Token de 24 h y cierre automático</td><td>Un computador olvidado no queda abierto para siempre</td></tr><tr><td>Limpieza al salir</td><td><code>effect</code> en cada servicio + borrar token</td><td>Computadores compartidos en recepción</td></tr><tr><td>Mensajes de error sin detalles internos</td><td>&quot;Usuario o contraseña incorrectos&quot;, nunca &quot;el usuario no existe&quot;</td><td>No darle pistas a quien prueba usuarios al azar</td></tr><tr><td>Sin secretos en el frontend</td><td>La clave del JWT solo vive en <code>application.properties</code></td><td>Todo lo que llega al navegador se puede leer</td></tr><tr><td>Escapar lo que escribe el usuario</td><td>Angular lo hace solo en <code>{{ }}</code></td><td>Ver la prueba de XSS</td></tr><tr><td>Contraseñas fuera de la vista</td><td><code>type=&quot;password&quot;</code>, <code>autocomplete</code> correcto</td><td>Gestores de contraseñas y personas mirando la pantalla</td></tr></tbody></table></div>
+      
+    <div class="code-block">
+      <div class="code-head"><div><span class="code-context">Demostración</span><span class="code-file">Prueba controlada de XSS</span></div><button class="copy-btn" type="button">Copiar</button></div>
+      <pre class="line-numbers"><code class="language-plaintext">&lt;img src=x onerror=alert('hackeado')&gt;</code></pre>
+    </div>
+      <div class="socratica"><span class="component-label">Para pensar</span><p class="socratica-q">¿Guardar el token en localStorage vuelve seguro al sistema?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">No. La seguridad depende de varias capas.</p><p>Angular escapa interpolaciones, se evita insertar HTML no confiable, el backend valida permisos y la sesión expira. El frontend mejora el flujo, pero nunca reemplaza la autorización del servidor.</p></div></details></div></div>
+  </section>
+<section class="section view" id="s14" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Layout por rol</span><h2 class="sec-t">El plano de la aplicación muestra a cada persona el lugar correcto</h2><p class="sec-s">Menú lateral, barra superior y área de contenido reemplazan una navegación que ya no cabía.</p></div>
+    <div class="body"><div class="cards"><div class="card"><b>Administración</b><p>Panel, Agenda, Pacientes, Dueños y Personal.</p></div><div class="card"><b>Recepción</b><p>Agenda, Pacientes y Dueños.</p></div><div class="card"><b>Veterinaria</b><p>Mi agenda y Pacientes.</p></div></div>
+      <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>El menú es una lista de datos</h3><p>Cada enlace declara qué roles lo ven. Agregar una opción es cambiar configuración, no duplicar HTML.</p></div></div>
+      
+    <details class="code-reveal" data-reference="true">
+      <summary><span><span class="code-reveal-title">El patrón profesional · text</span><span class="code-reveal-note">Líneas 2389–2399 de la guía</span></span></summary>
+      <div class="code-reveal-body">
+        <div class="code-block">
+          <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">El patrón profesional</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <pre class="line-numbers"><code class="language-plaintext">┌────────────┬───────────────────────────────────────────┐
+│  VetCare   │  jueves, 8 de octubre      Laura Gómez  LG│ ← barra superior
+│            ├───────────────────────────────────────────┤
+│  Agenda    │                                           │
+│  Pacientes │            &lt;router-outlet /&gt;              │ ← contenido
+│            │                                           │
+│  [Salir]   │                                           │
+└────────────┴───────────────────────────────────────────┘
+   aside                      main</code></pre>
+        </div>
+      </div>
+    </details>
+
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">app.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
@@ -937,6 +1847,7 @@ export class App {
         </div>
       </div>
     </details>
+
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">app.html</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
@@ -1011,6 +1922,7 @@ export class App {
         </div>
       </div>
     </details>
+
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">app.css</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
@@ -1225,963 +2137,14 @@ export class App {
 }</code></pre>
         </div>
       </div>
-    </details></div>
-  </section>
-<section class="section view" id="s8" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Cerrar el flujo</span><h2 class="sec-t">Las pantallas finales convierten la arquitectura en trabajo real de clínica</h2></div>
-    <div class="body">
-      <div class="cards"><div class="card"><b>Agenda</b><p>Días, citas, formularios con etiquetas y confirmación propia.</p></div><div class="card"><b>Pacientes</b><p>Filtros por especie, registro plegable e historia clínica.</p></div><div class="card"><b>Dueños</b><p>Buscador, tabla accesible y eliminación protegida por reglas de negocio.</p></div><div class="card"><b>Panel y Personal</b><p>Indicadores para administración y creación de cuentas ligadas al equipo.</p></div></div>
-      <div class="socratica"><span class="component-label">Criterio profesional</span><p class="socratica-q">¿Está mal calcular ingresos en Angular si el frontend no es confiable?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Mostrar no es proteger.</p><p>El cliente puede resumir datos que el backend ya autorizó. No puede usar ese cálculo para permisos, cobros o reglas críticas. Con miles de citas convendría un endpoint agregado; con el volumen del caso, el cálculo local es razonable.</p></div></details></div>
-      <div class="momento-ia"><div class="momento-ia-head"><span class="momento-ia-titulo">Momento IA</span><span class="ia-nivel">Nivel 2 · Copiloto</span><span class="ia-herramienta">Copilot VS Code o chat</span></div><div class="momento-ia-body"><p class="ia-porque">La IA puede proponer el CSS del Panel después de que el grupo entiende el sistema de diseño y puede auditar sus límites.</p><div class="ia-grid"><div><span class="component-label">Primero razonas tú</span><p>Decide qué clases necesitan estilos propios y cuáles ya existen de forma global.</p></div><div class="ia-no-delega"><span class="component-label">No se delega</span><p>Qué indicadores ve la dueña ni cómo se calculan: eso es negocio.</p></div></div><div class="code-block" data-tipo="prompt"><div class="code-head"><div><span class="code-context">Prompt sugerido</span><span class="code-file">Panel · CSS</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-plaintext">Tengo un sistema de diseño en styles.css con estas variables: --azul-principal, --azul-oscuro, --azul-profundo, --superficie, --borde, --texto-suave, --espacio-xs a --espacio-lg, --radio, --radio-sm, --sombra, --transicion, --texto-xs, --texto-sm y --texto-xl. Ya existen las clases globales .tarjeta, .tabla y .titulo-seccion. Te paso panel.html. Escribe panel.css solo para las clases que no existen. La gráfica es de barras verticales hecha con CSS: cada .columna es una columna flex, .columna-pista es el espacio de la barra, .columna-barra crece con height en porcentaje, con esquinas superiores redondeadas de 4 px y 2 px de separación entre barras. .columna-valor es un globo que aparece encima de la barra al hacer hover o focus-visible en .columna. Usa solo las variables (nada de colores sueltos salvo #ffffff). En pantallas de menos de 1000 px, .panel-cuerpo pasa a una columna. Explica cada bloque en una línea.</code></pre></div><div><span class="component-label">Cómo validar</span><ul class="checklist"><li>No redefine clases globales.</li><li>No inventa colores fuera del blanco permitido.</li><li>El globo funciona con mouse y con Tab.</li><li><code>ng serve</code> no supera el budget.</li><li>Se compara con la referencia completa.</li></ul></div></div></div></div>
-  </section>
-<section class="section view" id="s9" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
-    <div class="sec-head"><span class="sec-n">Traza completa</span><h2 class="sec-t">Un día conecta recepción, consulta, historia y cierre de sesión</h2><p class="sec-s">El valor aparece cuando se sigue el caso a través de todo el sistema.</p></div>
-    <div class="body">
-    <div class="code-block">
-      <div class="code-head"><div><span class="code-context">Flujo completo</span><span class="code-file">De la recepción a la historia clínica</span></div><button class="copy-btn" type="button">Copiar</button></div>
-      <pre class="line-numbers"><code class="language-plaintext">08:00  Juliana abre http://localhost:4200/
-       ↓ invitadoGuard: sin sesión → muestra Inicio (title &quot;VetCare · Software para…&quot;)
-       ↓ clic en &quot;Ingresar al sistema&quot; → /login (invitadoGuard ✔)
-08:01  Escribe recepcion / vetcare123 → Ingresar
-       ↓ cargando = true → botón &quot;Ingresando...&quot; desactivado
-       ↓ POST /api/auth/login (interceptor NO adjunta token: ruta /auth/)
-       ↓ 200 { token } → tokenSignal.set → localStorage
-       ↓ computed: sesionActiva = true · usuario = &quot;recepcion&quot; · rol = RECEPCIONISTA
-       ↓ effect de AuthService: programa la alarma de vencimiento (24 h)
-       ↓ effect de cada servicio: usuario cambió → GET mascotas, dueños, veterinarios, citas (con Bearer)
-       ↓ aviso verde &quot;¡Hola, Juliana Pérez!&quot; · navigateByUrl(rutaInicial() = '/agenda')
-       ↓ app.html: sesionActiva → layout con menú (Agenda · Pacientes · Dueños)
-08:05  Agenda la cita de Firulais a las 17:30 con Paula Mejía
-       ↓ FormData lee mascotaId, veterinarioId, fecha, hora, motivo
-       ↓ POST /api/citas → @PreAuthorize(ADMIN, RECEPCIONISTA) ✔ → 201
-       ↓ la lista se actualiza + aviso &quot;Cita de Firulais agendada a las 17:30.&quot;
-08:10  Cancela la cita de Michi
-       ↓ await confirmacion.confirmar(...) → el &lt;dialog&gt; se abre con showModal()
-       ↓ &quot;Sí, cancelar cita&quot; → la promesa se resuelve en true
-       ↓ PATCH /api/citas/{id}/cancelar → 200 → chip CANCELADA + aviso
-12:00  Juliana cierra sesión
-       ↓ borrarToken → usuario = null → cada servicio limpia su lista
-       ↓ effect de AuthService: alLimpiar cancela la alarma pendiente
-       ↓ aviso &quot;Cerraste sesión&quot; → /login
-15:25  Entra dra.mejia (cuenta creada por el admin)
-       ↓ rutaInicial = '/agenda' → GET /api/citas/mias (solo sus citas)
-       ↓ menú: Mi agenda · Pacientes
-15:30  Clic en &quot;Rocky&quot; → /mascotas/3
-       ↓ @Input set id(&quot;3&quot;) → idMascota = 3 → effect → GET /api/citas/mascota/3
-       ↓ ficha + línea de tiempo con la historia
-15:40  Vuelve a Mi agenda → Atender → notas + costo → PATCH /atender → ATENDIDA
-...    Al día siguiente, a la hora exacta de exp:
-       ↓ setTimeout dispara expirarSesion() → aviso &quot;Tu sesión venció&quot; → /login</code></pre>
-    </div></div>
-  </section>
-<section class="section view" id="s10" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
-    <div class="sec-head"><span class="sec-n">Pruebas por rol</span><h2 class="sec-t">Primero, comprobar lo que puede ver una persona sin sesión y una administradora</h2></div>
-    <div class="body"><div class="table-wrap"><table class="data-table"><caption>Pruebas 1–7 · Sin sesión</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado</th></tr></thead><tbody><tr><td class="num">1</td><td>Abrir <code>http://localhost:4200/</code></td><td>Página de Inicio con el título grande, tres beneficios y el pie. Pestaña: &quot;VetCare · Software para clínicas veterinarias&quot;, con la huella azul</td></tr><tr><td class="num">2</td><td>Escribir <code>http://localhost:4200/agenda</code></td><td>Redirige a <code>/login</code>. Pestaña: &quot;Iniciar sesión · VetCare&quot;</td></tr><tr><td class="num">3</td><td>Escribir <code>http://localhost:4200/esto-no-existe</code></td><td>Página 404 &quot;Esta página no existe&quot;; el botón lleva a Inicio</td></tr><tr><td class="num">4</td><td>En el login, dar clic en Ingresar con los campos vacíos</td><td>El navegador marca &quot;Completa este campo&quot; y <strong>no</strong> sale ninguna petición (verificar en <strong>Red</strong>)</td></tr><tr><td class="num">5</td><td><code>admin</code> / <code>mala</code></td><td>Alerta roja &quot;Usuario o contraseña incorrectos.&quot; En <strong>Red</strong>, <code>login</code> → <code>401</code></td></tr><tr><td class="num">6</td><td>Escribir algo en Contraseña y tocar el ojo</td><td>Se ve el texto; el ícono cambia a ojo tachado. Tocar de nuevo lo oculta</td></tr><tr><td class="num">7</td><td>Reducir la ventana a menos de 800 px de ancho</td><td>Desaparece la mitad azul; el formulario ocupa todo</td></tr></tbody></table></div><div class="table-wrap"><table class="data-table"><caption>Pruebas 8–21 · ADMIN</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado (base nueva)</th></tr></thead><tbody><tr><td class="num">8</td><td>Iniciar sesión</td><td>El botón dice &quot;Ingresando...&quot; un instante. Aviso verde &quot;¡Hola, Carolina Rojas!&quot;. Llega a <code>/panel</code></td></tr><tr><td class="num">9</td><td>Mirar el menú lateral</td><td>Panel (resaltado) · Agenda · Pacientes · Dueños · Personal. Arriba: fecha de hoy, &quot;Carolina Rojas · Administración&quot;, avatar &quot;CR&quot;</td></tr><tr><td class="num">10</td><td>Mirar los indicadores</td><td>Citas de hoy <strong>6</strong> (6 por atender) · Pacientes <strong>6</strong> (de 4 familias). Ingresos del mes y cancelación dependen del día del mes (ver nota)</td></tr><tr><td class="num">11</td><td>Pasar el mouse por las barras de la gráfica</td><td>Aparece el globo con el valor de cada día. Con Tab, el globo aparece al enfocar cada barra</td></tr><tr><td class="num">12</td><td>Escribir <code>http://localhost:4200/login</code></td><td>Vuelve a <code>/panel</code> (invitadoGuard)</td></tr><tr><td class="num">13</td><td>Ir a <strong>Personal</strong></td><td>Equipo médico: Laura Gómez (<code>dra.gomez</code>), Andrés Ruiz (<code>dr.ruiz</code>), Paula Mejía (<strong>Sin cuenta</strong>, chip ámbar). Cuentas: al menos admin, recepcion, dra.gomez, dr.ruiz</td></tr><tr><td class="num">14</td><td>Abrir &quot;Crear cuenta&quot;: nombre <code>Paula Mejía</code>, usuario <code>dra.mejia</code>, contraseña <code>vetcare123</code>, rol <strong>Veterinario</strong></td><td>Al elegir Veterinario aparece &quot;¿Qué veterinario es?&quot;, con <strong>solo</strong> Paula Mejía en la lista</td></tr><tr><td class="num">15</td><td>Elegir Paula Mejía → Crear cuenta</td><td>Aviso verde <code>Cuenta &quot;dra.mejia&quot; creada. Ya puede iniciar sesión.</code> La tabla de veterinarios muestra <code>dra.mejia</code> en verde junto a Paula</td></tr><tr><td class="num">16</td><td>Repetir la prueba 14 y 15 con el mismo usuario</td><td>Aviso rojo <code>El username dra.mejia ya esta registrado</code> (<code>409</code>)</td></tr><tr><td class="num">17</td><td>Ir a <strong>Dueños</strong> → botón de basura de Ana Torres</td><td>Se abre el diálogo &quot;¿Eliminar a Ana Torres?&quot; con el fondo oscurecido</td></tr><tr><td class="num">18</td><td>Presionar la tecla Escape</td><td>El diálogo se cierra; no pasa nada más</td></tr><tr><td class="num">19</td><td>Repetir y elegir &quot;Sí, eliminar&quot;</td><td>Aviso rojo <code>No se puede eliminar: el dueño tiene mascotas registradas</code> (<code>409</code>). Ana Torres sigue en la tabla</td></tr><tr><td class="num">20</td><td>Registrar un dueño de prueba (documento <code>123456</code>) y eliminarlo</td><td>Aviso verde de registro, y después aviso verde &quot;... fue eliminado.&quot;</td></tr><tr><td class="num">21</td><td>Ir a <strong>Agenda</strong></td><td>Título &quot;Agenda de la clínica&quot;, cuatro tarjetas (la cuarta, azul, &quot;Ingresos del día&quot;)</td></tr></tbody></table></div></div>
-  </section>
-<section class="section view" id="s11" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
-    <div class="sec-head"><span class="sec-n">Pruebas por rol</span><h2 class="sec-t">Después, recorrer el trabajo real de recepción y veterinaria</h2></div>
-    <div class="body"><div class="table-wrap"><table class="data-table"><caption>Pruebas 22–33 · RECEPCIONISTA</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado (base nueva)</th></tr></thead><tbody><tr><td class="num">22</td><td>Cerrar sesión desde el menú</td><td>Aviso &quot;Cerraste sesión. ¡Hasta pronto!&quot; y el login</td></tr><tr><td class="num">23</td><td>Iniciar como <code>recepcion</code></td><td>Aviso &quot;¡Hola, Juliana Pérez!&quot;. Llega a <code>/agenda</code>. Menú: Agenda · Pacientes · Dueños (<strong>sin</strong> Panel ni Personal)</td></tr><tr><td class="num">24</td><td>Mirar la agenda</td><td>6 citas: 08:30 Firulais, 09:30 Michi, 10:00 Max, 11:30 Tambor, 14:00 Luna, 15:30 Rocky. Tres tarjetas (sin ingresos)</td></tr><tr><td class="num">25</td><td>Clic en la flecha ◀</td><td>Subtítulo &quot;miércoles, 7 de octubre · ...&quot; (el día anterior), con sus citas (una atendida y una cancelada en base nueva). &quot;Hoy&quot; se habilita</td></tr><tr><td class="num">26</td><td>Clic en &quot;Hoy&quot;</td><td>Vuelve a hoy; el botón &quot;Hoy&quot; queda desactivado</td></tr><tr><td class="num">27</td><td>Agendar: Firulais, Paula Mejía, hoy, hora <code>17:30</code>, motivo &quot;Control de piel&quot;</td><td>Aviso verde <code>Cita de Firulais agendada a las 17:30.</code> Aparece de última; resumen 7 citas</td></tr><tr><td class="num">28</td><td>Intentar agendar con hora <code>21:00</code></td><td>El navegador no envía: avisa que el valor debe ser 19:00 o anterior</td></tr><tr><td class="num">29</td><td>Cancelar la cita de Michi (09:30) → &quot;Sí, cancelar cita&quot;</td><td>Diálogo propio (no el gris del navegador). Luego chip gris CANCELADA, la tarjeta se atenúa y aviso azul <code>Cita de Michi cancelada.</code></td></tr><tr><td class="num">30</td><td>Ir a <strong>Pacientes</strong> → chip &quot;Gato&quot;</td><td>Solo Michi y Luna</td></tr><tr><td class="num">31</td><td>Escribir &quot;carlos&quot; en el buscador</td><td>Luna y Max (el dueño es Carlos Rincón)</td></tr><tr><td class="num">32</td><td>Abrir &quot;Registrar nuevo paciente&quot; y registrar uno</td><td>Aviso verde &quot;... ya es paciente de VetCare.&quot;</td></tr><tr><td class="num">33</td><td>Escribir <code>http://localhost:4200/panel</code></td><td>Vuelve a <code>/agenda</code> (rolGuard)</td></tr></tbody></table></div><div class="table-wrap"><table class="data-table"><caption>Pruebas 34–40 · VETERINARIO</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado (base nueva)</th></tr></thead><tbody><tr><td class="num">34</td><td>Cerrar sesión e iniciar como <code>dra.mejia</code> / <code>vetcare123</code></td><td>&quot;¡Hola, Paula Mejía!&quot;. Menú: <strong>Mi agenda</strong> · Pacientes. Avatar &quot;PM&quot;</td></tr><tr><td class="num">35</td><td>Mirar Mi agenda</td><td>Solo sus citas: 15:30 Rocky y la de las 17:30 (Firulais). Sin &quot;Atiende:&quot; (es ella), sin formulario de agendar, sin botones de cancelar</td></tr><tr><td class="num">36</td><td>Clic en <strong>Atender</strong> (15:30 Rocky)</td><td>Se abre el formulario con &quot;Diagnóstico y tratamiento&quot; y &quot;Costo de la consulta (COP)&quot;</td></tr><tr><td class="num">37</td><td>Notas &quot;Dermatitis leve. Champú medicado.&quot; y costo <code>80000</code> → Guardar atención</td><td>Tarjeta verde, chip ATENDIDA, la nota con &quot;$ 80.000&quot; y aviso <code>Atención de Rocky registrada.</code></td></tr><tr><td class="num">38</td><td>Clic en el nombre <strong>Rocky</strong></td><td>Ficha: foto, Especie Perro, Raza Labrador, Edad 6 años, Dueño Ana Torres, Última atención: hoy. Historia clínica con la atención recién guardada <strong>arriba</strong></td></tr><tr><td class="num">39</td><td>Escribir <code>http://localhost:4200/duenos</code></td><td>Vuelve a <code>/agenda</code></td></tr><tr><td class="num">40</td><td>Ir a Pacientes</td><td>Sin el formulario de registro</td></tr></tbody></table></div></div>
-  </section>
-<section class="section view" id="s12" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
-    <div class="sec-head"><span class="sec-n">Seguridad y responsive</span><h2 class="sec-t">La experiencia debe resistir celular, XSS, permisos y tiempo</h2></div>
-    <div class="body"><div class="table-wrap"><table class="data-table"><caption>Pruebas 41–44 · Celular</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado</th></tr></thead><tbody><tr><td class="num">41</td><td>DevTools → <em>Toggle device toolbar</em> (<code>Ctrl + Shift + M</code>) → iPhone 12 Pro</td><td>Sin menú lateral; arriba, el botón de tres líneas y el avatar</td></tr><tr><td class="num">42</td><td>Tocar el botón de menú</td><td>El menú se desliza desde la izquierda con el fondo oscuro</td></tr><tr><td class="num">43</td><td>Tocar &quot;Pacientes&quot;</td><td>Navega y el menú se cierra solo</td></tr><tr><td class="num">44</td><td>Mirar la agenda</td><td>Cada cita en una columna; las tarjetas del resumen se acomodan en dos columnas</td></tr></tbody></table></div><div class="table-wrap"><table class="data-table"><caption>Pruebas 45–47 · Sesión y seguridad</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado</th></tr></thead><tbody><tr><td class="num">45</td><td>Con sesión, DevTools → Application → Local Storage → en <code>vetcare_token</code>, cambiar una letra en la mitad de la <strong>tercera parte</strong> (la firma, después del segundo punto) y recargar</td><td>Se cierra la sesión, aviso &quot;Tu sesión venció. Inicia sesión de nuevo.&quot; En <strong>Red</strong>, <code>401</code></td></tr><tr><td class="num">46</td><td>Registrar un paciente llamado <code>&lt;img src=x onerror=alert('hackeado')&gt;</code></td><td>La tarjeta muestra el texto literal. No aparece ninguna alerta</td></tr><tr><td class="num">47</td><td>Swagger → Authorize con el token de <code>dra.mejia</code> → <code>POST /api/citas</code></td><td><code>403</code> &quot;No tienes permiso...&quot; (ocultar el formulario no era la seguridad)</td></tr></tbody></table></div>
-      <div class="dos-col"><div>
-    <div class="code-block">
-      <div class="code-head"><div><span class="code-context">Dato de prueba</span><span class="code-file">Payload de prueba XSS</span></div><button class="copy-btn" type="button">Copiar</button></div>
-      <pre class="line-numbers"><code class="language-plaintext">&lt;img src=x onerror=alert('hackeado')&gt;</code></pre>
-    </div></div><div>
-    <div class="code-block" data-tipo="terminal">
-      <div class="code-head"><div><span class="code-context">Ejecutar</span><span class="code-file">Token de 45 segundos · PowerShell</span></div><button class="copy-btn" type="button">Copiar</button></div>
-      <pre class="line-numbers"><code class="language-bash">mvnw.cmd spring-boot:run &quot;-Dspring-boot.run.arguments=--jwt.expiration=45000&quot;</code></pre>
-    </div></div></div>
-      <div class="checkpoint"><span class="component-label">Prueba 48</span><h3>Sin hacer clic, la sesión vuelve al login a los 45 segundos.</h3><p>No sale ninguna petición en Red: la alarma del <code>effect</code> hizo el cierre.</p></div>
-      <div class="micro-task"><span class="component-label">Detecta · 45 segundos</span><p class="micro-task-q">¿Qué ocurre si se elimina <code>alLimpiar(() =&gt; clearTimeout(alarma))</code>?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer"><strong>Las alarmas viejas sobreviven.</strong> Una sesión anterior podría expulsar a una persona cuyo token todavía es válido.</p></details></div></div>
-  </section>
-<section class="section view" id="s13" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
-    <div class="sec-head"><span class="sec-n">Depuración</span><h2 class="sec-t">Un error es una señal: nombre, causa y siguiente comprobación</h2></div>
-    <div class="body">
-      <div class="cards"><div class="card"><b>TS2307 · citas.services</b><p>El import sigue apuntando al nombre anterior. Corregir la ruta en <code>agenda.ts</code>.</p></div><div class="card"><b>NG8001 · app-icono</b><p>La plantilla usa el componente, pero falta <code>Icono</code> en <code>imports</code>.</p></div><div class="card"><b>NG0203 · inject</b><p><code>effect()</code> o <code>inject()</code> quedó fuera de un contexto de inyección.</p></div><div class="card"><b>showModal · ya abierto</b><p>Falta comprobar <code>!elemento.open</code> antes de abrir el diálogo.</p></div><div class="card"><b>El ojo envía el formulario</b><p>El botón necesita <code>type="button"</code>.</p></div><div class="card"><b>La fuente no cambia</b><p>Revisar el enlace y la carga desde Google Fonts en la pestaña Red.</p></div><div class="card"><b>El menú móvil no cierra</b><p>Falta <code>(click)="cerrarMenu()"</code> en el enlace.</p></div><div class="card"><b>403 · rol sin permiso</b><p>El backend protegió la acción. Revisar el <code>@if</code> que mostró un botón indebido.</p></div></div></div>
-  </section><section class="section view" id="s14" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Referencia A</span><h2 class="sec-t">Arranque, limpieza y sistema de diseño</h2><p class="sec-s">Comandos y archivos completos del Bloque 0 y Bloque 1.</p></div>
-    <div class="body">
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">Paso 2 · El backend · terminal</span><span class="code-reveal-note">Líneas 121–123 de la guía</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block" data-tipo="terminal">
-          <div class="code-head"><div><span class="code-context">Ejecutar</span><span class="code-file">Paso 2 · El backend</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-bash">mvnw.cmd spring-boot:run</code></pre>
-        </div>
-      </div>
     </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">Paso 3 · El frontend de hoy · terminal</span><span class="code-reveal-note">Líneas 133–135 de la guía</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block" data-tipo="terminal">
-          <div class="code-head"><div><span class="code-context">Ejecutar</span><span class="code-file">Paso 3 · El frontend de hoy</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-bash">npm install</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">Paso 3 · El frontend de hoy · terminal</span><span class="code-reveal-note">Líneas 141–143 de la guía</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block" data-tipo="terminal">
-          <div class="code-head"><div><span class="code-context">Ejecutar</span><span class="code-file">Paso 3 · El frontend de hoy</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-bash">npm start</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">agenda.ts</span><span class="code-reveal-note">editar una línea · en src/app/pages/agenda/ · fragmento</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">editar una línea</span><span class="code-file">src/app/pages/agenda/agenda.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">import { CitasService, Cita } from '../../services/citas.service';</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">index.html</span><span class="code-reveal-note">reemplazar el contenido completo · en src/ · versión final consolidada</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/index.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
-&lt;html lang=&quot;es&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;title&gt;VetCare · Software para clínicas veterinarias&lt;/title&gt;
-  &lt;base href=&quot;/&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-  &lt;meta name=&quot;description&quot; content=&quot;VetCare: agenda, pacientes, historia clínica y facturación diaria para clínicas veterinarias.&quot;&gt;
-  &lt;meta name=&quot;theme-color&quot; content=&quot;#143e52&quot;&gt;
-  &lt;link rel=&quot;icon&quot; type=&quot;image/svg+xml&quot; href=&quot;favicon.svg&quot;&gt;
-  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
-  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
-  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;app-root&gt;&lt;/app-root&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">Cómo crearlo · xml</span><span class="code-reveal-note">Líneas 332–343 de la guía</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">Cómo crearlo</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-markup">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 32 32&quot;&gt;
-  &lt;rect width=&quot;32&quot; height=&quot;32&quot; rx=&quot;8&quot; fill=&quot;#2b7a9e&quot;/&gt;
-  &lt;g fill=&quot;#ffffff&quot;&gt;
-    &lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;2.4&quot;/&gt;
-    &lt;circle cx=&quot;21&quot; cy=&quot;11&quot; r=&quot;2.4&quot;/&gt;
-    &lt;circle cx=&quot;7&quot; cy=&quot;16.5&quot; r=&quot;2.2&quot;/&gt;
-    &lt;circle cx=&quot;25&quot; cy=&quot;16.5&quot; r=&quot;2.2&quot;/&gt;
-    &lt;path d=&quot;M16 15c-3.6 0-7 4-7 7.4 0 1.9 1.5 3.1 3.3 3.1 1.4 0 2.4-.7 3.7-.7s2.3.7 3.7.7c1.8 0 3.3-1.2 3.3-3.1C23 19 19.6 15 16 15z&quot;/&gt;
-  &lt;/g&gt;
-&lt;/svg&gt;</code></pre>
-        </div>
-      </div>
-    </details></div>
+      <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>El menú cambia por rol y se repliega en celular.</h3><p>Con Tab, cada enlace conserva un foco visible y el contenido sigue siendo navegable.</p></div></div>
   </section>
 <section class="section view" id="s15" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Referencia B</span><h2 class="sec-t">Íconos, avisos, diálogo y utilidades</h2><p class="sec-s">Piezas compartidas y conexión inicial a la raíz.</p></div>
-    <div class="body">
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">El patrón que se repite tres veces hoy · text</span><span class="code-reveal-note">Líneas 951–956 de la guía</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">El patrón que se repite tres veces hoy</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-plaintext">Cualquier servicio o página  ──llama──▶  Servicio compartido (guarda un Signal)
-                                                      │
-                                                      ▼
-                                      Componente único en app.html (lo dibuja)</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">Cómo crearlo · typescript</span><span class="code-reveal-note">Líneas 970–1024 de la guía</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">Cómo crearlo</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">import { Component, Input } from '@angular/core';
-
-// Cada ícono es un trazo SVG de 24 x 24. Se dibuja con &quot;currentColor&quot;:
-// toma el color del texto que lo rodea, así un solo ícono sirve en cualquier lugar.
-const TRAZOS = {
-  panel: 'M3 20h18M6 16v-5M11 16V6M16 16v-8',
-  agenda: 'M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM3 10h18M8 3v4M16 3v4',
-  mascotas: 'M8.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM15.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM18.5 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM12 12c-2.5 0-5 3-5 5.5 0 1.4 1.1 2.5 2.5 2.5.9 0 1.6-.5 2.5-.5s1.6.5 2.5.5c1.4 0 2.5-1.1 2.5-2.5 0-2.5-2.5-5.5-5-5.5z',
-  duenos: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20a6 6 0 0 1 12 0M16 5a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6',
-  personal: 'M4 6h16v14H4zM9 3h6v3H9zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8 17a4 4 0 0 1 8 0',
-  salir: 'M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9',
-  menu: 'M4 6h16M4 12h16M4 18h16',
-  cerrar: 'M6 6l12 12M18 6L6 18',
-  mas: 'M12 5v14M5 12h14',
-  basura: 'M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6',
-  buscar: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-4.3-4.3',
-  anterior: 'M15 6l-6 6 6 6',
-  siguiente: 'M9 6l6 6-6 6',
-  ojo: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z',
-  ojoCerrado: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 3l18 18',
-  historia: 'M9 3h6v3H9zM9 4H6a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-3M9 12h6M9 16h4',
-  check: 'M5 12l5 5 9-10',
-  alerta: 'M12 8v5M12 17h.01M10.3 3.9L2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'
-};
-
-export type NombreIcono = keyof typeof TRAZOS;
-
-@Component({
-  selector: 'app-icono',
-  template: `
-    &lt;svg
-      [attr.width]=&quot;tamano&quot;
-      [attr.height]=&quot;tamano&quot;
-      viewBox=&quot;0 0 24 24&quot;
-      fill=&quot;none&quot;
-      stroke=&quot;currentColor&quot;
-      stroke-width=&quot;2&quot;
-      stroke-linecap=&quot;round&quot;
-      stroke-linejoin=&quot;round&quot;
-      aria-hidden=&quot;true&quot;&gt;
-      &lt;path [attr.d]=&quot;trazo&quot;&gt;&lt;/path&gt;
-    &lt;/svg&gt;
-  `,
-  styles: `:host { display: inline-flex; flex-shrink: 0; }`
-})
-export class Icono {
-  @Input() nombre: NombreIcono = 'menu';
-  @Input() tamano = 20;
-
-  get trazo(): string {
-    return TRAZOS[this.nombre];
-  }
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">notificaciones.ts</span><span class="code-reveal-note">crear · en src/app/components/notificaciones/ · completo</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/notificaciones/notificaciones.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">import { Component, inject } from '@angular/core';
-import { NotificacionesService } from '../../services/notificaciones.service';
-import { Icono } from '../icono/icono';
-
-@Component({
-  selector: 'app-notificaciones',
-  imports: [Icono],
-  templateUrl: './notificaciones.html',
-  styleUrl: './notificaciones.css'
-})
-export class Notificaciones {
-  private notificacionesService = inject(NotificacionesService);
-
-  notificaciones = this.notificacionesService.notificaciones;
-
-  cerrar(id: number) {
-    this.notificacionesService.cerrar(id);
-  }
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">notificaciones.html</span><span class="code-reveal-note">crear · en src/app/components/notificaciones/ · completo</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/notificaciones/notificaciones.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-markup">&lt;section class=&quot;notificaciones&quot; aria-live=&quot;polite&quot; aria-label=&quot;Notificaciones&quot;&gt;
-  @for (aviso of notificaciones(); track aviso.id) {
-    &lt;div
-      class=&quot;notificacion&quot;
-      [class]=&quot;'notificacion-' + aviso.tipo&quot;
-      [attr.role]=&quot;aviso.tipo === 'error' ? 'alert' : 'status'&quot;&gt;
-      &lt;app-icono [nombre]=&quot;aviso.tipo === 'error' ? 'alerta' : 'check'&quot; /&gt;
-      &lt;p class=&quot;notificacion-texto&quot;&gt;{{ aviso.mensaje }}&lt;/p&gt;
-      &lt;button type=&quot;button&quot; class=&quot;notificacion-cerrar&quot; aria-label=&quot;Cerrar aviso&quot; (click)=&quot;cerrar(aviso.id)&quot;&gt;
-        &lt;app-icono nombre=&quot;cerrar&quot; [tamano]=&quot;16&quot; /&gt;
-      &lt;/button&gt;
-    &lt;/div&gt;
-  }
-&lt;/section&gt;</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">notificaciones.css</span><span class="code-reveal-note">crear · en src/app/components/notificaciones/ · completo</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/notificaciones/notificaciones.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-css">.notificaciones {
-  position: fixed;
-  right: var(--espacio-sm);
-  bottom: var(--espacio-sm);
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  gap: var(--espacio-xs);
-  width: min(380px, calc(100vw - 32px));
-}
-
-.notificacion {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 12px 14px;
-  border-radius: var(--radio-sm);
-  border-left: 4px solid currentColor;
-  background: var(--superficie);
-  box-shadow: var(--sombra-lg);
-  animation: entrar 0.25s ease-out;
-}
-
-.notificacion-exito {
-  color: var(--exito);
-}
-
-.notificacion-error {
-  color: var(--peligro);
-}
-
-.notificacion-info {
-  color: var(--azul-principal);
-}
-
-.notificacion-texto {
-  flex: 1;
-  color: var(--texto);
-  font-size: var(--texto-sm);
-  font-weight: 600;
-}
-
-.notificacion-cerrar {
-  border: none;
-  background: transparent;
-  color: var(--texto-suave);
-  cursor: pointer;
-}
-
-@keyframes entrar {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">dialogo-confirmacion.ts</span><span class="code-reveal-note">crear · en src/app/components/dialogo-confirmacion/ · completo</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/dialogo-confirmacion/dialogo-confirmacion.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">import { Component, ElementRef, effect, inject, viewChild } from '@angular/core';
-import { ConfirmacionService } from '../../services/confirmacion.service';
-
-@Component({
-  selector: 'app-dialogo-confirmacion',
-  templateUrl: './dialogo-confirmacion.html',
-  styleUrl: './dialogo-confirmacion.css'
-})
-export class DialogoConfirmacion {
-  private confirmacionService = inject(ConfirmacionService);
-
-  peticion = this.confirmacionService.peticion;
-
-  // Referencia al elemento &lt;dialog&gt; real del HTML
-  private dialogo = viewChild.required&lt;ElementRef&lt;HTMLDialogElement&gt;&gt;('dialogo');
-
-  constructor() {
-    // Si hay una petición, se abre como modal; si no, se cierra
-    effect(() =&gt; {
-      const elemento = this.dialogo().nativeElement;
-      if (this.peticion() &amp;&amp; !elemento.open) {
-        elemento.showModal();
-      } else if (!this.peticion() &amp;&amp; elemento.open) {
-        elemento.close();
-      }
-    });
-  }
-
-  responder(respuesta: boolean) {
-    this.confirmacionService.responder(respuesta);
-  }
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">dialogo-confirmacion.html</span><span class="code-reveal-note">crear · en src/app/components/dialogo-confirmacion/ · completo</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/dialogo-confirmacion/dialogo-confirmacion.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-markup">&lt;dialog
-  #dialogo
-  class=&quot;dialogo&quot;
-  aria-labelledby=&quot;dialogo-titulo&quot;
-  (cancel)=&quot;responder(false)&quot;&gt;
-  @if (peticion(); as p) {
-    &lt;h2 id=&quot;dialogo-titulo&quot; class=&quot;dialogo-titulo&quot;&gt;{{ p.titulo }}&lt;/h2&gt;
-    &lt;p class=&quot;dialogo-mensaje&quot;&gt;{{ p.mensaje }}&lt;/p&gt;
-    &lt;div class=&quot;dialogo-acciones&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;btn btn-secundario&quot; (click)=&quot;responder(false)&quot;&gt;Volver&lt;/button&gt;
-      &lt;button type=&quot;button&quot; class=&quot;btn btn-peligro&quot; (click)=&quot;responder(true)&quot;&gt;{{ p.textoConfirmar }}&lt;/button&gt;
-    &lt;/div&gt;
-  }
-&lt;/dialog&gt;</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">dialogo-confirmacion.css</span><span class="code-reveal-note">crear · en src/app/components/dialogo-confirmacion/ · completo</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/components/dialogo-confirmacion/dialogo-confirmacion.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-css">.dialogo {
-  width: min(440px, calc(100vw - 32px));
-  margin: auto;
-  padding: var(--espacio-md);
-  border: none;
-  border-radius: var(--radio);
-  box-shadow: var(--sombra-lg);
-}
-
-.dialogo::backdrop {
-  background: rgba(20, 62, 82, 0.45);
-  backdrop-filter: blur(2px);
-}
-
-.dialogo-titulo {
-  font-size: var(--texto-lg);
-  margin-bottom: var(--espacio-xs);
-}
-
-.dialogo-mensaje {
-  color: var(--texto-suave);
-  margin-bottom: var(--espacio-md);
-}
-
-.dialogo-acciones {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--espacio-xs);
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">formularios.ts</span><span class="code-reveal-note">crear · en src/app/core/ · completo</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/core/formularios.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">// Lee un campo de un formulario por su atributo name, ya sin espacios sobrantes.
-// Si el campo no existe o está vacío, devuelve ''.
-export function leerCampo(datos: FormData, nombre: string): string {
-  return String(datos.get(nombre) ?? '').trim();
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">formato.ts</span><span class="code-reveal-note">crear · en src/app/core/ · completo</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/core/formato.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">// Utilidades de fecha y dinero que usan varias pantallas.
-// Las fechas viajan como texto 'AAAA-MM-DD', igual que las envía el backend.
-
-// Convierte un Date en 'AAAA-MM-DD' usando la hora LOCAL (no UTC)
-export function fechaComoTexto(fecha: Date): string {
-  const mes = String(fecha.getMonth() + 1).padStart(2, '0');
-  const dia = String(fecha.getDate()).padStart(2, '0');
-  return `${fecha.getFullYear()}-${mes}-${dia}`;
-}
-
-export function hoyComoTexto(): string {
-  return fechaComoTexto(new Date());
-}
-
-// Suma (o resta, si dias es negativo) días a una fecha en texto
-export function sumarDias(fechaTexto: string, dias: number): string {
-  const [anio, mes, dia] = fechaTexto.split('-').map(Number);
-  return fechaComoTexto(new Date(anio, mes - 1, dia + dias));
-}
-
-// '2026-10-08' -&gt; 'jueves, 8 de octubre'
-export function fechaLarga(fechaTexto: string): string {
-  const [anio, mes, dia] = fechaTexto.split('-').map(Number);
-  return new Intl.DateTimeFormat('es-CO', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long'
-  }).format(new Date(anio, mes - 1, dia));
-}
-
-const formatoPesos = new Intl.NumberFormat('es-CO', {
-  style: 'currency',
-  currency: 'COP',
-  maximumFractionDigits: 0
-});
-
-export function pesos(valor: number): string {
-  return formatoPesos.format(valor);
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">app.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/ · versión intermedia (la final está en el Bloque 4)</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/app.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">import { Component, inject, computed } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
-import { MascotasService } from './services/mascotas.service';
-import { AuthService } from './services/auth.service';
-import { Notificaciones } from './components/notificaciones/notificaciones';
-import { DialogoConfirmacion } from './components/dialogo-confirmacion/dialogo-confirmacion';
-
-const NOMBRES_DE_ROL = {
-  ADMIN: 'Administración',
-  RECEPCIONISTA: 'Recepción',
-  VETERINARIO: 'Veterinario'
-};
-
-@Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, Notificaciones, DialogoConfirmacion],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
-})
-export class App {
-  private mascotasService = inject(MascotasService);
-  authService = inject(AuthService);
-
-  totalFavoritos = this.mascotasService.totalFavoritos;
-
-  etiquetaRol = computed(() =&gt; {
-    const rol = this.authService.rol();
-    return rol ? NOMBRES_DE_ROL[rol] : '';
-  });
-
-  puedeVerDuenos = computed(() =&gt; this.authService.tieneRol('ADMIN', 'RECEPCIONISTA'));
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">app.html</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/ · versión intermedia (la final está en el Bloque 4)</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/app.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-markup">&lt;nav class=&quot;barra&quot;&gt;
-  &lt;a routerLink=&quot;/&quot; class=&quot;marca&quot;&gt;🐾 VetCare&lt;/a&gt;
-
-  @if (authService.sesionActiva()) {
-    &lt;div class=&quot;barra-links&quot;&gt;
-      &lt;a routerLink=&quot;/agenda&quot; class=&quot;barra-link&quot;&gt;Agenda&lt;/a&gt;
-      &lt;a routerLink=&quot;/mascotas&quot; class=&quot;barra-link&quot;&gt;
-        Mascotas
-        @if (totalFavoritos() &gt; 0) {
-          &lt;span class=&quot;badge&quot;&gt;{{ totalFavoritos() }}&lt;/span&gt;
-        }
-      &lt;/a&gt;
-      @if (puedeVerDuenos()) {
-        &lt;a routerLink=&quot;/duenos&quot; class=&quot;barra-link&quot;&gt;Dueños&lt;/a&gt;
-      }
-    &lt;/div&gt;
-
-    &lt;div class=&quot;barra-usuario&quot;&gt;
-      &lt;span class=&quot;saludo&quot;&gt;Hola, &lt;strong&gt;{{ authService.nombre() }}&lt;/strong&gt;&lt;/span&gt;
-      &lt;span class=&quot;rol-chip&quot;&gt;{{ etiquetaRol() }}&lt;/span&gt;
-      &lt;button type=&quot;button&quot; class=&quot;boton-salir&quot; (click)=&quot;authService.cerrarSesion()&quot;&gt;
-        Cerrar sesión
-      &lt;/button&gt;
-    &lt;/div&gt;
-  } @else {
-    &lt;a routerLink=&quot;/login&quot; class=&quot;barra-link&quot;&gt;Iniciar sesión&lt;/a&gt;
-  }
-&lt;/nav&gt;
-
-&lt;main class=&quot;contenido&quot;&gt;
-  &lt;router-outlet&gt;&lt;/router-outlet&gt;
-&lt;/main&gt;
-
-&lt;app-notificaciones /&gt;
-&lt;app-dialogo-confirmacion /&gt;</code></pre>
-        </div>
-      </div>
-    </details></div>
-  </section>
-<section class="section view" id="s16" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Referencia C</span><h2 class="sec-t">Autenticación, seguridad, login y layout</h2><p class="sec-s">Archivos restantes de los bloques 3 y 4.</p></div>
-    <div class="body">
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">no-encontrada.ts</span><span class="code-reveal-note">crear · en src/app/pages/no-encontrada/ · completo</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/pages/no-encontrada/no-encontrada.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-
-@Component({
-  selector: 'app-no-encontrada',
-  imports: [RouterLink],
-  template: `
-    &lt;section class=&quot;no-encontrada&quot;&gt;
-      &lt;p class=&quot;codigo&quot;&gt;404&lt;/p&gt;
-      &lt;h1 class=&quot;titulo-pagina&quot;&gt;Esta página no existe&lt;/h1&gt;
-      &lt;p class=&quot;subtitulo&quot;&gt;Puede que el enlace esté mal escrito o que la página se haya movido.&lt;/p&gt;
-      &lt;a [routerLink]=&quot;authService.sesionActiva() ? authService.rutaInicial() : '/'&quot; class=&quot;btn btn-primario&quot;&gt;
-        Volver a VetCare
-      &lt;/a&gt;
-    &lt;/section&gt;
-  `,
-  styles: `
-    .no-encontrada {
-      display: grid;
-      justify-items: center;
-      gap: var(--espacio-sm);
-      padding: var(--espacio-xl) var(--espacio-md);
-      text-align: center;
-    }
-
-    .codigo {
-      font-size: 6rem;
-      font-weight: 800;
-      line-height: 1;
-      color: var(--azul-claro);
-      -webkit-text-stroke: 2px var(--azul-principal);
-    }
-  `
-})
-export class NoEncontrada {
-  authService = inject(AuthService);
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">app.routes.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/ · versión intermedia (la final, con Panel y Personal, está en la sección 10.9)</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/app.routes.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">import { Routes } from '@angular/router';
-import { authGuard } from './guards/auth.guard';
-import { rolGuard } from './guards/rol.guard';
-import { invitadoGuard } from './guards/invitado.guard';
-
-export const routes: Routes = [
-  {
-    path: '',
-    title: 'VetCare · Software para clínicas veterinarias',
-    canActivate: [invitadoGuard],
-    loadComponent: () =&gt; import('./pages/inicio/inicio').then(m =&gt; m.Inicio)
-  },
-  {
-    path: 'login',
-    title: 'Iniciar sesión · VetCare',
-    canActivate: [invitadoGuard],
-    loadComponent: () =&gt; import('./pages/login/login').then(m =&gt; m.Login)
-  },
-  {
-    path: 'agenda',
-    title: 'Agenda · VetCare',
-    canActivate: [authGuard],
-    loadComponent: () =&gt; import('./pages/agenda/agenda').then(m =&gt; m.Agenda)
-  },
-  {
-    path: 'mascotas',
-    title: 'Pacientes · VetCare',
-    canActivate: [authGuard],
-    loadComponent: () =&gt;
-      import('./pages/mascotas-listado/mascotas-listado').then(m =&gt; m.MascotasListado)
-  },
-  {
-    path: 'mascotas/:id',
-    title: 'Ficha del paciente · VetCare',
-    canActivate: [authGuard],
-    loadComponent: () =&gt;
-      import('./pages/mascota-detalle/mascota-detalle').then(m =&gt; m.MascotaDetalle)
-  },
-  {
-    path: 'duenos',
-    title: 'Dueños · VetCare',
-    canActivate: [authGuard, rolGuard('ADMIN', 'RECEPCIONISTA')],
-    loadComponent: () =&gt;
-      import('./pages/duenos-listado/duenos-listado').then(m =&gt; m.DuenosListado)
-  },
-  {
-    path: '**',
-    title: 'Página no encontrada · VetCare',
-    loadComponent: () =&gt;
-      import('./pages/no-encontrada/no-encontrada').then(m =&gt; m.NoEncontrada)
-  }
-];</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">login.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/login/ · versión final consolidada</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/pages/login/login.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-typescript">import { Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { Icono } from '../../components/icono/icono';
-import { leerCampo } from '../../core/formularios';
-
-@Component({
-  selector: 'app-login',
-  imports: [RouterLink, Icono],
-  templateUrl: './login.html',
-  styleUrl: './login.css'
-})
-export class Login {
-  private authService = inject(AuthService);
-
-  error = this.authService.error;
-  cargando = this.authService.cargando;
-  mostrarClave = signal(false);
-
-  ingresar(evento: SubmitEvent) {
-    evento.preventDefault();
-    const datos = new FormData(evento.target as HTMLFormElement);
-
-    this.authService.iniciarSesion({
-      username: leerCampo(datos, 'username'),
-      password: leerCampo(datos, 'password')
-    });
-  }
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">login.html</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/login/ · versión final consolidada</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/pages/login/login.html</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-markup">&lt;div class=&quot;login&quot;&gt;
-  &lt;section class=&quot;login-marca&quot;&gt;
-    &lt;a routerLink=&quot;/&quot; class=&quot;marca&quot;&gt;
-      &lt;img src=&quot;favicon.svg&quot; alt=&quot;&quot; width=&quot;36&quot; height=&quot;36&quot;&gt;
-      &lt;span&gt;VetCare&lt;/span&gt;
-    &lt;/a&gt;
-    &lt;div&gt;
-      &lt;p class=&quot;marca-frase&quot;&gt;Menos papeles, más tiempo para tus pacientes.&lt;/p&gt;
-      &lt;ul class=&quot;marca-lista&quot;&gt;
-        &lt;li&gt;&lt;app-icono nombre=&quot;check&quot; [tamano]=&quot;18&quot; /&gt; Agenda del día por veterinario&lt;/li&gt;
-        &lt;li&gt;&lt;app-icono nombre=&quot;check&quot; [tamano]=&quot;18&quot; /&gt; Historia clínica de cada paciente&lt;/li&gt;
-        &lt;li&gt;&lt;app-icono nombre=&quot;check&quot; [tamano]=&quot;18&quot; /&gt; Ingresos diarios en un panel&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;
-
-  &lt;section class=&quot;login-formulario&quot;&gt;
-    &lt;form class=&quot;tarjeta formulario&quot; (submit)=&quot;ingresar($event)&quot;&gt;
-      &lt;h1 class=&quot;titulo-pagina&quot;&gt;Iniciar sesión&lt;/h1&gt;
-      &lt;p class=&quot;subtitulo&quot;&gt;Usa la cuenta que te entregó la administración de la clínica.&lt;/p&gt;
-
-      @if (error()) {
-        &lt;p class=&quot;alerta alerta-error&quot; role=&quot;alert&quot;&gt;{{ error() }}&lt;/p&gt;
-      }
-
-      &lt;label class=&quot;campo&quot;&gt;
-        &lt;span&gt;Usuario&lt;/span&gt;
-        &lt;input name=&quot;username&quot; type=&quot;text&quot; autocomplete=&quot;username&quot; required autofocus&gt;
-      &lt;/label&gt;
-
-      &lt;div class=&quot;campo&quot;&gt;
-        &lt;label for=&quot;clave&quot;&gt;Contraseña&lt;/label&gt;
-        &lt;div class=&quot;campo-clave&quot;&gt;
-          &lt;input
-            id=&quot;clave&quot;
-            name=&quot;password&quot;
-            [type]=&quot;mostrarClave() ? 'text' : 'password'&quot;
-            autocomplete=&quot;current-password&quot;
-            required&gt;
-          &lt;button
-            type=&quot;button&quot;
-            class=&quot;ver-clave&quot;
-            [attr.aria-label]=&quot;mostrarClave() ? 'Ocultar contraseña' : 'Mostrar contraseña'&quot;
-            [attr.aria-pressed]=&quot;mostrarClave()&quot;
-            (click)=&quot;mostrarClave.set(!mostrarClave())&quot;&gt;
-            &lt;app-icono [nombre]=&quot;mostrarClave() ? 'ojoCerrado' : 'ojo'&quot; [tamano]=&quot;18&quot; /&gt;
-          &lt;/button&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;button type=&quot;submit&quot; class=&quot;btn btn-primario btn-bloque&quot; [disabled]=&quot;cargando()&quot;&gt;
-        {{ cargando() ? 'Ingresando...' : 'Ingresar' }}
-      &lt;/button&gt;
-    &lt;/form&gt;
-  &lt;/section&gt;
-&lt;/div&gt;</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">login.css</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/login/ · versión final consolidada</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">reemplazar el contenido completo</span><span class="code-file">src/app/pages/login/login.css</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-css">.login {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-}
-
-/* Mitad izquierda: la marca */
-.login-marca {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: var(--espacio-lg);
-  background: linear-gradient(150deg, var(--azul-profundo), var(--azul-principal));
-  color: #ffffff;
-}
-
-.marca {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #ffffff;
-  font-size: var(--texto-lg);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.marca-frase {
-  max-width: 16ch;
-  margin-bottom: var(--espacio-md);
-  font-size: var(--texto-2xl);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.marca-lista {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--espacio-xs);
-  opacity: 0.9;
-}
-
-.marca-lista li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Mitad derecha: el formulario */
-.login-formulario {
-  display: grid;
-  place-items: center;
-  padding: var(--espacio-md);
-}
-
-.formulario {
-  display: flex;
-  flex-direction: column;
-  gap: var(--espacio-sm);
-  width: min(400px, 100%);
-}
-
-.formulario .alerta {
-  margin-bottom: 0;
-}
-
-.campo-clave {
-  position: relative;
-}
-
-.campo-clave input {
-  padding-right: 44px;
-}
-
-.ver-clave {
-  position: absolute;
-  top: 50%;
-  right: 6px;
-  transform: translateY(-50%);
-  padding: 6px;
-  border: none;
-  background: transparent;
-  color: var(--texto-suave);
-  cursor: pointer;
-}
-
-.btn-bloque {
-  width: 100%;
-  padding: 12px;
-  font-size: var(--texto-base);
-}
-
-@media (max-width: 800px) {
-  .login {
-    grid-template-columns: 1fr;
-  }
-
-  .login-marca {
-    display: none;
-  }
-}</code></pre>
-        </div>
-      </div>
-    </details>
-
-    <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">El patrón profesional · text</span><span class="code-reveal-note">Líneas 2389–2399 de la guía</span></span></summary>
-      <div class="code-reveal-body">
-        <div class="code-block">
-          <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">El patrón profesional</span></div><button class="copy-btn" type="button">Copiar</button></div>
-          <pre class="line-numbers"><code class="language-plaintext">┌────────────┬───────────────────────────────────────────┐
-│  VetCare   │  jueves, 8 de octubre      Laura Gómez  LG│ ← barra superior
-│            ├───────────────────────────────────────────┤
-│  Agenda    │                                           │
-│  Pacientes │            &lt;router-outlet /&gt;              │ ← contenido
-│            │                                           │
-│  [Salir]   │                                           │
-└────────────┴───────────────────────────────────────────┘
-   aside                      main</code></pre>
-        </div>
-      </div>
-    </details></div>
-  </section>
-<section class="section view" id="s17" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Referencia D</span><h2 class="sec-t">Servicios, tarjeta y Agenda</h2><p class="sec-s">Versiones finales consolidadas para copiar.</p></div>
-    <div class="body">
+    <div class="sec-head"><span class="sec-n">Servicios de datos</span><h2 class="sec-t">Cinco servicios adoptan el mismo lenguaje de respuesta</h2><p class="sec-s">Mascotas, Dueños, Veterinarios, Citas y Usuarios notifican acciones sin esconder los errores que la pantalla debe explicar.</p></div>
+    <div class="body"><div class="pipeline" role="group" aria-label="Patrón de servicios de datos"><div class="pipe-step"><span class="component-label">Petición</span><h3>La pantalla actúa</h3><p>Crea, atiende, cancela o elimina.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step" data-emphasis><span class="component-label">Servicio</span><h3>Llama a la API</h3><p>Conserva su responsabilidad técnica.</p></div><div class="pipe-arrow" aria-hidden="true">→</div><div class="pipe-step"><span class="component-label">Resultado</span><h3>Notifica</h3><p>El usuario recibe una señal coherente.</p></div></div>
+      <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>Un patrón, cinco aplicaciones</h3><p>Los errores de carga permanecen en su pantalla; las operaciones exitosas o fallidas producen un aviso global.</p></div></div>
+      
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">mascotas.service.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/services/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
@@ -2702,8 +2665,11 @@ export class UsuariosService {
 &lt;/div&gt;</code></pre>
         </div>
       </div>
-    </details>
-
+    </details></div>
+  </section>
+<section class="section view" id="s16" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Agenda</span><h2 class="sec-t">La jornada clínica se organiza por día y por responsabilidad</h2><p class="sec-s">Navegación temporal, formularios con etiquetas, agendamiento, atención y cancelación quedan en el lugar donde se usan.</p></div>
+    <div class="body">
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">agenda.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/agenda/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
@@ -3200,10 +3166,11 @@ export class Agenda {
 }</code></pre>
         </div>
       </div>
-    </details></div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Resultado por rol</span><h3>Cada persona ve las acciones que corresponden a su trabajo.</h3><p>Recepción agenda y cancela; veterinaria atiende; administración consulta los ingresos.</p></div></div>
   </section>
-<section class="section view" id="s18" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Referencia E</span><h2 class="sec-t">Pacientes, historia clínica, Dueños e Inicio</h2><p class="sec-s">Cada pantalla conserva TypeScript, HTML y CSS completos.</p></div>
+<section class="section view" id="s17" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Pacientes</span><h2 class="sec-t">El listado de mascotas permite encontrar y registrar sin abandonar el contexto</h2><p class="sec-s">Filtros por especie, búsqueda por dueño y formulario plegable reducen ruido y mantienen la tarea principal visible.</p></div>
     <div class="body">
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">mascotas-listado.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/mascotas-listado/ · versión final consolidada</span></span></summary>
@@ -3472,7 +3439,12 @@ export class MascotasListado {
         </div>
       </div>
     </details>
-
+      <div class="checkpoint"><span class="component-label">Verificación</span><h3>Buscar, filtrar y registrar forman un solo recorrido.</h3><p>El formulario se abre cuando hace falta y vuelve a liberar espacio después.</p></div></div>
+  </section>
+<section class="section view" id="s18" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Historia clínica</span><h2 class="sec-t">La ficha del paciente conecta identidad e historia real</h2><p class="sec-s">Antes de atender, veterinaria necesita comprender lo que ocurrió en consultas anteriores.</p></div>
+    <div class="body"><div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>La necesidad clínica</h3><p>El endpoint ya existía; ahora sus datos se organizan para decidir con contexto y no como una lista técnica.</p></div></div>
+      
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">mascota-detalle.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/mascota-detalle/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
@@ -3806,7 +3778,11 @@ export class MascotaDetalle {
         </div>
       </div>
     </details>
-
+      <div class="checkpoint"><span class="component-label">Resultado</span><h3>Datos del paciente, dueño y consultas se leen como una historia.</h3><p>El diseño responde a la decisión clínica, no solo a la forma de la API.</p></div></div>
+  </section>
+<section class="section view" id="s19" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Dueños</span><h2 class="sec-t">El directorio de responsables incorpora búsqueda y reglas de negocio</h2><p class="sec-s">La tabla es accesible; eliminar requiere confirmación y un conflicto 409 se explica sin romper el flujo.</p></div>
+    <div class="body">
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">duenos-listado.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/duenos-listado/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
@@ -4001,7 +3977,11 @@ export class DuenosListado {
         </div>
       </div>
     </details>
-
+      <div class="checkpoint"><span class="component-label">Regla visible</span><h3>Un dueño con mascotas asociadas no se elimina.</h3><p>La interfaz traduce la respuesta del backend en una explicación accionable.</p></div></div>
+  </section>
+<section class="section view" id="s20" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Inicio</span><h2 class="sec-t">La primera pantalla explica VetCare en cinco segundos</h2><p class="sec-s">Qué es, para quién sirve y cómo se entra dejan de depender de una explicación externa.</p></div>
+    <div class="body">
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">inicio.ts</span><span class="code-reveal-note">reemplazar el contenido completo · en src/app/pages/inicio/ · versión final consolidada</span></span></summary>
       <div class="code-reveal-body">
@@ -4204,26 +4184,28 @@ main {
 }</code></pre>
         </div>
       </div>
-    </details></div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Prueba rápida</span><h3>Una persona nueva puede describir el producto sin iniciar sesión.</h3><p>La portada orienta; el login queda reservado para comenzar el trabajo.</p></div></div>
   </section>
-<section class="section view" id="s19" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
-    <div class="sec-head"><span class="sec-n">Referencia F</span><h2 class="sec-t">Panel, Personal y rutas finales</h2><p class="sec-s">La administración y el cierre de la navegación.</p></div>
-    <div class="body">
+<section class="section view" id="s21" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Panel administrativo</span><h2 class="sec-t">Los datos autorizados se convierten en decisiones de operación</h2><p class="sec-s">Indicadores, gráfica semanal y actividad del equipo responden a las preguntas de la administradora.</p></div>
+    <div class="body"><div class="socratica"><span class="component-label">Criterio profesional</span><p class="socratica-q">¿Está mal calcular ingresos en Angular si el frontend no es confiable?</p><details class="reveal"><summary>Ver respuesta</summary><div class="reveal-body"><p class="lead-answer">Mostrar no es proteger.</p><p>El cliente puede resumir datos que el backend ya autorizó. No puede usar ese cálculo para permisos, cobros o reglas críticas. Con miles de citas convendría un endpoint agregado; con este volumen, el cálculo local es razonable.</p></div></details></div>
+      
     <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">Cómo crearlo · terminal</span><span class="code-reveal-note">Líneas 5087–5089 de la guía</span></span></summary>
+      <summary><span><span class="code-reveal-title">Comando para panel.ts</span><span class="code-reveal-note">crear · en src/app/pages/panel/ · completo</span></span></summary>
       <div class="code-reveal-body">
         <div class="code-block" data-tipo="terminal">
-          <div class="code-head"><div><span class="code-context">Ejecutar</span><span class="code-file">Cómo crearlo</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/pages/panel/panel.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
           <pre class="line-numbers"><code class="language-bash">ng generate component pages/panel --skip-tests</code></pre>
         </div>
       </div>
     </details>
 
     <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">Cómo crearlo · typescript</span><span class="code-reveal-note">Líneas 5093–5204 de la guía</span></span></summary>
+      <summary><span><span class="code-reveal-title">panel.ts</span><span class="code-reveal-note">crear · en src/app/pages/panel/ · completo</span></span></summary>
       <div class="code-reveal-body">
         <div class="code-block">
-          <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">Cómo crearlo</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/pages/panel/panel.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
           <pre class="line-numbers"><code class="language-typescript">import { Component, inject, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CitasService } from '../../services/citas.service';
@@ -4421,7 +4403,8 @@ export class Panel {
         </div>
       </div>
     </details>
-
+      <div class="momento-ia"><div class="momento-ia-head"><span class="momento-ia-titulo">Momento IA</span><span class="ia-nivel">Nivel 2 · Copiloto</span><span class="ia-herramienta">Copilot VS Code o chat</span></div><div class="momento-ia-body"><p class="ia-porque">La IA puede proponer el CSS del Panel después de que el grupo entiende el sistema de diseño y puede auditar sus límites.</p><div class="ia-grid"><div><span class="component-label">Primero razonas tú</span><p>Decide qué clases necesitan estilos propios y cuáles ya existen de forma global.</p></div><div class="ia-no-delega"><span class="component-label">No se delega</span><p>Qué indicadores ve la dueña ni cómo se calculan: eso es negocio.</p></div></div><div class="code-block" data-tipo="prompt"><div class="code-head"><div><span class="code-context">Prompt sugerido</span><span class="code-file">Panel · CSS</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-plaintext">Tengo un sistema de diseño en styles.css con estas variables: --azul-principal, --azul-oscuro, --azul-profundo, --superficie, --borde, --texto-suave, --espacio-xs a --espacio-lg, --radio, --radio-sm, --sombra, --transicion, --texto-xs, --texto-sm y --texto-xl. Ya existen las clases globales .tarjeta, .tabla y .titulo-seccion. Te paso panel.html. Escribe panel.css solo para las clases que no existen. La gráfica es de barras verticales hecha con CSS: cada .columna es una columna flex, .columna-pista es el espacio de la barra, .columna-barra crece con height en porcentaje, con esquinas superiores redondeadas de 4 px y 2 px de separación entre barras. .columna-valor es un globo que aparece encima de la barra al hacer hover o focus-visible en .columna. Usa solo las variables (nada de colores sueltos salvo #ffffff). En pantallas de menos de 1000 px, .panel-cuerpo pasa a una columna. Explica cada bloque en una línea.</code></pre></div><div><span class="component-label">Cómo validar</span><ul class="checklist"><li>No redefine clases globales.</li><li>No inventa colores fuera del blanco permitido.</li><li>El globo funciona con mouse y con Tab.</li><li><code>ng serve</code> no supera el budget.</li><li>Se compara con la referencia completa.</li></ul></div></div></div>
+      
     <details class="code-reveal" data-reference="true">
       <summary><span><span class="code-reveal-title">panel.css</span><span class="code-reveal-note">reemplazar el contenido generado · en src/app/pages/panel/ · completo (versión de referencia)</span></span></summary>
       <div class="code-reveal-body">
@@ -4572,23 +4555,27 @@ export class Panel {
 }</code></pre>
         </div>
       </div>
-    </details>
-
+    </details></div>
+  </section>
+<section class="section view" id="s22" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+    <div class="sec-head"><span class="sec-n">Personal y rutas finales</span><h2 class="sec-t">La administradora incorpora al equipo y cierra el mapa de navegación</h2><p class="sec-s">Paula Mejía obtiene una cuenta vinculada con su ficha profesional; Panel y Personal entran a las rutas definitivas.</p></div>
+    <div class="body"><div class="active-build"><div class="build-step"><span class="build-step-index">01</span><div class="build-step-copy"><h3 class="build-step-title">Crear la ficha profesional</h3><p class="build-step-purpose">La veterinaria existe como integrante del equipo clínico.</p></div></div><div class="build-step"><span class="build-step-index">02</span><div class="build-step-copy"><h3 class="build-step-title">Crear su cuenta</h3><p class="build-step-purpose">Usuario, rol y contraseña quedan asociados a la persona correcta.</p></div></div><div class="build-step"><span class="build-step-index">03</span><div class="build-step-copy"><h3 class="build-step-title">Completar las rutas</h3><p class="build-step-purpose">El layout y los guards llevan a cada rol a su espacio.</p></div></div></div>
+      
     <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">Cómo crearlo · terminal</span><span class="code-reveal-note">Líneas 5503–5505 de la guía</span></span></summary>
+      <summary><span><span class="code-reveal-title">Comando para personal.ts</span><span class="code-reveal-note">crear · en src/app/pages/personal/ · completo</span></span></summary>
       <div class="code-reveal-body">
         <div class="code-block" data-tipo="terminal">
-          <div class="code-head"><div><span class="code-context">Ejecutar</span><span class="code-file">Cómo crearlo</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/pages/personal/personal.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
           <pre class="line-numbers"><code class="language-bash">ng generate component pages/personal --skip-tests</code></pre>
         </div>
       </div>
     </details>
 
     <details class="code-reveal" data-reference="true">
-      <summary><span><span class="code-reveal-title">Cómo crearlo · typescript</span><span class="code-reveal-note">Líneas 5507–5581 de la guía</span></span></summary>
+      <summary><span><span class="code-reveal-title">personal.ts</span><span class="code-reveal-note">crear · en src/app/pages/personal/ · completo</span></span></summary>
       <div class="code-reveal-body">
         <div class="code-block">
-          <div class="code-head"><div><span class="code-context">Referencia</span><span class="code-file">Cómo crearlo</span></div><button class="copy-btn" type="button">Copiar</button></div>
+          <div class="code-head"><div><span class="code-context">crear</span><span class="code-file">src/app/pages/personal/personal.ts</span></div><button class="copy-btn" type="button">Copiar</button></div>
           <pre class="line-numbers"><code class="language-typescript">import { Component, inject, computed, signal } from '@angular/core';
 import { VeterinariosService } from '../../services/veterinarios.service';
 import { UsuariosService } from '../../services/usuarios.service';
@@ -4897,15 +4884,89 @@ export const routes: Routes = [
 ];</code></pre>
         </div>
       </div>
-    </details></div>
-  </section><section class="section view" id="s20" data-accent="1" data-layout="canvas" data-escena="cierre" hidden>
-    <div class="sec-head"><span class="sec-n">Cierre del proyecto</span><h2 class="sec-t">VetCare pasó de “funciona” a “se puede entregar”</h2><p class="sec-s">El backend no cambió: lo que cambió fue la calidad del producto que las personas experimentan.</p></div>
+    </details>
+      <div class="checkpoint"><span class="component-label">Cierre de implementación</span><h3>Panel, Personal, Dueños, Pacientes, Agenda e Historia ya están conectados.</h3><p>Ahora se prueba el producto completo en el mismo orden en que una clínica lo utiliza.</p></div></div>
+  </section>
+<section class="section view" id="s23" data-accent="1" data-layout="canvas" data-escena="practica" hidden>
+    <div class="sec-head"><span class="sec-n">Traza completa</span><h2 class="sec-t">Un día en VetCare une todas las piezas construidas</h2><p class="sec-s">La historia de uso comprueba que las pantallas no son ejercicios aislados.</p></div>
     <div class="body">
-    <ol class="ideas"><li><span><strong>Un sistema de diseño</strong> convierte decisiones visuales en variables y componentes reutilizables.</span></li><li><span><strong>Las piezas compartidas</strong> separan el estado de la forma en que se muestra.</span></li><li><span><strong>Un flujo autenticado completo</strong> cubre inicio, uso, salida voluntaria y vencimiento.</span></li></ol>
-    <div class="socratica"><span class="component-label">Pregunta para llevarse</span><p class="socratica-q">Si VetCare debiera pasar de una clínica a cincuenta, ¿qué cambiarías primero en backend, frontend y despliegue?</p><details class="reveal"><summary>Abrir puente</summary><div class="reveal-body"><p class="lead-answer">La siguiente necesidad ya no es una pantalla: es multi-tenancy, operación y publicación.</p><p>El producto debe separar los datos de cada clínica, escalar sus consultas, gestionar configuración por organización y desplegarse con observabilidad y copias de seguridad.</p></div></details></div>
-    <div class="table-wrap"><table class="data-table"><caption>Mapa completo de archivos de la clase</caption><thead><tr><th>Archivo</th><th>Ruta</th><th>Acción</th><th>Estado final</th></tr></thead><tbody><tr><td><code>registro/</code> (carpeta)</td><td><code>src/app/pages/</code></td><td><strong>Eliminar</strong></td><td>—</td></tr><tr><td><code>citas.services.ts</code> → <code>citas.service.ts</code></td><td><code>src/app/services/</code></td><td><strong>Renombrar</strong> y reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>index.html</code></td><td><code>src/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>favicon.svg</code></td><td><code>public/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>styles.css</code></td><td><code>src/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>icono.ts</code></td><td><code>src/app/components/icono/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>notificaciones.service.ts</code></td><td><code>src/app/services/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>notificaciones.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/components/notificaciones/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>confirmacion.service.ts</code></td><td><code>src/app/services/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>dialogo-confirmacion.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/components/dialogo-confirmacion/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>formularios.ts</code></td><td><code>src/app/core/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>formato.ts</code></td><td><code>src/app/core/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>auth.service.ts</code></td><td><code>src/app/services/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>jwt.interceptor.ts</code></td><td><code>src/app/interceptors/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>invitado.guard.ts</code></td><td><code>src/app/guards/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>no-encontrada.ts</code></td><td><code>src/app/pages/no-encontrada/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>login.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/login/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>app.ts</code> / <code>app.html</code></td><td><code>src/app/</code></td><td>Reemplazar (2 versiones)</td><td>Versión final en el Bloque 4</td></tr><tr><td><code>app.css</code></td><td><code>src/app/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>mascotas.service.ts</code>, <code>duenos.service.ts</code>, <code>veterinarios.service.ts</code></td><td><code>src/app/services/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>usuarios.service.ts</code></td><td><code>src/app/services/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>mascota-card.html</code></td><td><code>src/app/components/mascota-card/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>agenda.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/agenda/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>mascotas-listado.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>mascota-detalle.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>duenos-listado.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/duenos-listado/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>inicio.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/inicio/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>panel.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/panel/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>personal.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/personal/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>app.routes.ts</code></td><td><code>src/app/</code></td><td>Reemplazar (2 versiones)</td><td>Versión final en la sección 10.10</td></tr></tbody></table></div>
-    <div class="papel"><span class="component-label">Fuentes técnicas consultadas</span><ul class="checklist"><li>Documentación oficial de Angular: Signals, rutas, estilos y seguridad.</li><li>MDN: dialog, FormData, Promise, temporizadores, Intl, CSS y accesibilidad.</li><li>WAI-ARIA Authoring Practices: estados, alertas, expansión y diálogo modal.</li><li>OWASP: XSS y almacenamiento de tokens en el navegador.</li><li>Spring Boot: propiedades por línea de comandos.</li></ul></div>
-    <footer class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</footer></div>
+    <div class="code-block">
+      <div class="code-head"><div><span class="code-context">Traza de usuario</span><span class="code-file">Recorrido completo de un día en la clínica</span></div><button class="copy-btn" type="button">Copiar</button></div>
+      <pre class="line-numbers"><code class="language-plaintext">08:00  Juliana abre http://localhost:4200/
+       ↓ invitadoGuard: sin sesión → muestra Inicio (title &quot;VetCare · Software para…&quot;)
+       ↓ clic en &quot;Ingresar al sistema&quot; → /login (invitadoGuard ✔)
+08:01  Escribe recepcion / vetcare123 → Ingresar
+       ↓ cargando = true → botón &quot;Ingresando...&quot; desactivado
+       ↓ POST /api/auth/login (interceptor NO adjunta token: ruta /auth/)
+       ↓ 200 { token } → tokenSignal.set → localStorage
+       ↓ computed: sesionActiva = true · usuario = &quot;recepcion&quot; · rol = RECEPCIONISTA
+       ↓ effect de AuthService: programa la alarma de vencimiento (24 h)
+       ↓ effect de cada servicio: usuario cambió → GET mascotas, dueños, veterinarios, citas (con Bearer)
+       ↓ aviso verde &quot;¡Hola, Juliana Pérez!&quot; · navigateByUrl(rutaInicial() = '/agenda')
+       ↓ app.html: sesionActiva → layout con menú (Agenda · Pacientes · Dueños)
+08:05  Agenda la cita de Firulais a las 17:30 con Paula Mejía
+       ↓ FormData lee mascotaId, veterinarioId, fecha, hora, motivo
+       ↓ POST /api/citas → @PreAuthorize(ADMIN, RECEPCIONISTA) ✔ → 201
+       ↓ la lista se actualiza + aviso &quot;Cita de Firulais agendada a las 17:30.&quot;
+08:10  Cancela la cita de Michi
+       ↓ await confirmacion.confirmar(...) → el &lt;dialog&gt; se abre con showModal()
+       ↓ &quot;Sí, cancelar cita&quot; → la promesa se resuelve en true
+       ↓ PATCH /api/citas/{id}/cancelar → 200 → chip CANCELADA + aviso
+12:00  Juliana cierra sesión
+       ↓ borrarToken → usuario = null → cada servicio limpia su lista
+       ↓ effect de AuthService: alLimpiar cancela la alarma pendiente
+       ↓ aviso &quot;Cerraste sesión&quot; → /login
+15:25  Entra dra.mejia (cuenta creada por el admin)
+       ↓ rutaInicial = '/agenda' → GET /api/citas/mias (solo sus citas)
+       ↓ menú: Mi agenda · Pacientes
+15:30  Clic en &quot;Rocky&quot; → /mascotas/3
+       ↓ @Input set id(&quot;3&quot;) → idMascota = 3 → effect → GET /api/citas/mascota/3
+       ↓ ficha + línea de tiempo con la historia
+15:40  Vuelve a Mi agenda → Atender → notas + costo → PATCH /atender → ATENDIDA
+...    Al día siguiente, a la hora exacta de exp:
+       ↓ setTimeout dispara expirarSesion() → aviso &quot;Tu sesión venció&quot; → /login</code></pre>
+    </div>
+      <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>Una sola historia, múltiples roles</h3><p>Administración prepara el sistema, recepción organiza la jornada y veterinaria registra la atención sin romper el contexto.</p></div></div></div>
+  </section>
+<section class="section view" id="s24" data-accent="1" data-layout="canvas" data-escena="practica" hidden>
+    <div class="sec-head"><span class="sec-n">Pruebas 1–14</span><h2 class="sec-t">Primero se prueba lo que ocurre sin sesión</h2><p class="sec-s">La preparación del entorno y las rutas públicas deben ser predecibles antes de entrar como un rol.</p></div>
+    <div class="body"><div class="table-wrap"><table class="data-table"><caption>Preparación del entorno</caption><thead><tr><th>Terminal</th><th>Carpeta</th><th>Comando</th><th>Señal de que está bien</th></tr></thead><tbody><tr><td class="num">1</td><td><code>Clase4_Oct_08/backend</code></td><td><code>mvnw.cmd spring-boot:run</code></td><td><code>Started VetcareApplication</code></td></tr><tr><td class="num">2</td><td><code>Clase4_Oct_08/vetcare-frontend</code></td><td><code>npm start</code></td><td><code>Local: http://localhost:4200/</code></td></tr></tbody></table></div><div class="table-wrap"><table class="data-table"><caption>Pruebas sin sesión</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado</th></tr></thead><tbody><tr><td class="num">1</td><td>Abrir <code>http://localhost:4200/</code></td><td>Página de Inicio con el título grande, tres beneficios y el pie. Pestaña: &quot;VetCare · Software para clínicas veterinarias&quot;, con la huella azul</td></tr><tr><td class="num">2</td><td>Escribir <code>http://localhost:4200/agenda</code></td><td>Redirige a <code>/login</code>. Pestaña: &quot;Iniciar sesión · VetCare&quot;</td></tr><tr><td class="num">3</td><td>Escribir <code>http://localhost:4200/esto-no-existe</code></td><td>Página 404 &quot;Esta página no existe&quot;; el botón lleva a Inicio</td></tr><tr><td class="num">4</td><td>En el login, dar clic en Ingresar con los campos vacíos</td><td>El navegador marca &quot;Completa este campo&quot; y <strong>no</strong> sale ninguna petición (verificar en <strong>Red</strong>)</td></tr><tr><td class="num">5</td><td><code>admin</code> / <code>mala</code></td><td>Alerta roja &quot;Usuario o contraseña incorrectos.&quot; En <strong>Red</strong>, <code>login</code> → <code>401</code></td></tr><tr><td class="num">6</td><td>Escribir algo en Contraseña y tocar el ojo</td><td>Se ve el texto; el ícono cambia a ojo tachado. Tocar de nuevo lo oculta</td></tr><tr><td class="num">7</td><td>Reducir la ventana a menos de 800 px de ancho</td><td>Desaparece la mitad azul; el formulario ocupa todo</td></tr></tbody></table></div>
+      <div class="checkpoint"><span class="component-label">Criterio</span><h3>Inicio, login, recuperación de sesión y 404 se entienden sin ayuda.</h3><p>Ninguna ruta privada queda expuesta por un error de navegación.</p></div></div>
+  </section>
+<section class="section view" id="s25" data-accent="1" data-layout="canvas" data-escena="practica" hidden>
+    <div class="sec-head"><span class="sec-n">Pruebas 15–27</span><h2 class="sec-t">Administración recorre el producto completo</h2><p class="sec-s">Indicadores, equipo, datos clínicos y permisos se verifican desde la cuenta con mayor alcance.</p></div>
+    <div class="body"><div class="table-wrap"><table class="data-table"><caption>Pruebas con rol administración</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado (base nueva)</th></tr></thead><tbody><tr><td class="num">8</td><td>Iniciar sesión</td><td>El botón dice &quot;Ingresando...&quot; un instante. Aviso verde &quot;¡Hola, Carolina Rojas!&quot;. Llega a <code>/panel</code></td></tr><tr><td class="num">9</td><td>Mirar el menú lateral</td><td>Panel (resaltado) · Agenda · Pacientes · Dueños · Personal. Arriba: fecha de hoy, &quot;Carolina Rojas · Administración&quot;, avatar &quot;CR&quot;</td></tr><tr><td class="num">10</td><td>Mirar los indicadores</td><td>Citas de hoy <strong>6</strong> (6 por atender) · Pacientes <strong>6</strong> (de 4 familias). Ingresos del mes y cancelación dependen del día del mes (ver nota)</td></tr><tr><td class="num">11</td><td>Pasar el mouse por las barras de la gráfica</td><td>Aparece el globo con el valor de cada día. Con Tab, el globo aparece al enfocar cada barra</td></tr><tr><td class="num">12</td><td>Escribir <code>http://localhost:4200/login</code></td><td>Vuelve a <code>/panel</code> (invitadoGuard)</td></tr><tr><td class="num">13</td><td>Ir a <strong>Personal</strong></td><td>Equipo médico: Laura Gómez (<code>dra.gomez</code>), Andrés Ruiz (<code>dr.ruiz</code>), Paula Mejía (<strong>Sin cuenta</strong>, chip ámbar). Cuentas: al menos admin, recepcion, dra.gomez, dr.ruiz</td></tr><tr><td class="num">14</td><td>Abrir &quot;Crear cuenta&quot;: nombre <code>Paula Mejía</code>, usuario <code>dra.mejia</code>, contraseña <code>vetcare123</code>, rol <strong>Veterinario</strong></td><td>Al elegir Veterinario aparece &quot;¿Qué veterinario es?&quot;, con <strong>solo</strong> Paula Mejía en la lista</td></tr><tr><td class="num">15</td><td>Elegir Paula Mejía → Crear cuenta</td><td>Aviso verde <code>Cuenta &quot;dra.mejia&quot; creada. Ya puede iniciar sesión.</code> La tabla de veterinarios muestra <code>dra.mejia</code> en verde junto a Paula</td></tr><tr><td class="num">16</td><td>Repetir la prueba 14 y 15 con el mismo usuario</td><td>Aviso rojo <code>El username dra.mejia ya esta registrado</code> (<code>409</code>)</td></tr><tr><td class="num">17</td><td>Ir a <strong>Dueños</strong> → botón de basura de Ana Torres</td><td>Se abre el diálogo &quot;¿Eliminar a Ana Torres?&quot; con el fondo oscurecido</td></tr><tr><td class="num">18</td><td>Presionar la tecla Escape</td><td>El diálogo se cierra; no pasa nada más</td></tr><tr><td class="num">19</td><td>Repetir y elegir &quot;Sí, eliminar&quot;</td><td>Aviso rojo <code>No se puede eliminar: el dueño tiene mascotas registradas</code> (<code>409</code>). Ana Torres sigue en la tabla</td></tr><tr><td class="num">20</td><td>Registrar un dueño de prueba (documento <code>123456</code>) y eliminarlo</td><td>Aviso verde de registro, y después aviso verde &quot;... fue eliminado.&quot;</td></tr><tr><td class="num">21</td><td>Ir a <strong>Agenda</strong></td><td>Título &quot;Agenda de la clínica&quot;, cuatro tarjetas (la cuarta, azul, &quot;Ingresos del día&quot;)</td></tr></tbody></table></div>
+      <div class="callout" data-tone="info"><span class="callout-icon">i</span><div><h3>No basta con que “abra”</h3><p>Cada prueba debe comprobar datos, acción, aviso, confirmación y regreso al estado esperado.</p></div></div></div>
+  </section>
+<section class="section view" id="s26" data-accent="1" data-layout="canvas" data-escena="practica" hidden>
+    <div class="sec-head"><span class="sec-n">Pruebas 28–38</span><h2 class="sec-t">Recepción y veterinaria ven productos distintos sobre la misma base</h2><p class="sec-s">Los menús, acciones y primeras pantallas confirman que el rol organiza la experiencia.</p></div>
+    <div class="body"><div class="table-wrap"><table class="data-table"><caption>Pruebas con rol recepción</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado (base nueva)</th></tr></thead><tbody><tr><td class="num">22</td><td>Cerrar sesión desde el menú</td><td>Aviso &quot;Cerraste sesión. ¡Hasta pronto!&quot; y el login</td></tr><tr><td class="num">23</td><td>Iniciar como <code>recepcion</code></td><td>Aviso &quot;¡Hola, Juliana Pérez!&quot;. Llega a <code>/agenda</code>. Menú: Agenda · Pacientes · Dueños (<strong>sin</strong> Panel ni Personal)</td></tr><tr><td class="num">24</td><td>Mirar la agenda</td><td>6 citas: 08:30 Firulais, 09:30 Michi, 10:00 Max, 11:30 Tambor, 14:00 Luna, 15:30 Rocky. Tres tarjetas (sin ingresos)</td></tr><tr><td class="num">25</td><td>Clic en la flecha ◀</td><td>Subtítulo &quot;miércoles, 7 de octubre · ...&quot; (el día anterior), con sus citas (una atendida y una cancelada en base nueva). &quot;Hoy&quot; se habilita</td></tr><tr><td class="num">26</td><td>Clic en &quot;Hoy&quot;</td><td>Vuelve a hoy; el botón &quot;Hoy&quot; queda desactivado</td></tr><tr><td class="num">27</td><td>Agendar: Firulais, Paula Mejía, hoy, hora <code>17:30</code>, motivo &quot;Control de piel&quot;</td><td>Aviso verde <code>Cita de Firulais agendada a las 17:30.</code> Aparece de última; resumen 7 citas</td></tr><tr><td class="num">28</td><td>Intentar agendar con hora <code>21:00</code></td><td>El navegador no envía: avisa que el valor debe ser 19:00 o anterior</td></tr><tr><td class="num">29</td><td>Cancelar la cita de Michi (09:30) → &quot;Sí, cancelar cita&quot;</td><td>Diálogo propio (no el gris del navegador). Luego chip gris CANCELADA, la tarjeta se atenúa y aviso azul <code>Cita de Michi cancelada.</code></td></tr><tr><td class="num">30</td><td>Ir a <strong>Pacientes</strong> → chip &quot;Gato&quot;</td><td>Solo Michi y Luna</td></tr><tr><td class="num">31</td><td>Escribir &quot;carlos&quot; en el buscador</td><td>Luna y Max (el dueño es Carlos Rincón)</td></tr><tr><td class="num">32</td><td>Abrir &quot;Registrar nuevo paciente&quot; y registrar uno</td><td>Aviso verde &quot;... ya es paciente de VetCare.&quot;</td></tr><tr><td class="num">33</td><td>Escribir <code>http://localhost:4200/panel</code></td><td>Vuelve a <code>/agenda</code> (rolGuard)</td></tr></tbody></table></div><div class="table-wrap"><table class="data-table"><caption>Pruebas con rol veterinaria</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado (base nueva)</th></tr></thead><tbody><tr><td class="num">34</td><td>Cerrar sesión e iniciar como <code>dra.mejia</code> / <code>vetcare123</code></td><td>&quot;¡Hola, Paula Mejía!&quot;. Menú: <strong>Mi agenda</strong> · Pacientes. Avatar &quot;PM&quot;</td></tr><tr><td class="num">35</td><td>Mirar Mi agenda</td><td>Solo sus citas: 15:30 Rocky y la de las 17:30 (Firulais). Sin &quot;Atiende:&quot; (es ella), sin formulario de agendar, sin botones de cancelar</td></tr><tr><td class="num">36</td><td>Clic en <strong>Atender</strong> (15:30 Rocky)</td><td>Se abre el formulario con &quot;Diagnóstico y tratamiento&quot; y &quot;Costo de la consulta (COP)&quot;</td></tr><tr><td class="num">37</td><td>Notas &quot;Dermatitis leve. Champú medicado.&quot; y costo <code>80000</code> → Guardar atención</td><td>Tarjeta verde, chip ATENDIDA, la nota con &quot;$ 80.000&quot; y aviso <code>Atención de Rocky registrada.</code></td></tr><tr><td class="num">38</td><td>Clic en el nombre <strong>Rocky</strong></td><td>Ficha: foto, Especie Perro, Raza Labrador, Edad 6 años, Dueño Ana Torres, Última atención: hoy. Historia clínica con la atención recién guardada <strong>arriba</strong></td></tr><tr><td class="num">39</td><td>Escribir <code>http://localhost:4200/duenos</code></td><td>Vuelve a <code>/agenda</code></td></tr><tr><td class="num">40</td><td>Ir a Pacientes</td><td>Sin el formulario de registro</td></tr></tbody></table></div>
+      <div class="checkpoint"><span class="component-label">Criterio</span><h3>Ver menos no es una limitación accidental.</h3><p>La interfaz muestra solo lo necesario y el backend conserva la protección real.</p></div></div>
+  </section>
+<section class="section view" id="s27" data-accent="1" data-layout="canvas" data-escena="practica" hidden>
+    <div class="sec-head"><span class="sec-n">Pruebas 39–48</span><h2 class="sec-t">Celular, XSS y vencimiento ponen a prueba los bordes del flujo</h2><p class="sec-s">La clase no termina en el camino feliz: también comprueba adaptación, entrada hostil y salida automática.</p></div>
+    <div class="body"><div class="table-wrap"><table class="data-table"><caption>Pruebas responsive</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado</th></tr></thead><tbody><tr><td class="num">41</td><td>DevTools → <em>Toggle device toolbar</em> (<code>Ctrl + Shift + M</code>) → iPhone 12 Pro</td><td>Sin menú lateral; arriba, el botón de tres líneas y el avatar</td></tr><tr><td class="num">42</td><td>Tocar el botón de menú</td><td>El menú se desliza desde la izquierda con el fondo oscuro</td></tr><tr><td class="num">43</td><td>Tocar &quot;Pacientes&quot;</td><td>Navega y el menú se cierra solo</td></tr><tr><td class="num">44</td><td>Mirar la agenda</td><td>Cada cita en una columna; las tarjetas del resumen se acomodan en dos columnas</td></tr></tbody></table></div><div class="table-wrap"><table class="data-table"><caption>Pruebas de seguridad</caption><thead><tr><th>#</th><th>Acción</th><th>Resultado esperado</th></tr></thead><tbody><tr><td class="num">45</td><td>Con sesión, DevTools → Application → Local Storage → en <code>vetcare_token</code>, cambiar una letra en la mitad de la <strong>tercera parte</strong> (la firma, después del segundo punto) y recargar</td><td>Se cierra la sesión, aviso &quot;Tu sesión venció. Inicia sesión de nuevo.&quot; En <strong>Red</strong>, <code>401</code></td></tr><tr><td class="num">46</td><td>Registrar un paciente llamado <code>&lt;img src=x onerror=alert('hackeado')&gt;</code></td><td>La tarjeta muestra el texto literal. No aparece ninguna alerta</td></tr><tr><td class="num">47</td><td>Swagger → Authorize con el token de <code>dra.mejia</code> → <code>POST /api/citas</code></td><td><code>403</code> &quot;No tienes permiso...&quot; (ocultar el formulario no era la seguridad)</td></tr></tbody></table></div>
+      
+    <div class="code-block" data-tipo="terminal">
+      <div class="code-head"><div><span class="code-context">Prueba de expiración</span><span class="code-file">Arranque temporal con token de 30 segundos</span></div><button class="copy-btn" type="button">Copiar</button></div>
+      <pre class="line-numbers"><code class="language-bash">mvnw.cmd spring-boot:run &quot;-Dspring-boot.run.arguments=--jwt.expiration=45000&quot;</code></pre>
+    </div>
+      <div class="micro-task"><span class="component-label">Predice · 30 segundos</span><p class="micro-task-q">¿Qué debe limpiar el effect cuando cambia el token o se destruye la sesión?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer"><strong>El temporizador anterior.</strong> Dejar alarmas activas puede cerrar una sesión nueva usando la fecha de la anterior.</p></details></div>
+      <div class="checkpoint"><span class="component-label">Prueba 48</span><h3>La sesión termina sola y explica por qué.</h3><p>Después de comprobarlo, el backend vuelve a levantarse con la duración normal del token.</p></div></div>
+  </section>
+<section class="section view" id="s28" data-accent="1" data-layout="canvas" data-escena="practica" hidden>
+    <div class="sec-head"><span class="sec-n">Leer las señales</span><h2 class="sec-t">Errores frecuentes: síntoma, causa y corrección</h2><p class="sec-s">Los mensajes del compilador y del navegador se convierten en pistas, no en bloqueos.</p></div>
+    <div class="body"><div class="cards"><div class="card"><b>Cannot find module</b><p>El nombre o la ruta del import no coincide después del renombrado. Verifica <code>citas.service.ts</code>.</p></div><div class="card"><b>NG8001</b><p>Angular no reconoce un componente usado en HTML. Revisa el arreglo <code>imports</code> del componente standalone.</p></div><div class="card"><b>NG8002</b><p>Una propiedad enlazada no existe o falta importar la directiva que la define.</p></div><div class="card"><b>Presupuesto de CSS</b><p>La compilación supera el budget. Elimina duplicación y mueve patrones al sistema global.</p></div><div class="card"><b>Falla el cierre automático</b><p>Revisa <code>exp</code>, la conversión a milisegundos y la limpieza del temporizador anterior.</p></div></div>
+      </div>
+  </section>
+<section class="section view" id="s29" data-accent="1" data-layout="canvas" data-escena="cierre" hidden>
+    <div class="sec-head"><span class="sec-n">Reflexión y cierre</span><h2 class="sec-t">VetCare pasó de “funciona” a “se puede entregar”</h2><p class="sec-s">El mapa final permite comprobar qué cambió, mientras las preguntas conectan la técnica con decisiones de producto.</p></div>
+    <div class="body"><div class="cards"><div class="card"><b>¿Qué cambió realmente?</b><p>La misma lógica ahora responde, orienta y mantiene coherencia.</p></div><div class="card"><b>¿Qué sigue protegido por el backend?</b><p>Permisos, reglas y acceso a datos; la interfaz nunca reemplaza esa autoridad.</p></div><div class="card"><b>¿Qué escalaría primero?</b><p>Consultas agregadas, multi-tenancy, operación, despliegue y observabilidad.</p></div></div>
+      <div class="table-wrap"><table class="data-table"><caption>Mapa final de archivos de la clase</caption><thead><tr><th>Archivo</th><th>Ruta</th><th>Acción</th><th>Estado final</th></tr></thead><tbody><tr><td><code>registro/</code> (carpeta)</td><td><code>src/app/pages/</code></td><td><strong>Eliminar</strong></td><td>—</td></tr><tr><td><code>citas.services.ts</code> → <code>citas.service.ts</code></td><td><code>src/app/services/</code></td><td><strong>Renombrar</strong> y reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>index.html</code></td><td><code>src/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>favicon.svg</code></td><td><code>public/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>styles.css</code></td><td><code>src/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>icono.ts</code></td><td><code>src/app/components/icono/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>notificaciones.service.ts</code></td><td><code>src/app/services/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>notificaciones.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/components/notificaciones/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>confirmacion.service.ts</code></td><td><code>src/app/services/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>dialogo-confirmacion.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/components/dialogo-confirmacion/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>formularios.ts</code></td><td><code>src/app/core/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>formato.ts</code></td><td><code>src/app/core/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>auth.service.ts</code></td><td><code>src/app/services/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>jwt.interceptor.ts</code></td><td><code>src/app/interceptors/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>invitado.guard.ts</code></td><td><code>src/app/guards/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>no-encontrada.ts</code></td><td><code>src/app/pages/no-encontrada/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>login.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/login/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>app.ts</code> / <code>app.html</code></td><td><code>src/app/</code></td><td>Reemplazar (2 versiones)</td><td>Versión final en el Bloque 4</td></tr><tr><td><code>app.css</code></td><td><code>src/app/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>mascotas.service.ts</code>, <code>duenos.service.ts</code>, <code>veterinarios.service.ts</code></td><td><code>src/app/services/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>usuarios.service.ts</code></td><td><code>src/app/services/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>mascota-card.html</code></td><td><code>src/app/components/mascota-card/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>agenda.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/agenda/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>mascotas-listado.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/mascotas-listado/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>mascota-detalle.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/mascota-detalle/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>duenos-listado.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/duenos-listado/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>inicio.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/inicio/</code></td><td>Reemplazar</td><td>Versión final consolidada</td></tr><tr><td><code>panel.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/panel/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>personal.ts</code> / <code>.html</code> / <code>.css</code></td><td><code>src/app/pages/personal/</code></td><td>Crear</td><td>Completo</td></tr><tr><td><code>app.routes.ts</code></td><td><code>src/app/</code></td><td>Reemplazar (2 versiones)</td><td>Versión final en la sección 10.10</td></tr></tbody></table></div>
+      <div class="dos-col"><div class="papel"><span class="component-label">Archivos que no cambian</span><p><code>app.config.ts</code>, <code>core/api.ts</code>, <code>core/errores.ts</code>, <code>auth.guard.ts</code>, <code>rol.guard.ts</code>, <code>mascota-card.ts</code>, <code>mascota-card.css</code> y <code>main.ts</code>.</p></div><div class="papel"><span class="component-label">Backend</span><p><strong>Ningún archivo cambia.</strong> Solo la prueba 48 altera temporalmente la duración del token desde la terminal.</p></div></div>
+      <ol class="ideas"><li><span><strong>Un sistema de diseño</strong> convierte decisiones visuales en reglas reutilizables.</span></li><li><span><strong>Las piezas compartidas</strong> separan el estado de la forma en que se muestra.</span></li><li><span><strong>Un flujo autenticado completo</strong> cubre inicio, uso, salida voluntaria y vencimiento.</span></li></ol>
+      <div class="papel"><span class="component-label">Fuentes técnicas consultadas</span><ul class="checklist"><li>Documentación oficial de Angular: Signals, rutas, estilos y seguridad.</li><li>MDN: dialog, FormData, Promise, temporizadores, Intl, CSS y accesibilidad.</li><li>WAI-ARIA Authoring Practices: estados, alertas, expansión y diálogo modal.</li><li>OWASP: XSS y almacenamiento de tokens en el navegador.</li><li>Spring Boot: propiedades por línea de comandos.</li></ul></div>
+      <footer class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</footer></div>
   </section></div>
       <nav class="view-controls" id="viewControls" aria-label="Navegación entre secciones"><button class="view-btn" id="prevView" type="button" aria-label="Sección anterior">←</button><span class="view-position" id="viewPosition" aria-live="polite">Portada</span><button class="view-btn" id="nextView" type="button" aria-label="Sección siguiente">→</button></nav>
     </main>
