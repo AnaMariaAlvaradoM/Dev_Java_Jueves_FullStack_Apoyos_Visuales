@@ -1,0 +1,18 @@
+M3C1 · Roles, permisos y control de acceso Full Stack
+=====================================================
+
+1. Abre M3C1_RolesPermisosControlAcceso.html en un navegador moderno.
+2. Mantén el HTML, anaestilos-v12.css, anaclase-v12.js y la carpeta img juntos.
+3. Usa el índice lateral, las flechas o las teclas izquierda/derecha para navegar.
+4. La tecla G abre el glosario. El botón de sol cambia el tema.
+
+Esta revisión organiza la clase en 35 escenas: contexto, diseño, backend,
+frontend por responsabilidades, pruebas y cierre. Cada archivo indica de dónde
+recibe información, qué transforma y a qué parte del sistema entrega el resultado.
+Las explicaciones del código aparecen debajo de cada fragmento y las anatomías
+largas se agrupan en bloques plegables.
+
+El contenido principal, la navegación y las imágenes locales funcionan desde la carpeta.
+La tipografía, el coloreado avanzado de código y Mermaid se cargan desde CDN cuando hay conexión.
+
+© 2026 Ana Alvarado · Todos los derechos reservados.
