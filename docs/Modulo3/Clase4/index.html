@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro" data-tema-base="oscuro" data-empresa="dev-senior" data-paleta="cian">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ana Alvarado">
+  <meta name="copyright" content="© 2026 Ana Alvarado — Todos los derechos reservados">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <title>Módulo 3 · Clase 4 · Validación, optimización y entrega profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+  <link rel="stylesheet" href="anaestilos-v12.css">
+</head>
+<body>
+  <a class="skip-link" href="#s1">Saltar al contenido</a>
+  <div class="topline" id="topline" aria-hidden="true"></div>
+  <div class="controls" aria-label="Controles">
+    <button class="ctrl" id="temaBtn" type="button" aria-label="Cambiar tema">☀</button>
+    <button class="ctrl" id="fullscreenBtn" type="button" aria-label="Pantalla completa">⛶</button>
+  </div>
+  <div class="shell" id="shell" data-collapsed="false">
+    <aside class="sidebar" aria-label="Índice de la clase">
+      <div class="sb-top"><span class="brand-mark">A</span><div class="sb-title"><b>Java Full Stack · Módulo 3</b><span>Clase 4 · Entrega profesional</span></div></div>
+      <button class="sb-toggle" id="collapseBtn" type="button" aria-label="Colapsar menú">‹</button>
+      <nav class="sb-nav" id="nav" aria-label="Secciones">
+        <a class="nav-item active" href="#portada"><span class="nav-index">00</span><span class="nav-label">Portada</span></a>
+        <span class="nav-group">El encargo</span>
+        <a class="nav-item" href="#s1"><span class="nav-index">01</span><span class="nav-label">Natalia revisará Colmena</span></a>
+        <a class="nav-item" href="#s2"><span class="nav-index">02</span><span class="nav-label">Lo que lograrás</span></a>
+        <span class="nav-group">Demostrar seguridad</span>
+        <a class="nav-item" href="#s3"><span class="nav-index">03</span><span class="nav-label">Matriz de ataques</span></a>
+        <a class="nav-item" href="#s4"><span class="nav-index">04</span><span class="nav-label">Firma y clave JWT</span></a>
+        <a class="nav-item" href="#s5"><span class="nav-index">05</span><span class="nav-label">Base de la prueba</span></a>
+        <a class="nav-item" href="#s6"><span class="nav-index">06</span><span class="nav-label">Ataques automáticos</span></a>
+        <span class="nav-group">Medir calidad</span>
+        <a class="nav-item" href="#s7"><span class="nav-index">07</span><span class="nav-label">Auditoría SOLID</span></a>
+        <a class="nav-item" href="#s8"><span class="nav-index">08</span><span class="nav-label">Build e imagen lazy</span></a>
+        <span class="nav-group">Documentar</span>
+        <a class="nav-item" href="#s9"><span class="nav-index">09</span><span class="nav-label">Swagger de Reservas</span></a>
+        <a class="nav-item" href="#s10"><span class="nav-index">10</span><span class="nav-label">Swagger completo</span></a>
+        <a class="nav-item" href="#s11"><span class="nav-index">11</span><span class="nav-label">README para levantar</span></a>
+        <a class="nav-item" href="#s12"><span class="nav-index">12</span><span class="nav-label">README para entender</span></a>
+        <span class="nav-group">Entregar</span>
+        <a class="nav-item" href="#s13"><span class="nav-index">13</span><span class="nav-label">Recorrido de Natalia</span></a>
+        <a class="nav-item" href="#s14"><span class="nav-index">14</span><span class="nav-label">Demo y señales</span></a>
+        <a class="nav-item" href="#s15"><span class="nav-index">15</span><span class="nav-label">Fase 4 y archivos</span></a>
+        <a class="nav-item" href="#s16"><span class="nav-index">16</span><span class="nav-label">Cierre</span></a>
+        <span class="nav-group">Consultar</span>
+        <a class="nav-item" href="#glosario"><span class="nav-index">17</span><span class="nav-label">Glosario</span></a>
+        <a class="nav-item" href="#documentacion"><span class="nav-index">18</span><span class="nav-label">Documentación</span></a>
+      </nav>
+      <div class="sb-prog"><div class="lbl"><span>Progreso</span><span id="progPct">0%</span></div><div class="track"><div class="fill" id="progFill"></div></div></div>
+    </aside>
+    <main class="main">
+      <header class="hero view" id="portada" data-accent="1">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">Dev Senior · Java Full Stack · Módulo 3</span>
+            <h1 class="hero-title">Demuestra, mide y entrega</h1>
+            <p class="hero-lead">Colmena ya funciona. Ahora debe resistir una revisión externa, explicar cada decisión y poder usarse sin el equipo.</p>
+            <div class="meta"><span class="pill" data-hot>Validación profesional</span><span class="pill">Seguridad</span><span class="pill">Optimización</span><span class="pill">Documentación</span></div>
+          </div>
+          <figure class="hero-visual">
+            <img src="img/revision-externa-colmena.png" alt="Una desarrolladora revisa evidencias de seguridad, arquitectura, documentación y entrega de Colmena">
+            <figcaption class="hero-note">La entrega queda lista cuando otra persona puede revisarla, comprobarla y usarla sin ayuda.</figcaption>
+          </figure>
+        </div>
+      </header>
+      <div class="content">
+
+        <section class="section view" id="s1" data-accent="1" data-layout="canvas" data-escena="apertura" hidden>
+          <div class="sec-head"><span class="sec-n">El encargo</span><h2 class="sec-t">Natalia revisará Colmena sin el equipo</h2><p class="sec-s">Colmena funciona, pero hasta hoy solo lo ha probado el equipo que lo construyó, con sus usuarios y en sus computadores. Falta que lo pueda revisar, levantar y entender otra persona.</p></div>
+          <div class="body">
+            <div class="micro-task"><span class="component-label">Recuerda</span><p class="micro-task-q">En la Clase 3, alguien envió <code>"rol": "ADMIN"</code> en el JSON del registro. ¿Por qué el backend creó un <code>USER</code> de todas formas?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer">Porque <code>RegistroRequest</code> <strong>no tiene</strong> campo <code>rol</code>: lo que no está en el contrato no se puede inyectar, y el servicio siempre asigna <code>USER</code>. El formulario no tiene nada que ver: la petición se puede enviar desde Swagger o Postman. Hoy usamos la misma idea con el token: lo que no firmó el backend no se acepta, venga de donde venga.</p></details></div>
+            <article class="correo">
+              <div class="correo-head"><span class="correo-avatar">MG</span><div><div class="correo-remitente">Mariana Gómez · admin@colmena.co</div><div class="correo-ruta">Para: Equipo de desarrollo · Código Andino</div></div><span class="correo-fecha">3 nov 2026</span></div>
+              <div class="correo-asunto">¡Un socio quiere invertir! (y quiere revisar el sistema)</div>
+              <div class="correo-body"><p>Hola, equipo:</p><p>Les cuento: Felipe Arango, que tiene dos coworkings en Bogotá, quiere invertir en Colmena para abrir una sede en Cajicá. Le encantó que los miembros reserven solos.</p><p>Pero me puso una condición: el <strong>jueves 12</strong> viene con <strong>Natalia Quintero</strong>, la desarrolladora de su empresa, a revisar el sistema <strong>sin ustedes</strong>. Felipe me dijo: <em>“Si Natalia no lo puede instalar y entender sola, para mí el sistema no existe”</em>.</p><p>Natalia también me escribió. Dice que va a intentar <strong>entrar donde no debe</strong>, que va a mirar si el código está <strong>ordenado</strong> y que quiere ver <strong>qué hace cada parte</strong> de la API sin preguntarle a nadie.</p><p>Yo no sé qué es nada de eso. ¿Qué le muestro primero? ¿Y qué necesitan ustedes para que el jueves salga bien?</p><p>Gracias,<br>Mariana Gómez · Gerente · Colmena Coworking · Chía</p></div>
+            </article>
+            <div class="papel"><span class="component-label">Lo que vamos a hacer</span><ol><li><strong>Seguridad:</strong> intentar entrar donde no se debe, y demostrar con una prueba automática que el sistema lo rechaza.</li><li><strong>Orden y rendimiento:</strong> comprobar con búsquedas en el código que cada capa hace lo suyo, y que el frontend carga solo lo necesario.</li><li><strong>Documentación:</strong> Swagger que explica cada endpoint, y un README con el que cualquiera levanta el proyecto.</li><li><strong>La demo:</strong> un guion para Felipe, que también sirve para tu portafolio.</li></ol></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s2" data-accent="1" data-layout="canvas" data-escena="objetivos" hidden>
+          <div class="sec-head"><span class="sec-n">Ruta de la sesión</span><h2 class="sec-t">Lo que lograrás</h2><p class="sec-s">La revisión externa transforma un proyecto que funciona en una entrega que se puede verificar y usar sin ti.</p></div>
+          <div class="body">
+            <div class="estado-proyecto" role="group" aria-label="El proyecto antes y después de la clase"><div class="estado-antes"><span class="component-label">Antes de hoy</span><p>Colmena hace todo lo que Mariana pidió, pero solo lo ha probado el equipo que lo construyó, Swagger agrupa los endpoints como <code>reserva-controller</code> sin decir qué hacen, y no hay un README que explique el proyecto completo.</p></div><div class="estado-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div><div class="estado-despues"><span class="component-label">Al terminar</span><p>Un desconocido puede levantar Colmena con el README, entender cada endpoint en Swagger y comprobar con un comando que los ataques más comunes no pasan.</p></div></div>
+            <ol class="objetivos">
+              <li><div><p class="obj-texto"><strong>Verificar</strong> que el backend rechaza lo que no firmó.</p><p class="obj-evidencia">un token con el payload cambiado y uno sin firma reciben <code>401</code>, a mano en Swagger y en <code>SeguridadTokensTest</code> con <code>./mvnw test</code>.</p></div></li>
+              <li><div><p class="obj-texto"><strong>Comprobar</strong> que el código está ordenado y liviano.</p><p class="obj-evidencia">las cuatro búsquedas de la auditoría no encuentran nada y <code>ng build</code> termina sin advertencias, con cada página en su propio archivo diferido.</p></div></li>
+              <li><div><p class="obj-texto"><strong>Entregar</strong> el proyecto para que se use sin ti.</p><p class="obj-evidencia">Swagger muestra cada endpoint con su resumen y un compañero levanta Colmena siguiendo solo tu README.</p></div></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section view" id="s3" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
+          <div class="sec-head"><span class="sec-n">Demostrar seguridad</span><h2 class="sec-t">Una matriz convierte promesas en evidencia</h2><p class="sec-s">Si mostramos cada intento y lo que respondió el sistema, podemos responderle a Natalia con hechos.</p></div>
+          <div class="body">
+            <div class="definicion"><div class="def-tecnica"><span class="component-label">Definición técnica</span><p class="def-termino">Matriz de ataques</p><p>Una tabla de casos de prueba de seguridad. Cada fila describe un intento de acceso no autorizado, el resultado que el sistema <strong>debe</strong> dar y el resultado que <strong>dio</strong>.</p></div><div class="def-vida"><span class="component-label">Explicación sencilla</span><p>Es la lista de travesuras que intentaría alguien que no debería entrar, con lo que tiene que pasar en cada una. Si todas las filas salen como se esperaba, tienes con qué responderle a Natalia.</p><p><strong>En el trabajo:</strong> antes de salir a producción, los equipos corren pruebas de este tipo; las más comunes están en la guía de OWASP sobre JWT. Muchas empresas las piden por contrato antes de pagar un desarrollo.</p></div></div>
+            <figure class="figura"><div class="figura-stage"><img src="img/firma-jwt-adulterada.png" alt="Tres partes de un token; la parte central fue alterada y el sello de firma se rompe, por lo que el acceso se rechaza"></div><figcaption>El ataque cambia los datos, pero no puede volver a crear la firma: la validación falla.<span class="figura-credito">Ilustración original creada para esta clase.</span></figcaption></figure>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">JWT de Laura</span></div></div><pre><code class="language-plaintext">eyJhbGciOiJIUzM4NCJ9 . eyJzdWIiOiJsYXVyYUBjb3JyZW8uY29tIi... . (firma)
+     encabezado                 payload (los datos)              la calcula el backend con su clave
+{"alg":"HS384"}       {"sub":"laura@correo.com","rol":"USER",
+                       "permisos":["ESPACIOS_VER", ...]}</code></pre></div>
+            <div class="table-wrap"><table class="data-table"><caption>La matriz de Colmena</caption><thead><tr><th>#</th><th>Ataque</th><th>Debe responder</th><th>Respondió</th></tr></thead><tbody>
+              <tr><td class="num">1</td><td><strong>Control:</strong> Laura usa su token verdadero en <code>GET /api/espacios</code></td><td><code>200</code></td><td data-emphasis><code>200</code></td></tr>
+              <tr><td class="num">2</td><td>Laura escribe a mano <code>GET /api/reportes/resumen</code></td><td><code>403</code></td><td><code>403</code> · No tienes permiso para realizar esta acción</td></tr>
+              <tr><td class="num">3</td><td>Laura cambia el payload: <code>sub</code> = <code>admin@colmena.co</code> y <code>permisos</code> = <code>["REPORTES_VER"]</code></td><td><code>401</code></td><td><code>401</code> sin cuerpo</td></tr>
+              <tr><td class="num">4</td><td>Alguien arma un token con <code>"alg":"none"</code> y sin firma</td><td><code>401</code></td><td><code>401</code></td></tr>
+              <tr><td class="num">5</td><td>Pide el resumen sin token</td><td><code>401</code></td><td><code>401</code></td></tr>
+              <tr><td class="num">6</td><td>Sofía, con cuenta desactivada, intenta iniciar sesión</td><td><code>401</code></td><td><code>401</code> · Tu cuenta está desactivada</td></tr>
+              <tr><td class="num">7</td><td>Andrés usa el mismo token después de que Mariana desactiva su cuenta</td><td><code>401</code></td><td><code>200</code> antes; <code>401</code> después</td></tr>
+              <tr><td class="num">8</td><td>Login con clave equivocada y con un email que no existe</td><td>El mismo <code>401</code> y mensaje</td><td><code>401</code> · Email o contraseña incorrectos</td></tr>
+              <tr><td class="num">9</td><td><code>GET /api/usuarios</code> como Mariana: ¿trae contraseñas?</td><td>Ningún campo de contraseña</td><td><code>{"id":4,"nombre":"Camila Ortiz","email":"camila@correo.com","rol":"USER","activo":true,...}</code></td></tr>
+            </tbody></table></div>
+            <div class="micro-task"><span class="component-label">Para pensar</span><p class="micro-task-q">En la fila 8, ¿por qué es un problema que el login responda “Ese email no existe” cuando el email no está registrado?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer">Porque le regala información a quien ataca: probando emails, averigua cuáles están registrados en Colmena y ya sabe a quién atacar. Con el mismo mensaje para los dos casos, el login no revela nada. Spring Security hace esto por defecto: convierte “usuario no encontrado” en “credenciales incorrectas”.</p></details></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s4" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
+          <div class="sec-head"><span class="sec-n">Firma y clave JWT</span><h2 class="sec-t">El payload se puede leer; la firma no se puede fabricar</h2><p class="sec-s">Las dos primeras partes del JWT están en Base64. La firma la calcula el backend con su clave secreta.</p></div>
+          <div class="body">
+            <h3>4.1 · Adulterar el token en Swagger</h3>
+            <ol><li>Levanta el backend con <code>./mvnw spring-boot:run</code> en <code>colmena-api</code> y abre <code>http://localhost:8080/swagger-ui.html</code>.</li><li>En <strong>Autenticación → POST /api/auth/login</strong>, entra como <code>laura@correo.com</code> / <code>colmena123</code> y copia el <code>token</code>.</li><li>Abre <a href="https://jwt.io" target="_blank" rel="noopener">jwt.io</a> y pega el token.</li><li>Cambia <code>"sub": "laura@correo.com"</code> por <code>"sub": "admin@colmena.co"</code>. La página arma un token nuevo, pero no puede firmarlo porque no conoce la clave.</li><li>Pégalo en <strong>Authorize</strong> y ejecuta <strong>Reportes → GET /api/reportes/resumen</strong>.</li></ol>
+            <div class="consola"><div class="consola-head">Resultado al ejecutar</div><ol><li class="in">GET /api/reportes/resumen con el token de Laura, payload cambiado</li><li class="out">Code 401 · Undocumented</li><li class="out">Response body: (vacío)</li></ol></div>
+            <h3>4.2 · La clave vive fuera del código</h3>
+            <p>En producción la clave va en una <strong>variable de entorno</strong> del servidor, y en el repo solo queda un valor de desarrollo, claramente marcado como tal.</p>
+            <div class="code-block"><div class="code-head"><div><span class="code-context">Revisar</span><span class="code-file">application.properties</span></div></div><pre><code class="language-properties"># ---------- JWT ----------
+# La clave debe tener al menos 32 caracteres. En produccion va en una variable de entorno.
+jwt.secret=${JWT_SECRET:colmena-coworking-clave-secreta-de-desarrollo-2026}</code></pre></div>
+            <div class="table-wrap"><table class="data-table"><caption>Quién dice que va así</caption><thead><tr><th>Etiqueta</th><th>Quién lo dice</th><th>¿Se puede cambiar?</th><th>Dónde se verifica</th></tr></thead><tbody><tr><td>🟨 Lenguaje</td><td>La sintaxis de Java, TypeScript, HTML…</td><td>No</td><td>Referencia del lenguaje</td></tr><tr><td>🟩 Plataforma</td><td>La JVM, el navegador, el cliente HTTP de Java</td><td>No, salvo configuración</td><td>Documentación de la plataforma</td></tr><tr><td>🟧 Framework o librería</td><td>Spring, JUnit, jjwt, swagger-core, Angular</td><td>No: si no se respeta, no funciona</td><td>Documentación oficial</td></tr><tr><td>⬜ Convención</td><td>La comunidad o el equipo</td><td>Sí, aunque conviene respetarla</td><td>Guías de estilo</td></tr><tr><td>🟪 Decisión del proyecto</td><td>Nosotros, por el negocio o el diseño</td><td>Sí, si cambia el negocio</td><td>El correo de Mariana y el plano del módulo</td></tr></tbody></table></div>
+            <div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">Spring busca la clave en el entorno</h3><p class="lectura-proposito">El nombre de la propiedad debe coincidir con <code>JwtService</code>; el valor de producción no queda en el repositorio.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas JWT</span></div></div><pre class="line-numbers" data-start="1"><code class="language-properties">jwt.secret=${JWT_SECRET:colmena-coworking-clave-secreta-de-desarrollo-2026}</code></pre></div><ol class="notas"><li class="nota" data-lineas="1"><div class="nota-cabeza"><span class="nota-lineas">L1</span><code class="nota-codigo">jwt.secret=</code></div><p>🟪 Decisión del proyecto · Es el nombre de la propiedad que lee <code>JwtService</code> con <code>@Value("${jwt.secret}")</code>. El nombre lo escogimos nosotros; lo que importa es que coincida en los dos lugares.</p></li><li class="nota" data-lineas="1"><div class="nota-cabeza"><span class="nota-lineas">L1</span><code class="nota-codigo">${JWT_SECRET:...}</code></div><p>🟧 Spring Boot · <code>${...}</code> le pide a Spring que busque un valor en su entorno. <code>JWT_SECRET</code> es la variable; lo que va después de los dos puntos es el valor por defecto.</p></li><li class="nota" data-lineas="1"><div class="nota-cabeza"><span class="nota-lineas">L1</span><code class="nota-codigo">clave-secreta-de-desarrollo</code></div><p>🟪 Decisión del proyecto · Es el valor de desarrollo y su nombre dice que no es para producción. Tiene 50 caracteres porque <code>HS384</code> exige al menos 48 bytes.</p></li></ol></div></div>
+            <div class="code-block" data-tipo="terminal"><div class="code-head"><div><span class="code-context">Terminal · Git Bash</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-bash">JWT_SECRET="otra-clave-larga-solo-para-el-servidor-de-produccion-2026" ./mvnw spring-boot:run</code></pre></div>
+            <div class="code-block" data-tipo="terminal"><div class="code-head"><div><span class="code-context">Terminal · PowerShell</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-powershell">$env:JWT_SECRET = "otra-clave-larga-solo-para-el-servidor-de-produccion-2026"
+.\mvnw.cmd spring-boot:run</code></pre></div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Ojo técnico</h3><p>Nunca pegues tu <code>JWT_SECRET</code> real, tu contraseña de la base de datos ni un archivo <code>.env</code> en un chat de IA, en un Pull Request ni en un mensaje de WhatsApp. Si una clave se filtra, se cambia: todos los tokens viejos dejan de servir y todos vuelven a iniciar sesión.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s5" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head"><span class="sec-n">Construir · SeguridadTokensTest</span><h2 class="sec-t">La matriz se vuelve prueba automática</h2><p class="sec-s">Cada cambio a <code>JwtFilter</code>, <code>SecurityConfig</code> o un controlador vuelve a comprobar los ataques.</p></div>
+          <div class="body">
+            <div class="mision"><div class="mision-head"><span class="mision-marca">1</span><span class="mision-titulo">Misión del bloque</span></div><div class="mision-grid"><div class="mision-item"><span class="component-label">Para Mariana</span><p>Natalia va a intentar entrar donde no debe, y el próximo cambio que hagamos al código no puede romper la seguridad sin que nadie se entere.</p></div><div class="mision-item"><span class="component-label">Lo que hacemos</span><p>Convertimos cuatro filas de la matriz en una prueba que corre sola con <code>./mvnw test</code>, igual que <code>ReservaReglasTest</code>.</p></div><div class="mision-item" data-resultado><span class="component-label">Cómo sabemos que quedó</span><p><code>./mvnw test</code> dice <code>Tests run: 8, Failures: 0</code>.</p></div></div></div>
+            <article class="archivo">
+              <div class="archivo-ficha"><span class="archivo-accion">Crear</span><span class="archivo-nombre">SeguridadTokensTest.java</span><span class="archivo-ruta">colmena-api/src/test/java/com/devsenior/colmena/pruebas/</span></div>
+              <p class="archivo-intro">Natalia dijo que va a intentar entrar donde no debe; esta clase deja escritos esos intentos para que una máquina los repita en cada cambio. Recibe la API completa levantada en un puerto al azar con la base H2 del perfil <code>test</code>.</p>
+              <p class="archivo-ruta-flujo"><b>Recibe de</b> la API y H2 <span class="flecha">→</span><b>ejecuta</b> ataques HTTP <span class="flecha">→</span><b>entrega</b> códigos verificables a Maven</p>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">Lo que la prueba necesita traer</h3><p class="lectura-proposito">Es el mismo patrón de <code>ReservaReglasTest</code>, con dos imports nuevos para armar el payload falso.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 1–16</span></div></div><pre class="line-numbers" data-start="1"><code class="language-java">package com.devsenior.colmena.pruebas;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import tools.jackson.databind.json.JsonMapper;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;</code></pre></div><ol class="notas">
+                <li class="nota" data-lineas="1"><div class="nota-cabeza"><span class="nota-lineas">L1</span><code class="nota-codigo">package …pruebas;</code></div><p>🟨 Java · Pone la clase en el mismo paquete que <code>ReservaReglasTest</code>. 🟪 Decisión del proyecto · Las pruebas viven en <code>src/test/java</code>, que Maven compila solo para probar.</p></li>
+                <li class="nota" data-lineas="3-7"><div class="nota-cabeza"><span class="nota-lineas">L3–7</span><code class="nota-codigo">JUnit, Spring y Jackson</code></div><p><code>@Test</code> marca cada prueba; <code>@Value</code>, <code>@SpringBootTest</code> y <code>@ActiveProfiles</code> levantan la aplicación; <code>JsonMapper</code> lee el JSON del login.</p></li>
+                <li class="nota" data-lineas="9-12"><div class="nota-cabeza"><span class="nota-lineas">L9–12</span><code class="nota-codigo">java.net…</code></div><p>🟩 Plataforma · El cliente HTTP que trae Java: <code>URI</code> es la dirección, <code>HttpClient</code> envía, <code>HttpRequest</code> es la petición y <code>HttpResponse</code> la respuesta.</p></li>
+                <li class="nota" data-lineas="13-14"><div class="nota-cabeza"><span class="nota-lineas">L13–14</span><code class="nota-codigo">StandardCharsets · Base64</code></div><p>🟩 Plataforma · UTF-8 convierte letras en bytes y <code>Base64</code> codifica las dos primeras partes del JWT. Se usarán para el payload falso.</p></li>
+                <li class="nota" data-lineas="16"><div class="nota-cabeza"><span class="nota-lineas">L16</span><code class="nota-codigo">import static …assertEquals</code></div><p>🟧 JUnit · Permite escribir <code>assertEquals(...)</code> sin anteponer <code>Assertions</code>.</p></li>
+              </ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">2</span><h3 class="lectura-titulo">La API completa, en un puerto al azar</h3><p class="lectura-proposito">La prueba ataca el mismo <code>JwtFilter</code> que atacaría Natalia y nunca toca <code>colmena_db</code>.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 18–28</span></div></div><pre class="line-numbers" data-start="18"><code class="language-java">// La matriz de ataques de la Clase 4, convertida en pruebas que corren solas.
+// Cada @Test es un ataque: lo que intentaria alguien que no deberia entrar.
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("test")
+class SeguridadTokensTest {
+
+    @Value("${local.server.port}")
+    private int puerto;
+
+    private final HttpClient http = HttpClient.newHttpClient();
+    private final JsonMapper json = JsonMapper.builder().build();</code></pre></div><ol class="notas"><li class="nota" data-lineas="18-19"><div class="nota-cabeza"><span class="nota-lineas">L18–19</span><code class="nota-codigo">comentario</code></div><p>🟪 Decisión del proyecto · Deja escrito para qué existe la clase: es la matriz de ataques.</p></li><li class="nota" data-lineas="20-21"><div class="nota-cabeza"><span class="nota-lineas">L20–21</span><code class="nota-codigo">@SpringBootTest · @ActiveProfiles</code></div><p>🟧 Spring Boot · Levanta Colmena completa en un puerto libre y activa la base H2 en memoria.</p></li><li class="nota" data-lineas="22"><div class="nota-cabeza"><span class="nota-lineas">L22</span><code class="nota-codigo">class SeguridadTokensTest</code></div><p>🟨 Java · JUnit no necesita <code>public</code>. ⬜ Convención · Maven corre las clases terminadas en <code>Test</code>.</p></li><li class="nota" data-lineas="24-25"><div class="nota-cabeza"><span class="nota-lineas">L24–25</span><code class="nota-codigo">local.server.port</code></div><p>🟧 Spring Boot · Spring escribe aquí el puerto que escogió para armar las URL.</p></li><li class="nota" data-lineas="27-28"><div class="nota-cabeza"><span class="nota-lineas">L27–28</span><code class="nota-codigo">http · json</code></div><p>Un cliente HTTP y un lector de JSON comparten todas las pruebas. <code>final</code> dice que no se reemplazan.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">3</span><h3 class="lectura-titulo">Iniciar sesión como cualquier persona</h3><p class="lectura-proposito">La ayuda recibe un email y devuelve el token de esa persona.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 30–39</span></div></div><pre class="line-numbers" data-start="30"><code class="language-java">    // ---------- Ayudas: iniciar sesion y pedir una ruta con un token ----------
+
+    private String token(String email) throws Exception {
+        String cuerpo = "{\"email\":\"" + email + "\",\"password\":\"colmena123\"}";
+        HttpRequest peticion = HttpRequest.newBuilder(URI.create("http://localhost:" + puerto + "/api/auth/login"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(cuerpo))
+                .build();
+        return json.readTree(http.send(peticion, HttpResponse.BodyHandlers.ofString()).body()).get("token").asString();
+    }</code></pre></div><ol class="notas"><li class="nota" data-lineas="32"><div class="nota-cabeza"><span class="nota-lineas">L32</span><code class="nota-codigo">token(String email)</code></div><p>🟨 Java · Recibe un email y devuelve el token; <code>throws Exception</code> deja que JUnit muestre un fallo de red.</p></li><li class="nota" data-lineas="33"><div class="nota-cabeza"><span class="nota-lineas">L33</span><code class="nota-codigo">cuerpo</code></div><p>🟪 Decisión del proyecto · El JSON del login con la clave de prueba <code>colmena123</code>.</p></li><li class="nota" data-lineas="34-37"><div class="nota-cabeza"><span class="nota-lineas">L34–37</span><code class="nota-codigo">HttpRequest</code></div><p>🟩 Plataforma · Arma la petición JSON a <code>/api/auth/login</code>.</p></li><li class="nota" data-lineas="38"><div class="nota-cabeza"><span class="nota-lineas">L38</span><code class="nota-codigo">readTree · get · asString</code></div><p>Envía, toma el cuerpo, lo convierte en árbol JSON y entrega el campo <code>token</code>.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">4</span><h3 class="lectura-titulo">En un ataque importa el código HTTP</h3><p class="lectura-proposito">La ayuda descarta el cuerpo y devuelve el estado que se compara en la matriz.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 41–49</span></div></div><pre class="line-numbers" data-start="41"><code class="language-java">    private int estadoDe(String ruta, String token) throws Exception {
+        HttpRequest peticion = HttpRequest.newBuilder(URI.create("http://localhost:" + puerto + ruta))
+                .header("Authorization", "Bearer " + token)
+                .GET()
+                .build();
+        return http.send(peticion, HttpResponse.BodyHandlers.discarding()).statusCode();
+    }
+
+    // ---------- Los ataques ----------</code></pre></div><ol class="notas"><li class="nota" data-lineas="41"><div class="nota-cabeza"><span class="nota-lineas">L41</span><code class="nota-codigo">estadoDe</code></div><p>🟪 Decisión del proyecto · Devuelve un <code>int</code> porque la matriz compara <code>200</code>, <code>401</code> o <code>403</code>.</p></li><li class="nota" data-lineas="43"><div class="nota-cabeza"><span class="nota-lineas">L43</span><code class="nota-codigo">Authorization · Bearer</code></div><p>🟧 Spring Security + HTTP · Es la forma exacta en que <code>JwtFilter</code> busca el token.</p></li><li class="nota" data-lineas="44"><div class="nota-cabeza"><span class="nota-lineas">L44</span><code class="nota-codigo">GET</code></div><p>🟩 Plataforma · Todos los ataques de esta matriz son lecturas.</p></li><li class="nota" data-lineas="46"><div class="nota-cabeza"><span class="nota-lineas">L46</span><code class="nota-codigo">discarding · statusCode</code></div><p>Descarta el cuerpo y entrega el código.</p></li><li class="nota" data-lineas="49"><div class="nota-cabeza"><span class="nota-lineas">L49</span><code class="nota-codigo">Los ataques</code></div><p>🟪 Decisión del proyecto · Debajo van las filas de la matriz.</p></li></ol></div></div>
+              <div class="active-build"><div class="build-step"><span class="build-step-index">▶</span><div class="build-step-copy"><h3 class="build-step-title">Pruébalo</h3><div class="consola"><div class="consola-head">SeguridadTokensTest sin ataques</div><ol><li class="in">./mvnw test -Dtest=SeguridadTokensTest</li><li class="out">Tests run: 0, Failures: 0, Errors: 0, Skipped: 0</li><li class="out">BUILD SUCCESS</li></ol></div></div></div><div class="checkpoint"><span class="component-label">Checkpoint</span><h3>La base compila y levanta la API.</h3><p>Todavía no hay ninguna prueba: ahora se agregan los ataques.</p></div></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section view" id="s6" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head"><span class="sec-n">Construir · ataques</span><h2 class="sec-t">Primero la llave verdadera; después las falsas</h2><p class="sec-s">El control demuestra que la puerta se abre con el token correcto antes de comprobar que rechaza los adulterados.</p></div>
+          <div class="body">
+            <h3>6.1 · El token verdadero sí entra</h3>
+            <article class="archivo"><div class="archivo-ficha"><span class="archivo-accion">Editar</span><span class="archivo-nombre">SeguridadTokensTest.java</span><span class="archivo-ruta">colmena-api/src/test/java/com/devsenior/colmena/pruebas/</span></div><p class="archivo-intro"><strong>Necesidad:</strong> si todo respondiera <code>401</code>, los ataques “pasarían” sin demostrar seguridad. <strong>Dónde va:</strong> debajo de <code>// Los ataques</code>.</p>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">El control: el token verdadero sí entra</h3><p class="lectura-proposito">Antes de demostrar el rechazo, demuestra que el login y la autorización funcionan.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 51–55</span></div></div><pre class="line-numbers" data-start="51"><code class="language-java">    @Test
+    void elTokenVerdaderoDeLauraEntra() throws Exception {
+        assertEquals(200, estadoDe("/api/espacios", token("laura@correo.com")),
+                "Control: con su token verdadero, Laura deberia ver los espacios");
+    }</code></pre></div><ol class="notas"><li class="nota" data-lineas="51"><div class="nota-cabeza"><span class="nota-lineas">L51</span><code class="nota-codigo">@Test</code></div><p>🟧 JUnit · Marca el método como una prueba.</p></li><li class="nota" data-lineas="52"><div class="nota-cabeza"><span class="nota-lineas">L52</span><code class="nota-codigo">elTokenVerdaderoDeLauraEntra</code></div><p>⬜ Convención · El nombre cuenta lo que se espera.</p></li><li class="nota" data-lineas="53-54"><div class="nota-cabeza"><span class="nota-lineas">L53–54</span><code class="nota-codigo">assertEquals(200, …)</code></div><p>🟧 JUnit · Compara el código esperado con la petición real y deja un mensaje útil si falla.</p></li></ol></div></div>
+            </article>
+            <h3>6.2 · La ruta escrita a mano</h3>
+            <div class="lectura"><div class="lectura-head"><span class="lectura-num">2</span><h3 class="lectura-titulo">Laura no puede abrir el Panel</h3><p class="lectura-proposito"><strong>Necesidad:</strong> ocultar un enlace en Angular no protege la ruta. <strong>Dónde va:</strong> debajo del control.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 57–61</span></div></div><pre class="line-numbers" data-start="57"><code class="language-java">    @Test
+    void lauraEscribeLaRutaDelPanelAMano() throws Exception {
+        assertEquals(403, estadoDe("/api/reportes/resumen", token("laura@correo.com")),
+                "Laura no tiene REPORTES_VER: aunque escriba la ruta, deberia recibir 403");
+    }</code></pre></div><ol class="notas"><li class="nota" data-lineas="57-58"><div class="nota-cabeza"><span class="nota-lineas">L57–58</span><code class="nota-codigo">@Test · nombre</code></div><p>Una prueba nueva con un nombre que cuenta el ataque.</p></li><li class="nota" data-lineas="59"><div class="nota-cabeza"><span class="nota-lineas">L59</span><code class="nota-codigo">assertEquals(403, …)</code></div><p>🟧 Spring Security · Laura sí demostró quién es, pero no tiene <code>REPORTES_VER</code>; por eso es <code>403</code>, no <code>401</code>.</p></li><li class="nota" data-lineas="60"><div class="nota-cabeza"><span class="nota-lineas">L60</span><code class="nota-codigo">mensaje</code></div><p>Dice el permiso que falta para que quien lo lea sepa dónde buscar.</p></li></ol></div></div>
+            <h3>6.3 · Cambiar el payload rompe la firma</h3>
+            <div class="lectura"><div class="lectura-head"><span class="lectura-num">3</span><h3 class="lectura-titulo">El token adulterado responde 401</h3><p class="lectura-proposito"><strong>Necesidad:</strong> automatizar el ataque de jwt.io. <strong>Dónde va:</strong> debajo de la segunda prueba.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 63–70</span></div></div><pre class="line-numbers" data-start="63"><code class="language-java">    @Test
+    void unTokenConElPayloadCambiadoResponde401() throws Exception {
+        String[] partes = token("laura@correo.com").split("\\.");
+        String payloadFalso = base64("{\"sub\":\"admin@colmena.co\",\"permisos\":[\"REPORTES_VER\"]}");
+        String adulterado = partes[0] + "." + payloadFalso + "." + partes[2];
+        assertEquals(401, estadoDe("/api/reportes/resumen", adulterado),
+                "Cambiamos el payload sin volver a firmar: la firma ya no coincide y deberia responder 401");
+    }</code></pre></div><ol class="notas"><li class="nota" data-lineas="65"><div class="nota-cabeza"><span class="nota-lineas">L65</span><code class="nota-codigo">split("\\.")</code></div><p>🟨 Java · Parte el JWT en encabezado, payload y firma. <code>\\.</code> significa “un punto literal”.</p></li><li class="nota" data-lineas="66"><div class="nota-cabeza"><span class="nota-lineas">L66</span><code class="nota-codigo">payloadFalso</code></div><p>🟪 Decisión del proyecto · El payload que querría Laura, codificado como un JWT real.</p></li><li class="nota" data-lineas="67"><div class="nota-cabeza"><span class="nota-lineas">L67</span><code class="nota-codigo">adulterado</code></div><p>Arma un token con encabezado verdadero, payload falso y la firma original.</p></li><li class="nota" data-lineas="68-69"><div class="nota-cabeza"><span class="nota-lineas">L68–69</span><code class="nota-codigo">assertEquals(401, …)</code></div><p>🟧 jjwt + Spring Security · La firma recalculada no coincide y la petición queda sin autenticar.</p></li></ol></div></div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Señal del compilador</h3><p><code>cannot find symbol · method base64(java.lang.String)</code> significa que usaste un nombre que todavía no existe. La señal apunta a la línea 66, columna 31.</p></div></div>
+            <h3>6.4 · Codificar Base64URL</h3>
+            <div class="lectura"><div class="lectura-head"><span class="lectura-num">4</span><h3 class="lectura-titulo">La ayuda que arma el payload falso</h3><p class="lectura-proposito"><strong>Necesidad:</strong> JWT usa Base64 para URL, sin el relleno <code>=</code>. <strong>Dónde va:</strong> antes de la llave final.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 72–74</span></div></div><pre class="line-numbers" data-start="72"><code class="language-java">    private String base64(String texto) {
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(texto.getBytes(StandardCharsets.UTF_8));
+    }</code></pre></div><ol class="notas"><li class="nota" data-lineas="72"><div class="nota-cabeza"><span class="nota-lineas">L72</span><code class="nota-codigo">private String base64</code></div><p>🟪 Decisión del proyecto · Solo las pruebas de esta clase usan esta ayuda.</p></li><li class="nota" data-lineas="73"><div class="nota-cabeza"><span class="nota-lineas">L73</span><code class="nota-codigo">getUrlEncoder · withoutPadding</code></div><p>🟩 Plataforma · Usa <code>-</code> y <code>_</code> en vez de <code>+</code> y <code>/</code>, y quita los <code>=</code> del final.</p></li></ol></div></div>
+            <h3>6.5 · Rechazar un token sin firma</h3>
+            <div class="lectura"><div class="lectura-head"><span class="lectura-num">5</span><h3 class="lectura-titulo">El algoritmo none no abre la puerta</h3><p class="lectura-proposito"><strong>Necesidad:</strong> comprobar que un JWT sin firma se rechaza. <strong>Dónde va:</strong> encima de la ayuda <code>base64</code>.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 72–77</span></div></div><pre class="line-numbers" data-start="72"><code class="language-java">    @Test
+    void unTokenSinFirmaResponde401() throws Exception {
+        String sinFirma = base64("{\"alg\":\"none\"}") + "." + base64("{\"sub\":\"admin@colmena.co\"}") + ".";
+        assertEquals(401, estadoDe("/api/reportes/resumen", sinFirma),
+                "Un token con alg none no trae firma: deberia responder 401");
+    }</code></pre></div><ol class="notas"><li class="nota" data-lineas="74"><div class="nota-cabeza"><span class="nota-lineas">L74</span><code class="nota-codigo">sinFirma</code></div><p>🟨 Java · Encabezado <code>alg:none</code>, payload de Mariana y una tercera parte vacía.</p></li><li class="nota" data-lineas="75-76"><div class="nota-cabeza"><span class="nota-lineas">L75–76</span><code class="nota-codigo">assertEquals(401, …)</code></div><p>🟧 jjwt · <code>parseSignedClaims</code> solo acepta tokens firmados.</p></li></ol></div></div>
+            <div class="active-build"><div class="build-step"><span class="build-step-index">▶</span><div class="build-step-copy"><h3 class="build-step-title">Pruébalo</h3><div class="consola"><div class="consola-head">Suite completa</div><ol><li class="in">./mvnw test</li><li class="out">ReservaReglasTest · Tests run: 4, Failures: 0</li><li class="out">SeguridadTokensTest · Tests run: 4, Failures: 0</li><li class="out">Tests run: 8, Failures: 0, Errors: 0, Skipped: 0</li><li class="out">BUILD SUCCESS</li></ol></div></div></div><div class="checkpoint"><span class="component-label">Checkpoint</span><h3>Cuatro ataques quedan automatizados.</h3><p>La suite completa termina con ocho pruebas y cero fallos.</p></div></div>
+            <div class="micro-task"><span class="component-label">Para pensar</span><p class="micro-task-q">Si borras la prueba de control del paso 1 y alguien rompe el login, ¿qué pasa con las pruebas de los pasos 3 y 5?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer">En este archivo, fallan, porque <code>token(...)</code> necesita un login que funcione. Pero una prueba de ataque que no inicia sesión seguiría pasando aunque el backend rechazara <strong>todo</strong>, incluso lo verdadero. Por eso cada matriz empieza con un control.</p></details></div>
+            <details class="code-reveal" data-archivo="SeguridadTokensTest.java"><summary><span><span class="code-reveal-title">SeguridadTokensTest.java · archivo completo</span><span class="code-reveal-note">82 líneas · listo para copiar</span></span></summary><div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">SeguridadTokensTest.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.colmena.pruebas;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import tools.jackson.databind.json.JsonMapper;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// La matriz de ataques de la Clase 4, convertida en pruebas que corren solas.
+// Cada @Test es un ataque: lo que intentaria alguien que no deberia entrar.
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("test")
+class SeguridadTokensTest {
+
+    @Value("${local.server.port}")
+    private int puerto;
+
+    private final HttpClient http = HttpClient.newHttpClient();
+    private final JsonMapper json = JsonMapper.builder().build();
+
+    // ---------- Ayudas: iniciar sesion y pedir una ruta con un token ----------
+
+    private String token(String email) throws Exception {
+        String cuerpo = "{\"email\":\"" + email + "\",\"password\":\"colmena123\"}";
+        HttpRequest peticion = HttpRequest.newBuilder(URI.create("http://localhost:" + puerto + "/api/auth/login"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(cuerpo))
+                .build();
+        return json.readTree(http.send(peticion, HttpResponse.BodyHandlers.ofString()).body()).get("token").asString();
+    }
+
+    private int estadoDe(String ruta, String token) throws Exception {
+        HttpRequest peticion = HttpRequest.newBuilder(URI.create("http://localhost:" + puerto + ruta))
+                .header("Authorization", "Bearer " + token)
+                .GET()
+                .build();
+        return http.send(peticion, HttpResponse.BodyHandlers.discarding()).statusCode();
+    }
+
+    // ---------- Los ataques ----------
+
+    @Test
+    void elTokenVerdaderoDeLauraEntra() throws Exception {
+        assertEquals(200, estadoDe("/api/espacios", token("laura@correo.com")),
+                "Control: con su token verdadero, Laura deberia ver los espacios");
+    }
+
+    @Test
+    void lauraEscribeLaRutaDelPanelAMano() throws Exception {
+        assertEquals(403, estadoDe("/api/reportes/resumen", token("laura@correo.com")),
+                "Laura no tiene REPORTES_VER: aunque escriba la ruta, deberia recibir 403");
+    }
+
+    @Test
+    void unTokenConElPayloadCambiadoResponde401() throws Exception {
+        String[] partes = token("laura@correo.com").split("\\.");
+        String payloadFalso = base64("{\"sub\":\"admin@colmena.co\",\"permisos\":[\"REPORTES_VER\"]}");
+        String adulterado = partes[0] + "." + payloadFalso + "." + partes[2];
+        assertEquals(401, estadoDe("/api/reportes/resumen", adulterado),
+                "Cambiamos el payload sin volver a firmar: la firma ya no coincide y deberia responder 401");
+    }
+
+    @Test
+    void unTokenSinFirmaResponde401() throws Exception {
+        String sinFirma = base64("{\"alg\":\"none\"}") + "." + base64("{\"sub\":\"admin@colmena.co\"}") + ".";
+        assertEquals(401, estadoDe("/api/reportes/resumen", sinFirma),
+                "Un token con alg none no trae firma: deberia responder 401");
+    }
+
+    private String base64(String texto) {
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(texto.getBytes(StandardCharsets.UTF_8));
+    }
+}</code></pre></div></div></details>
+          </div>
+        </section>
+
+        <section class="section view" id="s7" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
+          <div class="sec-head"><span class="sec-n">Medir calidad</span><h2 class="sec-t">“Ordenado” se comprueba con búsquedas</h2><p class="sec-s">Un código mantenible separa responsabilidades y depende de abstracciones en lugar de implementaciones concretas.</p></div>
+          <div class="body">
+            <div class="definicion"><div class="def-tecnica"><span class="component-label">Definición técnica</span><p class="def-termino">S y D de SOLID</p><p>Cada clase tiene una sola razón para cambiar y depende de una interfaz, no de una implementación concreta.</p></div><div class="def-vida"><span class="component-label">Explicación sencilla</span><p>Cada archivo hace una sola cosa y su nombre lo dice; cuando una pieza necesita otra, pide “algo que sepa reservar”, no “esta clase exacta que reserva”.</p><p><strong>En el trabajo:</strong> quien revisa un proyecto ajeno busca señales rápidas en vez de leerlo todo.</p></div></div>
+            <div class="sin-ia"><span class="sin-ia-icono" aria-hidden="true"></span><div><h3>Sin IA aquí</h3><p>Estas búsquedas son la revisión. Si le pides a una IA “¿mi código cumple SOLID?”, te responde con una opinión; el comando te responde con un hecho.</p></div></div>
+            <div class="table-wrap"><table class="data-table"><caption>Seis búsquedas que no deben encontrar nada</caption><thead><tr><th>#</th><th>Lo que buscas</th><th>Comando</th><th>Qué significaría encontrar algo</th></tr></thead><tbody>
+              <tr><td class="num">1</td><td>Controladores que usan un repositorio</td><td><code>grep -rn "Repository" colmena-api/src/main/java/com/devsenior/colmena/controller/</code></td><td>El controlador se salta el servicio y sus reglas (S)</td></tr>
+              <tr><td class="num">2</td><td>Controladores que usan la implementación</td><td><code>grep -rn "ServiceImpl" colmena-api/src/main/java/com/devsenior/colmena/controller/</code></td><td>Depende de la clase concreta, no de la interfaz (D)</td></tr>
+              <tr><td class="num">3</td><td>Depuración olvidada en Java</td><td><code>grep -rn "System.out\|printStackTrace" colmena-api/src/main/java</code></td><td>Ensucia el registro y puede mostrar datos</td></tr>
+              <tr><td class="num">4</td><td>Depuración olvidada en Angular</td><td><code>grep -rn "console\.\|debugger" colmena-web/src/app</code></td><td>Cualquiera la ve en la consola</td></tr>
+              <tr><td class="num">5</td><td>Páginas que llaman al backend</td><td><code>grep -rn "HttpClient" colmena-web/src/app/pages</code></td><td>La página hace el trabajo del servicio (S)</td></tr>
+              <tr><td class="num">6</td><td>Rutas que no cargan en diferido</td><td><code>grep -rn "component:" colmena-web/src/app/app.routes.ts</code></td><td>La página se descarga aunque nadie la visite</td></tr>
+            </tbody></table></div>
+            <div class="consola"><div class="consola-head">Resultado de las seis búsquedas</div><ol><li class="in">Cada comando, uno por uno</li><li class="out">Ninguna línea; la terminal vuelve a pedir un comando</li></ol></div>
+            <div class="code-block" data-tipo="terminal"><div class="code-head"><div><span class="code-context">Terminal · comprobar interfaces</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-bash">grep -rln "public interface" colmena-api/src/main/java/com/devsenior/colmena/service/</code></pre></div>
+            <div class="consola"><div class="consola-head">Cinco servicios</div><ol><li class="out">EspacioService.java</li><li class="out">AuthService.java</li><li class="out">ReservaService.java</li><li class="out">UsuarioService.java</li><li class="out">ReporteService.java</li></ol></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s8" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head"><span class="sec-n">Build y carga diferida</span><h2 class="sec-t">El navegador descarga solo lo necesario</h2><p class="sec-s"><code>ng build</code> mide el paquete inicial y confirma que cada página conserva su archivo diferido.</p></div>
+          <div class="body">
+            <h3>8.1 · Leer la salida de ng build</h3>
+            <div class="code-block" data-tipo="terminal"><div class="code-head"><div><span class="code-context">Terminal · desde colmena-web/</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-bash">ng build</code></pre></div>
+            <div class="table-wrap"><table class="data-table"><caption>Resumen del build verificado</caption><thead><tr><th>Grupo</th><th>Qué contiene</th><th class="num">Tamaño</th><th>Qué demuestra</th></tr></thead><tbody><tr><td>Initial chunk files</td><td>Angular, menú, servicios y estilos globales</td><td class="num" data-emphasis>266,43 kB</td><td>Viajan 74,50 kB comprimidos</td></tr><tr><td>Lazy · espacios</td><td>Página Espacios</td><td class="num">8,45 kB</td><td>Solo se descarga al visitar su ruta</td></tr><tr><td>Lazy · reservar</td><td>Página Reservar</td><td class="num">8,24 kB</td><td>Permanece fuera del inicial</td></tr><tr><td>Advertencias</td><td>Presupuestos de <code>angular.json</code></td><td class="num">0</td><td>El inicial no supera 500 kB ni un CSS 4 kB</td></tr></tbody></table></div>
+            <p><strong>Initial chunk files</strong> es lo que el navegador descarga al abrir Colmena. <strong>Lazy chunk files</strong> son archivos diferidos: Laura nunca descarga <code>panel</code> ni <code>miembros</code> porque nunca los abre.</p>
+            <div class="micro-task"><span class="component-label">Para pensar</span><p class="micro-task-q">Si la ruta <code>espacios</code> dejara de usar <code>loadComponent</code> e importara la página arriba de <code>app.routes.ts</code>, ¿qué cambiaría en la salida de <code>ng build</code>?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer"><code>espacios</code> desaparece de <strong>Lazy chunk files</strong> y su código se suma al inicial: <code>main</code> pasa de 105,99 kB a 115,64 kB y el total inicial, de 266,43 kB a 276,07 kB. Todos lo descargan al abrir la app.</p></details></div>
+            <h3>8.2 · La foto se pide cuando hace falta</h3>
+            <article class="archivo"><div class="archivo-ficha" data-tipo="apoyo"><span class="archivo-accion">Editar</span><span class="archivo-nombre">reservar.html</span><span class="archivo-ruta">colmena-web/src/app/pages/reservar/</span></div><p class="archivo-intro">La foto viene de una URL del backend y puede pesar más que toda la página. Se cambia una sola línea.</p>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">La foto se descarga al acercarse a la pantalla</h3><p class="lectura-proposito"><code>loading="lazy"</code> cambia cuándo el navegador pide la foto; no cambia el tamaño del build.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 10–12</span></div></div><pre class="line-numbers" data-start="10"><code class="language-html">      @if (e.imagenUrl) {
+        &lt;img [src]="e.imagenUrl" [alt]="'Foto de ' + e.nombre" loading="lazy"&gt;
+      }</code></pre></div><ol class="notas"><li class="nota" data-lineas="10"><div class="nota-cabeza"><span class="nota-lineas">L10</span><code class="nota-codigo">@if (e.imagenUrl)</code></div><p>🟧 Angular · La imagen solo existe si el espacio tiene foto.</p></li><li class="nota" data-lineas="11"><div class="nota-cabeza"><span class="nota-lineas">L11</span><code class="nota-codigo">[src] · [alt]</code></div><p>🟧 Angular · Los corchetes enlazan los atributos con el espacio. Ya estaban.</p></li><li class="nota" data-lineas="11"><div class="nota-cabeza"><span class="nota-lineas">L11</span><code class="nota-codigo">loading="lazy"</code></div><p>🟩 Navegador · Descarga la imagen solo cuando está por entrar a la pantalla.</p></li></ol></div></div>
+              <div class="active-build"><div class="build-step"><span class="build-step-index">▶</span><div class="build-step-copy"><h3 class="build-step-title">Pruébalo</h3><div class="consola"><div class="consola-head">Build del frontend</div><ol><li class="in">ng build</li><li class="out">Application bundle generation complete.</li><li class="out">Sin WARNING</li></ol></div></div></div><div class="checkpoint"><span class="component-label">Checkpoint</span><h3>La página conserva el mismo build.</h3><p>En F12 → Network → Img, la foto aparece cuando bajas hasta ella.</p></div></div>
+              <details class="code-reveal" data-archivo="reservar.html"><summary><span><span class="code-reveal-title">reservar.html · como queda al terminar este momento</span><span class="code-reveal-note">98 líneas · listo para copiar</span></span></summary><div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Editar</span><span class="code-file">reservar.html</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-html">&lt;a routerLink="/espacios" class="volver"&gt;← Volver a espacios&lt;/a&gt;
+
+@if (errorCarga()) {
+  &lt;p class="alerta alerta-error" role="alert"&gt;{{ errorCarga() }}&lt;/p&gt;
+}
+
+@if (espacio(); as e) {
+  &lt;div class="reservar"&gt;
+    &lt;section class="tarjeta ficha"&gt;
+      @if (e.imagenUrl) {
+        &lt;img [src]="e.imagenUrl" [alt]="'Foto de ' + e.nombre" loading="lazy"&gt;
+      }
+      &lt;div class="ficha-cuerpo"&gt;
+        &lt;h1 class="titulo-pagina" data-testid="nombre-espacio"&gt;{{ e.nombre }}&lt;/h1&gt;
+        &lt;p class="subtitulo"&gt;{{ e.descripcion }}&lt;/p&gt;
+        &lt;p class="datos"&gt;
+          &lt;span&gt;{{ pesos(e.precioHora) }} por hora&lt;/span&gt;
+          &lt;span&gt;Hasta {{ e.capacidad }} {{ e.capacidad === 1 ? 'persona' : 'personas' }}&lt;/span&gt;
+        &lt;/p&gt;
+
+        @if (fecha()) {
+          &lt;h2 class="titulo-ocupado"&gt;Ocupado ese día&lt;/h2&gt;
+          &lt;ul class="ocupadas"&gt;
+            @for (f of ocupadas(); track f.horaInicio) {
+              &lt;li class="chip chip-neutro"&gt;{{ f.horaInicio.slice(0, 5) }} – {{ f.horaFin.slice(0, 5) }}&lt;/li&gt;
+            } @empty {
+              &lt;li class="libre"&gt;Todo el día está libre&lt;/li&gt;
+            }
+          &lt;/ul&gt;
+        }
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;form class="tarjeta formulario" (submit)="reservar($event)" (input)="actualizar($event)" novalidate&gt;
+      &lt;h2 class="titulo-form"&gt;Reserva tu espacio&lt;/h2&gt;
+
+      &lt;label class="campo"&gt;
+        &lt;span&gt;Fecha&lt;/span&gt;
+        &lt;input name="fecha" type="date" [min]="hoy"&gt;
+      &lt;/label&gt;
+
+      &lt;div class="horas"&gt;
+        &lt;label class="campo"&gt;
+          &lt;span&gt;Desde&lt;/span&gt;
+          &lt;select name="horaInicio"&gt;
+            &lt;option value=""&gt;--:--&lt;/option&gt;
+            @for (b of bloques.slice(0, -1); track b) {
+              &lt;option [value]="b"&gt;{{ b }}&lt;/option&gt;
+            }
+          &lt;/select&gt;
+        &lt;/label&gt;
+        &lt;label class="campo"&gt;
+          &lt;span&gt;Hasta&lt;/span&gt;
+          &lt;select name="horaFin"&gt;
+            &lt;option value=""&gt;--:--&lt;/option&gt;
+            @for (b of bloques.slice(1); track b) {
+              &lt;option [value]="b"&gt;{{ b }}&lt;/option&gt;
+            }
+          &lt;/select&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;label class="campo"&gt;
+        &lt;span&gt;Asistentes&lt;/span&gt;
+        &lt;input name="asistentes" type="number" min="1" [max]="e.capacidad" value="1"&gt;
+      &lt;/label&gt;
+
+      &lt;label class="campo"&gt;
+        &lt;span&gt;Nota (opcional)&lt;/span&gt;
+        &lt;textarea name="nota" rows="2" maxlength="200" placeholder="Ej: reunión con cliente"&gt;&lt;/textarea&gt;
+      &lt;/label&gt;
+
+      @if (horas() &gt; 0) {
+        &lt;p class="resumen" data-testid="resumen-valor" aria-live="polite"&gt;
+          &lt;span&gt;{{ horas().toLocaleString('es-CO') }} {{ horas() === 1 ? 'hora' : 'horas' }}&lt;/span&gt;
+          &lt;strong&gt;{{ pesos(valor()) }}&lt;/strong&gt;
+          &lt;small&gt;Se paga en recepción&lt;/small&gt;
+        &lt;/p&gt;
+      }
+
+      @if (errores().length &gt; 0) {
+        &lt;ul class="alerta alerta-error" role="alert" data-testid="errores-formulario"&gt;
+          @for (error of errores(); track error) {
+            &lt;li&gt;{{ error }}&lt;/li&gt;
+          }
+        &lt;/ul&gt;
+      }
+
+      @if (errorServidor()) {
+        &lt;p class="alerta alerta-error" role="alert" data-testid="error-reserva"&gt;{{ errorServidor() }}&lt;/p&gt;
+      }
+
+      &lt;button type="submit" class="btn btn-primario btn-bloque" [disabled]="enviando()"&gt;
+        {{ enviando() ? 'Reservando...' : 'Confirmar reserva' }}
+      &lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+}</code></pre></div></div></details>
+            </article>
+          </div>
+        </section>
+
+        <section class="section view" id="s9" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head"><span class="sec-n">Documentar · Swagger</span><h2 class="sec-t">Reservas dice qué hace y qué reglas tiene</h2><p class="sec-s"><code>@Tag</code> nombra el grupo y <code>@Operation</code> explica cada endpoint sin cambiar su comportamiento.</p></div>
+          <div class="body">
+            <div class="definicion"><div class="def-tecnica"><span class="component-label">Definición técnica</span><p class="def-termino">OpenAPI y Swagger UI</p><p>OpenAPI describe una API REST en JSON o YAML; <strong>springdoc</strong> la genera desde el código y Swagger UI la muestra como una página que se puede probar.</p></div><div class="def-vida"><span class="component-label">Explicación sencilla</span><p>Es dejar escrito lo que dirías si estuvieras al lado de Natalia: “esto es lo que hace”, “así se prueba” y “esta regla se cumple”.</p></div></div>
+            <article class="archivo"><div class="archivo-ficha"><span class="archivo-accion">Editar</span><span class="archivo-nombre">ReservaController.java</span><span class="archivo-ruta">colmena-api/src/main/java/com/devsenior/colmena/controller/</span></div><p class="archivo-intro">La ruta y la lógica no cambian. Swagger aprende a explicar el grupo, el filtro por fecha, el dueño de cada reserva y la regla de cancelación.</p><p class="archivo-ruta-flujo"><b>Recibe de</b> <code>ReservaService</code> <span class="flecha">→</span><b>documenta</b> cuatro endpoints <span class="flecha">→</span><b>entrega a</b> Swagger UI</p>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">Un nombre para el grupo</h3><p class="lectura-proposito"><b>Necesidad:</b> reemplazar <code>reserva-controller</code> por un nombre de negocio. <b>Dónde va:</b> debajo de <code>@RestController</code>.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Línea 17</span></div></div><pre class="line-numbers" data-start="17"><code class="language-java">@Tag(name = "Reservas", description = "Crear, consultar y cancelar reservas")</code></pre></div><ol class="notas"><li class="nota" data-lineas="17"><div class="nota-cabeza"><span class="nota-lineas">L17</span><code class="nota-codigo">@Tag</code></div><p>🟧 swagger-core · Le pone al grupo un nombre y una descripción. 🟪 Decisión del proyecto · Los textos están en español y en palabras de Mariana.</p></li></ol></div></div>
+              <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Señal del compilador</h3><p><code>cannot find symbol · class Tag</code> dice que Java todavía no conoce la anotación.</p></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">2</span><h3 class="lectura-titulo">Traer las dos anotaciones</h3><p class="lectura-proposito"><b>Necesidad:</b> importar <code>Tag</code> y <code>Operation</code>. <b>Dónde va:</b> después de los imports de <code>com</code>.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 6–7</span></div></div><pre class="line-numbers" data-start="6"><code class="language-java">import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;</code></pre></div><ol class="notas"><li class="nota" data-lineas="6"><div class="nota-cabeza"><span class="nota-lineas">L6</span><code class="nota-codigo">Operation</code></div><p>🟧 swagger-core · Describe un endpoint.</p></li><li class="nota" data-lineas="7"><div class="nota-cabeza"><span class="nota-lineas">L7</span><code class="nota-codigo">Tag</code></div><p>🟧 swagger-core · Describe el grupo. Vive en el subpaquete <code>tags</code>.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">3</span><h3 class="lectura-titulo">La Agenda de Mariana</h3><p class="lectura-proposito">El resumen dice qué hace; la descripción cuenta el filtro por fecha que no se adivina en la ruta.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Línea 31</span></div></div><pre class="line-numbers" data-start="31"><code class="language-java">    @Operation(summary = "Todas las reservas", description = "Con ?fecha=2026-11-05 trae solo las de ese día. Es la Agenda de Mariana.")</code></pre></div><ol class="notas"><li class="nota" data-lineas="31"><div class="nota-cabeza"><span class="nota-lineas">L31</span><code class="nota-codigo">summary · description</code></div><p>🟧 swagger-core · <code>summary</code> aparece junto a la ruta; <code>description</code>, al abrirla. ⬜ Convención · El orden permiso, documentación y ruta se repite en todo el proyecto.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">4</span><h3 class="lectura-titulo">Lo mío, crear y cancelar</h3><p class="lectura-proposito">Las descripciones cuentan de dónde sale el miembro, quién calcula el valor y quién puede cancelar.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Operaciones nuevas</span></div></div><pre class="line-numbers" data-start="39"><code class="language-java">    @Operation(summary = "Mis reservas", description = "Solo las de quien hace la petición: el email sale del token.")
+
+    @Operation(summary = "Crear una reserva", description = "El miembro sale del token y el valor lo calcula el backend. 409 si se cruza con otra.")
+
+    @Operation(summary = "Cancelar una reserva", description = "Un miembro cancela solo las suyas y antes de que empiecen; la administración, cualquiera.")</code></pre></div><ol class="notas"><li class="nota" data-lineas="39"><div class="nota-cabeza"><span class="nota-lineas">L39</span><code class="nota-codigo">Mis reservas</code></div><p>La descripción explica por qué no hay un id de usuario en la URL: el backend lo toma del token.</p></li><li class="nota" data-lineas="41"><div class="nota-cabeza"><span class="nota-lineas">L41</span><code class="nota-codigo">Crear una reserva</code></div><p>Adelanta la regla del valor y el conflicto <code>409</code>.</p></li><li class="nota" data-lineas="43"><div class="nota-cabeza"><span class="nota-lineas">L43</span><code class="nota-codigo">Cancelar</code></div><p>Resume la regla que vive en <code>ReservaServiceImpl.cancelar</code>.</p></li></ol></div></div>
+              <div class="active-build"><div class="build-step"><span class="build-step-index">▶</span><div class="build-step-copy"><h3 class="build-step-title">Pruébalo</h3><div class="consola"><div class="consola-head">Swagger UI</div><ol><li class="out">GET /api/reservas · Todas las reservas</li><li class="out">GET /api/reservas/mias · Mis reservas</li><li class="out">POST /api/reservas · Crear una reserva</li><li class="out">PATCH /api/reservas/{id}/cancelar · Cancelar una reserva</li></ol></div></div></div><div class="checkpoint"><span class="component-label">Checkpoint</span><h3>El grupo Reservas se explica solo.</h3><p>Reinicia el backend para que springdoc regenere <code>/v3/api-docs</code>.</p></div></div>
+              <details class="code-reveal" data-archivo="ReservaController.java"><summary><span><span class="code-reveal-title">ReservaController.java · archivo completo</span><span class="code-reveal-note">62 líneas · listo para copiar</span></span></summary><div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Editar</span><span class="code-file">ReservaController.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.colmena.controller;
+
+import com.devsenior.colmena.dto.ReservaRequest;
+import com.devsenior.colmena.dto.ReservaResponse;
+import com.devsenior.colmena.service.ReservaService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
+
+@RestController
+@Tag(name = "Reservas", description = "Crear, consultar y cancelar reservas")
+@RequestMapping("/api/reservas")
+public class ReservaController {
+
+    private final ReservaService reservaService;
+
+    public ReservaController(ReservaService reservaService) {
+        this.reservaService = reservaService;
+    }
+
+    // Todas las reservas (opcional: ?fecha=2026-10-20)
+    @PreAuthorize("hasAuthority('RESERVAS_VER_TODAS')")
+    @Operation(summary = "Todas las reservas", description = "Con ?fecha=2026-11-05 trae solo las de ese día. Es la Agenda de Mariana.")
+    @GetMapping
+    public ResponseEntity&lt;List&lt;ReservaResponse&gt;&gt; listarTodas(@RequestParam(required = false) LocalDate fecha) {
+        return ResponseEntity.ok(reservaService.listarTodas(fecha));
+    }
+
+    // "Mis reservas": el email sale del token, no de la URL
+    @PreAuthorize("hasAuthority('RESERVAS_VER_PROPIAS')")
+    @Operation(summary = "Mis reservas", description = "Solo las de quien hace la petición: el email sale del token.")
+    @GetMapping("/mias")
+    public ResponseEntity&lt;List&lt;ReservaResponse&gt;&gt; listarMias(Authentication autenticacion) {
+        return ResponseEntity.ok(reservaService.listarMias(autenticacion.getName()));
+    }
+
+    @PreAuthorize("hasAuthority('RESERVAS_CREAR')")
+    @Operation(summary = "Crear una reserva", description = "El miembro sale del token y el valor lo calcula el backend. 409 si se cruza con otra.")
+    @PostMapping
+    public ResponseEntity&lt;ReservaResponse&gt; crear(@Valid @RequestBody ReservaRequest request,
+                                                 Authentication autenticacion) {
+        ReservaResponse creada = reservaService.crear(request, autenticacion.getName());
+        return ResponseEntity.status(HttpStatus.CREATED).body(creada);
+    }
+
+    // Puede entrar quien tenga CUALQUIERA de los dos permisos;
+    // el servicio verifica, ademas, que la reserva sea suya si solo tiene "propias"
+    @PreAuthorize("hasAnyAuthority('RESERVAS_CANCELAR_PROPIAS', 'RESERVAS_CANCELAR_TODAS')")
+    @Operation(summary = "Cancelar una reserva", description = "Un miembro cancela solo las suyas y antes de que empiecen; la administración, cualquiera.")
+    @PatchMapping("/{id}/cancelar")
+    public ResponseEntity&lt;ReservaResponse&gt; cancelar(@PathVariable Long id, Authentication autenticacion) {
+        return ResponseEntity.ok(reservaService.cancelar(id, autenticacion));
+    }
+}</code></pre></div></div></details>
+            </article>
+          </div>
+        </section>
+
+        <section class="section view" id="s10" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head"><span class="sec-n">Swagger completo</span><h2 class="sec-t">El patrón llega a los cinco grupos</h2><p class="sec-s">Dos imports, un <code>@Tag</code> por controlador y un <code>@Operation</code> por endpoint.</p></div>
+          <div class="body">
+            <h3>10.1 · Reportes y Autenticación</h3>
+            <article class="archivo"><div class="archivo-ficha"><span class="archivo-accion">Editar</span><span class="archivo-nombre">ReporteController.java</span><span class="archivo-ruta">colmena-api/src/main/java/com/devsenior/colmena/controller/</span></div><p class="archivo-intro">El Panel de Mariana tiene un solo endpoint. El grupo dice “Reportes” y la operación enumera lo que trae el resumen.</p><div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">El panel en un grupo legible</h3><p class="lectura-proposito">Es el patrón más corto para repetir solo lo que cambia.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Anotaciones nuevas</span></div></div><pre class="line-numbers" data-start="14"><code class="language-java">@Tag(name = "Reportes", description = "El panel de Mariana")
+
+    @Operation(summary = "Resumen del negocio", description = "Reservas de hoy, ingresos del mes, ocupación por espacio y miembros activos.")</code></pre></div><ol class="notas"><li class="nota" data-lineas="14"><div class="nota-cabeza"><span class="nota-lineas">L14</span><code class="nota-codigo">@Tag</code></div><p>🟧 swagger-core · Nombra el grupo.</p></li><li class="nota" data-lineas="16"><div class="nota-cabeza"><span class="nota-lineas">L16</span><code class="nota-codigo">@Operation</code></div><p>🟪 Decisión del proyecto · Enumera lo que Natalia va a preguntar.</p></li></ol></div></div><details class="code-reveal" data-archivo="ReporteController.java"><summary><span><span class="code-reveal-title">ReporteController.java · archivo completo</span><span class="code-reveal-note">30 líneas · listo para copiar</span></span></summary><div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Editar</span><span class="code-file">ReporteController.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.colmena.controller;
+
+import com.devsenior.colmena.dto.ResumenResponse;
+import com.devsenior.colmena.service.ReporteService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@Tag(name = "Reportes", description = "El panel de Mariana")
+@RequestMapping("/api/reportes")
+public class ReporteController {
+
+    private final ReporteService reporteService;
+
+    public ReporteController(ReporteService reporteService) {
+        this.reporteService = reporteService;
+    }
+
+    @PreAuthorize("hasAuthority('REPORTES_VER')")
+    @Operation(summary = "Resumen del negocio", description = "Reservas de hoy, ingresos del mes, ocupación por espacio y miembros activos.")
+    @GetMapping("/resumen")
+    public ResponseEntity&lt;ResumenResponse&gt; resumen() {
+        return ResponseEntity.ok(reporteService.resumen());
+    }
+}</code></pre></div></div></details></article>
+            <article class="archivo"><div class="archivo-ficha"><span class="archivo-accion">Editar</span><span class="archivo-nombre">AuthController.java</span><span class="archivo-ruta">colmena-api/src/main/java/com/devsenior/colmena/controller/</span></div><p class="archivo-intro">Login y registro son públicos. La descripción lo dice para que Natalia no busque Authorize antes de tener un token.</p><div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">Un grupo público con dos respuestas claras</h3><p class="lectura-proposito">El login devuelve el JWT; el registro siempre crea un <code>USER</code>.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Anotaciones nuevas</span></div></div><pre class="line-numbers" data-start="15"><code class="language-java">@Tag(name = "Autenticación", description = "Login y registro público: no piden token")
+
+    @Operation(summary = "Iniciar sesión", description = "Responde un JWT con nombre, rol y permisos.")
+
+    @Operation(summary = "Crear una cuenta de miembro", description = "Siempre crea un USER: el contrato no tiene campo rol.")</code></pre></div><ol class="notas"><li class="nota" data-lineas="15"><div class="nota-cabeza"><span class="nota-lineas">L15</span><code class="nota-codigo">Autenticación</code></div><p>🟪 Decisión del proyecto · Dice qué distingue al grupo: no pide token.</p></li><li class="nota" data-lineas="17,19"><div class="nota-cabeza"><span class="nota-lineas">L17, L19</span><code class="nota-codigo">@Operation</code></div><p>Cuenta qué devuelve el login y por qué el registro no acepta un rol.</p></li></ol></div></div><details class="code-reveal" data-archivo="AuthController.java"><summary><span><span class="code-reveal-title">AuthController.java · archivo completo</span><span class="code-reveal-note">37 líneas · listo para copiar</span></span></summary><div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Editar</span><span class="code-file">AuthController.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.colmena.controller;
+
+import com.devsenior.colmena.dto.AuthResponse;
+import com.devsenior.colmena.dto.LoginRequest;
+import com.devsenior.colmena.dto.RegistroRequest;
+import com.devsenior.colmena.service.AuthService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@Tag(name = "Autenticación", description = "Login y registro público: no piden token")
+@RequestMapping("/api/auth")
+public class AuthController {
+
+    private final AuthService authService;
+
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
+
+    @Operation(summary = "Iniciar sesión", description = "Responde un JWT con nombre, rol y permisos.")
+    @PostMapping("/login")
+    public ResponseEntity&lt;AuthResponse&gt; login(@Valid @RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authService.login(request));
+    }
+
+    // Registro publico: cualquiera puede volverse miembro (USER). Devuelve el token de una vez.
+    @Operation(summary = "Crear una cuenta de miembro", description = "Siempre crea un USER: el contrato no tiene campo rol.")
+    @PostMapping("/registro")
+    public ResponseEntity&lt;AuthResponse&gt; registro(@Valid @RequestBody RegistroRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(authService.registrar(request));
+    }
+}</code></pre></div></div></details></article>
+            <h3>10.2 · Miembros y Espacios</h3>
+            <article class="archivo"><div class="archivo-ficha"><span class="archivo-accion">Editar</span><span class="archivo-nombre">UsuarioController.java</span><span class="archivo-ruta">colmena-api/src/main/java/com/devsenior/colmena/controller/</span></div><p class="archivo-intro">La clase se llama Usuario, pero Mariana dice “miembros”: Swagger usa la palabra del negocio.</p><div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">Tres endpoints, tres resúmenes</h3><p class="lectura-proposito">La descripción solo se agrega donde el resumen no basta.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Anotaciones nuevas</span></div></div><pre class="line-numbers" data-start="20"><code class="language-java">@Tag(name = "Miembros", description = "Cuentas de los miembros: crear, listar y desactivar")
+
+    @Operation(summary = "Listar miembros")
+    @Operation(summary = "Crear una cuenta")
+    @Operation(summary = "Activar o desactivar una cuenta", description = "La administración no se puede desactivar a sí misma (409).")</code></pre></div><ol class="notas"><li class="nota" data-lineas="20"><div class="nota-cabeza"><span class="nota-lineas">L20</span><code class="nota-codigo">Miembros</code></div><p>🟪 Decisión del proyecto · Swagger es para personas, no para el compilador.</p></li><li class="nota" data-lineas="22-24"><div class="nota-cabeza"><span class="nota-lineas">L22–24</span><code class="nota-codigo">@Operation</code></div><p><code>description</code> es opcional; el cambio de estado adelanta el conflicto <code>409</code>.</p></li></ol></div></div><details class="code-reveal" data-archivo="UsuarioController.java"><summary><span><span class="code-reveal-title">UsuarioController.java · archivo completo</span><span class="code-reveal-note">50 líneas · listo para copiar</span></span></summary><div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Editar</span><span class="code-file">UsuarioController.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.colmena.controller;
+
+import com.devsenior.colmena.dto.EstadoRequest;
+import com.devsenior.colmena.dto.UsuarioRequest;
+import com.devsenior.colmena.dto.UsuarioResponse;
+import com.devsenior.colmena.service.UsuarioService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+// Todo este controlador exige el mismo permiso: se pone una sola vez, sobre la clase
+@RestController
+@Tag(name = "Miembros", description = "Cuentas de los miembros: crear, listar y desactivar")
+@RequestMapping("/api/usuarios")
+@PreAuthorize("hasAuthority('USUARIOS_GESTIONAR')")
+public class UsuarioController {
+
+    private final UsuarioService usuarioService;
+
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
+    @Operation(summary = "Listar miembros")
+    @GetMapping
+    public ResponseEntity&lt;List&lt;UsuarioResponse&gt;&gt; listar() {
+        return ResponseEntity.ok(usuarioService.listar());
+    }
+
+    @Operation(summary = "Crear una cuenta")
+    @PostMapping
+    public ResponseEntity&lt;UsuarioResponse&gt; crear(@Valid @RequestBody UsuarioRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.crear(request));
+    }
+
+    @Operation(summary = "Activar o desactivar una cuenta", description = "La administración no se puede desactivar a sí misma (409).")
+    @PatchMapping("/{id}/estado")
+    public ResponseEntity&lt;UsuarioResponse&gt; cambiarEstado(@PathVariable Long id,
+                                                         @Valid @RequestBody EstadoRequest request,
+                                                         Authentication autenticacion) {
+        return ResponseEntity.ok(usuarioService.cambiarEstado(id, request.activo(), autenticacion.getName()));
+    }
+}</code></pre></div></div></details></article>
+            <article class="archivo"><div class="archivo-ficha"><span class="archivo-accion">Editar</span><span class="archivo-nombre">EspacioController.java</span><span class="archivo-ruta">colmena-api/src/main/java/com/devsenior/colmena/controller/</span></div><p class="archivo-intro">El catálogo tiene seis endpoints. Todos repiten el mismo patrón de documentación.</p><div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">Catálogo, ocupación y gestión</h3><p class="lectura-proposito">El resumen distingue ver, crear, editar y cambiar el estado; las descripciones cuentan reglas no visibles.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Anotaciones nuevas</span></div></div><pre class="line-numbers" data-start="21"><code class="language-java">@Tag(name = "Espacios", description = "Catálogo, ocupación y gestión de espacios")
+@Operation(summary = "Listar espacios", description = "La administración ve todos; un miembro, solo los activos.")
+@Operation(summary = "Ver un espacio")
+@Operation(summary = "Horarios ocupados de un día", description = "Las franjas reservadas de ese espacio en ?fecha=…")
+@Operation(summary = "Crear un espacio", description = "Entra activo. 409 si el nombre ya existe.")
+@Operation(summary = "Editar un espacio")
+@Operation(summary = "Activar o desactivar un espacio")</code></pre></div><ol class="notas"><li class="nota" data-lineas="21"><div class="nota-cabeza"><span class="nota-lineas">L21</span><code class="nota-codigo">@Tag</code></div><p>Igual que en <code>ReservaController</code>, debajo de <code>@RestController</code>.</p></li><li class="nota" data-lineas="22-27"><div class="nota-cabeza"><span class="nota-lineas">L22–27</span><code class="nota-codigo">seis @Operation</code></div><p>Cada una va entre el permiso y el <code>@…Mapping</code> de su método.</p></li></ol></div></div><details class="code-reveal" data-archivo="EspacioController.java"><summary><span><span class="code-reveal-title">EspacioController.java · archivo completo</span><span class="code-reveal-note">76 líneas · listo para copiar</span></span></summary><div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Editar</span><span class="code-file">EspacioController.java</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-java">package com.devsenior.colmena.controller;
+
+import com.devsenior.colmena.dto.EspacioRequest;
+import com.devsenior.colmena.dto.EspacioResponse;
+import com.devsenior.colmena.dto.EstadoRequest;
+import com.devsenior.colmena.dto.FranjaOcupada;
+import com.devsenior.colmena.service.EspacioService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
+
+@RestController
+@Tag(name = "Espacios", description = "Catálogo, ocupación y gestión de espacios")
+@RequestMapping("/api/espacios")
+public class EspacioController {
+
+    private final EspacioService espacioService;
+
+    public EspacioController(EspacioService espacioService) {
+        this.espacioService = espacioService;
+    }
+
+    @PreAuthorize("hasAuthority('ESPACIOS_VER')")
+    @Operation(summary = "Listar espacios", description = "La administración ve todos; un miembro, solo los activos.")
+    @GetMapping
+    public ResponseEntity&lt;List&lt;EspacioResponse&gt;&gt; listar(Authentication autenticacion) {
+        return ResponseEntity.ok(espacioService.listar(autenticacion));
+    }
+
+    @PreAuthorize("hasAuthority('ESPACIOS_VER')")
+    @Operation(summary = "Ver un espacio")
+    @GetMapping("/{id}")
+    public ResponseEntity&lt;EspacioResponse&gt; buscarPorId(@PathVariable Long id, Authentication autenticacion) {
+        return ResponseEntity.ok(espacioService.buscarPorId(id, autenticacion));
+    }
+
+    // Horarios ocupados de un espacio en una fecha: /api/espacios/3/ocupacion?fecha=2026-10-20
+    @PreAuthorize("hasAuthority('ESPACIOS_VER')")
+    @Operation(summary = "Horarios ocupados de un día", description = "Las franjas reservadas de ese espacio en ?fecha=…")
+    @GetMapping("/{id}/ocupacion")
+    public ResponseEntity&lt;List&lt;FranjaOcupada&gt;&gt; ocupacion(@PathVariable Long id, @RequestParam LocalDate fecha) {
+        return ResponseEntity.ok(espacioService.ocupacion(id, fecha));
+    }
+
+    @PreAuthorize("hasAuthority('ESPACIOS_GESTIONAR')")
+    @Operation(summary = "Crear un espacio", description = "Entra activo. 409 si el nombre ya existe.")
+    @PostMapping
+    public ResponseEntity&lt;EspacioResponse&gt; crear(@Valid @RequestBody EspacioRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(espacioService.crear(request));
+    }
+
+    @PreAuthorize("hasAuthority('ESPACIOS_GESTIONAR')")
+    @Operation(summary = "Editar un espacio")
+    @PutMapping("/{id}")
+    public ResponseEntity&lt;EspacioResponse&gt; actualizar(@PathVariable Long id,
+                                                      @Valid @RequestBody EspacioRequest request) {
+        return ResponseEntity.ok(espacioService.actualizar(id, request));
+    }
+
+    // Activar o desactivar: { "activo": false }
+    @PreAuthorize("hasAuthority('ESPACIOS_GESTIONAR')")
+    @Operation(summary = "Activar o desactivar un espacio")
+    @PatchMapping("/{id}/estado")
+    public ResponseEntity&lt;EspacioResponse&gt; cambiarEstado(@PathVariable Long id,
+                                                         @Valid @RequestBody EstadoRequest request) {
+        return ResponseEntity.ok(espacioService.cambiarEstado(id, request.activo()));
+    }
+}</code></pre></div></div></details></article>
+            <div class="checkpoint"><span class="component-label">Checkpoint</span><h3>Cinco grupos y dieciséis resúmenes.</h3><p><code>/v3/api-docs</code> debe tener Autenticación, Espacios, Reservas, Reportes y Miembros; ninguno termina en <code>-controller</code>.</p></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s11" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head"><span class="sec-n">README · primera mitad</span><h2 class="sec-t">Natalia puede levantar el proyecto</h2><p class="sec-s">El README responde primero qué es, con qué está hecho y cómo se ejecuta.</p></div>
+          <div class="body">
+            <div class="mision"><div class="mision-head"><span class="mision-marca">4</span><span class="mision-titulo">Misión del bloque</span></div><div class="mision-grid"><div class="mision-item"><span class="component-label">Para Mariana</span><p>Que Natalia pueda levantar Colmena el jueves sin llamar a nadie.</p></div><div class="mision-item"><span class="component-label">Lo que hacemos</span><p>La IA escribe un borrador con los datos que le damos, lo verificamos línea por línea y dejamos el README en la carpeta que contiene <code>colmena-api</code> y <code>colmena-web</code>.</p></div><div class="mision-item" data-resultado><span class="component-label">Cómo sabemos que quedó</span><p>Un compañero que nunca abrió tu proyecto lo levanta siguiendo solo el README.</p></div></div></div>
+            <div class="momento-ia"><div class="momento-ia-head"><span class="momento-ia-titulo">Momento IA</span><span class="ia-nivel">Nivel 2 · Copiloto</span><span class="ia-herramienta">Copilot VS Code o chat en navegador</span></div><div class="momento-ia-body"><div class="ia-grid"><div><span class="component-label">Primero razonas tú</span><p>Reúnes los usuarios de <code>DataInitializer</code>, los permisos de <code>Rol.java</code>, los comandos que de verdad usas y las variables de <code>application.properties</code>. Y decides cuáles decisiones técnicas vale la pena contar.</p></div><div class="ia-no-delega"><span class="component-label">No se delega</span><p>Qué decisiones técnicas se cuentan y por qué, y comprobar que el proyecto se levanta siguiendo el README. Tampoco le pegues tu <code>JWT_SECRET</code> ni tu contraseña de PostgreSQL.</p></div></div><div class="code-block" data-tipo="prompt"><div class="code-head"><div><span class="code-context">Prompt sugerido</span><span class="code-file">Copiloto</span></div><button class="copy-btn" type="button">Copiar</button></div><pre><code class="language-plaintext">Estoy entregando un proyecto Full Stack llamado Colmena (Spring Boot 4 + Angular 22): reservas de un coworking en Chía. Arma un README.md en español con estas 8 secciones, con estos títulos: Qué es, Tecnologías, Cómo levantarlo, Variables de entorno, Usuarios de prueba, Roles y permisos, Decisiones técnicas, Demo. Usa SOLO estos datos: [pega los usuarios, la tabla de permisos, los comandos, las variables y tus decisiones]. Si te falta un dato, escribe [FALTA] en vez de inventarlo. Frases cortas, sin emojis salvo en el título.</code></pre></div><div><span class="component-label">Cómo validar la respuesta</span><ul class="checklist"><li>Cada comando existe: el backend se levanta con <code>mvnw</code>, no con <code>mvn</code>.</li><li>Los puertos son 8080 y 4200.</li><li>Los cinco usuarios y <code>colmena123</code> coinciden con <code>DataInitializer</code>.</li><li>Los nueve permisos coinciden con <code>Rol.java</code>, letra por letra.</li><li>Ninguna decisión técnica es inventada.</li><li>No hay ninguna clave real: solo los nombres de las variables.</li></ul></div></div></div>
+            <article class="archivo"><div class="archivo-ficha"><span class="archivo-accion">Crear</span><span class="archivo-nombre">README.md</span><span class="archivo-ruta">la carpeta que contiene colmena-api/ y colmena-web/</span></div><p class="archivo-intro">Este archivo responde la condición de Felipe. Va en la raíz porque cubre los dos proyectos; los README de cada subcarpeta conservan su detalle.</p><p class="archivo-ruta-flujo"><b>Recibe de</b> usuarios, permisos y comandos reales <span class="flecha">→</span><b>explica</b> cómo instalar y probar <span class="flecha">→</span><b>entrega a</b> GitHub y Natalia</p>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">1</span><h3 class="lectura-titulo">Qué es, en el idioma de Mariana</h3><p class="lectura-proposito">Primero aparece el problema real y luego el resultado, sin palabras técnicas innecesarias.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 1–13</span></div></div><pre class="line-numbers" data-start="1"><code class="language-markdown"># 🐝 Colmena Coworking
+
+Sistema de reservas para Colmena, un coworking en Chía (Cundinamarca).
+Backend en Spring Boot y frontend en Angular, con roles y permisos.
+
+## Qué es
+
+Mariana Gómez administraba las reservas de su coworking en un Excel compartido.
+Dos miembros llegaron a la misma sala a la misma hora, un miembro vio la facturación
+y nadie sabía cuánto se había facturado en el mes.
+
+Con Colmena, cada miembro reserva desde el celular y el sistema nunca cruza dos reservas.
+Mariana ve la agenda del día, lo facturado del mes y qué espacio se usa más.</code></pre></div><ol class="notas"><li class="nota" data-lineas="1"><div class="nota-cabeza"><span class="nota-lineas">L1</span><code class="nota-codigo"># 🐝 Colmena Coworking</code></div><p>🟨 Markdown · Un solo <code>#</code> es el título principal. 🟪 Decisión del proyecto · El nombre del proyecto, no “README”.</p></li><li class="nota" data-lineas="3-4"><div class="nota-cabeza"><span class="nota-lineas">L3–4</span><code class="nota-codigo">frase de entrada</code></div><p>En dos líneas: qué es, para quién y con qué está hecho.</p></li><li class="nota" data-lineas="6"><div class="nota-cabeza"><span class="nota-lineas">L6</span><code class="nota-codigo">## Qué es</code></div><p>🟨 Markdown · <code>##</code> abre una sección. Los ocho títulos son los mismos de la Fase 4.</p></li><li class="nota" data-lineas="8-13"><div class="nota-cabeza"><span class="nota-lineas">L8–13</span><code class="nota-codigo">problema y solución</code></div><p>🟪 Decisión del proyecto · Los incidentes reales explican por qué existen las reglas; la solución habla en resultados que Mariana reconoce.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">2</span><h3 class="lectura-titulo">Con qué está hecho</h3><p class="lectura-proposito">Una fila por capa deja visibles las versiones y las decisiones que distinguen el proyecto.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 15–23</span></div></div><pre class="line-numbers" data-start="15"><code class="language-markdown">## Tecnologías
+
+| Capa | Tecnología |
+|---|---|
+| Backend | Java 17+, Spring Boot 4, Spring Security, Spring Data JPA |
+| Autenticación | JWT con los permisos dentro del token |
+| Base de datos | PostgreSQL (H2 en memoria para las pruebas) |
+| Frontend | Angular 22 con signals y rutas `loadComponent` |
+| Documentación | Swagger (springdoc-openapi) |</code></pre></div><ol class="notas"><li class="nota" data-lineas="17-18"><div class="nota-cabeza"><span class="nota-lineas">L17–18</span><code class="nota-codigo">tabla Markdown</code></div><p>🟨 Markdown · Las barras crean la tabla y la segunda fila separa los títulos.</p></li><li class="nota" data-lineas="19-23"><div class="nota-cabeza"><span class="nota-lineas">L19–23</span><code class="nota-codigo">capas</code></div><p>🟪 Decisión del proyecto · Versiones para levantarlo y rasgos que un evaluador puede preguntar.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">3</span><h3 class="lectura-titulo">Base y backend</h3><p class="lectura-proposito">La base vacía va primero; el wrapper evita exigir una instalación global de Maven.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 25–33</span></div></div><pre class="line-numbers" data-start="25"><code class="language-markdown">## Cómo levantarlo
+
+1. En pgAdmin, crea una base de datos vacía llamada `colmena_db`.
+2. Backend, desde `colmena-api/` (queda en http://localhost:8080):
+
+```bash
+./mvnw spring-boot:run        # Git Bash, macOS o Linux
+mvnw.cmd spring-boot:run      # CMD o PowerShell
+```</code></pre></div><ol class="notas"><li class="nota" data-lineas="27"><div class="nota-cabeza"><span class="nota-lineas">L27</span><code class="nota-codigo">colmena_db</code></div><p>🟪 Decisión del proyecto · Sin la base vacía, el backend no arranca.</p></li><li class="nota" data-lineas="28"><div class="nota-cabeza"><span class="nota-lineas">L28</span><code class="nota-codigo">desde colmena-api/</code></div><p>Dice desde qué carpeta y en qué puerto queda.</p></li><li class="nota" data-lineas="31-32"><div class="nota-cabeza"><span class="nota-lineas">L31–32</span><code class="nota-codigo">mvnw</code></div><p>🟧 Maven Wrapper · Descarga la versión de Maven del proyecto si no está instalada.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">4</span><h3 class="lectura-titulo">Frontend y Swagger</h3><p class="lectura-proposito">La persona que clona el repo instala dependencias, sirve Angular y sabe dónde probar la API.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 35–42</span></div></div><pre class="line-numbers" data-start="35"><code class="language-markdown">3. Frontend, desde `colmena-web/` (queda en http://localhost:4200):
+
+```bash
+npm install
+ng serve
+```
+
+La documentación de la API queda en http://localhost:8080/swagger-ui.html</code></pre></div><ol class="notas"><li class="nota" data-lineas="38"><div class="nota-cabeza"><span class="nota-lineas">L38</span><code class="nota-codigo">npm install</code></div><p>🟧 npm · Descarga las dependencias de <code>package.json</code>.</p></li><li class="nota" data-lineas="39"><div class="nota-cabeza"><span class="nota-lineas">L39</span><code class="nota-codigo">ng serve</code></div><p>🟧 Angular CLI · Compila y sirve el frontend en el 4200.</p></li><li class="nota" data-lineas="42"><div class="nota-cabeza"><span class="nota-lineas">L42</span><code class="nota-codigo">Swagger</code></div><p>🟪 Decisión del proyecto · La segunda puerta para probar sin el frontend.</p></li></ol></div></div>
+              <details class="code-reveal" data-archivo="README.md"><summary><span><span class="code-reveal-title">README.md · primera mitad completa</span><span class="code-reveal-note">42 líneas · listo para copiar</span></span></summary><div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Crear</span><span class="code-file">README.md</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-markdown"># 🐝 Colmena Coworking
+
+Sistema de reservas para Colmena, un coworking en Chía (Cundinamarca).
+Backend en Spring Boot y frontend en Angular, con roles y permisos.
+
+## Qué es
+
+Mariana Gómez administraba las reservas de su coworking en un Excel compartido.
+Dos miembros llegaron a la misma sala a la misma hora, un miembro vio la facturación
+y nadie sabía cuánto se había facturado en el mes.
+
+Con Colmena, cada miembro reserva desde el celular y el sistema nunca cruza dos reservas.
+Mariana ve la agenda del día, lo facturado del mes y qué espacio se usa más.
+
+## Tecnologías
+
+| Capa | Tecnología |
+|---|---|
+| Backend | Java 17+, Spring Boot 4, Spring Security, Spring Data JPA |
+| Autenticación | JWT con los permisos dentro del token |
+| Base de datos | PostgreSQL (H2 en memoria para las pruebas) |
+| Frontend | Angular 22 con signals y rutas `loadComponent` |
+| Documentación | Swagger (springdoc-openapi) |
+
+## Cómo levantarlo
+
+1. En pgAdmin, crea una base de datos vacía llamada `colmena_db`.
+2. Backend, desde `colmena-api/` (queda en http://localhost:8080):
+
+```bash
+./mvnw spring-boot:run        # Git Bash, macOS o Linux
+mvnw.cmd spring-boot:run      # CMD o PowerShell
+```
+
+3. Frontend, desde `colmena-web/` (queda en http://localhost:4200):
+
+```bash
+npm install
+ng serve
+```
+
+La documentación de la API queda en http://localhost:8080/swagger-ui.html</code></pre></div></div></details>
+            </article>
+          </div>
+        </section>
+
+        <section class="section view" id="s12" data-accent="1" data-layout="canvas" data-escena="construccion" hidden>
+          <div class="sec-head"><span class="sec-n">README · segunda mitad</span><h2 class="sec-t">Natalia entiende cómo probar y por qué está hecho así</h2><p class="sec-s">Variables, usuarios, permisos, decisiones, pruebas y demo convierten los comandos en una entrega profesional.</p></div>
+          <div class="body">
+            <article class="archivo"><div class="archivo-ficha"><span class="archivo-accion">Editar</span><span class="archivo-nombre">README.md</span><span class="archivo-ruta">la carpeta que contiene colmena-api/ y colmena-web/</span></div><p class="archivo-intro">La segunda mitad usa datos reales del proyecto y deja visible qué se puede cambiar, quién puede hacer qué y cómo se demuestra.</p>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">5</span><h3 class="lectura-titulo">Lo que hay que configurar</h3><p class="lectura-proposito">Los nombres de las variables aparecen; las claves reales nunca se escriben.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 44–52</span></div></div><pre class="line-numbers" data-start="44"><code class="language-markdown">## Variables de entorno
+
+| Variable | Para qué | Si no existe |
+|---|---|---|
+| `JWT_SECRET` | Clave con la que se firman los tokens (mínimo 32 caracteres) | Usa una clave de desarrollo |
+| `DB_USER` | Usuario de PostgreSQL | `postgres` |
+| `DB_PASSWORD` | Contraseña de PostgreSQL | `postgres` |
+
+En un servidor real, `JWT_SECRET` siempre se define: quien conozca la clave puede fabricar tokens.</code></pre></div><ol class="notas"><li class="nota" data-lineas="48"><div class="nota-cabeza"><span class="nota-lineas">L48</span><code class="nota-codigo">JWT_SECRET</code></div><p>🟪 Decisión del proyecto · Dice para qué es y que tiene valor de desarrollo, sin escribirlo.</p></li><li class="nota" data-lineas="49-50"><div class="nota-cabeza"><span class="nota-lineas">L49–50</span><code class="nota-codigo">DB_USER · DB_PASSWORD</code></div><p>Permiten configurar PostgreSQL sin tocar el código.</p></li><li class="nota" data-lineas="52"><div class="nota-cabeza"><span class="nota-lineas">L52</span><code class="nota-codigo">advertencia</code></div><p>Quien despliega entiende por qué debe definir la clave.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">6</span><h3 class="lectura-titulo">Con quién probar</h3><p class="lectura-proposito">Mariana prueba la administración; Laura, Andrés y Camila separan lo propio de lo ajeno; Sofía demuestra la desactivación.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 54–64</span></div></div><pre class="line-numbers" data-start="54"><code class="language-markdown">## Usuarios de prueba
+
+Clave de todos: `colmena123`
+
+| Persona | Email | Rol |
+|---|---|---|
+| Mariana Gómez | `admin@colmena.co` | ADMIN |
+| Laura Restrepo | `laura@correo.com` | USER |
+| Andrés Castillo | `andres@correo.com` | USER |
+| Camila Ortiz | `camila@correo.com` | USER |
+| Sofía Duarte | `sofia@correo.com` | USER (cuenta desactivada) |</code></pre></div><ol class="notas"><li class="nota" data-lineas="56"><div class="nota-cabeza"><span class="nota-lineas">L56</span><code class="nota-codigo">colmena123</code></div><p>🟪 Decisión del proyecto · Una sola clave de prueba para todos, escrita una vez.</p></li><li class="nota" data-lineas="60-63"><div class="nota-cabeza"><span class="nota-lineas">L60–63</span><code class="nota-codigo">cuatro cuentas activas</code></div><p>Permiten probar administración, miembro normal y aislamiento entre miembros.</p></li><li class="nota" data-lineas="64"><div class="nota-cabeza"><span class="nota-lineas">L64</span><code class="nota-codigo">Sofía desactivada</code></div><p>Documenta a propósito el caso de rechazo para que Natalia no crea que el login está roto.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">7</span><h3 class="lectura-titulo">Quién puede hacer qué</h3><p class="lectura-proposito">Los nueve permisos coinciden con <code>Rol.java</code>, letra por letra.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 66–78</span></div></div><pre class="line-numbers" data-start="66"><code class="language-markdown">## Roles y permisos
+
+| Permiso | ADMIN | USER |
+|---|---|---|
+| `ESPACIOS_VER` | ✅ | ✅ |
+| `ESPACIOS_GESTIONAR` | ✅ | |
+| `RESERVAS_CREAR` | | ✅ |
+| `RESERVAS_VER_PROPIAS` | | ✅ |
+| `RESERVAS_CANCELAR_PROPIAS` | | ✅ |
+| `RESERVAS_VER_TODAS` | ✅ | |
+| `RESERVAS_CANCELAR_TODAS` | ✅ | |
+| `USUARIOS_GESTIONAR` | ✅ | |
+| `REPORTES_VER` | ✅ | |</code></pre></div><ol class="notas"><li class="nota" data-lineas="68"><div class="nota-cabeza"><span class="nota-lineas">L68</span><code class="nota-codigo">Permiso · ADMIN · USER</code></div><p>🟪 Decisión del proyecto · Permisos en filas y roles en columnas, como la matriz diseñada con Mariana.</p></li><li class="nota" data-lineas="70-78"><div class="nota-cabeza"><span class="nota-lineas">L70–78</span><code class="nota-codigo">nueve permisos</code></div><p>🟧 Código del proyecto · Deben coincidir con <code>Rol.java</code>. Una celda vacía significa “no tiene”.</p></li></ol></div></div>
+              <div class="lectura"><div class="lectura-head"><span class="lectura-num">8</span><h3 class="lectura-titulo">Por qué está hecho así y cómo se ve</h3><p class="lectura-proposito">Las decisiones se cuentan con su porqué; las pruebas y la demo aportan evidencia.</p></div><div class="lectura-cuerpo"><div class="code-block" data-role="fragment"><div class="code-head"><div><span class="code-context">Líneas 80–94</span></div></div><pre class="line-numbers" data-start="80"><code class="language-markdown">## Decisiones técnicas
+
+- **Cada endpoint pide un permiso, no un rol.** Un rol nuevo se arma con los permisos que ya existen.
+- **El backend lee los permisos de la base de datos en cada petición.** Si Mariana desactiva una cuenta, su token deja de servir.
+- **Las reglas viven en el backend y se repiten en el formulario.** El formulario orienta; el backend protege.
+- **El panel lo calcula el backend.** La facturación es un dato sensible y una regla de negocio.
+- **Controladores → servicios → repositorios.** Ningún controlador toca la base de datos.
+
+## Pruebas
+
+Desde `colmena-api/`: `./mvnw test`. Levantan la API con una base de datos en memoria y no tocan `colmena_db`.
+
+## Demo
+
+🎥 Video de 3 minutos: [pega aquí el enlace]</code></pre></div><ol class="notas"><li class="nota" data-lineas="82-86"><div class="nota-cabeza"><span class="nota-lineas">L82–86</span><code class="nota-codigo">cinco decisiones</code></div><p>🟪 Decisión del proyecto · Cada viñeta tiene la decisión en negrilla y después el porqué.</p></li><li class="nota" data-lineas="88-90"><div class="nota-cabeza"><span class="nota-lineas">L88–90</span><code class="nota-codigo">Pruebas</code></div><p>Dice que existen, cómo se corren y que no tocan la base real.</p></li><li class="nota" data-lineas="92-94"><div class="nota-cabeza"><span class="nota-lineas">L92–94</span><code class="nota-codigo">Demo</code></div><p>Queda marcado el lugar para el enlace del video.</p></li></ol></div></div>
+              <div class="active-build"><div class="build-step"><span class="build-step-index">▶</span><div class="build-step-copy"><h3 class="build-step-title">Pruébalo</h3><div class="consola"><div class="consola-head">Vista previa</div><ol><li class="in">Ctrl + Shift + V en VS Code</li><li class="out">Título grande, nueve secciones, cuatro tablas y bloques de código</li><li class="out">Después, un compañero levanta el proyecto sin preguntar</li></ol></div></div></div><div class="checkpoint"><span class="component-label">Checkpoint</span><h3>La documentación funciona fuera del equipo.</h3><p>Los comandos, usuarios, permisos y variables fueron verificados contra el proyecto.</p></div></div>
+              <details class="code-reveal" data-archivo="README.md"><summary><span><span class="code-reveal-title">README.md · como queda al terminar este momento</span><span class="code-reveal-note">94 líneas · listo para copiar</span></span></summary><div class="code-reveal-body"><div class="code-block"><div class="code-head"><div><span class="code-context">Editar</span><span class="code-file">README.md</span></div><button class="copy-btn" type="button">Copiar archivo</button></div><pre class="line-numbers"><code class="language-markdown"># 🐝 Colmena Coworking
+
+Sistema de reservas para Colmena, un coworking en Chía (Cundinamarca).
+Backend en Spring Boot y frontend en Angular, con roles y permisos.
+
+## Qué es
+
+Mariana Gómez administraba las reservas de su coworking en un Excel compartido.
+Dos miembros llegaron a la misma sala a la misma hora, un miembro vio la facturación
+y nadie sabía cuánto se había facturado en el mes.
+
+Con Colmena, cada miembro reserva desde el celular y el sistema nunca cruza dos reservas.
+Mariana ve la agenda del día, lo facturado del mes y qué espacio se usa más.
+
+## Tecnologías
+
+| Capa | Tecnología |
+|---|---|
+| Backend | Java 17+, Spring Boot 4, Spring Security, Spring Data JPA |
+| Autenticación | JWT con los permisos dentro del token |
+| Base de datos | PostgreSQL (H2 en memoria para las pruebas) |
+| Frontend | Angular 22 con signals y rutas `loadComponent` |
+| Documentación | Swagger (springdoc-openapi) |
+
+## Cómo levantarlo
+
+1. En pgAdmin, crea una base de datos vacía llamada `colmena_db`.
+2. Backend, desde `colmena-api/` (queda en http://localhost:8080):
+
+```bash
+./mvnw spring-boot:run        # Git Bash, macOS o Linux
+mvnw.cmd spring-boot:run      # CMD o PowerShell
+```
+
+3. Frontend, desde `colmena-web/` (queda en http://localhost:4200):
+
+```bash
+npm install
+ng serve
+```
+
+La documentación de la API queda en http://localhost:8080/swagger-ui.html
+
+## Variables de entorno
+
+| Variable | Para qué | Si no existe |
+|---|---|---|
+| `JWT_SECRET` | Clave con la que se firman los tokens (mínimo 32 caracteres) | Usa una clave de desarrollo |
+| `DB_USER` | Usuario de PostgreSQL | `postgres` |
+| `DB_PASSWORD` | Contraseña de PostgreSQL | `postgres` |
+
+En un servidor real, `JWT_SECRET` siempre se define: quien conozca la clave puede fabricar tokens.
+
+## Usuarios de prueba
+
+Clave de todos: `colmena123`
+
+| Persona | Email | Rol |
+|---|---|---|
+| Mariana Gómez | `admin@colmena.co` | ADMIN |
+| Laura Restrepo | `laura@correo.com` | USER |
+| Andrés Castillo | `andres@correo.com` | USER |
+| Camila Ortiz | `camila@correo.com` | USER |
+| Sofía Duarte | `sofia@correo.com` | USER (cuenta desactivada) |
+
+## Roles y permisos
+
+| Permiso | ADMIN | USER |
+|---|---|---|
+| `ESPACIOS_VER` | ✅ | ✅ |
+| `ESPACIOS_GESTIONAR` | ✅ | |
+| `RESERVAS_CREAR` | | ✅ |
+| `RESERVAS_VER_PROPIAS` | | ✅ |
+| `RESERVAS_CANCELAR_PROPIAS` | | ✅ |
+| `RESERVAS_VER_TODAS` | ✅ | |
+| `RESERVAS_CANCELAR_TODAS` | ✅ | |
+| `USUARIOS_GESTIONAR` | ✅ | |
+| `REPORTES_VER` | ✅ | |
+
+## Decisiones técnicas
+
+- **Cada endpoint pide un permiso, no un rol.** Un rol nuevo se arma con los permisos que ya existen.
+- **El backend lee los permisos de la base de datos en cada petición.** Si Mariana desactiva una cuenta, su token deja de servir.
+- **Las reglas viven en el backend y se repiten en el formulario.** El formulario orienta; el backend protege.
+- **El panel lo calcula el backend.** La facturación es un dato sensible y una regla de negocio.
+- **Controladores → servicios → repositorios.** Ningún controlador toca la base de datos.
+
+## Pruebas
+
+Desde `colmena-api/`: `./mvnw test`. Levantan la API con una base de datos en memoria y no tocan `colmena_db`.
+
+## Demo
+
+🎥 Video de 3 minutos: [pega aquí el enlace]</code></pre></div></div></details>
+            </article>
+          </div>
+        </section>
+
+        <section class="section view" id="s13" data-accent="1" data-layout="canvas" data-escena="concepto" hidden>
+          <div class="sec-head"><span class="sec-n">Entrega completa</span><h2 class="sec-t">El recorrido del jueves de Natalia</h2><p class="sec-s">Cada pieza construida responde a una pregunta concreta de quien revisa el proyecto.</p></div>
+          <div class="body">
+            <div class="timeline">
+              <div class="timeline-item"><h3>Abre el repositorio en GitHub</h3><p>GitHub muestra <code>README.md</code>: lee “Qué es” y “Tecnologías” y sabe si conoce el stack.</p></div>
+              <div class="timeline-item"><h3>Levanta el proyecto</h3><p>Crea <code>colmena_db</code>, ejecuta <code>./mvnw spring-boot:run</code>, <code>npm install</code> y <code>ng serve</code>.</p></div>
+              <div class="timeline-item"><h3>Entra como Laura</h3><p>Usa <code>laura@correo.com</code> / <code>colmena123</code> desde “Usuarios de prueba”.</p></div>
+              <div class="timeline-item"><h3>Abre Swagger</h3><p>Ve Autenticación, Espacios, Reservas, Reportes y Miembros por <code>@Tag</code>, y cada resumen por <code>@Operation</code>.</p></div>
+              <div class="timeline-item"><h3>Intenta entrar al Panel</h3><p><code>GET /api/reportes/resumen</code> con el token de Laura responde <code>403</code>.</p></div>
+              <div class="timeline-item"><h3>Adultera el payload</h3><p>Cambia el token en jwt.io y recibe <code>401</code>: la firma no coincide.</p></div>
+              <div class="timeline-item"><h3>Ejecuta las pruebas y la auditoría</h3><p><code>./mvnw test</code> termina con 8 pruebas y 0 fallos; las búsquedas no encuentran dependencias indebidas ni depuración.</p></div>
+              <div class="timeline-item"><h3>Responde a Felipe</h3><p>“Se puede usar sin ellos.”</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section view" id="s14" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
+          <div class="sec-head"><span class="sec-n">Portafolio y señales</span><h2 class="sec-t">La demo cuenta resultados; los errores dicen dónde mirar</h2><p class="sec-s">El mismo recorrido sirve para Felipe, para el portafolio y para una entrevista técnica.</p></div>
+          <div class="body">
+            <h3>14.1 · Guion de la demo</h3>
+            <div class="table-wrap"><table class="data-table"><caption>Video de tres minutos</caption><thead><tr><th>Momento</th><th>Qué muestras</th><th>Qué dices</th></tr></thead><tbody><tr><td>0:00</td><td>El README en GitHub</td><td>“Colmena es el sistema de reservas de un coworking; así se levanta.”</td></tr><tr><td>0:20</td><td>Login como Laura, menú corto y reserva</td><td>“Cada persona ve solo lo que le corresponde.”</td></tr><tr><td>0:50</td><td>Laura intenta reservar encima de otra reserva</td><td>“El sistema explica por qué no, y el backend lo impide aunque se salte el formulario.”</td></tr><tr><td>1:20</td><td>Laura cancela una reserva suya</td><td>“Cada miembro maneja lo suyo.”</td></tr><tr><td>1:40</td><td>Mariana abre Panel y Agenda</td><td>“La dueña ve su negocio: lo facturado del mes y quién viene hoy.”</td></tr><tr><td>2:10</td><td>Mariana desactiva una cuenta</td><td>“Los permisos se revisan en cada petición.”</td></tr><tr><td>2:30</td><td>Swagger y <code>./mvnw test</code></td><td>“La API está documentada y la seguridad tiene pruebas.”</td></tr></tbody></table></div>
+            <p>Graba con la herramienta que tengas, con el navegador en pantalla completa y la letra grande. Súbelo como video <strong>oculto</strong> en YouTube o con enlace público en Drive, y pega el enlace en <strong>Demo</strong> del README.</p>
+            <h3>14.2 · Contarlo en una entrevista</h3>
+            <ol><li><strong>El problema:</strong> “Un coworking manejaba las reservas en Excel: se cruzaban, un miembro vio la facturación y la dueña no sabía cuánto llevaba en el mes.”</li><li><strong>Lo que hiciste:</strong> “Construí el backend en Spring Boot con permisos en JWT y el frontend en Angular.”</li><li><strong>Una decisión que puedas defender:</strong> “Los permisos se leen de la base de datos en cada petición, no del token, para que una cuenta desactivada pierda el acceso de inmediato.”</li><li><strong>Cómo sabes que funciona:</strong> “Tiene pruebas automáticas de las reglas y de los ataques más comunes, y el README permite levantarlo en diez minutos.”</li></ol>
+            <div class="micro-task"><span class="component-label">Para pensar</span><p class="micro-task-q">Te preguntan: “¿Por qué guardaron los permisos en el token si después los leen de la base de datos?”. ¿Qué respondes?</p><details class="micro-reveal"><summary>Comprobar</summary><p class="micro-answer">Porque los dos sirven para cosas distintas. Los permisos del token los usa <strong>Angular</strong> para decidir qué mostrar; el backend no confía en ellos y los vuelve a leer de la base en cada petición. Así una cuenta desactivada o un rol cambiado aplica de inmediato.</p></details></div>
+            <h3>14.3 · Errores y cómo leerlos</h3>
+            <div class="table-wrap"><table class="data-table"><caption>Señales frecuentes</caption><thead><tr><th>Síntoma</th><th>Cómo se lee</th><th>Causa probable</th><th>Cómo se corrige</th></tr></thead><tbody><tr><td><code>cannot find symbol · class Tag</code></td><td>Java no sabe qué es <code>Tag</code></td><td>Falta el import</td><td><code>import io.swagger.v3.oas.annotations.tags.Tag;</code></td></tr><tr><td><code>cannot find symbol · method base64</code></td><td>Usaste un método que no existe</td><td>Falta la ayuda o tiene otro nombre</td><td>Escribe <code>base64</code> como en el paso 4</td></tr><tr><td><code>expected: &lt;200&gt; but was: &lt;401&gt;</code></td><td>Ni el token verdadero entra</td><td>Login roto o falta <code>Bearer </code></td><td>Revisa <code>token(...)</code> y <code>estadoDe</code></td></tr><tr><td><code>Connection to localhost:5432 refused</code></td><td>La prueba intentó usar PostgreSQL</td><td>Falta el perfil test</td><td>Agrega <code>@ActiveProfiles("test")</code></td></tr><tr><td>Swagger no cambia</td><td>Ves los textos viejos</td><td>Backend sin reiniciar o caché</td><td>Reinicia y recarga con <code>Ctrl + F5</code></td></tr><tr><td>Todo da <code>401</code> después de Authorize</td><td>El token no sirve</td><td>Pegaste <code>Bearer</code> o cambió la clave</td><td>Pega solo el token o inicia sesión otra vez</td></tr><tr><td><code>exceeded maximum budget</code></td><td>Un archivo pasó el presupuesto</td><td>CSS mayor a 4 kB o inicial mayor a 500 kB</td><td>Mueve estilos repetidos o revisa <code>loadComponent</code></td></tr><tr><td>El README se ve como un bloque</td><td>Tablas o listas no se dibujan</td><td>Falta una línea en blanco</td><td>Deja una línea en blanco antes</td></tr></tbody></table></div>
+          </div>
+        </section>
+
+        <section class="section view" id="s15" data-accent="1" data-layout="canvas" data-escena="prueba" hidden>
+          <div class="sec-head"><span class="sec-n">Fase 4</span><h2 class="sec-t">Llave Maestra recibe la misma revisión</h2><p class="sec-s">El banco manda a su ingeniero a revisar el sistema de Hernán: la situación cambia, los criterios se conservan.</p></div>
+          <div class="body">
+            <div class="table-wrap"><table class="data-table"><caption>De Colmena a Llave Maestra</caption><thead><tr><th>En clase</th><th>En tu proyecto</th></tr></thead><tbody><tr><td>Matriz de ataques y <code>SeguridadTokensTest</code></td><td>Rechaza tokens adulterados, sin firma, vencidos, firmados con otra clave y de cuentas inexistentes</td></tr><tr><td>Usuarios sin contraseñas y mismo mensaje de login</td><td>Lo mismo, y errores sin detalles del servidor</td></tr><tr><td><code>@Tag</code> y <code>@Operation</code></td><td>Swagger con título “Llave Maestra API”, grupos y resúmenes</td></tr><tr><td>Auditoría de seis búsquedas</td><td>Las mismas reglas, revisadas por pruebas</td></tr><tr><td><code>ng build</code> sin advertencias</td><td>Build sin errores ni advertencias</td></tr><tr><td>README de ocho secciones</td><td>Reemplazas el README del taller por el de tu proyecto</td></tr><tr><td>Borrador con IA, verificado</td><td><code>BITACORA-IA.md</code> con mínimo cuatro entradas</td></tr><tr><td>Guion de la demo</td><td>Video de máximo tres minutos con cinco momentos</td></tr></tbody></table></div>
+            <div class="callout" data-tone="warning"><span class="callout-icon">!</span><div><h3>Entrega final</h3><p>Domingo 15 de noviembre, 11:59 p. m. Después de esa hora, los <code>push</code> ya no cambian la nota.</p></div></div>
+            <div class="table-wrap"><table class="data-table"><caption>Mapa final de archivos</caption><thead><tr><th>Archivo</th><th>Ruta</th><th>Acción</th><th>Estado final</th></tr></thead><tbody><tr><td><code>SeguridadTokensTest.java</code></td><td><code>colmena-api/src/test/java/com/devsenior/colmena/pruebas/</code></td><td>Crear</td><td>Completo · 82 líneas</td></tr><tr><td><code>ReservaController.java</code></td><td><code>colmena-api/src/main/java/com/devsenior/colmena/controller/</code></td><td>Editar</td><td>Completo · 62 líneas</td></tr><tr><td><code>ReporteController.java</code></td><td>misma carpeta de controladores</td><td>Editar</td><td>Completo · 30 líneas</td></tr><tr><td><code>AuthController.java</code></td><td>misma carpeta de controladores</td><td>Editar</td><td>Completo · 37 líneas</td></tr><tr><td><code>UsuarioController.java</code></td><td>misma carpeta de controladores</td><td>Editar</td><td>Completo · 50 líneas</td></tr><tr><td><code>EspacioController.java</code></td><td>misma carpeta de controladores</td><td>Editar</td><td>Completo · 76 líneas</td></tr><tr><td><code>reservar.html</code></td><td><code>colmena-web/src/app/pages/reservar/</code></td><td>Editar una línea</td><td>Completo · 98 líneas</td></tr><tr><td><code>README.md</code></td><td>raíz que contiene backend y frontend</td><td>Crear</td><td>Completo · 94 líneas</td></tr></tbody></table></div>
+            <p><code>application.properties</code>, <code>JwtFilter</code>, <code>SecurityConfig</code> y <code>app.routes.ts</code> se revisan, pero no cambian.</p>
+          </div>
+        </section>
+
+        <section class="section view" id="s16" data-accent="1" data-layout="canvas" data-escena="cierre" hidden>
+          <div class="sec-head"><span class="sec-n">Cierre</span><h2 class="sec-t">Colmena se puede usar sin nosotros</h2><p class="sec-s">La seguridad tiene evidencia, el orden se comprueba y la documentación responde antes de que alguien pregunte.</p></div>
+          <div class="body">
+            <article class="correo"><div class="correo-head"><span class="correo-avatar">CA</span><div><div class="correo-remitente">Equipo de desarrollo · Código Andino</div><div class="correo-ruta">Para: Mariana Gómez · admin@colmena.co</div></div><span class="correo-fecha">5 nov 2026</span></div><div class="correo-asunto">Re: ¡Un socio quiere invertir! — Colmena lista para Natalia</div><div class="correo-body"><p>Hola, Mariana:</p><p>Colmena está lista para el jueves. Esto es lo que Natalia va a encontrar:</p><ul><li><strong>Un README</strong> con todo lo que necesita para instalarlo sola.</li><li><strong>Swagger documentado:</strong> cada parte de la API dice qué hace y qué reglas tiene.</li><li><strong>Pruebas de seguridad que corren solas:</strong> el sistema rechaza tokens falsificados, sin firma y rutas sin permiso.</li><li><strong>Código revisado:</strong> cada capa hace lo suyo y el sistema carga solo lo necesario.</li></ul><p>Le dejamos también un video de tres minutos con la demo por rol.</p><p>Un abrazo,<br>Equipo de desarrollo · Código Andino</p></div></article>
+            <ol class="ideas"><li><span><strong>La seguridad se demuestra:</strong> una matriz de ataques, empezando por un control, convertida en pruebas que corren solas.</span></li><li><span><strong>La calidad se mide:</strong> si la búsqueda no encuentra nada y <code>ng build</code> no advierte nada, la regla se cumple.</span></li><li><span><strong>Una entrega se usa sin ti:</strong> Swagger para quien usa la API, README para quien levanta el proyecto.</span></li></ol>
+            <div class="callout" data-tone="success"><span class="callout-icon">✓</span><div><h3>La decisión técnica que más importa</h3><p>La clave del JWT vive en una variable de entorno. Todo lo demás de la seguridad depende de que esa clave no se filtre.</p></div></div>
+            <div class="autoevaluacion"><span class="component-label">¿Ya puedo…?</span><ul><li><label><input type="checkbox"><span>Verificar que el backend rechaza lo que no firmó, a mano en Swagger y con <code>SeguridadTokensTest</code>.</span></label></li><li><label><input type="checkbox"><span>Comprobar con la auditoría y con <code>ng build</code> que el código está ordenado y liviano.</span></label></li><li><label><input type="checkbox"><span>Entregar un proyecto que otra persona levanta y entiende sola, con Swagger documentado y un README verificado.</span></label></li></ul></div>
+            <p>Este fue el cierre del módulo. Lo que viene es el <strong>workshop de cierre</strong> y tu portafolio: Colmena es tu proyecto guía y Llave Maestra, tu proyecto propio.</p>
+          </div>
+        </section>
+
+        <section class="section view" id="glosario" data-accent="1" data-layout="canvas" data-escena="consulta" hidden>
+          <div class="sec-head"><span class="sec-n">Consultar</span><h2 class="sec-t">Glosario de la clase</h2></div>
+          <div class="body"><dl class="glosario">
+            <div class="glos-item" data-termino="matriz-ataques"><dt class="glos-termino">Matriz de ataques</dt><dd class="glos-tecnica">Tabla de casos de prueba de seguridad: cada fila es un intento no autorizado con resultado esperado y obtenido.</dd><dd class="glos-vida">Como la lista que revisa el vigilante: carné falso, vencido o alguien que se cuela.</dd><dd class="glos-donde">Seguridad · Matriz y prueba</dd></div>
+            <div class="glos-item" data-termino="prueba-control"><dt class="glos-termino">Prueba de control</dt><dd class="glos-tecnica">Caso que demuestra que el sistema sí acepta lo válido.</dd><dd class="glos-vida">Antes de probar una llave falsa, compruebas que la verdadera sí abre.</dd><dd class="glos-donde">Ataques automáticos · Paso 1</dd></div>
+            <div class="glos-item" data-termino="firma-jwt"><dt class="glos-termino">Firma del JWT</dt><dd class="glos-tecnica">Código calculado con la clave secreta a partir del encabezado y el payload.</dd><dd class="glos-vida">El sello seco de un notario.</dd><dd class="glos-donde">Firma y clave JWT</dd></div>
+            <div class="glos-item" data-termino="token-adulterado"><dt class="glos-termino">Token adulterado</dt><dd class="glos-tecnica">JWT cuyo payload cambió sin volver a firmarse; el backend lo rechaza con <code>401</code>.</dd><dd class="glos-vida">Un billete al que le cambiaron el número con marcador.</dd><dd class="glos-donde">Matriz · Ataques automáticos</dd></div>
+            <div class="glos-item" data-termino="variable-entorno"><dt class="glos-termino">Variable de entorno</dt><dd class="glos-tecnica">Valor que el sistema operativo entrega al programa al arrancar, fuera del código.</dd><dd class="glos-vida">La clave de la caja fuerte la sabe el gerente; no está en el manual.</dd><dd class="glos-donde">Firma y clave · README</dd></div>
+            <div class="glos-item" data-termino="responsabilidad-unica"><dt class="glos-termino">Responsabilidad única</dt><dd class="glos-tecnica">Cada clase tiene una sola razón para cambiar.</dd><dd class="glos-vida">El mesero toma el pedido y el cocinero cocina.</dd><dd class="glos-donde">Auditoría SOLID</dd></div>
+            <div class="glos-item" data-termino="inversion-dependencias"><dt class="glos-termino">Inversión de dependencias</dt><dd class="glos-tecnica">Una clase depende de una interfaz, no de la implementación concreta.</dd><dd class="glos-vida">Pides un electricista, no una persona exacta.</dd><dd class="glos-donde">Auditoría SOLID</dd></div>
+            <div class="glos-item" data-termino="lazy-chunk"><dt class="glos-termino">Archivo diferido</dt><dd class="glos-tecnica">JavaScript que Angular descarga solo al visitar su ruta con <code>loadComponent</code>.</dd><dd class="glos-vida">El menú de postres que llega solo si lo pides.</dd><dd class="glos-donde">Build e imagen lazy</dd></div>
+            <div class="glos-item" data-termino="presupuesto-build"><dt class="glos-termino">Presupuesto de build</dt><dd class="glos-tecnica">Límite de tamaño de <code>angular.json</code>: 500 kB el inicial y 4 kB el CSS por componente.</dd><dd class="glos-vida">El límite de equipaje de una aerolínea.</dd><dd class="glos-donde">Build e imagen lazy</dd></div>
+            <div class="glos-item" data-termino="openapi"><dt class="glos-termino">OpenAPI</dt><dd class="glos-tecnica">Especificación estándar para describir una API REST en JSON o YAML.</dd><dd class="glos-vida">La carta de un restaurante: cada plato y qué trae.</dd><dd class="glos-donde">Swagger</dd></div>
+            <div class="glos-item" data-termino="tag-operation"><dt class="glos-termino"><code>@Tag</code> y <code>@Operation</code></dt><dd class="glos-tecnica">Anotaciones de swagger-core para nombrar grupos y describir endpoints.</dd><dd class="glos-vida">Las secciones de la carta y la descripción de cada plato.</dd><dd class="glos-donde">Swagger completo</dd></div>
+            <div class="glos-item" data-termino="readme"><dt class="glos-termino">README</dt><dd class="glos-tecnica">Archivo de documentación principal que GitHub muestra al abrir un repositorio.</dd><dd class="glos-vida">El manual de bienvenida de un empleado nuevo.</dd><dd class="glos-donde">README</dd></div>
+          </dl></div>
+        </section>
+
+        <section class="section view" id="documentacion" data-accent="1" data-layout="canvas" data-escena="consulta" hidden>
+          <div class="sec-head"><span class="sec-n">Consultar</span><h2 class="sec-t">Documentación para profundizar</h2></div>
+          <div class="body"><ul class="docs">
+            <li><div class="doc-meta"><span class="doc-fuente">OWASP</span><span class="doc-tipo">Cheat Sheet</span><span class="doc-idioma">Inglés</span></div><a class="doc-titulo" href="https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_Cheat_Sheet_for_Java.html" target="_blank" rel="noopener">JSON Web Token Cheat Sheet for Java</a><p class="doc-que-leer">Lee <em>None Hashing Algorithm</em> y <em>Weak Token Secret</em>.</p></li>
+            <li><div class="doc-meta"><span class="doc-fuente">Spring Boot 4.0</span><span class="doc-tipo">Referencia oficial</span><span class="doc-idioma">Inglés</span></div><a class="doc-titulo" href="https://docs.spring.io/spring-boot/4.0/reference/features/external-config.html" target="_blank" rel="noopener">Externalized Configuration</a><p class="doc-que-leer">Revisa el orden de búsqueda y <em>Property Placeholders</em> para <code>${JWT_SECRET:valor}</code>.</p></li>
+            <li><div class="doc-meta"><span class="doc-fuente">swagger-core</span><span class="doc-tipo">Wiki oficial</span><span class="doc-idioma">Inglés</span></div><a class="doc-titulo" href="https://github.com/swagger-api/swagger-core/wiki/Swagger-2.X---Annotations" target="_blank" rel="noopener">Swagger 2.X Annotations</a><p class="doc-que-leer">Lee <code>@Operation</code>, <code>@Tag</code> y el siguiente paso: <code>@ApiResponse</code>.</p></li>
+            <li><div class="doc-meta"><span class="doc-fuente">Angular</span><span class="doc-tipo">Buenas prácticas</span><span class="doc-idioma">Inglés</span></div><a class="doc-titulo" href="https://angular.dev/best-practices/performance/lazy-loaded-routes" target="_blank" rel="noopener">Lazy-loaded routes</a><p class="doc-que-leer">Por qué <code>loadComponent</code> separa cada página en su propio archivo.</p></li>
+            <li><div class="doc-meta"><span class="doc-fuente">MDN Web Docs</span><span class="doc-tipo">Referencia web</span><span class="doc-idioma">Inglés</span></div><a class="doc-titulo" href="https://developer.mozilla.org/docs/Web/API/HTMLImageElement/loading" target="_blank" rel="noopener">HTMLImageElement: loading</a><p class="doc-que-leer">La diferencia entre <code>eager</code> y <code>lazy</code>, y cuándo no aplazar una imagen.</p></li>
+            <li><div class="doc-meta"><span class="doc-fuente">GitHub Docs</span><span class="doc-tipo">Documentación oficial</span><span class="doc-idioma">Español</span></div><a class="doc-titulo" href="https://docs.github.com/es/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes" target="_blank" rel="noopener">Acerca de los archivos README</a><p class="doc-que-leer">Dónde busca GitHub el README y qué debería contar.</p></li>
+          </ul><p class="doc-foot">© 2026 Ana Alvarado · Educadora Tech &amp; Desarrolladora Full Stack · Todos los derechos reservados · linkedin.com/in/ana-alvarado-instructora-full-stack</p></div>
+        </section>
+      </div>
+      <nav class="view-controls" id="viewControls" aria-label="Navegación entre secciones"><button class="view-btn" id="prevView" type="button" aria-label="Sección anterior">←</button><span class="view-position" id="viewPosition" aria-live="polite">Portada</span><button class="view-btn" id="nextView" type="button" aria-label="Sección siguiente">→</button></nav>
+    </main>
+  </div>
+  <div class="watermark" aria-hidden="true">© 2026 ANA ALVARADO</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+  <script src="anaclase-v12.js"></script>
+</body>
+</html>
